@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/techprd/kotlin_node_js_seed.svg?branch=master)](https://travis-ci.org/techprd/kotlin_node_js_seed)
+
 # Kotlin Node.js Seed Project
 This project is an application skeleton for a typical Node.js app written entirely with Kotlin.
 
