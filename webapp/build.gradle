@@ -1,0 +1,54 @@
+group 'com.techprd.webapp'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'kotlin2js'
+
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
+    compile("org.jetbrains.kotlinx:kotlinx-html-js:$html_version")
+}
+
+compileKotlin2Js {
+    kotlinOptions.metaInfo = true
+    kotlinOptions.outputFile = "${projectDir}/js/main.js"
+    kotlinOptions.sourceMap = true
+    kotlinOptions.main = "call"
+}
+
+sourceSets {
+    main.kotlin.srcDirs += "src"
+    main.output.resourcesDir = "build/js/resources"
+}
+
+task copyResources(type: Copy) {
+    from sourceSets.main.resources.srcDirs
+//    into sourceSets.main.output.resourcesDir
+    into file(buildDir.path + "/js")
+}
+
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+}
+
+build.doLast {
+    configurations.compile.each { File file ->
+        copy {
+            includeEmptyDirs = false
+
+            from zipTree(file.absolutePath)
+            into "${projectDir}/lib/js"
+            include { fileTreeElement ->
+                def path = fileTreeElement.path
+                path.endsWith(".js") && (path.startsWith("META-INF/resources/") || !path.startsWith("META-INF/"))
+            }
+        }
+    }
+}

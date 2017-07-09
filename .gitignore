@@ -63,3 +63,5 @@ build
 .gradle
 .idea
 
+webapp/lib/components/
+webapp/lib/js/

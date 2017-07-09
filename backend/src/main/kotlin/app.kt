@@ -1,6 +1,3 @@
-/**
- * Created by techprd on 3/6/17.
- */
 external fun require(module: String): dynamic
 
 external val process: dynamic
@@ -22,11 +19,14 @@ fun main(args: Array<String>) {
     app.set("port", port)
 
     // view engine setup
-    app.set("views", path.join(__dirname, "../webapp"))
+    app.set("views", path.join(__dirname, "../../webapp"))
     app.set("view engine", "ejs")
+    app.use(express.static("webapp"))
 
     val server = http.createServer(app)
-    server.listen(port)
+    app.listen(port, {
+        println("Example app listening on port " + port + "!")
+    })
 
     app.use("/", router())
 }

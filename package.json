@@ -2,8 +2,9 @@
   "name": "kotlin_node_js",
   "version": "1.0.0",
   "description": "Kotlin Node.js Seed Project",
-  "main": "app.js",
+  "main": "backend/server/app.js",
   "scripts": {
+    "start": "node backend/server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -14,14 +15,15 @@
   "author": "techprd",
   "license": "MIT",
   "dependencies": {
-    "ejs": "~2.5.6",
-    "express": "~4.15.3",
-    "kotlin": "~1.1.0",
-    "node-sass-middleware": "~0.11.0",
     "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
+    "ejs": "~2.5.6",
+    "express": "~4.15.3",
+    "kotlin": "~1.1.0",
+    "materialize-css": "^0.99.0",
     "morgan": "~1.8.1",
+    "node-sass-middleware": "~0.11.0",
     "serve-favicon": "~2.4.2"
   },
   "devDependencies": {

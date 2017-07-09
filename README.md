@@ -21,19 +21,22 @@ This project is an application skeleton for a typical Node.js app written entire
 #### Install Node dependencies
 `$ npm install`
 
+#### Install FrontEnd dependencies
+`$ bower install`
+
 #### Compile Kotlin  to JS using gradle
 
 `$ ./gradlew build`
 
 #### Run Server
 
-`$ node ./server/app.js`
+`$ npm start`
 
 #### Kotlin official site
 https://kotlinlang.org/docs/reference/js-overview.html
 
 ## To Do
-1.  add bootstrap css
+1.  <s>add frontend framework</s>
 2.  integrate sass styling
 3.  use gulp watch for automatic compilation
 4.  add testing framework
