@@ -12,9 +12,13 @@ class Todo(var formContainer: HTMLDivElement) {
     var storage: ArrayList<Task> = arrayListOf()
 
     init {
-        this.registerEvents()
+        // populate the storage with some dummy data
+        arrayOf("Buy Milk", "Check Post office", "Call John").forEach {
+            storage.add(Task(desc = it))
+        }
     }
 
+    // TODO
     private fun registerEvents() {
     }
 
@@ -39,8 +43,10 @@ class Todo(var formContainer: HTMLDivElement) {
             val task = Task(desc = inputVal)
             addTask(task)
             document.getElementById("task-collection")?.append(
-                    document.create.li("collection-item") {
-                        +task.text
+                    document.create.li("collection-item avatar dismissable") {
+                        todoItem(task) {
+
+                        }
                     }
             )
         }
@@ -53,27 +59,38 @@ class Todo(var formContainer: HTMLDivElement) {
     fun getForm(): HTMLDivElement {
         return document.create.div("row")
         {
-            form("/", null) {
-                classes = setOf("col s12")
-                div("row") {
-                    div("input-field col s6") {
-                        i("material-icons prefix") {
-                            +"border_color"
+            div("col l8 m12 s12") {
+                div("card collection") {
+                    div("card-content") {
+                        span("card-title") {
+                            +"ToDo Sample app"
                         }
-                        inputView {
-                            onInputFunction = onInput()
+                        form("/", null) {
+                            div("row") {
+                                div("input-field") {
+                                    i("material-icons prefix") {
+                                        +"border_color"
+                                    }
+                                    inputView {
+                                        onInputFunction = onInput()
+                                    }
+                                    label("active") {
+                                        for_ = "icon_prefix"
+                                        +"Todo Task"
+                                    }
+                                }
+                            }
+                            onSubmitFunction = onSubmit()
                         }
-                        label("active") {
-                            for_ = "icon_prefix"
-                            +"Todo Task"
+                    }
+                    div("card-action") {
+                        listView(storage) {
+                            id = "task-collection"
                         }
                     }
                 }
-                onSubmitFunction = onSubmit()
             }
-            listView(storage) {
-                id = "task-collection"
-            }
+
         }
     }
 }

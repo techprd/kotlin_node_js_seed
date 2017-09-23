@@ -5,6 +5,5 @@ import kotlin.browser.document
 fun main(args: Array<String>) {
     val header = document.getElementById("message") as HTMLHeadingElement
     val formContainer = document.getElementById("formContainer") as HTMLDivElement
-    header.innerText = "ToDo Sample app"
     Todo(formContainer).render()
 }
