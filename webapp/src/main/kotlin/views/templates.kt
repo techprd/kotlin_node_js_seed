@@ -1,32 +1,41 @@
+package views
+
 import kotlinx.html.*
 import kotlinx.html.js.onClickFunction
 import kotlinx.html.js.onKeyPressFunction
+import model.Task
+import org.w3c.dom.HTMLDivElement
 import org.w3c.dom.HTMLInputElement
+import org.w3c.dom.HTMLSpanElement
 import org.w3c.dom.events.Event
 import org.w3c.dom.events.KeyboardEvent
+import org.w3c.dom.get
+import services.StorageService
+import kotlin.browser.document
 import kotlin.js.Math
 
 /**
  * generates a list of todo items
  */
-fun DIV.listView(tasks: ArrayList<Task>, block: UL.() -> Unit) {
+fun DIV.listView(storage: StorageService, block: UL.() -> Unit) {
     ul {
         classes = setOf("collection with-header")
         li("collection-header cyan") {
             h5 { +"List of Tasks" }
         }
-        tasks.forEach {
+        storage.forEach { (_, task) ->
             li("collection-item avatar dismissable") {
-                todoItem(it) {}
+                todoItem(storage, task) {}
             }
         }
         block()
     }
 }
 
-fun LI.todoItem(task: Task, block: DIV.() -> Unit) {
-    val randomId = randomId()
+fun LI.todoItem(storage: StorageService, task: Task, block: DIV.() -> Unit) {
+    val inputId = randomId()
     div {
+        id = task.id
         i("material-icons circle green") {
             +"insert_chart"
         }
@@ -38,23 +47,34 @@ fun LI.todoItem(task: Task, block: DIV.() -> Unit) {
         }
         div("secondary-content") {
             input {
-                id = randomId
+                id = inputId
                 classes = setOf("filled-in")
                 type = InputType.checkBox
             }
             label {
-                for_ = randomId
+                for_ = inputId
                 +"Done"
-                onClickFunction = markAsDone(task)
+                onClickFunction = markAsDone(storage, task)
             }
         }
         block()
     }
 }
 
-fun markAsDone(task: Task): (Event) -> Unit {
+fun markAsDone(storage: StorageService, task: Task): (Event) -> Unit {
     return {
-        console.log(it)
+        val todoItem = document.getElementById(task.id) as HTMLDivElement
+        val checkbox = todoItem.getElementsByTagName("input")[0] as HTMLInputElement
+        val title = todoItem.getElementsByClassName("title")[0] as HTMLSpanElement
+        if (!checkbox.checked) {
+            task.isDone = true
+            title.style.textDecoration = "line-through"
+            storage.eventEmitter.trigger(storage.doneEvent, task)
+        } else {
+            task.isDone = false
+            title.style.textDecoration = "none"
+            storage.eventEmitter.trigger(storage.undoneEvent, task)
+        }
     }
 }
 

@@ -32,7 +32,7 @@ fun main(args: Array<String>) {
 }
 
 fun normalizePort(arg: Int): Int {
-    val port = arg.toInt()
+    val port = arg
     if (port >= 0) {
         // port number
         return port

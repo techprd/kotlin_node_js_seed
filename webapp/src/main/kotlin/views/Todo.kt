@@ -1,33 +1,33 @@
+package views
+
+import events.TodoEventEmitter
 import kotlinx.html.*
 import kotlinx.html.dom.create
 import kotlinx.html.js.*
+import model.Task
 import org.w3c.dom.HTMLDivElement
 import org.w3c.dom.HTMLInputElement
+
 import org.w3c.dom.events.Event
+import services.StorageService
 import kotlin.browser.document
 
 class Todo(var formContainer: HTMLDivElement) {
 
     var inputVal: String = ""
-    var storage: ArrayList<Task> = arrayListOf()
+    private val eventEmitter = TodoEventEmitter()
+    private val storage = StorageService(eventEmitter)
 
     init {
         // populate the storage with some dummy data
         arrayOf("Buy Milk", "Check Post office", "Call John").forEach {
-            storage.add(Task(desc = it))
+            val id = randomId()
+            storage.put(id, Task(id, it))
         }
     }
 
     // TODO
     private fun registerEvents() {
-    }
-
-    fun addTask(task: Task) {
-        storage.add(task)
-    }
-
-    fun getTask(index: Int): Task {
-        return storage.get(index)
     }
 
     fun onInput(): (Event) -> Unit {
@@ -40,11 +40,12 @@ class Todo(var formContainer: HTMLDivElement) {
     fun onSubmit(): (Event) -> Unit {
         return {
             it.preventDefault()
-            val task = Task(desc = inputVal)
-            addTask(task)
+            val id = randomId()
+            val task = Task(id, inputVal)
+            storage.put(id, task)
             document.getElementById("task-collection")?.append(
                     document.create.li("collection-item avatar dismissable") {
-                        todoItem(task) {
+                        todoItem(storage, task) {
 
                         }
                     }
@@ -59,7 +60,7 @@ class Todo(var formContainer: HTMLDivElement) {
     fun getForm(): HTMLDivElement {
         return document.create.div("row")
         {
-            div("col l8 m12 s12") {
+            div("col l12 m12 s12") {
                 div("card collection") {
                     div("card-content") {
                         span("card-title") {
@@ -76,7 +77,7 @@ class Todo(var formContainer: HTMLDivElement) {
                                     }
                                     label("active") {
                                         for_ = "icon_prefix"
-                                        +"Todo Task"
+                                        +"add a new task"
                                     }
                                 }
                             }
