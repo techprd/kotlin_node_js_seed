@@ -44,7 +44,7 @@ build.doLast {
             includeEmptyDirs = false
 
             from zipTree(file.absolutePath)
-            into "${projectDir}/lib/js"
+            into "${projectDir}/lib/kotlin"
             include { fileTreeElement ->
                 def path = fileTreeElement.path
                 path.endsWith(".js") && (path.startsWith("META-INF/resources/") || !path.startsWith("META-INF/"))
