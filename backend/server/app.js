@@ -1,20 +1,6 @@
 (function (_, Kotlin) {
   'use strict';
   var println = Kotlin.kotlin.io.println_s8jyv4$;
-  function Customer(id, name, email) {
-    this.id = id;
-    this.name = name;
-    this.email = email;
-    this.isPreferred = false;
-  }
-  Customer.prototype.makePreferred = function () {
-    this.isPreferred = true;
-  };
-  Customer.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
-    simpleName: 'Customer',
-    interfaces: []
-  };
   function main$lambda(closure$port) {
     return function () {
       println('Example app listening on port ' + Kotlin.toString(closure$port) + '!');
@@ -43,6 +29,20 @@
     }
     return 3000;
   }
+  function Customer(id, name, email) {
+    this.id = id;
+    this.name = name;
+    this.email = email;
+    this.isPreferred = false;
+  }
+  Customer.prototype.makePreferred = function () {
+    this.isPreferred = true;
+  };
+  Customer.$metadata$ = {
+    kind: Kotlin.Kind.CLASS,
+    simpleName: 'Customer',
+    interfaces: []
+  };
   function router$lambda(closure$cust) {
     return function (req, res) {
       return res.render('index', closure$cust);
@@ -55,9 +55,10 @@
     router.get('/', router$lambda(cust));
     return router;
   }
-  _.Customer = Customer;
   _.main_kand9s$ = main;
   _.normalizePort_za3lpa$ = normalizePort;
+  var package$model = _.model || (_.model = {});
+  package$model.Customer = Customer;
   _.router = router;
   main([]);
   Kotlin.defineModule('app', _);

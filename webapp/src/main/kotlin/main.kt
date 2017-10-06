@@ -1,9 +1,8 @@
-import org.w3c.dom.*
-import kotlin.browser.*
-import kotlin.js.console
+import org.w3c.dom.HTMLDivElement
+import views.Todo
+import kotlin.browser.document
 
 fun main(args: Array<String>) {
-    console.info("main function")
-    val header = document.getElementById("message") as HTMLHeadingElement
-    header.innerText = "Customer Information"
+    val formContainer = document.getElementById("formContainer") as HTMLDivElement
+    Todo(formContainer).render()
 }

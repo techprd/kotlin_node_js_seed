@@ -1,3 +1,5 @@
+import model.Customer
+
 fun router() {
     val express = require("express")
     val router = express.Router()
