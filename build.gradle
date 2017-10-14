@@ -1,5 +1,5 @@
 group 'com.techprd'
-version '1.0-SNAPSHOT'
+version '1.0.0'
 
 subprojects { p ->
     p.buildscript {
