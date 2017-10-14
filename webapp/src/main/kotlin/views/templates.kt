@@ -1,8 +1,7 @@
 package views
 
 import kotlinx.html.*
-import kotlinx.html.js.onClickFunction
-import kotlinx.html.js.onKeyPressFunction
+import kotlinx.html.js.*
 import model.Task
 import org.w3c.dom.HTMLDivElement
 import org.w3c.dom.HTMLInputElement
@@ -40,6 +39,9 @@ fun LI.todoItem(storage: StorageService, task: Task, block: DIV.() -> Unit) {
             +"insert_chart"
         }
         span("title left-align") {
+            if (task.isDone) {
+                style = " text-decoration: line-through"
+            }
             +task.text
         }
         p {
@@ -50,6 +52,7 @@ fun LI.todoItem(storage: StorageService, task: Task, block: DIV.() -> Unit) {
                 id = inputId
                 classes = setOf("filled-in")
                 type = InputType.checkBox
+                checked = task.isDone
             }
             label {
                 for_ = inputId
@@ -58,6 +61,14 @@ fun LI.todoItem(storage: StorageService, task: Task, block: DIV.() -> Unit) {
             }
         }
         block()
+    }
+}
+
+
+fun checkTaskIsDone(task: Task): (Event) -> Unit {
+    return {
+        console.log("rendered")
+        console.log(task)
     }
 }
 

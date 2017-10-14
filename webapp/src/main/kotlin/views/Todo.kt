@@ -9,6 +9,7 @@ import org.w3c.dom.HTMLDivElement
 import org.w3c.dom.HTMLInputElement
 
 import org.w3c.dom.events.Event
+import services.Ajax
 import services.StorageService
 import kotlin.browser.document
 
@@ -17,14 +18,6 @@ class Todo(var formContainer: HTMLDivElement) {
     var inputVal: String = ""
     private val eventEmitter = TodoEventEmitter()
     private val storage = StorageService(eventEmitter)
-
-    init {
-        // populate the storage with some dummy data
-        arrayOf("Buy Milk", "Check Post office", "Call John").forEach {
-            val id = randomId()
-            storage.put(id, Task(id, it))
-        }
-    }
 
     // TODO
     private fun registerEvents() {
@@ -54,7 +47,9 @@ class Todo(var formContainer: HTMLDivElement) {
     }
 
     fun render() {
-        formContainer.appendChild(getForm())
+        storage.getAll() {
+            formContainer.appendChild(getForm())
+        }
     }
 
     fun getForm(): HTMLDivElement {

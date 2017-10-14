@@ -9,6 +9,7 @@ fun main(args: Array<String>) {
     val express = require("express")
     val app = express()
     val path = require("path")
+    val bodyParser = require("body-parser")
     val debug = require("debug")("kotlin_node_js:server")
     val http = require("http")
     /**
@@ -16,6 +17,7 @@ fun main(args: Array<String>) {
      */
 
     val port = normalizePort(process.env.PORT)
+    app.use(bodyParser.json())
     app.set("port", port)
 
     // view engine setup
