@@ -23,9 +23,6 @@ This project is an application skeleton for a typical Node.js app written entire
 #### Install Node dependencies
 `$ npm install`
 
-#### Install FrontEnd dependencies
-`$ bower install`
-
 #### Compile Kotlin  to JS using gradle
 
 `$ ./gradlew build`
