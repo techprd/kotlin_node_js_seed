@@ -4,7 +4,7 @@
   "description": "Kotlin Node.js Seed Project",
   "main": "backend/server/app.js",
   "scripts": {
-    "start": "node backend/server/app.js"
+    "start": "./gradlew build; node backend/server/app.js"
   },
   "keywords": [
     "kotlin",
