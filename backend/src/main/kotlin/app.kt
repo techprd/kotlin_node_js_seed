@@ -10,7 +10,6 @@ fun main(args: Array<String>) {
     val app = express()
     val path = require("path")
     val bodyParser = require("body-parser")
-    val debug = require("debug")("kotlin_node_js:server")
     val http = require("http")
     /**
      * Get port from environment and store in Express.
@@ -25,19 +24,18 @@ fun main(args: Array<String>) {
     app.set("view engine", "ejs")
     app.use(express.static("webapp"))
 
-    val server = http.createServer(app)
+    http.createServer(app)
     app.listen(port, {
-        println("Example app listening on port " + port + "!")
+        println("Example app listening on port $port!")
     })
 
     app.use("/", router())
 }
 
 fun normalizePort(arg: Int): Int {
-    val port = arg
-    if (port >= 0) {
+    if (arg >= 0) {
         // port number
-        return port
+        return arg
     }
     return 3000
 }

@@ -8,6 +8,8 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
   'use strict';
   var arrayListOf = Kotlin.kotlin.collections.arrayListOf_i5x0yv$;
   var Unit = Kotlin.kotlin.Unit;
+  var Kind_CLASS = Kotlin.Kind.CLASS;
+  var throwCCE = Kotlin.throwCCE;
   var LinkedHashMap = Kotlin.kotlin.collections.LinkedHashMap;
   var LinkedHashMap_init = Kotlin.kotlin.collections.LinkedHashMap_init_q3lmfv$;
   var get_create = $module$kotlinx_html_js.kotlinx.html.dom.get_create_4wc2mh$;
@@ -15,6 +17,7 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
   var span = $module$kotlinx_html_js.kotlinx.html.span_6djfml$;
   var i = $module$kotlinx_html_js.kotlinx.html.i_5g1p9k$;
   var set_onInputFunction = $module$kotlinx_html_js.kotlinx.html.js.set_onInputFunction_pszlq2$;
+  var set_for_ = $module$kotlinx_html_js.kotlinx.html.set_for__i8xdhl$;
   var label = $module$kotlinx_html_js.kotlinx.html.label_yd75js$;
   var div = $module$kotlinx_html_js.kotlinx.html.div_ri36nr$;
   var set_onSubmitFunction = $module$kotlinx_html_js.kotlinx.html.js.set_onSubmitFunction_pszlq2$;
@@ -62,13 +65,13 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
     }
   };
   TodoEventEmitter.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'TodoEventEmitter',
     interfaces: []
   };
   function main(args) {
     var tmp$;
-    var formContainer = Kotlin.isType(tmp$ = document.getElementById('formContainer'), HTMLDivElement) ? tmp$ : Kotlin.throwCCE();
+    var formContainer = Kotlin.isType(tmp$ = document.getElementById('formContainer'), HTMLDivElement) ? tmp$ : throwCCE();
     (new Todo(formContainer)).render();
   }
   function Task(id, text) {
@@ -84,7 +87,7 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
     this.isArchived = true;
   };
   Task.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'Task',
     interfaces: []
   };
@@ -140,7 +143,7 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
     this.xhttp.send(JSON.stringify(task));
   };
   Ajax.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'Ajax',
     interfaces: []
   };
@@ -203,7 +206,7 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
     };
   }
   StorageService.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'StorageService',
     interfaces: [LinkedHashMap]
   };
@@ -218,7 +221,7 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
   function Todo$onInput$lambda(this$Todo) {
     return function (it) {
       var tmp$;
-      var input = Kotlin.isType(tmp$ = it.currentTarget, HTMLInputElement) ? tmp$ : Kotlin.throwCCE();
+      var input = Kotlin.isType(tmp$ = it.currentTarget, HTMLInputElement) ? tmp$ : throwCCE();
       this$Todo.inputVal = input.value;
       return Unit;
     };
@@ -273,7 +276,7 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
     };
   }
   function Todo$getForm$lambda$lambda$lambda$lambda$lambda$lambda$lambda$lambda_1($receiver) {
-    $receiver.for_ = 'icon_prefix';
+    set_for_($receiver, 'icon_prefix');
     $receiver.unaryPlus_pdl1vz$('add a new task');
     return Unit;
   }
@@ -338,7 +341,7 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
     return div_0(get_create(document), 'row', Todo$getForm$lambda(this));
   };
   Todo.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'Todo',
     interfaces: []
   };
@@ -407,7 +410,7 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
   }
   function todoItem$lambda$lambda$lambda_0(closure$inputId, closure$storage, closure$task) {
     return function ($receiver) {
-      $receiver.for_ = closure$inputId;
+      set_for_($receiver, closure$inputId);
       $receiver.unaryPlus_pdl1vz$('Done');
       set_onClickFunction($receiver, markAsDone(closure$storage, closure$task));
       return Unit;
@@ -448,9 +451,9 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
   function markAsDone$lambda(closure$task, closure$storage) {
     return function (it) {
       var tmp$, tmp$_0, tmp$_1;
-      var todoItem = Kotlin.isType(tmp$ = document.getElementById(closure$task.id), HTMLDivElement) ? tmp$ : Kotlin.throwCCE();
-      var checkbox = Kotlin.isType(tmp$_0 = todoItem.getElementsByTagName('input')[0], HTMLInputElement) ? tmp$_0 : Kotlin.throwCCE();
-      var title = Kotlin.isType(tmp$_1 = todoItem.getElementsByClassName('title')[0], HTMLSpanElement) ? tmp$_1 : Kotlin.throwCCE();
+      var todoItem = Kotlin.isType(tmp$ = document.getElementById(closure$task.id), HTMLDivElement) ? tmp$ : throwCCE();
+      var checkbox = Kotlin.isType(tmp$_0 = todoItem.getElementsByTagName('input')[0], HTMLInputElement) ? tmp$_0 : throwCCE();
+      var title = Kotlin.isType(tmp$_1 = todoItem.getElementsByClassName('title')[0], HTMLSpanElement) ? tmp$_1 : throwCCE();
       if (!checkbox.checked) {
         closure$task.isDone = true;
         title.style.textDecoration = 'line-through';
@@ -483,7 +486,7 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
       $receiver.name = 'task_desc';
       $receiver.autoFocus = true;
       closure$block($receiver);
-      set_onKeyPressFunction($receiver, typeof (tmp$ = onInputViewKeyPress()) === 'function' ? tmp$ : Kotlin.throwCCE());
+      set_onKeyPressFunction($receiver, typeof (tmp$ = onInputViewKeyPress()) === 'function' ? tmp$ : throwCCE());
       return Unit;
     };
   }
@@ -493,7 +496,7 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
   function onInputViewKeyPress$lambda(it) {
     var tmp$;
     if (it.which === 13) {
-      var input = Kotlin.isType(tmp$ = it.currentTarget, HTMLInputElement) ? tmp$ : Kotlin.throwCCE();
+      var input = Kotlin.isType(tmp$ = it.currentTarget, HTMLInputElement) ? tmp$ : throwCCE();
       input.value = '';
     }
     return Unit;

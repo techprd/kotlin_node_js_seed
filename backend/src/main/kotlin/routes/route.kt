@@ -9,7 +9,7 @@ fun router() {
 
     arrayOf("Kotlin is Awesome!", "Buy Milk", "Check Post office", "Call John").forEach {
         val id = randomId()
-        db.put(id, Task(id, it))
+        db[id] = Task(id, it)
     }
 
     router.get("/", { req, res ->
@@ -26,7 +26,7 @@ fun router() {
 
     router.post("/task/:id", { req, res ->
         val task = JSON.parse<Task>(JSON.stringify(req.body))
-        db.set(task.id, task)
+        db[task.id] = task
         res.json(task)
     })
 
