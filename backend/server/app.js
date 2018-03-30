@@ -2,10 +2,11 @@
   'use strict';
   var println = Kotlin.kotlin.io.println_s8jyv4$;
   var Unit = Kotlin.kotlin.Unit;
+  var Kind_CLASS = Kotlin.Kind.CLASS;
   var toList = Kotlin.kotlin.collections.toList_7wnvza$;
   function main$lambda(closure$port) {
     return function () {
-      println('Example app listening on port ' + Kotlin.toString(closure$port) + '!');
+      println('Example app listening on port ' + closure$port + '!');
       return Unit;
     };
   }
@@ -15,7 +16,6 @@
     var app = express();
     var path = require('path');
     var bodyParser = require('body-parser');
-    var debug = require('debug')('kotlin_node_js:server');
     var http = require('http');
     var port = normalizePort(process.env.PORT);
     app.use(bodyParser.json());
@@ -23,14 +23,13 @@
     app.set('views', path.join(__dirname, '../../webapp'));
     app.set('view engine', 'ejs');
     app.use(express.static('webapp'));
-    var server = http.createServer(app);
+    http.createServer(app);
     app.listen(port, main$lambda(port));
     app.use('/', router());
   }
   function normalizePort(arg) {
-    var port = arg;
-    if (port >= 0) {
-      return port;
+    if (arg >= 0) {
+      return arg;
     }
     return 3000;
   }
@@ -47,7 +46,7 @@
     this.isArchived = true;
   };
   Task.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'Task',
     interfaces: []
   };
@@ -104,7 +103,8 @@
     for (tmp$ = 0; tmp$ !== $receiver.length; ++tmp$) {
       var element = $receiver[tmp$];
       var id = randomId();
-      db.put_xwzc9p$(id, new Task(id, element));
+      var value = new Task(id, element);
+      db.put_xwzc9p$(id, value);
     }
     router.get('/', router$lambda);
     router.get('/tasks', router$lambda_0(db));
