@@ -11,7 +11,8 @@ import org.w3c.dom.events.KeyboardEvent
 import org.w3c.dom.get
 import services.StorageService
 import kotlin.browser.document
-import kotlin.js.Math
+import kotlin.js.Math.random
+import kotlin.math.floor
 
 /**
  * generates a list of todo items
@@ -55,7 +56,7 @@ fun LI.todoItem(storage: StorageService, task: Task, block: DIV.() -> Unit) {
                 checked = task.isDone
             }
             label {
-                for_ = inputId
+                htmlFor = inputId
                 +"Done"
                 onClickFunction = markAsDone(storage, task)
             }
@@ -93,7 +94,7 @@ fun randomId(): String {
     var text = ""
     val possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
     for (i in 0..4)
-        text += possible[Math.floor(Math.random() * possible.length)]
+        text += possible[floor(random() * possible.length).toInt()]
 
     return text
 }
