@@ -9,7 +9,6 @@ import org.w3c.dom.HTMLDivElement
 import org.w3c.dom.HTMLInputElement
 
 import org.w3c.dom.events.Event
-import services.Ajax
 import services.StorageService
 import kotlin.browser.document
 
@@ -71,7 +70,7 @@ class Todo(var formContainer: HTMLDivElement) {
                                         onInputFunction = onInput()
                                     }
                                     label("active") {
-                                        for_ = "icon_prefix"
+                                        htmlFor = "icon_prefix"
                                         +"add a new task"
                                     }
                                 }

@@ -17,7 +17,6 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
   var span = $module$kotlinx_html_js.kotlinx.html.span_6djfml$;
   var i = $module$kotlinx_html_js.kotlinx.html.i_5g1p9k$;
   var set_onInputFunction = $module$kotlinx_html_js.kotlinx.html.js.set_onInputFunction_pszlq2$;
-  var set_for_ = $module$kotlinx_html_js.kotlinx.html.set_for__i8xdhl$;
   var label = $module$kotlinx_html_js.kotlinx.html.label_yd75js$;
   var div = $module$kotlinx_html_js.kotlinx.html.div_ri36nr$;
   var set_onSubmitFunction = $module$kotlinx_html_js.kotlinx.html.js.set_onSubmitFunction_pszlq2$;
@@ -34,6 +33,7 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
   var InputType = $module$kotlinx_html_js.kotlinx.html.InputType;
   var input = $module$kotlinx_html_js.kotlinx.html.input_e1g74z$;
   var set_onClickFunction = $module$kotlinx_html_js.kotlinx.html.js.set_onClickFunction_pszlq2$;
+  var numberToInt = Kotlin.numberToInt;
   var set_onKeyPressFunction = $module$kotlinx_html_js.kotlinx.html.js.set_onKeyPressFunction_pszlq2$;
   StorageService.prototype = Object.create(LinkedHashMap.prototype);
   StorageService.prototype.constructor = StorageService;
@@ -276,7 +276,7 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
     };
   }
   function Todo$getForm$lambda$lambda$lambda$lambda$lambda$lambda$lambda$lambda_1($receiver) {
-    set_for_($receiver, 'icon_prefix');
+    $receiver.htmlFor = 'icon_prefix';
     $receiver.unaryPlus_pdl1vz$('add a new task');
     return Unit;
   }
@@ -410,7 +410,7 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
   }
   function todoItem$lambda$lambda$lambda_0(closure$inputId, closure$storage, closure$task) {
     return function ($receiver) {
-      set_for_($receiver, closure$inputId);
+      $receiver.htmlFor = closure$inputId;
       $receiver.unaryPlus_pdl1vz$('Done');
       set_onClickFunction($receiver, markAsDone(closure$storage, closure$task));
       return Unit;
@@ -470,11 +470,16 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
   function markAsDone(storage, task) {
     return markAsDone$lambda(task, storage);
   }
+  var Math_0 = Math;
   function randomId() {
     var text = '';
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (var i = 0; i <= 4; i++)
-      text += String.fromCharCode(possible.charCodeAt(Math.floor(Math.random() * possible.length)));
+    for (var i = 0; i <= 4; i++) {
+      var tmp$ = String;
+      var tmp$_0 = tmp$.fromCharCode;
+      var x = Math.random() * possible.length;
+      text += tmp$_0.call(tmp$, possible.charCodeAt(numberToInt(Math_0.floor(x))));
+    }
     return text;
   }
   function inputView$lambda(closure$block) {
