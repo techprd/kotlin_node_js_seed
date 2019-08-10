@@ -11,14 +11,25 @@
   }
 }(this, function (_, Kotlin) {
   'use strict';
-  var Throwable = Error;
+  var $$importsForInline$$ = _.$$importsForInline$$ || (_.$$importsForInline$$ = {});
+  var ensureNotNull = Kotlin.ensureNotNull;
   var defineInlineFunction = Kotlin.defineInlineFunction;
   var wrapFunction = Kotlin.wrapFunction;
-  var AssertionError = Kotlin.kotlin.AssertionError;
+  var toString = Kotlin.toString;
+  var equals = Kotlin.equals;
+  var Kind_INTERFACE = Kotlin.Kind.INTERFACE;
+  var Any = Object;
+  var throwCCE = Kotlin.throwCCE;
+  var AssertionError_init = Kotlin.kotlin.AssertionError_init;
+  var AssertionError_init_0 = Kotlin.kotlin.AssertionError_init_pdl1vj$;
+  var Kind_OBJECT = Kotlin.Kind.OBJECT;
+  var Kind_CLASS = Kotlin.Kind.CLASS;
   var Annotation = Kotlin.kotlin.Annotation;
   var Unit = Kotlin.kotlin.Unit;
   var println = Kotlin.kotlin.io.println_s8jyv4$;
-  var IllegalArgumentException = Kotlin.kotlin.IllegalArgumentException;
+  var Throwable = Error;
+  var IllegalArgumentException_init = Kotlin.kotlin.IllegalArgumentException_init_pdl1vj$;
+  var getCallableRef = Kotlin.getCallableRef;
   var to = Kotlin.kotlin.to_ujzrz7$;
   var mapOf = Kotlin.kotlin.collections.mapOf_qfcya0$;
   function get_asserter() {
@@ -55,11 +66,21 @@
       message = null;
     get_asserter().assertNotEquals_lzc6tz$(message, illegal, actual);
   }
+  function assertSame(expected, actual, message) {
+    if (message === void 0)
+      message = null;
+    get_asserter().assertSame_lzc6tz$(message, expected, actual);
+  }
+  function assertNotSame(illegal, actual, message) {
+    if (message === void 0)
+      message = null;
+    get_asserter().assertNotSame_lzc6tz$(message, illegal, actual);
+  }
   function assertNotNull(actual, message) {
     if (message === void 0)
       message = null;
     get_asserter().assertNotNull_67rc9h$(message, actual);
-    return actual != null ? actual : Kotlin.throwNPE();
+    return ensureNotNull(actual);
   }
   function assertNotNull_0(actual, message, block) {
     if (message === void 0)
@@ -85,34 +106,121 @@
   function expect_0(expected, message, block) {
     assertEquals(expected, block(), message);
   }
-  function assertFails(block) {
-    return assertFails_0(null, block);
-  }
-  function assertFails_0(message, block) {
-    try {
-      block();
-    }
-     catch (e) {
-      if (Kotlin.isType(e, Throwable)) {
-        assertEquals(e.message, e.message);
-        return e;
+  var assertFails = defineInlineFunction('kotlin-test.kotlin.test.assertFails_o14v8n$', wrapFunction(function () {
+    var checkResultIsFailure = _.kotlin.test.checkResultIsFailure_8v9b5x$;
+    var Result = Kotlin.kotlin.Result;
+    var Throwable = Error;
+    var createFailure = Kotlin.kotlin.createFailure_tcv7n7$;
+    return function (block) {
+      var tmp$;
+      try {
+        tmp$ = new Result(block());
       }
-       else
-        throw e;
+       catch (e) {
+        if (Kotlin.isType(e, Throwable)) {
+          tmp$ = new Result(createFailure(e));
+        }
+         else
+          throw e;
+      }
+      return checkResultIsFailure(null, tmp$);
+    };
+  }));
+  var assertFails_0 = defineInlineFunction('kotlin-test.kotlin.test.assertFails_9bodf6$', wrapFunction(function () {
+    var checkResultIsFailure = _.kotlin.test.checkResultIsFailure_8v9b5x$;
+    var Result = Kotlin.kotlin.Result;
+    var Throwable = Error;
+    var createFailure = Kotlin.kotlin.createFailure_tcv7n7$;
+    return function (message, block) {
+      var tmp$;
+      try {
+        tmp$ = new Result(block());
+      }
+       catch (e) {
+        if (Kotlin.isType(e, Throwable)) {
+          tmp$ = new Result(createFailure(e));
+        }
+         else
+          throw e;
+      }
+      return checkResultIsFailure(message, tmp$);
+    };
+  }));
+  function checkResultIsFailure(message, blockResult) {
+    var tmp$, tmp$_0;
+    var exception = blockResult.exceptionOrNull();
+    if (exception == null) {
+      (tmp$ = blockResult.value) == null || Kotlin.isType(tmp$, Any) || throwCCE();
+      tmp$_0 = get_asserter().fail_pdl1vj$(messagePrefix(message) + 'Expected an exception to be thrown, but was completed successfully.');
     }
-    get_asserter().fail_pdl1vj$(messagePrefix(message) + 'Expected an exception to be thrown, but was completed successfully.');
+     else {
+      return exception;
+    }
   }
   var assertFailsWith = defineInlineFunction('kotlin-test.kotlin.test.assertFailsWith_cnau6l$', wrapFunction(function () {
-    var assertFailsWith = _.kotlin.test.assertFailsWith_l9oqa2$;
+    var getKClass = Kotlin.getKClass;
+    var checkResultIsFailure = _.kotlin.test.checkResultIsFailure_3e4uyv$;
+    var Result = Kotlin.kotlin.Result;
+    var Throwable = Error;
+    var createFailure = Kotlin.kotlin.createFailure_tcv7n7$;
     return function (T_0, isT, message, block) {
       if (message === void 0)
         message = null;
-      return assertFailsWith(Kotlin.getKClass(T_0), message, block);
+      var exceptionClass = getKClass(T_0);
+      var tmp$;
+      try {
+        tmp$ = new Result(block());
+      }
+       catch (e) {
+        if (Kotlin.isType(e, Throwable)) {
+          tmp$ = new Result(createFailure(e));
+        }
+         else
+          throw e;
+      }
+      return checkResultIsFailure(exceptionClass, message, tmp$);
     };
   }));
-  function assertFailsWith_0(exceptionClass, block) {
-    return assertFailsWith_1(exceptionClass, null, block);
-  }
+  var assertFailsWith_0 = defineInlineFunction('kotlin-test.kotlin.test.assertFailsWith_jbbixx$', wrapFunction(function () {
+    var checkResultIsFailure = _.kotlin.test.checkResultIsFailure_3e4uyv$;
+    var Result = Kotlin.kotlin.Result;
+    var Throwable = Error;
+    var createFailure = Kotlin.kotlin.createFailure_tcv7n7$;
+    return function (exceptionClass, block) {
+      var tmp$;
+      try {
+        tmp$ = new Result(block());
+      }
+       catch (e) {
+        if (Kotlin.isType(e, Throwable)) {
+          tmp$ = new Result(createFailure(e));
+        }
+         else
+          throw e;
+      }
+      return checkResultIsFailure(exceptionClass, null, tmp$);
+    };
+  }));
+  var assertFailsWith_1 = defineInlineFunction('kotlin-test.kotlin.test.assertFailsWith_l9oqa2$', wrapFunction(function () {
+    var checkResultIsFailure = _.kotlin.test.checkResultIsFailure_3e4uyv$;
+    var Result = Kotlin.kotlin.Result;
+    var Throwable = Error;
+    var createFailure = Kotlin.kotlin.createFailure_tcv7n7$;
+    return function (exceptionClass, message, block) {
+      var tmp$;
+      try {
+        tmp$ = new Result(block());
+      }
+       catch (e) {
+        if (Kotlin.isType(e, Throwable)) {
+          tmp$ = new Result(createFailure(e));
+        }
+         else
+          throw e;
+      }
+      return checkResultIsFailure(exceptionClass, message, tmp$);
+    };
+  }));
   function Asserter() {
   }
   Asserter.prototype.assertTrue_o10pc4$ = function (lazyMessage, actual) {
@@ -130,23 +238,39 @@
   };
   function Asserter$assertEquals$lambda(closure$message, closure$expected, closure$actual) {
     return function () {
-      return messagePrefix(closure$message) + ('Expected <' + Kotlin.toString(closure$expected) + '>, actual <' + Kotlin.toString(closure$actual) + '>.');
+      return messagePrefix(closure$message) + ('Expected <' + toString(closure$expected) + '>, actual <' + toString(closure$actual) + '>.');
     };
   }
   Asserter.prototype.assertEquals_lzc6tz$ = function (message, expected, actual) {
-    this.assertTrue_o10pc4$(Asserter$assertEquals$lambda(message, expected, actual), Kotlin.equals(actual, expected));
+    this.assertTrue_o10pc4$(Asserter$assertEquals$lambda(message, expected, actual), equals(actual, expected));
   };
   function Asserter$assertNotEquals$lambda(closure$message, closure$actual) {
     return function () {
-      return messagePrefix(closure$message) + ('Illegal value: <' + Kotlin.toString(closure$actual) + '>.');
+      return messagePrefix(closure$message) + ('Illegal value: <' + toString(closure$actual) + '>.');
     };
   }
   Asserter.prototype.assertNotEquals_lzc6tz$ = function (message, illegal, actual) {
-    this.assertTrue_o10pc4$(Asserter$assertNotEquals$lambda(message, actual), !Kotlin.equals(actual, illegal));
+    this.assertTrue_o10pc4$(Asserter$assertNotEquals$lambda(message, actual), !equals(actual, illegal));
+  };
+  function Asserter$assertSame$lambda(closure$message, closure$expected, closure$actual) {
+    return function () {
+      return messagePrefix(closure$message) + ('Expected <' + toString(closure$expected) + '>, actual <' + toString(closure$actual) + '> is not same.');
+    };
+  }
+  Asserter.prototype.assertSame_lzc6tz$ = function (message, expected, actual) {
+    this.assertTrue_o10pc4$(Asserter$assertSame$lambda(message, expected, actual), actual === expected);
+  };
+  function Asserter$assertNotSame$lambda(closure$message, closure$actual) {
+    return function () {
+      return messagePrefix(closure$message) + ('Expected not same as <' + toString(closure$actual) + '>.');
+    };
+  }
+  Asserter.prototype.assertNotSame_lzc6tz$ = function (message, illegal, actual) {
+    this.assertTrue_o10pc4$(Asserter$assertNotSame$lambda(message, actual), actual !== illegal);
   };
   function Asserter$assertNull$lambda(closure$message, closure$actual) {
     return function () {
-      return messagePrefix(closure$message) + ('Expected value to be null, but was: <' + Kotlin.toString(closure$actual) + '>.');
+      return messagePrefix(closure$message) + ('Expected value to be null, but was: <' + toString(closure$actual) + '>.');
     };
   }
   Asserter.prototype.assertNull_67rc9h$ = function (message, actual) {
@@ -161,37 +285,48 @@
     this.assertTrue_o10pc4$(Asserter$assertNotNull$lambda(message), actual != null);
   };
   Asserter.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'Asserter',
     interfaces: []
   };
   function AsserterContributor() {
   }
   AsserterContributor.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'AsserterContributor',
     interfaces: []
   };
   function DefaultAsserter() {
+    DefaultAsserter_instance = this;
   }
   DefaultAsserter.prototype.fail_pdl1vj$ = function (message) {
     if (message == null)
-      throw new AssertionError();
+      throw AssertionError_init();
     else
-      throw new AssertionError(message);
+      throw AssertionError_init_0(message);
   };
   DefaultAsserter.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_OBJECT,
     simpleName: 'DefaultAsserter',
     interfaces: [Asserter]
   };
+  var DefaultAsserter_instance = null;
+  function DefaultAsserter_getInstance() {
+    if (DefaultAsserter_instance === null) {
+      new DefaultAsserter();
+    }
+    return DefaultAsserter_instance;
+  }
+  function DefaultAsserter_0() {
+    return DefaultAsserter_getInstance();
+  }
   function messagePrefix(message) {
-    return message == null ? '' : Kotlin.toString(message) + '. ';
+    return message == null ? '' : toString(message) + '. ';
   }
   function overrideAsserter(value) {
-    var previous = _asserter;
+    var $receiver = _asserter;
     _asserter = value;
-    return previous;
+    return $receiver;
   }
   function setAdapter(adapter) {
     setAdapter_0(adapter);
@@ -199,15 +334,29 @@
   function Test() {
   }
   Test.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'Test',
     interfaces: [Annotation]
   };
   function Ignore() {
   }
   Ignore.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'Ignore',
+    interfaces: [Annotation]
+  };
+  function BeforeTest() {
+  }
+  BeforeTest.$metadata$ = {
+    kind: Kind_CLASS,
+    simpleName: 'BeforeTest',
+    interfaces: [Annotation]
+  };
+  function AfterTest() {
+  }
+  AfterTest.$metadata$ = {
+    kind: Kind_CLASS,
+    simpleName: 'AfterTest',
     interfaces: [Annotation]
   };
   function assertHook$lambda(f) {
@@ -228,6 +377,16 @@
     this.e_0 = illegal;
     this.a_0 = actual;
     Asserter.prototype.assertNotEquals_lzc6tz$.call(this, message, illegal, actual);
+  };
+  DefaultJsAsserter.prototype.assertSame_lzc6tz$ = function (message, expected, actual) {
+    this.e_0 = expected;
+    this.a_0 = actual;
+    Asserter.prototype.assertSame_lzc6tz$.call(this, message, expected, actual);
+  };
+  DefaultJsAsserter.prototype.assertNotSame_lzc6tz$ = function (message, illegal, actual) {
+    this.e_0 = illegal;
+    this.a_0 = actual;
+    Asserter.prototype.assertNotSame_lzc6tz$.call(this, message, illegal, actual);
   };
   DefaultJsAsserter.prototype.assertNull_67rc9h$ = function (message, actual) {
     this.a_0 = actual;
@@ -270,9 +429,9 @@
     var message = lazyMessage();
     this.invokeHook_0(false, DefaultJsAsserter$failWithMessage$lambda(message));
     if (message == null)
-      throw new AssertionError();
+      throw AssertionError_init();
     else
-      throw new AssertionError(message);
+      throw AssertionError_init_0(message);
   };
   function DefaultJsAsserter$invokeHook$ObjectLiteral(closure$result, closure$lazyMessage) {
     this.result_13foyd$_0 = closure$result;
@@ -301,7 +460,7 @@
     }
   });
   DefaultJsAsserter$invokeHook$ObjectLiteral.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     interfaces: []
   };
   DefaultJsAsserter.prototype.invokeHook_0 = function (result, lazyMessage) {
@@ -314,7 +473,7 @@
     }
   };
   DefaultJsAsserter.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'DefaultJsAsserter',
     interfaces: [Asserter]
   };
@@ -326,13 +485,22 @@
     return DefaultJsAsserter_instance;
   }
   function todo(block) {
-    println('TODO at ' + Kotlin.toString(block));
+    println('TODO at ' + toString(block));
   }
-  function assertFailsWith_1(exceptionClass, message, block) {
-    var tmp$;
-    var exception = assertFails_0(message, block);
-    assertTrue_0(exceptionClass.isInstance_s8jyv4$(exception), messagePrefix(message) + ('Expected an exception of ' + exceptionClass + ' to be thrown, but was ' + exception));
-    return Kotlin.isType(tmp$ = exception, Throwable) ? tmp$ : Kotlin.throwCCE();
+  function checkResultIsFailure_0(exceptionClass, message, blockResult) {
+    var tmp$, tmp$_0;
+    var exception = blockResult.exceptionOrNull();
+    if (exception == null) {
+      (tmp$ = blockResult.value) == null || Kotlin.isType(tmp$, Any) || throwCCE();
+      tmp$_0 = get_asserter().fail_pdl1vj$(messagePrefix(message) + ('Expected an exception of ' + exceptionClass + ' to be thrown, but was completed successfully.'));
+    }
+     else {
+      var tmp$_1;
+      if (exceptionClass.isInstance_s8jyv4$(exception)) {
+        return Kotlin.isType(tmp$_1 = exception, Throwable) ? tmp$_1 : throwCCE();
+      }
+      tmp$_0 = get_asserter().fail_pdl1vj$(messagePrefix(message) + ('Expected an exception of ' + exceptionClass + ' to be thrown, but was ' + exception));
+    }
   }
   function lookupAsserter() {
     return DefaultJsAsserter_getInstance();
@@ -348,7 +516,7 @@
        else
         tmp$_0 = null;
       if (tmp$_0 == null)
-        throw new IllegalArgumentException("Unsupported test framework adapter: '" + adapter + "'");
+        throw IllegalArgumentException_init("Unsupported test framework adapter: '" + adapter.toString() + "'");
     }
      else {
       currentAdapter = adapter;
@@ -391,7 +559,7 @@
     }
   };
   BareAdapter.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'BareAdapter',
     interfaces: []
   };
@@ -420,7 +588,7 @@
     }
   };
   JasmineLikeAdapter.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'JasmineLikeAdapter',
     interfaces: []
   };
@@ -429,12 +597,12 @@
   }
   QUnitAdapter.prototype.suite = function (name, ignored, suiteFn) {
     var prevIgnore = this.ignoredSuite;
-    this.ignoredSuite = this.ignoredSuite || ignored;
+    this.ignoredSuite = this.ignoredSuite | ignored;
     QUnit.module(name, suiteFn);
     this.ignoredSuite = prevIgnore;
   };
   QUnitAdapter.prototype.test = function (name, ignored, testFn) {
-    if (ignored || this.ignoredSuite) {
+    if (ignored | this.ignoredSuite) {
       QUnit.skip(name, this.wrapTest_0(testFn));
     }
      else {
@@ -452,18 +620,18 @@
     return function (assert) {
       var assertionsHappened = {v: false};
       assertHook = QUnitAdapter$wrapTest$lambda$lambda(assertionsHappened, assert);
-      closure$testFn();
+      var possiblePromise = closure$testFn();
       if (!assertionsHappened.v) {
         assertTrue_0(true, 'A test with no assertions is considered successful');
       }
-      return Unit;
+      return possiblePromise;
     };
   }
   QUnitAdapter.prototype.wrapTest_0 = function (testFn) {
     return QUnitAdapter$wrapTest$lambda(testFn);
   };
   QUnitAdapter.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'QUnitAdapter',
     interfaces: []
   };
@@ -486,24 +654,30 @@
   package$test.assertFalse_ifx8ge$ = assertFalse_0;
   package$test.assertEquals_3m0tl5$ = assertEquals;
   package$test.assertNotEquals_3m0tl5$ = assertNotEquals;
+  package$test.assertSame_3m0tl5$ = assertSame;
+  package$test.assertNotSame_3m0tl5$ = assertNotSame;
   package$test.assertNotNull_tkjle6$ = assertNotNull;
   package$test.assertNotNull_k6pbc4$ = assertNotNull_0;
   package$test.assertNull_dzvdf1$ = assertNull;
   package$test.fail_pdl1vj$ = fail;
   package$test.expect_e96eyq$ = expect;
   package$test.expect_rr7wld$ = expect_0;
-  package$test.assertFails_o14v8n$ = assertFails;
-  package$test.assertFails_9bodf6$ = assertFails_0;
-  package$test.assertFailsWith_l9oqa2$ = assertFailsWith_1;
-  package$test.assertFailsWith_jbbixx$ = assertFailsWith_0;
+  package$test.checkResultIsFailure_8v9b5x$ = checkResultIsFailure;
+  $$importsForInline$$['kotlin-test'] = _;
+  package$test.checkResultIsFailure_3e4uyv$ = checkResultIsFailure_0;
   package$test.Asserter = Asserter;
   package$test.AsserterContributor = AsserterContributor;
-  package$test.DefaultAsserter = DefaultAsserter;
+  Object.defineProperty(package$test, 'DefaultAsserter', {
+    get: DefaultAsserter_getInstance
+  });
+  package$test.DefaultAsserterConstructor = DefaultAsserter_0;
   package$test.messagePrefix_7efafy$ = messagePrefix;
   package$test.overrideAsserter_wbnzx$ = overrideAsserter;
   _.setAdapter = setAdapter;
   package$test.Test = Test;
   package$test.Ignore = Ignore;
+  package$test.BeforeTest = BeforeTest;
+  package$test.AfterTest = AfterTest;
   Object.defineProperty(package$test, 'assertHook_8be2vx$', {
     get: function () {
       return assertHook;
@@ -546,22 +720,26 @@
   DefaultAsserter.prototype.assertTrue_4mavae$ = Asserter.prototype.assertTrue_4mavae$;
   DefaultAsserter.prototype.assertEquals_lzc6tz$ = Asserter.prototype.assertEquals_lzc6tz$;
   DefaultAsserter.prototype.assertNotEquals_lzc6tz$ = Asserter.prototype.assertNotEquals_lzc6tz$;
+  DefaultAsserter.prototype.assertSame_lzc6tz$ = Asserter.prototype.assertSame_lzc6tz$;
+  DefaultAsserter.prototype.assertNotSame_lzc6tz$ = Asserter.prototype.assertNotSame_lzc6tz$;
   DefaultAsserter.prototype.assertNull_67rc9h$ = Asserter.prototype.assertNull_67rc9h$;
   DefaultAsserter.prototype.assertNotNull_67rc9h$ = Asserter.prototype.assertNotNull_67rc9h$;
   _asserter = null;
   assertHook = assertHook$lambda;
   currentAdapter = null;
-  NAME_TO_ADAPTER = mapOf([to('qunit', Kotlin.getCallableRef('QUnitAdapter', function () {
+  NAME_TO_ADAPTER = mapOf([to('qunit', getCallableRef('QUnitAdapter', function () {
     return new QUnitAdapter();
-  })), to('jasmine', Kotlin.getCallableRef('JasmineLikeAdapter', function () {
+  })), to('jasmine', getCallableRef('JasmineLikeAdapter', function () {
     return new JasmineLikeAdapter();
-  })), to('mocha', Kotlin.getCallableRef('JasmineLikeAdapter', function () {
+  })), to('mocha', getCallableRef('JasmineLikeAdapter', function () {
     return new JasmineLikeAdapter();
-  })), to('jest', Kotlin.getCallableRef('JasmineLikeAdapter', function () {
+  })), to('jest', getCallableRef('JasmineLikeAdapter', function () {
     return new JasmineLikeAdapter();
-  })), to('auto', Kotlin.getCallableRef('detectAdapter', function () {
+  })), to('auto', getCallableRef('detectAdapter', function () {
     return detectAdapter();
   }))]);
   Kotlin.defineModule('kotlin-test', _);
   return _;
 }));
+
+//# sourceMappingURL=kotlin-test.js.map

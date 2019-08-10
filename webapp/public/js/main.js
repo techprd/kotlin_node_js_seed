@@ -7,11 +7,11 @@ if (typeof this['kotlinx-html-js'] === 'undefined') {
 var main = function (_, Kotlin, $module$kotlinx_html_js) {
   'use strict';
   var arrayListOf = Kotlin.kotlin.collections.arrayListOf_i5x0yv$;
-  var Unit = Kotlin.kotlin.Unit;
   var Kind_CLASS = Kotlin.Kind.CLASS;
-  var throwCCE = Kotlin.throwCCE;
-  var LinkedHashMap = Kotlin.kotlin.collections.LinkedHashMap;
   var LinkedHashMap_init = Kotlin.kotlin.collections.LinkedHashMap_init_q3lmfv$;
+  var throwCCE = Kotlin.throwCCE;
+  var Unit = Kotlin.kotlin.Unit;
+  var LinkedHashMap = Kotlin.kotlin.collections.LinkedHashMap;
   var get_create = $module$kotlinx_html_js.kotlinx.html.dom.get_create_4wc2mh$;
   var li = $module$kotlinx_html_js.kotlinx.html.js.li_525bpd$;
   var span = $module$kotlinx_html_js.kotlinx.html.span_6djfml$;
@@ -33,8 +33,10 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
   var InputType = $module$kotlinx_html_js.kotlinx.html.InputType;
   var input = $module$kotlinx_html_js.kotlinx.html.input_e1g74z$;
   var set_onClickFunction = $module$kotlinx_html_js.kotlinx.html.js.set_onClickFunction_pszlq2$;
+  var Random = Kotlin.kotlin.random.Random;
   var numberToInt = Kotlin.numberToInt;
   var set_onKeyPressFunction = $module$kotlinx_html_js.kotlinx.html.js.set_onKeyPressFunction_pszlq2$;
+  var Math_0 = Math;
   StorageService.prototype = Object.create(LinkedHashMap.prototype);
   StorageService.prototype.constructor = StorageService;
   function TodoEventEmitter() {
@@ -470,14 +472,13 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
   function markAsDone(storage, task) {
     return markAsDone$lambda(task, storage);
   }
-  var Math_0 = Math;
   function randomId() {
     var text = '';
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     for (var i = 0; i <= 4; i++) {
       var tmp$ = String;
       var tmp$_0 = tmp$.fromCharCode;
-      var x = Math.random() * possible.length;
+      var x = Random.Default.nextDouble() * possible.length;
       text += tmp$_0.call(tmp$, possible.charCodeAt(numberToInt(Math_0.floor(x))));
     }
     return text;

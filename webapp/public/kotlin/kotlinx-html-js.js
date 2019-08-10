@@ -12,22 +12,27 @@
 }(this, function (_, Kotlin) {
   'use strict';
   var $$importsForInline$$ = _.$$importsForInline$$ || (_.$$importsForInline$$ = {});
+  var Unit = Kotlin.kotlin.Unit;
+  var wrapFunction = Kotlin.wrapFunction;
+  var ensureNotNull = Kotlin.ensureNotNull;
+  var throwCCE = Kotlin.throwCCE;
   var last = Kotlin.kotlin.collections.last_2p1efm$;
-  var IllegalStateException = Kotlin.kotlin.IllegalStateException;
+  var IllegalStateException_init = Kotlin.kotlin.IllegalStateException_init_pdl1vj$;
+  var equals = Kotlin.equals;
   var get_lastIndex = Kotlin.kotlin.collections.get_lastIndex_55thoc$;
   var asList = Kotlin.org.w3c.dom.asList_kt9thq$;
   var first = Kotlin.kotlin.collections.first_2p1efm$;
-  var ArrayList_init = Kotlin.kotlin.collections.ArrayList_init_ww73n8$;
-  var UnsupportedOperationException = Kotlin.kotlin.UnsupportedOperationException;
+  var Kind_CLASS = Kotlin.Kind.CLASS;
+  var ArrayList_init = Kotlin.kotlin.collections.ArrayList_init_287e2$;
+  var UnsupportedOperationException_init = Kotlin.kotlin.UnsupportedOperationException_init_pdl1vj$;
+  var Kind_INTERFACE = Kotlin.Kind.INTERFACE;
+  var Kind_OBJECT = Kotlin.Kind.OBJECT;
   var emptyList = Kotlin.kotlin.collections.emptyList_287e2$;
   var to = Kotlin.kotlin.to_ujzrz7$;
-  var kotlin = Kotlin.kotlin;
   var Throwable = Error;
-  var IllegalArgumentException = Kotlin.kotlin.IllegalArgumentException;
-  var IntRange = Kotlin.kotlin.ranges.IntRange;
-  var step = Kotlin.kotlin.ranges.step_xsgg7u$;
+  var IllegalArgumentException_init = Kotlin.kotlin.IllegalArgumentException_init_pdl1vj$;
   var emptyMap = Kotlin.kotlin.collections.emptyMap_q3lmfv$;
-  var StringBuilder = Kotlin.kotlin.text.StringBuilder;
+  var StringBuilder_init = Kotlin.kotlin.text.StringBuilder_init;
   var Annotation = Kotlin.kotlin.Annotation;
   var setOf = Kotlin.kotlin.collections.setOf_mh5how$;
   var listOf = Kotlin.kotlin.collections.listOf_mh5how$;
@@ -36,15 +41,24 @@
   var toSet = Kotlin.kotlin.collections.toSet_7wnvza$;
   var joinToString = Kotlin.kotlin.collections.joinToString_fmv235$;
   var emptySet = Kotlin.kotlin.collections.emptySet_287e2$;
+  var defineInlineFunction = Kotlin.defineInlineFunction;
   var LinkedHashMap_init = Kotlin.kotlin.collections.LinkedHashMap_init_73mtqc$;
   var MutableMap = Kotlin.kotlin.collections.MutableMap;
   var Enum = Kotlin.kotlin.Enum;
+  var throwISE = Kotlin.throwISE;
   var HashSet_init = Kotlin.kotlin.collections.HashSet_init_287e2$;
   var listOf_0 = Kotlin.kotlin.collections.listOf_i5x0yv$;
-  var StringBuilder_init = Kotlin.kotlin.text.StringBuilder_init_za3lpa$;
+  var StringBuilder_init_0 = Kotlin.kotlin.text.StringBuilder_init_za3lpa$;
+  var toBoxedChar = Kotlin.toBoxedChar;
   var mapOf = Kotlin.kotlin.collections.mapOf_qfcya0$;
+  var unboxChar = Kotlin.unboxChar;
+  var max = Kotlin.kotlin.collections.max_exjks8$;
+  var toChar = Kotlin.toChar;
   var CharRange = Kotlin.kotlin.ranges.CharRange;
   var contains = Kotlin.kotlin.text.contains_sgbm27$;
+  var indexOf = Kotlin.kotlin.text.indexOf_l5u8uk$;
+  var toString = Kotlin.toString;
+  var ArrayList_init_0 = Kotlin.kotlin.collections.ArrayList_init_ww73n8$;
   StringAttribute.prototype = Object.create(Attribute.prototype);
   StringAttribute.prototype.constructor = StringAttribute;
   BooleanAttribute.prototype = Object.create(Attribute.prototype);
@@ -213,6 +227,8 @@
   LI.prototype.constructor = LI;
   LINK.prototype = Object.create(HTMLTag.prototype);
   LINK.prototype.constructor = LINK;
+  MAIN.prototype = Object.create(HTMLTag.prototype);
+  MAIN.prototype.constructor = MAIN;
   MAP.prototype = Object.create(HTMLTag.prototype);
   MAP.prototype.constructor = MAP;
   MARK.prototype = Object.create(HTMLTag.prototype);
@@ -229,8 +245,8 @@
   NAV.prototype.constructor = NAV;
   NOSCRIPT.prototype = Object.create(HTMLTag.prototype);
   NOSCRIPT.prototype.constructor = NOSCRIPT;
-  OBJECT_.prototype = Object.create(HTMLTag.prototype);
-  OBJECT_.prototype.constructor = OBJECT_;
+  OBJECT.prototype = Object.create(HTMLTag.prototype);
+  OBJECT.prototype.constructor = OBJECT;
   OL.prototype = Object.create(HTMLTag.prototype);
   OL.prototype.constructor = OL;
   OPTGROUP.prototype = Object.create(HTMLTag.prototype);
@@ -301,11 +317,12 @@
   TR.prototype.constructor = TR;
   UL.prototype = Object.create(HTMLTag.prototype);
   UL.prototype.constructor = UL;
-  VAR_.prototype = Object.create(HTMLTag.prototype);
-  VAR_.prototype.constructor = VAR_;
+  VAR.prototype = Object.create(HTMLTag.prototype);
+  VAR.prototype.constructor = VAR;
   VIDEO.prototype = Object.create(HTMLTag.prototype);
   VIDEO.prototype.constructor = VIDEO;
   function legEnd$lambda($receiver) {
+    return Unit;
   }
   function legEnd($receiver, classes, block) {
     if (classes === void 0)
@@ -314,26 +331,45 @@
       block = legEnd$lambda;
     return legend($receiver, classes, block);
   }
+  function object_$lambda($receiver) {
+    return Unit;
+  }
+  function object_($receiver, classes, block) {
+    if (classes === void 0)
+      classes = null;
+    if (block === void 0)
+      block = object_$lambda;
+    return htmlObject($receiver, classes, block);
+  }
+  function var_$lambda($receiver) {
+    return Unit;
+  }
+  function var_($receiver, classes, block) {
+    if (classes === void 0)
+      classes = null;
+    if (block === void 0)
+      block = var_$lambda;
+    return htmlVar($receiver, classes, block);
+  }
   function setEvent($receiver, name, callback) {
     $receiver[name] = callback;
   }
   function JSDOMBuilder(document) {
     this.document = document;
-    this.path_0 = Kotlin.kotlin.collections.ArrayList_init_ww73n8$();
+    this.path_0 = ArrayList_init();
     this.lastLeaved_0 = null;
   }
   JSDOMBuilder.prototype.onTagStart_tkgjla$ = function (tag) {
-    var tmp$, tmp$_0, tmp$_1;
-    if (tag.namespace != null) {
-      tmp$_1 = this.document.createElementNS((tmp$ = tag.namespace) != null ? tmp$ : Kotlin.throwNPE(), tag.tagName);
-    }
-     else
-      tmp$_1 = Kotlin.isType(tmp$_0 = this.document.createElement(tag.tagName), HTMLElement) ? tmp$_0 : Kotlin.throwCCE();
-    var element = tmp$_1;
-    var tmp$_2;
-    tmp$_2 = tag.attributesEntries.iterator();
-    while (tmp$_2.hasNext()) {
-      var element_0 = tmp$_2.next();
+    var tmp$, tmp$_0;
+    if (tag.namespace != null)
+      tmp$_0 = this.document.createElementNS(ensureNotNull(tag.namespace), tag.tagName);
+    else
+      tmp$_0 = Kotlin.isType(tmp$ = this.document.createElement(tag.tagName), HTMLElement) ? tmp$ : throwCCE();
+    var element = tmp$_0;
+    var tmp$_1;
+    tmp$_1 = tag.attributesEntries.iterator();
+    while (tmp$_1.hasNext()) {
+      var element_0 = tmp$_1.next();
       element.setAttribute(element_0.key, element_0.value);
     }
     if (!this.path_0.isEmpty()) {
@@ -343,10 +379,10 @@
   };
   JSDOMBuilder.prototype.onTagAttributeChange_5n2z71$ = function (tag, attribute, value) {
     if (this.path_0.isEmpty())
-      throw new IllegalStateException('No current tag');
+      throw IllegalStateException_init('No current tag');
     else {
-      if (!Kotlin.equals(last(this.path_0).tagName.toLowerCase(), tag.tagName.toLowerCase()))
-        throw new IllegalStateException('Wrong current tag');
+      if (!equals(last(this.path_0).tagName.toLowerCase(), tag.tagName.toLowerCase()))
+        throw IllegalStateException_init('Wrong current tag');
       else {
         var node = last(this.path_0);
         if (value == null) {
@@ -360,10 +396,10 @@
   };
   JSDOMBuilder.prototype.onTagEvent_azi6uv$ = function (tag, event, value) {
     if (this.path_0.isEmpty())
-      throw new IllegalStateException('No current tag');
+      throw IllegalStateException_init('No current tag');
     else {
-      if (!Kotlin.equals(last(this.path_0).tagName.toLowerCase(), tag.tagName.toLowerCase()))
-        throw new IllegalStateException('Wrong current tag');
+      if (!equals(last(this.path_0).tagName.toLowerCase(), tag.tagName.toLowerCase()))
+        throw IllegalStateException_init('Wrong current tag');
       else {
         last(this.path_0)[event] = value;
       }
@@ -372,29 +408,29 @@
   JSDOMBuilder.prototype.onTagEnd_tkgjla$ = function (tag) {
     var tmp$ = this.path_0.isEmpty();
     if (!tmp$) {
-      tmp$ = !Kotlin.equals(last(this.path_0).tagName.toLowerCase(), tag.tagName.toLowerCase());
+      tmp$ = !equals(last(this.path_0).tagName.toLowerCase(), tag.tagName.toLowerCase());
     }
     if (tmp$) {
-      throw new IllegalStateException("We haven't entered tag " + tag.tagName + ' but trying to leave');
+      throw IllegalStateException_init("We haven't entered tag " + tag.tagName + ' but trying to leave');
     }
     this.lastLeaved_0 = this.path_0.removeAt_za3lpa$(get_lastIndex(this.path_0));
   };
   JSDOMBuilder.prototype.onTagContent_6bul2c$ = function (content) {
     if (this.path_0.isEmpty()) {
-      throw new IllegalStateException('No current DOM node');
+      throw IllegalStateException_init('No current DOM node');
     }
     last(this.path_0).appendChild(this.document.createTextNode(content.toString()));
   };
   JSDOMBuilder.prototype.onTagContentEntity_ws8or7$ = function (entity) {
     var tmp$;
     if (this.path_0.isEmpty()) {
-      throw new IllegalStateException('No current DOM node');
+      throw IllegalStateException_init('No current DOM node');
     }
-    var s = Kotlin.isType(tmp$ = this.document.createElement('span'), HTMLElement) ? tmp$ : Kotlin.throwCCE();
+    var s = Kotlin.isType(tmp$ = this.document.createElement('span'), HTMLElement) ? tmp$ : throwCCE();
     s.innerHTML = entity.text;
     var tmp$_0 = last(this.path_0);
     var $receiver = asList(s.childNodes);
-    var destination = Kotlin.kotlin.collections.ArrayList_init_ww73n8$();
+    var destination = ArrayList_init();
     var tmp$_1;
     tmp$_1 = $receiver.iterator();
     while (tmp$_1.hasNext()) {
@@ -409,11 +445,17 @@
     block($receiver);
     last(this.path_0).innerHTML = last(this.path_0).innerHTML + $receiver.toString();
   };
+  JSDOMBuilder.prototype.onTagComment_6bul2c$ = function (content) {
+    if (this.path_0.isEmpty()) {
+      throw IllegalStateException_init('No current DOM node');
+    }
+    last(this.path_0).appendChild(this.document.createComment(content.toString()));
+  };
   JSDOMBuilder.prototype.finalize = function () {
     var tmp$, tmp$_0;
     tmp$_0 = (tmp$ = this.lastLeaved_0) != null ? this.asR_0(tmp$) : null;
     if (tmp$_0 == null) {
-      throw new IllegalStateException("We can't finalize as there was no tags");
+      throw IllegalStateException_init("We can't finalize as there was no tags");
     }
     return tmp$_0;
   };
@@ -421,7 +463,7 @@
     return $receiver;
   };
   JSDOMBuilder.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'JSDOMBuilder',
     interfaces: [TagConsumer]
   };
@@ -437,6 +479,7 @@
         closure$result.add_11rb$(it);
         this$append.appendChild(it);
       }
+      return Unit;
     };
   }
   function append($receiver, block) {
@@ -444,15 +487,41 @@
     block(onFinalize(createTree(get_ownerDocumentExt($receiver)), append$lambda$lambda(result, $receiver)));
     return result;
   }
+  function prepend$lambda$lambda(closure$result, this$prepend) {
+    return function (it, partial) {
+      if (!partial) {
+        closure$result.add_11rb$(it);
+        this$prepend.insertBefore(it, this$prepend.firstChild);
+      }
+      return Unit;
+    };
+  }
+  function prepend($receiver, block) {
+    var result = ArrayList_init();
+    block(onFinalize(createTree(get_ownerDocumentExt($receiver)), prepend$lambda$lambda(result, $receiver)));
+    return result;
+  }
   function get_append$lambda(this$append) {
     return function (element, partial) {
       if (!partial) {
         this$append.appendChild(element);
       }
+      return Unit;
     };
   }
   function get_append($receiver) {
     return onFinalize(createTree(get_ownerDocumentExt($receiver)), get_append$lambda($receiver));
+  }
+  function get_prepend$lambda(this$prepend) {
+    return function (element, partial) {
+      if (!partial) {
+        this$prepend.insertBefore(element, this$prepend.firstChild);
+      }
+      return Unit;
+    };
+  }
+  function get_prepend($receiver) {
+    return onFinalize(createTree(get_ownerDocumentExt($receiver)), get_prepend$lambda($receiver));
   }
   function get_ownerDocumentExt($receiver) {
     var tmp$;
@@ -461,12 +530,13 @@
     else {
       tmp$ = $receiver.ownerDocument;
       if (tmp$ == null) {
-        throw new IllegalStateException('Node has no ownerDocument');
+        throw IllegalStateException_init('Node has no ownerDocument');
       }
       return tmp$;
     }
   }
   function a$lambda($receiver) {
+    return Unit;
   }
   function a($receiver, href, target, classes, block) {
     if (href === void 0)
@@ -478,9 +548,10 @@
     if (block === void 0)
       block = a$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new A(attributesMapOf_1(['href', href, 'target', target, 'class', classes]), $receiver), $receiver, block), HTMLAnchorElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new A(attributesMapOf_1(['href', href, 'target', target, 'class', classes]), $receiver), $receiver, block), HTMLAnchorElement) ? tmp$ : throwCCE();
   }
   function abbr$lambda($receiver) {
+    return Unit;
   }
   function abbr($receiver, classes, block) {
     if (classes === void 0)
@@ -490,6 +561,7 @@
     return visitAndFinalize(new ABBR(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function address$lambda($receiver) {
+    return Unit;
   }
   function address($receiver, classes, block) {
     if (classes === void 0)
@@ -499,6 +571,7 @@
     return visitAndFinalize(new ADDRESS(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function area$lambda($receiver) {
+    return Unit;
   }
   function area($receiver, shape, alt, classes, block) {
     if (shape === void 0)
@@ -510,9 +583,10 @@
     if (block === void 0)
       block = area$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new AREA(attributesMapOf_1(['Shape', shape != null ? enumEncode(shape) : null, 'alt', alt, 'class', classes]), $receiver), $receiver, block), HTMLAreaElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new AREA(attributesMapOf_1(['Shape', shape != null ? enumEncode(shape) : null, 'alt', alt, 'class', classes]), $receiver), $receiver, block), HTMLAreaElement) ? tmp$ : throwCCE();
   }
   function article$lambda($receiver) {
+    return Unit;
   }
   function article($receiver, classes, block) {
     if (classes === void 0)
@@ -522,6 +596,7 @@
     return visitAndFinalize(new ARTICLE(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function aside$lambda($receiver) {
+    return Unit;
   }
   function aside($receiver, classes, block) {
     if (classes === void 0)
@@ -531,6 +606,7 @@
     return visitAndFinalize(new ASIDE(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function audio$lambda($receiver) {
+    return Unit;
   }
   function audio($receiver, classes, block) {
     if (classes === void 0)
@@ -538,9 +614,10 @@
     if (block === void 0)
       block = audio$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new AUDIO(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLAudioElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new AUDIO(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLAudioElement) ? tmp$ : throwCCE();
   }
   function b$lambda($receiver) {
+    return Unit;
   }
   function b($receiver, classes, block) {
     if (classes === void 0)
@@ -550,6 +627,7 @@
     return visitAndFinalize(new B(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function base$lambda($receiver) {
+    return Unit;
   }
   function base($receiver, classes, block) {
     if (classes === void 0)
@@ -557,9 +635,10 @@
     if (block === void 0)
       block = base$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new BASE(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLBaseElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new BASE(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLBaseElement) ? tmp$ : throwCCE();
   }
   function bdi$lambda($receiver) {
+    return Unit;
   }
   function bdi($receiver, classes, block) {
     if (classes === void 0)
@@ -569,6 +648,7 @@
     return visitAndFinalize(new BDI(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function bdo$lambda($receiver) {
+    return Unit;
   }
   function bdo($receiver, classes, block) {
     if (classes === void 0)
@@ -578,6 +658,7 @@
     return visitAndFinalize(new BDO(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function blockQuote$lambda($receiver) {
+    return Unit;
   }
   function blockQuote($receiver, classes, block) {
     if (classes === void 0)
@@ -587,6 +668,7 @@
     return visitAndFinalize(new BLOCKQUOTE(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function body$lambda($receiver) {
+    return Unit;
   }
   function body($receiver, classes, block) {
     if (classes === void 0)
@@ -594,9 +676,10 @@
     if (block === void 0)
       block = body$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new BODY(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLBodyElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new BODY(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLBodyElement) ? tmp$ : throwCCE();
   }
   function br$lambda($receiver) {
+    return Unit;
   }
   function br($receiver, classes, block) {
     if (classes === void 0)
@@ -604,15 +687,18 @@
     if (block === void 0)
       block = br$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new BR(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLBRElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new BR(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLBRElement) ? tmp$ : throwCCE();
   }
   function button$lambda($receiver) {
+    return Unit;
   }
-  function button($receiver, formEncType, formMethod, type, classes, block) {
+  function button($receiver, formEncType, formMethod, name, type, classes, block) {
     if (formEncType === void 0)
       formEncType = null;
     if (formMethod === void 0)
       formMethod = null;
+    if (name === void 0)
+      name = null;
     if (type === void 0)
       type = null;
     if (classes === void 0)
@@ -620,11 +706,12 @@
     if (block === void 0)
       block = button$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new BUTTON(attributesMapOf_1(['formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver), $receiver, block), HTMLButtonElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new BUTTON(attributesMapOf_1(['formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver), $receiver, block), HTMLButtonElement) ? tmp$ : throwCCE();
   }
   function canvas$lambda(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function canvas($receiver, classes, content) {
@@ -633,9 +720,10 @@
     if (content === void 0)
       content = '';
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new CANVAS(attributesMapOf_0('class', classes), $receiver), $receiver, canvas$lambda(content)), HTMLCanvasElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new CANVAS(attributesMapOf_0('class', classes), $receiver), $receiver, canvas$lambda(content)), HTMLCanvasElement) ? tmp$ : throwCCE();
   }
   function canvas$lambda_0($receiver) {
+    return Unit;
   }
   function canvas_0($receiver, classes, block) {
     if (classes === void 0)
@@ -643,9 +731,10 @@
     if (block === void 0)
       block = canvas$lambda_0;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new CANVAS(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLCanvasElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new CANVAS(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLCanvasElement) ? tmp$ : throwCCE();
   }
   function caption$lambda($receiver) {
+    return Unit;
   }
   function caption($receiver, classes, block) {
     if (classes === void 0)
@@ -655,6 +744,7 @@
     return visitAndFinalize(new CAPTION(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function cite$lambda($receiver) {
+    return Unit;
   }
   function cite($receiver, classes, block) {
     if (classes === void 0)
@@ -664,6 +754,7 @@
     return visitAndFinalize(new CITE(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function code$lambda($receiver) {
+    return Unit;
   }
   function code($receiver, classes, block) {
     if (classes === void 0)
@@ -673,24 +764,29 @@
     return visitAndFinalize(new CODE(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function col$lambda($receiver) {
+    return Unit;
   }
   function col($receiver, classes, block) {
     if (classes === void 0)
       classes = null;
     if (block === void 0)
       block = col$lambda;
-    return visitAndFinalize(new COL(attributesMapOf_0('class', classes), $receiver), $receiver, block);
+    var tmp$;
+    return Kotlin.isType(tmp$ = visitAndFinalize(new COL(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLTableColElement) ? tmp$ : throwCCE();
   }
   function colGroup$lambda($receiver) {
+    return Unit;
   }
   function colGroup($receiver, classes, block) {
     if (classes === void 0)
       classes = null;
     if (block === void 0)
       block = colGroup$lambda;
-    return visitAndFinalize(new COLGROUP(attributesMapOf_0('class', classes), $receiver), $receiver, block);
+    var tmp$;
+    return Kotlin.isType(tmp$ = visitAndFinalize(new COLGROUP(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLTableColElement) ? tmp$ : throwCCE();
   }
   function command$lambda($receiver) {
+    return Unit;
   }
   function command($receiver, type, classes, block) {
     if (type === void 0)
@@ -702,6 +798,7 @@
     return visitAndFinalize(new COMMAND(attributesMapOf_1(['type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver), $receiver, block);
   }
   function dataList$lambda($receiver) {
+    return Unit;
   }
   function dataList($receiver, classes, block) {
     if (classes === void 0)
@@ -709,9 +806,10 @@
     if (block === void 0)
       block = dataList$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new DATALIST(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLDataListElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new DATALIST(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLDataListElement) ? tmp$ : throwCCE();
   }
   function dd$lambda($receiver) {
+    return Unit;
   }
   function dd($receiver, classes, block) {
     if (classes === void 0)
@@ -721,6 +819,7 @@
     return visitAndFinalize(new DD(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function del$lambda($receiver) {
+    return Unit;
   }
   function del($receiver, classes, block) {
     if (classes === void 0)
@@ -730,6 +829,7 @@
     return visitAndFinalize(new DEL(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function details$lambda($receiver) {
+    return Unit;
   }
   function details($receiver, classes, block) {
     if (classes === void 0)
@@ -737,9 +837,10 @@
     if (block === void 0)
       block = details$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new DETAILS(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLDetailsElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new DETAILS(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLDetailsElement) ? tmp$ : throwCCE();
   }
   function dfn$lambda($receiver) {
+    return Unit;
   }
   function dfn($receiver, classes, block) {
     if (classes === void 0)
@@ -749,6 +850,7 @@
     return visitAndFinalize(new DFN(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function dialog$lambda($receiver) {
+    return Unit;
   }
   function dialog($receiver, classes, block) {
     if (classes === void 0)
@@ -756,9 +858,10 @@
     if (block === void 0)
       block = dialog$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new DIALOG(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLDialogElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new DIALOG(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLDialogElement) ? tmp$ : throwCCE();
   }
   function div$lambda($receiver) {
+    return Unit;
   }
   function div($receiver, classes, block) {
     if (classes === void 0)
@@ -766,9 +869,10 @@
     if (block === void 0)
       block = div$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new DIV(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLDivElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new DIV(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLDivElement) ? tmp$ : throwCCE();
   }
   function dl$lambda($receiver) {
+    return Unit;
   }
   function dl($receiver, classes, block) {
     if (classes === void 0)
@@ -778,6 +882,7 @@
     return visitAndFinalize(new DL(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function dt$lambda($receiver) {
+    return Unit;
   }
   function dt($receiver, classes, block) {
     if (classes === void 0)
@@ -787,6 +892,7 @@
     return visitAndFinalize(new DT(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function em$lambda($receiver) {
+    return Unit;
   }
   function em($receiver, classes, block) {
     if (classes === void 0)
@@ -796,6 +902,7 @@
     return visitAndFinalize(new EM(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function embed$lambda($receiver) {
+    return Unit;
   }
   function embed($receiver, classes, block) {
     if (classes === void 0)
@@ -803,9 +910,10 @@
     if (block === void 0)
       block = embed$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new EMBED(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLEmbedElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new EMBED(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLEmbedElement) ? tmp$ : throwCCE();
   }
   function fieldSet$lambda($receiver) {
+    return Unit;
   }
   function fieldSet($receiver, classes, block) {
     if (classes === void 0)
@@ -813,9 +921,10 @@
     if (block === void 0)
       block = fieldSet$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new FIELDSET(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLFieldSetElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new FIELDSET(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLFieldSetElement) ? tmp$ : throwCCE();
   }
   function figcaption$lambda($receiver) {
+    return Unit;
   }
   function figcaption($receiver, classes, block) {
     if (classes === void 0)
@@ -825,6 +934,7 @@
     return visitAndFinalize(new FIGCAPTION(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function figure$lambda($receiver) {
+    return Unit;
   }
   function figure($receiver, classes, block) {
     if (classes === void 0)
@@ -834,6 +944,7 @@
     return visitAndFinalize(new FIGURE(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function footer$lambda($receiver) {
+    return Unit;
   }
   function footer($receiver, classes, block) {
     if (classes === void 0)
@@ -843,6 +954,7 @@
     return visitAndFinalize(new FOOTER(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function form$lambda($receiver) {
+    return Unit;
   }
   function form($receiver, action, encType, method, classes, block) {
     if (action === void 0)
@@ -856,9 +968,10 @@
     if (block === void 0)
       block = form$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new FORM(attributesMapOf_1(['action', action, 'enctype', encType != null ? enumEncode(encType) : null, 'method', method != null ? enumEncode(method) : null, 'class', classes]), $receiver), $receiver, block), HTMLFormElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new FORM(attributesMapOf_1(['action', action, 'enctype', encType != null ? enumEncode(encType) : null, 'method', method != null ? enumEncode(method) : null, 'class', classes]), $receiver), $receiver, block), HTMLFormElement) ? tmp$ : throwCCE();
   }
   function h1$lambda($receiver) {
+    return Unit;
   }
   function h1($receiver, classes, block) {
     if (classes === void 0)
@@ -866,9 +979,10 @@
     if (block === void 0)
       block = h1$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new H1(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLHeadingElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new H1(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLHeadingElement) ? tmp$ : throwCCE();
   }
   function h2$lambda($receiver) {
+    return Unit;
   }
   function h2($receiver, classes, block) {
     if (classes === void 0)
@@ -876,9 +990,10 @@
     if (block === void 0)
       block = h2$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new H2(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLHeadingElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new H2(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLHeadingElement) ? tmp$ : throwCCE();
   }
   function h3$lambda($receiver) {
+    return Unit;
   }
   function h3($receiver, classes, block) {
     if (classes === void 0)
@@ -886,9 +1001,10 @@
     if (block === void 0)
       block = h3$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new H3(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLHeadingElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new H3(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLHeadingElement) ? tmp$ : throwCCE();
   }
   function h4$lambda($receiver) {
+    return Unit;
   }
   function h4($receiver, classes, block) {
     if (classes === void 0)
@@ -896,9 +1012,10 @@
     if (block === void 0)
       block = h4$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new H4(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLHeadingElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new H4(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLHeadingElement) ? tmp$ : throwCCE();
   }
   function h5$lambda($receiver) {
+    return Unit;
   }
   function h5($receiver, classes, block) {
     if (classes === void 0)
@@ -906,9 +1023,10 @@
     if (block === void 0)
       block = h5$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new H5(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLHeadingElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new H5(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLHeadingElement) ? tmp$ : throwCCE();
   }
   function h6$lambda($receiver) {
+    return Unit;
   }
   function h6($receiver, classes, block) {
     if (classes === void 0)
@@ -916,17 +1034,31 @@
     if (block === void 0)
       block = h6$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new H6(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLHeadingElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new H6(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLHeadingElement) ? tmp$ : throwCCE();
   }
-  function head$lambda($receiver) {
+  function head$lambda(closure$content) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
+    };
   }
-  function head($receiver, block) {
-    if (block === void 0)
-      block = head$lambda;
+  function head($receiver, content) {
+    if (content === void 0)
+      content = '';
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new HEAD(emptyMap_0, $receiver), $receiver, block), HTMLHeadElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new HEAD(emptyMap_0, $receiver), $receiver, head$lambda(content)), HTMLHeadElement) ? tmp$ : throwCCE();
+  }
+  function head$lambda_0($receiver) {
+    return Unit;
+  }
+  function head_0($receiver, block) {
+    if (block === void 0)
+      block = head$lambda_0;
+    var tmp$;
+    return Kotlin.isType(tmp$ = visitAndFinalize(new HEAD(emptyMap_0, $receiver), $receiver, block), HTMLHeadElement) ? tmp$ : throwCCE();
   }
   function header$lambda($receiver) {
+    return Unit;
   }
   function header($receiver, classes, block) {
     if (classes === void 0)
@@ -936,6 +1068,7 @@
     return visitAndFinalize(new HEADER(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function hGroup$lambda($receiver) {
+    return Unit;
   }
   function hGroup($receiver, classes, block) {
     if (classes === void 0)
@@ -945,6 +1078,7 @@
     return visitAndFinalize(new HGROUP(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function hr$lambda($receiver) {
+    return Unit;
   }
   function hr($receiver, classes, block) {
     if (classes === void 0)
@@ -952,17 +1086,35 @@
     if (block === void 0)
       block = hr$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new HR(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLHRElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new HR(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLHRElement) ? tmp$ : throwCCE();
   }
-  function html$lambda($receiver) {
+  function html$lambda(closure$content) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
+    };
   }
-  function html($receiver, block) {
-    if (block === void 0)
-      block = html$lambda;
+  function html($receiver, content, namespace) {
+    if (content === void 0)
+      content = '';
+    if (namespace === void 0)
+      namespace = null;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new HTML(emptyMap_0, $receiver), $receiver, block), HTMLHtmlElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new HTML(emptyMap_0, $receiver, namespace), $receiver, html$lambda(content)), HTMLHtmlElement) ? tmp$ : throwCCE();
+  }
+  function html$lambda_0($receiver) {
+    return Unit;
+  }
+  function html_0($receiver, namespace, block) {
+    if (namespace === void 0)
+      namespace = null;
+    if (block === void 0)
+      block = html$lambda_0;
+    var tmp$;
+    return Kotlin.isType(tmp$ = visitAndFinalize(new HTML(emptyMap_0, $receiver, namespace), $receiver, block), HTMLHtmlElement) ? tmp$ : throwCCE();
   }
   function i$lambda($receiver) {
+    return Unit;
   }
   function i($receiver, classes, block) {
     if (classes === void 0)
@@ -974,6 +1126,7 @@
   function iframe$lambda(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function iframe($receiver, sandbox, classes, content) {
@@ -986,6 +1139,7 @@
     return visitAndFinalize(new IFRAME(attributesMapOf_1(['sandbox', sandbox != null ? enumEncode(sandbox) : null, 'class', classes]), $receiver), $receiver, iframe$lambda(content));
   }
   function iframe$lambda_0($receiver) {
+    return Unit;
   }
   function iframe_0($receiver, sandbox, classes, block) {
     if (sandbox === void 0)
@@ -997,6 +1151,7 @@
     return visitAndFinalize(new IFRAME(attributesMapOf_1(['sandbox', sandbox != null ? enumEncode(sandbox) : null, 'class', classes]), $receiver), $receiver, block);
   }
   function img$lambda($receiver) {
+    return Unit;
   }
   function img($receiver, alt, src, classes, block) {
     if (alt === void 0)
@@ -1008,9 +1163,10 @@
     if (block === void 0)
       block = img$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new IMG(attributesMapOf_1(['alt', alt, 'src', src, 'class', classes]), $receiver), $receiver, block), HTMLImageElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new IMG(attributesMapOf_1(['alt', alt, 'src', src, 'class', classes]), $receiver), $receiver, block), HTMLImageElement) ? tmp$ : throwCCE();
   }
   function input$lambda($receiver) {
+    return Unit;
   }
   function input($receiver, type, formEncType, formMethod, name, classes, block) {
     if (type === void 0)
@@ -1026,9 +1182,10 @@
     if (block === void 0)
       block = input$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new INPUT(attributesMapOf_1(['type', type != null ? enumEncode(type) : null, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver), $receiver, block), HTMLInputElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new INPUT(attributesMapOf_1(['type', type != null ? enumEncode(type) : null, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver), $receiver, block), HTMLInputElement) ? tmp$ : throwCCE();
   }
   function ins$lambda($receiver) {
+    return Unit;
   }
   function ins($receiver, classes, block) {
     if (classes === void 0)
@@ -1038,6 +1195,7 @@
     return visitAndFinalize(new INS(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function kbd$lambda($receiver) {
+    return Unit;
   }
   function kbd($receiver, classes, block) {
     if (classes === void 0)
@@ -1047,6 +1205,7 @@
     return visitAndFinalize(new KBD(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function keyGen$lambda($receiver) {
+    return Unit;
   }
   function keyGen($receiver, keyType, classes, block) {
     if (keyType === void 0)
@@ -1058,6 +1217,7 @@
     return visitAndFinalize(new KEYGEN(attributesMapOf_1(['keytype', keyType != null ? enumEncode(keyType) : null, 'class', classes]), $receiver), $receiver, block);
   }
   function label$lambda($receiver) {
+    return Unit;
   }
   function label($receiver, classes, block) {
     if (classes === void 0)
@@ -1065,9 +1225,10 @@
     if (block === void 0)
       block = label$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new LABEL(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLLabelElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new LABEL(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLLabelElement) ? tmp$ : throwCCE();
   }
   function legend$lambda($receiver) {
+    return Unit;
   }
   function legend($receiver, classes, block) {
     if (classes === void 0)
@@ -1075,9 +1236,10 @@
     if (block === void 0)
       block = legend$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new LEGEND(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLLegendElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new LEGEND(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLLegendElement) ? tmp$ : throwCCE();
   }
   function li$lambda($receiver) {
+    return Unit;
   }
   function li($receiver, classes, block) {
     if (classes === void 0)
@@ -1085,9 +1247,10 @@
     if (block === void 0)
       block = li$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new LI(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLLIElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new LI(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLLIElement) ? tmp$ : throwCCE();
   }
   function link$lambda($receiver) {
+    return Unit;
   }
   function link($receiver, href, rel, type, block) {
     if (href === void 0)
@@ -1099,9 +1262,20 @@
     if (block === void 0)
       block = link$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new LINK(attributesMapOf_1(['href', href, 'rel', rel, 'type', type]), $receiver), $receiver, block), HTMLLinkElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new LINK(attributesMapOf_1(['href', href, 'rel', rel, 'type', type]), $receiver), $receiver, block), HTMLLinkElement) ? tmp$ : throwCCE();
+  }
+  function main$lambda($receiver) {
+    return Unit;
+  }
+  function main($receiver, classes, block) {
+    if (classes === void 0)
+      classes = null;
+    if (block === void 0)
+      block = main$lambda;
+    return visitAndFinalize(new MAIN(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function map$lambda($receiver) {
+    return Unit;
   }
   function map($receiver, name, classes, block) {
     if (name === void 0)
@@ -1111,9 +1285,10 @@
     if (block === void 0)
       block = map$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new MAP(attributesMapOf_1(['name', name, 'class', classes]), $receiver), $receiver, block), HTMLMapElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new MAP(attributesMapOf_1(['name', name, 'class', classes]), $receiver), $receiver, block), HTMLMapElement) ? tmp$ : throwCCE();
   }
   function mark$lambda($receiver) {
+    return Unit;
   }
   function mark($receiver, classes, block) {
     if (classes === void 0)
@@ -1123,6 +1298,7 @@
     return visitAndFinalize(new MARK(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function math$lambda($receiver) {
+    return Unit;
   }
   function math($receiver, classes, block) {
     if (classes === void 0)
@@ -1134,6 +1310,7 @@
   function mathml$lambda(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function mathml($receiver, classes, content) {
@@ -1144,6 +1321,7 @@
     return visitAndFinalize(new MATHML(attributesMapOf_0('class', classes), $receiver), $receiver, mathml$lambda(content));
   }
   function mathml$lambda_0($receiver) {
+    return Unit;
   }
   function mathml_0($receiver, classes, block) {
     if (classes === void 0)
@@ -1153,18 +1331,22 @@
     return visitAndFinalize(new MATHML(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function meta$lambda($receiver) {
+    return Unit;
   }
-  function meta($receiver, name, content, block) {
+  function meta($receiver, name, content, charset, block) {
     if (name === void 0)
       name = null;
     if (content === void 0)
       content = null;
+    if (charset === void 0)
+      charset = null;
     if (block === void 0)
       block = meta$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new META(attributesMapOf_1(['name', name, 'content', content]), $receiver), $receiver, block), HTMLMetaElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new META(attributesMapOf_1(['name', name, 'content', content, 'charset', charset]), $receiver), $receiver, block), HTMLMetaElement) ? tmp$ : throwCCE();
   }
   function meter$lambda($receiver) {
+    return Unit;
   }
   function meter($receiver, classes, block) {
     if (classes === void 0)
@@ -1172,9 +1354,10 @@
     if (block === void 0)
       block = meter$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new METER(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLMeterElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new METER(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLMeterElement) ? tmp$ : throwCCE();
   }
   function nav$lambda($receiver) {
+    return Unit;
   }
   function nav($receiver, classes, block) {
     if (classes === void 0)
@@ -1184,6 +1367,7 @@
     return visitAndFinalize(new NAV(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function noScript$lambda($receiver) {
+    return Unit;
   }
   function noScript($receiver, classes, block) {
     if (classes === void 0)
@@ -1192,16 +1376,18 @@
       block = noScript$lambda;
     return visitAndFinalize(new NOSCRIPT(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
-  function object_$lambda($receiver) {
+  function htmlObject$lambda($receiver) {
+    return Unit;
   }
-  function object_($receiver, classes, block) {
+  function htmlObject($receiver, classes, block) {
     if (classes === void 0)
       classes = null;
     if (block === void 0)
-      block = object_$lambda;
-    return visitAndFinalize(new OBJECT_(attributesMapOf_0('class', classes), $receiver), $receiver, block);
+      block = htmlObject$lambda;
+    return visitAndFinalize(new OBJECT(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function ol$lambda($receiver) {
+    return Unit;
   }
   function ol($receiver, classes, block) {
     if (classes === void 0)
@@ -1211,6 +1397,7 @@
     return visitAndFinalize(new OL(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function optGroup$lambda($receiver) {
+    return Unit;
   }
   function optGroup($receiver, label, classes, block) {
     if (label === void 0)
@@ -1220,11 +1407,12 @@
     if (block === void 0)
       block = optGroup$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new OPTGROUP(attributesMapOf_1(['label', label, 'class', classes]), $receiver), $receiver, block), HTMLOptGroupElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new OPTGROUP(attributesMapOf_1(['label', label, 'class', classes]), $receiver), $receiver, block), HTMLOptGroupElement) ? tmp$ : throwCCE();
   }
   function option$lambda(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function option($receiver, classes, content) {
@@ -1233,9 +1421,10 @@
     if (content === void 0)
       content = '';
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new OPTION(attributesMapOf_0('class', classes), $receiver), $receiver, option$lambda(content)), HTMLOptionElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new OPTION(attributesMapOf_0('class', classes), $receiver), $receiver, option$lambda(content)), HTMLOptionElement) ? tmp$ : throwCCE();
   }
   function option$lambda_0($receiver) {
+    return Unit;
   }
   function option_0($receiver, classes, block) {
     if (classes === void 0)
@@ -1243,9 +1432,10 @@
     if (block === void 0)
       block = option$lambda_0;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new OPTION(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLOptionElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new OPTION(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLOptionElement) ? tmp$ : throwCCE();
   }
   function output$lambda($receiver) {
+    return Unit;
   }
   function output($receiver, classes, block) {
     if (classes === void 0)
@@ -1253,9 +1443,10 @@
     if (block === void 0)
       block = output$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new OUTPUT(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLOutputElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new OUTPUT(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLOutputElement) ? tmp$ : throwCCE();
   }
   function p$lambda($receiver) {
+    return Unit;
   }
   function p($receiver, classes, block) {
     if (classes === void 0)
@@ -1263,9 +1454,10 @@
     if (block === void 0)
       block = p$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new P(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLParagraphElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new P(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLParagraphElement) ? tmp$ : throwCCE();
   }
   function param$lambda($receiver) {
+    return Unit;
   }
   function param($receiver, name, value, block) {
     if (name === void 0)
@@ -1275,9 +1467,10 @@
     if (block === void 0)
       block = param$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new PARAM(attributesMapOf_1(['name', name, 'value', value]), $receiver), $receiver, block), HTMLParamElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new PARAM(attributesMapOf_1(['name', name, 'value', value]), $receiver), $receiver, block), HTMLParamElement) ? tmp$ : throwCCE();
   }
   function pre$lambda($receiver) {
+    return Unit;
   }
   function pre($receiver, classes, block) {
     if (classes === void 0)
@@ -1285,9 +1478,10 @@
     if (block === void 0)
       block = pre$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new PRE(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLPreElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new PRE(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLPreElement) ? tmp$ : throwCCE();
   }
   function progress$lambda($receiver) {
+    return Unit;
   }
   function progress($receiver, classes, block) {
     if (classes === void 0)
@@ -1295,9 +1489,10 @@
     if (block === void 0)
       block = progress$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new PROGRESS(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLProgressElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new PROGRESS(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLProgressElement) ? tmp$ : throwCCE();
   }
   function q$lambda($receiver) {
+    return Unit;
   }
   function q($receiver, classes, block) {
     if (classes === void 0)
@@ -1307,6 +1502,7 @@
     return visitAndFinalize(new Q(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function rp$lambda($receiver) {
+    return Unit;
   }
   function rp($receiver, classes, block) {
     if (classes === void 0)
@@ -1316,6 +1512,7 @@
     return visitAndFinalize(new RP(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function rt$lambda($receiver) {
+    return Unit;
   }
   function rt($receiver, classes, block) {
     if (classes === void 0)
@@ -1325,6 +1522,7 @@
     return visitAndFinalize(new RT(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function ruby$lambda($receiver) {
+    return Unit;
   }
   function ruby($receiver, classes, block) {
     if (classes === void 0)
@@ -1334,6 +1532,7 @@
     return visitAndFinalize(new RUBY(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function samp$lambda($receiver) {
+    return Unit;
   }
   function samp($receiver, classes, block) {
     if (classes === void 0)
@@ -1342,19 +1541,37 @@
       block = samp$lambda;
     return visitAndFinalize(new SAMP(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
-  function script$lambda($receiver) {
+  function script$lambda(closure$content) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
+    };
   }
-  function script($receiver, type, src, block) {
+  function script($receiver, type, src, content) {
+    if (type === void 0)
+      type = null;
+    if (src === void 0)
+      src = null;
+    if (content === void 0)
+      content = '';
+    var tmp$;
+    return Kotlin.isType(tmp$ = visitAndFinalize(new SCRIPT(attributesMapOf_1(['type', type, 'src', src]), $receiver), $receiver, script$lambda(content)), HTMLScriptElement) ? tmp$ : throwCCE();
+  }
+  function script$lambda_0($receiver) {
+    return Unit;
+  }
+  function script_0($receiver, type, src, block) {
     if (type === void 0)
       type = null;
     if (src === void 0)
       src = null;
     if (block === void 0)
-      block = script$lambda;
+      block = script$lambda_0;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new SCRIPT(attributesMapOf_1(['type', type, 'src', src]), $receiver), $receiver, block), HTMLScriptElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new SCRIPT(attributesMapOf_1(['type', type, 'src', src]), $receiver), $receiver, block), HTMLScriptElement) ? tmp$ : throwCCE();
   }
   function section$lambda($receiver) {
+    return Unit;
   }
   function section($receiver, classes, block) {
     if (classes === void 0)
@@ -1364,6 +1581,7 @@
     return visitAndFinalize(new SECTION(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function select$lambda($receiver) {
+    return Unit;
   }
   function select($receiver, classes, block) {
     if (classes === void 0)
@@ -1371,9 +1589,10 @@
     if (block === void 0)
       block = select$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new SELECT(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLSelectElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new SELECT(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLSelectElement) ? tmp$ : throwCCE();
   }
   function small$lambda($receiver) {
+    return Unit;
   }
   function small($receiver, classes, block) {
     if (classes === void 0)
@@ -1383,6 +1602,7 @@
     return visitAndFinalize(new SMALL(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function source$lambda($receiver) {
+    return Unit;
   }
   function source($receiver, classes, block) {
     if (classes === void 0)
@@ -1390,9 +1610,10 @@
     if (block === void 0)
       block = source$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new SOURCE(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLSourceElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new SOURCE(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLSourceElement) ? tmp$ : throwCCE();
   }
   function span$lambda($receiver) {
+    return Unit;
   }
   function span($receiver, classes, block) {
     if (classes === void 0)
@@ -1400,9 +1621,10 @@
     if (block === void 0)
       block = span$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new SPAN(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLSpanElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new SPAN(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLSpanElement) ? tmp$ : throwCCE();
   }
   function strong$lambda($receiver) {
+    return Unit;
   }
   function strong($receiver, classes, block) {
     if (classes === void 0)
@@ -1414,6 +1636,7 @@
   function style$lambda(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function style($receiver, type, content) {
@@ -1422,9 +1645,10 @@
     if (content === void 0)
       content = '';
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new STYLE(attributesMapOf_0('type', type), $receiver), $receiver, style$lambda(content)), HTMLStyleElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new STYLE(attributesMapOf_0('type', type), $receiver), $receiver, style$lambda(content)), HTMLStyleElement) ? tmp$ : throwCCE();
   }
   function style$lambda_0($receiver) {
+    return Unit;
   }
   function style_0($receiver, type, block) {
     if (type === void 0)
@@ -1432,9 +1656,10 @@
     if (block === void 0)
       block = style$lambda_0;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new STYLE(attributesMapOf_0('type', type), $receiver), $receiver, block), HTMLStyleElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new STYLE(attributesMapOf_0('type', type), $receiver), $receiver, block), HTMLStyleElement) ? tmp$ : throwCCE();
   }
   function sub$lambda($receiver) {
+    return Unit;
   }
   function sub($receiver, classes, block) {
     if (classes === void 0)
@@ -1444,6 +1669,7 @@
     return visitAndFinalize(new SUB(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function sup$lambda($receiver) {
+    return Unit;
   }
   function sup($receiver, classes, block) {
     if (classes === void 0)
@@ -1455,6 +1681,7 @@
   function svg$lambda(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function svg($receiver, classes, content) {
@@ -1465,6 +1692,7 @@
     return visitAndFinalize(new SVG(attributesMapOf_0('class', classes), $receiver), $receiver, svg$lambda(content));
   }
   function svg$lambda_0($receiver) {
+    return Unit;
   }
   function svg_0($receiver, classes, block) {
     if (classes === void 0)
@@ -1474,6 +1702,7 @@
     return visitAndFinalize(new SVG(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function table$lambda($receiver) {
+    return Unit;
   }
   function table($receiver, classes, block) {
     if (classes === void 0)
@@ -1481,9 +1710,10 @@
     if (block === void 0)
       block = table$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new TABLE(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLTableElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new TABLE(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLTableElement) ? tmp$ : throwCCE();
   }
   function tbody$lambda($receiver) {
+    return Unit;
   }
   function tbody($receiver, classes, block) {
     if (classes === void 0)
@@ -1491,9 +1721,10 @@
     if (block === void 0)
       block = tbody$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new TBODY(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLTableSectionElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new TBODY(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLTableSectionElement) ? tmp$ : throwCCE();
   }
   function td$lambda($receiver) {
+    return Unit;
   }
   function td($receiver, classes, block) {
     if (classes === void 0)
@@ -1501,11 +1732,12 @@
     if (block === void 0)
       block = td$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new TD(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLTableCellElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new TD(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLTableCellElement) ? tmp$ : throwCCE();
   }
   function textArea$lambda(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function textArea($receiver, rows, cols, wrap, classes, content) {
@@ -1520,9 +1752,10 @@
     if (content === void 0)
       content = '';
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new TEXTAREA(attributesMapOf_1(['rows', rows, 'cols', cols, 'wrap', wrap != null ? enumEncode(wrap) : null, 'class', classes]), $receiver), $receiver, textArea$lambda(content)), HTMLTextAreaElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new TEXTAREA(attributesMapOf_1(['rows', rows, 'cols', cols, 'wrap', wrap != null ? enumEncode(wrap) : null, 'class', classes]), $receiver), $receiver, textArea$lambda(content)), HTMLTextAreaElement) ? tmp$ : throwCCE();
   }
   function textArea$lambda_0($receiver) {
+    return Unit;
   }
   function textArea_0($receiver, rows, cols, wrap, classes, block) {
     if (rows === void 0)
@@ -1536,9 +1769,10 @@
     if (block === void 0)
       block = textArea$lambda_0;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new TEXTAREA(attributesMapOf_1(['rows', rows, 'cols', cols, 'wrap', wrap != null ? enumEncode(wrap) : null, 'class', classes]), $receiver), $receiver, block), HTMLTextAreaElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new TEXTAREA(attributesMapOf_1(['rows', rows, 'cols', cols, 'wrap', wrap != null ? enumEncode(wrap) : null, 'class', classes]), $receiver), $receiver, block), HTMLTextAreaElement) ? tmp$ : throwCCE();
   }
   function tfoot$lambda($receiver) {
+    return Unit;
   }
   function tfoot($receiver, classes, block) {
     if (classes === void 0)
@@ -1546,9 +1780,10 @@
     if (block === void 0)
       block = tfoot$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new TFOOT(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLTableSectionElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new TFOOT(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLTableSectionElement) ? tmp$ : throwCCE();
   }
   function th$lambda($receiver) {
+    return Unit;
   }
   function th($receiver, scope, classes, block) {
     if (scope === void 0)
@@ -1558,9 +1793,10 @@
     if (block === void 0)
       block = th$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new TH(attributesMapOf_1(['scope', scope != null ? enumEncode(scope) : null, 'class', classes]), $receiver), $receiver, block), HTMLTableColElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new TH(attributesMapOf_1(['scope', scope != null ? enumEncode(scope) : null, 'class', classes]), $receiver), $receiver, block), HTMLTableCellElement) ? tmp$ : throwCCE();
   }
   function thead$lambda($receiver) {
+    return Unit;
   }
   function thead($receiver, classes, block) {
     if (classes === void 0)
@@ -1568,9 +1804,10 @@
     if (block === void 0)
       block = thead$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new THEAD(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLTableSectionElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new THEAD(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLTableSectionElement) ? tmp$ : throwCCE();
   }
   function time$lambda($receiver) {
+    return Unit;
   }
   function time($receiver, classes, block) {
     if (classes === void 0)
@@ -1578,28 +1815,31 @@
     if (block === void 0)
       block = time$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new TIME(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLTimeElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new TIME(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLTimeElement) ? tmp$ : throwCCE();
   }
   function title$lambda(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function title($receiver, content) {
     if (content === void 0)
       content = '';
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new TITLE(emptyMap_0, $receiver), $receiver, title$lambda(content)), HTMLTitleElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new TITLE(emptyMap_0, $receiver), $receiver, title$lambda(content)), HTMLTitleElement) ? tmp$ : throwCCE();
   }
   function title$lambda_0($receiver) {
+    return Unit;
   }
   function title_0($receiver, block) {
     if (block === void 0)
       block = title$lambda_0;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new TITLE(emptyMap_0, $receiver), $receiver, block), HTMLTitleElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new TITLE(emptyMap_0, $receiver), $receiver, block), HTMLTitleElement) ? tmp$ : throwCCE();
   }
   function tr$lambda($receiver) {
+    return Unit;
   }
   function tr($receiver, classes, block) {
     if (classes === void 0)
@@ -1607,9 +1847,10 @@
     if (block === void 0)
       block = tr$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new TR(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLTableRowElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new TR(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLTableRowElement) ? tmp$ : throwCCE();
   }
   function ul$lambda($receiver) {
+    return Unit;
   }
   function ul($receiver, classes, block) {
     if (classes === void 0)
@@ -1618,16 +1859,18 @@
       block = ul$lambda;
     return visitAndFinalize(new UL(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
-  function var_$lambda($receiver) {
+  function htmlVar$lambda($receiver) {
+    return Unit;
   }
-  function var_($receiver, classes, block) {
+  function htmlVar($receiver, classes, block) {
     if (classes === void 0)
       classes = null;
     if (block === void 0)
-      block = var_$lambda;
-    return visitAndFinalize(new VAR_(attributesMapOf_0('class', classes), $receiver), $receiver, block);
+      block = htmlVar$lambda;
+    return visitAndFinalize(new VAR(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function video$lambda($receiver) {
+    return Unit;
   }
   function video($receiver, classes, block) {
     if (classes === void 0)
@@ -1635,337 +1878,379 @@
     if (block === void 0)
       block = video$lambda;
     var tmp$;
-    return Kotlin.isType(tmp$ = visitAndFinalize(new VIDEO(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLVideoElement) ? tmp$ : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$ = visitAndFinalize(new VIDEO(attributesMapOf_0('class', classes), $receiver), $receiver, block), HTMLVideoElement) ? tmp$ : throwCCE();
   }
   function get_onAbortFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onAbort");
+    throw UnsupportedOperationException_init("You can't read variable onAbort");
   }
   function set_onAbortFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onabort', newValue);
   }
   function get_onBlurFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onBlur");
+    throw UnsupportedOperationException_init("You can't read variable onBlur");
   }
   function set_onBlurFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onblur', newValue);
   }
   function get_onCanPlayFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onCanPlay");
+    throw UnsupportedOperationException_init("You can't read variable onCanPlay");
   }
   function set_onCanPlayFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'oncanplay', newValue);
   }
   function get_onCanPlayThroughFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onCanPlayThrough");
+    throw UnsupportedOperationException_init("You can't read variable onCanPlayThrough");
   }
   function set_onCanPlayThroughFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'oncanplaythrough', newValue);
   }
   function get_onChangeFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onChange");
+    throw UnsupportedOperationException_init("You can't read variable onChange");
   }
   function set_onChangeFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onchange', newValue);
   }
   function get_onClickFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onClick");
+    throw UnsupportedOperationException_init("You can't read variable onClick");
   }
   function set_onClickFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onclick', newValue);
   }
   function get_onContextMenuFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onContextMenu");
+    throw UnsupportedOperationException_init("You can't read variable onContextMenu");
   }
   function set_onContextMenuFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'oncontextmenu', newValue);
   }
   function get_onDoubleClickFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onDoubleClick");
+    throw UnsupportedOperationException_init("You can't read variable onDoubleClick");
   }
   function set_onDoubleClickFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'ondblclick', newValue);
   }
   function get_onDragFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onDrag");
+    throw UnsupportedOperationException_init("You can't read variable onDrag");
   }
   function set_onDragFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'ondrag', newValue);
   }
   function get_onDragEndFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onDragEnd");
+    throw UnsupportedOperationException_init("You can't read variable onDragEnd");
   }
   function set_onDragEndFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'ondragend', newValue);
   }
   function get_onDragEnterFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onDragEnter");
+    throw UnsupportedOperationException_init("You can't read variable onDragEnter");
   }
   function set_onDragEnterFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'ondragenter', newValue);
   }
   function get_onDragLeaveFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onDragLeave");
+    throw UnsupportedOperationException_init("You can't read variable onDragLeave");
   }
   function set_onDragLeaveFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'ondragleave', newValue);
   }
   function get_onDragOverFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onDragOver");
+    throw UnsupportedOperationException_init("You can't read variable onDragOver");
   }
   function set_onDragOverFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'ondragover', newValue);
   }
   function get_onDragStartFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onDragStart");
+    throw UnsupportedOperationException_init("You can't read variable onDragStart");
   }
   function set_onDragStartFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'ondragstart', newValue);
   }
   function get_onDropFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onDrop");
+    throw UnsupportedOperationException_init("You can't read variable onDrop");
   }
   function set_onDropFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'ondrop', newValue);
   }
   function get_onDurationChangeFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onDurationChange");
+    throw UnsupportedOperationException_init("You can't read variable onDurationChange");
   }
   function set_onDurationChangeFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'ondurationchange', newValue);
   }
   function get_onEmptiedFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onEmptied");
+    throw UnsupportedOperationException_init("You can't read variable onEmptied");
   }
   function set_onEmptiedFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onemptied', newValue);
   }
   function get_onEndedFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onEnded");
+    throw UnsupportedOperationException_init("You can't read variable onEnded");
   }
   function set_onEndedFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onended', newValue);
   }
   function get_onErrorFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onError");
+    throw UnsupportedOperationException_init("You can't read variable onError");
   }
   function set_onErrorFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onerror', newValue);
   }
   function get_onFocusFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onFocus");
+    throw UnsupportedOperationException_init("You can't read variable onFocus");
   }
   function set_onFocusFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onfocus', newValue);
   }
+  function get_onFocusInFunction($receiver) {
+    throw UnsupportedOperationException_init("You can't read variable onFocusIn");
+  }
+  function set_onFocusInFunction($receiver, newValue) {
+    $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onfocusin', newValue);
+  }
+  function get_onFocusOutFunction($receiver) {
+    throw UnsupportedOperationException_init("You can't read variable onFocusOut");
+  }
+  function set_onFocusOutFunction($receiver, newValue) {
+    $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onfocusout', newValue);
+  }
   function get_onFormChangeFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onFormChange");
+    throw UnsupportedOperationException_init("You can't read variable onFormChange");
   }
   function set_onFormChangeFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onformchange', newValue);
   }
   function get_onFormInputFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onFormInput");
+    throw UnsupportedOperationException_init("You can't read variable onFormInput");
   }
   function set_onFormInputFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onforminput', newValue);
   }
   function get_onInputFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onInput");
+    throw UnsupportedOperationException_init("You can't read variable onInput");
   }
   function set_onInputFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'oninput', newValue);
   }
   function get_onInvalidFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onInvalid");
+    throw UnsupportedOperationException_init("You can't read variable onInvalid");
   }
   function set_onInvalidFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'oninvalid', newValue);
   }
   function get_onKeyDownFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onKeyDown");
+    throw UnsupportedOperationException_init("You can't read variable onKeyDown");
   }
   function set_onKeyDownFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onkeydown', newValue);
   }
   function get_onKeyPressFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onKeyPress");
+    throw UnsupportedOperationException_init("You can't read variable onKeyPress");
   }
   function set_onKeyPressFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onkeypress', newValue);
   }
   function get_onKeyUpFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onKeyUp");
+    throw UnsupportedOperationException_init("You can't read variable onKeyUp");
   }
   function set_onKeyUpFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onkeyup', newValue);
   }
   function get_onLoadFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onLoad");
+    throw UnsupportedOperationException_init("You can't read variable onLoad");
   }
   function set_onLoadFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onload', newValue);
   }
   function get_onLoadedDataFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onLoadedData");
+    throw UnsupportedOperationException_init("You can't read variable onLoadedData");
   }
   function set_onLoadedDataFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onloadeddata', newValue);
   }
   function get_onLoadedMetaDataFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onLoadedMetaData");
+    throw UnsupportedOperationException_init("You can't read variable onLoadedMetaData");
   }
   function set_onLoadedMetaDataFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onloadedmetadata', newValue);
   }
   function get_onLoadStartFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onLoadStart");
+    throw UnsupportedOperationException_init("You can't read variable onLoadStart");
   }
   function set_onLoadStartFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onloadstart', newValue);
   }
   function get_onMouseDownFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onMouseDown");
+    throw UnsupportedOperationException_init("You can't read variable onMouseDown");
   }
   function set_onMouseDownFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onmousedown', newValue);
   }
   function get_onMouseMoveFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onMouseMove");
+    throw UnsupportedOperationException_init("You can't read variable onMouseMove");
   }
   function set_onMouseMoveFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onmousemove', newValue);
   }
   function get_onMouseOutFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onMouseOut");
+    throw UnsupportedOperationException_init("You can't read variable onMouseOut");
   }
   function set_onMouseOutFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onmouseout', newValue);
   }
   function get_onMouseOverFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onMouseOver");
+    throw UnsupportedOperationException_init("You can't read variable onMouseOver");
   }
   function set_onMouseOverFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onmouseover', newValue);
   }
   function get_onMouseUpFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onMouseUp");
+    throw UnsupportedOperationException_init("You can't read variable onMouseUp");
   }
   function set_onMouseUpFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onmouseup', newValue);
   }
   function get_onMouseWheelFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onMouseWheel");
+    throw UnsupportedOperationException_init("You can't read variable onMouseWheel");
   }
   function set_onMouseWheelFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onmousewheel', newValue);
   }
   function get_onPauseFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onPause");
+    throw UnsupportedOperationException_init("You can't read variable onPause");
   }
   function set_onPauseFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onpause', newValue);
   }
   function get_onPlayFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onPlay");
+    throw UnsupportedOperationException_init("You can't read variable onPlay");
   }
   function set_onPlayFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onplay', newValue);
   }
   function get_onPlayingFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onPlaying");
+    throw UnsupportedOperationException_init("You can't read variable onPlaying");
   }
   function set_onPlayingFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onplaying', newValue);
   }
   function get_onProgressFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onProgress");
+    throw UnsupportedOperationException_init("You can't read variable onProgress");
   }
   function set_onProgressFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onprogress', newValue);
   }
   function get_onRateChangeFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onRateChange");
+    throw UnsupportedOperationException_init("You can't read variable onRateChange");
   }
   function set_onRateChangeFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onratechange', newValue);
   }
   function get_onReadyStateChangeFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onReadyStateChange");
+    throw UnsupportedOperationException_init("You can't read variable onReadyStateChange");
   }
   function set_onReadyStateChangeFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onreadystatechange', newValue);
   }
   function get_onScrollFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onScroll");
+    throw UnsupportedOperationException_init("You can't read variable onScroll");
   }
   function set_onScrollFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onscroll', newValue);
   }
   function get_onSearchFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onSearch");
+    throw UnsupportedOperationException_init("You can't read variable onSearch");
   }
   function set_onSearchFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onsearch', newValue);
   }
   function get_onSeekedFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onSeeked");
+    throw UnsupportedOperationException_init("You can't read variable onSeeked");
   }
   function set_onSeekedFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onseeked', newValue);
   }
   function get_onSeekingFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onSeeking");
+    throw UnsupportedOperationException_init("You can't read variable onSeeking");
   }
   function set_onSeekingFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onseeking', newValue);
   }
   function get_onSelectFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onSelect");
+    throw UnsupportedOperationException_init("You can't read variable onSelect");
   }
   function set_onSelectFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onselect', newValue);
   }
   function get_onShowFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onShow");
+    throw UnsupportedOperationException_init("You can't read variable onShow");
   }
   function set_onShowFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onshow', newValue);
   }
   function get_onStalledFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onStalled");
+    throw UnsupportedOperationException_init("You can't read variable onStalled");
   }
   function set_onStalledFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onstalled', newValue);
   }
   function get_onSubmitFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onSubmit");
+    throw UnsupportedOperationException_init("You can't read variable onSubmit");
   }
   function set_onSubmitFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onsubmit', newValue);
   }
   function get_onSuspendFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onSuspend");
+    throw UnsupportedOperationException_init("You can't read variable onSuspend");
   }
   function set_onSuspendFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onsuspend', newValue);
   }
   function get_onTimeUpdateFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onTimeUpdate");
+    throw UnsupportedOperationException_init("You can't read variable onTimeUpdate");
   }
   function set_onTimeUpdateFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'ontimeupdate', newValue);
   }
+  function get_onTouchCancelFunction($receiver) {
+    throw UnsupportedOperationException_init("You can't read variable onTouchCancel");
+  }
+  function set_onTouchCancelFunction($receiver, newValue) {
+    $receiver.consumer.onTagEvent_azi6uv$($receiver, 'ontouchcancel', newValue);
+  }
+  function get_onTouchEndFunction($receiver) {
+    throw UnsupportedOperationException_init("You can't read variable onTouchEnd");
+  }
+  function set_onTouchEndFunction($receiver, newValue) {
+    $receiver.consumer.onTagEvent_azi6uv$($receiver, 'ontouchend', newValue);
+  }
+  function get_onTouchMoveFunction($receiver) {
+    throw UnsupportedOperationException_init("You can't read variable onTouchMove");
+  }
+  function set_onTouchMoveFunction($receiver, newValue) {
+    $receiver.consumer.onTagEvent_azi6uv$($receiver, 'ontouchmove', newValue);
+  }
+  function get_onTouchStartFunction($receiver) {
+    throw UnsupportedOperationException_init("You can't read variable onTouchStart");
+  }
+  function set_onTouchStartFunction($receiver, newValue) {
+    $receiver.consumer.onTagEvent_azi6uv$($receiver, 'ontouchstart', newValue);
+  }
   function get_onVolumeChangeFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onVolumeChange");
+    throw UnsupportedOperationException_init("You can't read variable onVolumeChange");
   }
   function set_onVolumeChangeFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onvolumechange', newValue);
   }
   function get_onWaitingFunction($receiver) {
-    throw new UnsupportedOperationException("You can't read variable onWaiting");
+    throw UnsupportedOperationException_init("You can't read variable onWaiting");
   }
   function set_onWaitingFunction($receiver, newValue) {
     $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onwaiting', newValue);
+  }
+  function get_onWheelFunction($receiver) {
+    throw UnsupportedOperationException_init("You can't read variable onWheel");
+  }
+  function set_onWheelFunction($receiver, newValue) {
+    $receiver.consumer.onTagEvent_azi6uv$($receiver, 'onwheel', newValue);
   }
   function injectTo($receiver, bean, field) {
     field.set(bean, $receiver);
@@ -1976,7 +2261,7 @@
   function InjectCapture() {
   }
   InjectCapture.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'InjectCapture',
     interfaces: []
   };
@@ -1984,7 +2269,7 @@
     this.className = className;
   }
   InjectByClassName.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'InjectByClassName',
     interfaces: [InjectCapture]
   };
@@ -1992,7 +2277,7 @@
     this.tagName = tagName;
   }
   InjectByTagName.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'InjectByTagName',
     interfaces: [InjectCapture]
   };
@@ -2000,7 +2285,7 @@
     InjectRoot_instance = this;
   }
   InjectRoot.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'InjectRoot',
     interfaces: [InjectCapture]
   };
@@ -2014,14 +2299,16 @@
   function CustomCapture() {
   }
   CustomCapture.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'CustomCapture',
     interfaces: [InjectCapture]
   };
+  var collectionSizeOrDefault = Kotlin.kotlin.collections.collectionSizeOrDefault_ba2ldo$;
+  var LinkedHashMap_init_0 = Kotlin.kotlin.collections.LinkedHashMap_init_q3lmfv$;
   function InjectorConsumer(downstream, bean, rules) {
     this.downstream = downstream;
     this.bean = bean;
-    var destination = Kotlin.kotlin.collections.ArrayList_init_ww73n8$();
+    var destination = ArrayList_init();
     var tmp$;
     tmp$ = rules.iterator();
     while (tmp$.hasNext()) {
@@ -2029,15 +2316,15 @@
       if (Kotlin.isType(element.first, InjectByClassName))
         destination.add_11rb$(element);
     }
-    var destination_0 = Kotlin.kotlin.collections.ArrayList_init_ww73n8$(Kotlin.kotlin.collections.collectionSizeOrDefault_ba2ldo$(destination, 10));
+    var destination_0 = ArrayList_init_0(collectionSizeOrDefault(destination, 10));
     var tmp$_0;
     tmp$_0 = destination.iterator();
     while (tmp$_0.hasNext()) {
       var item = tmp$_0.next();
       var tmp$_1;
-      destination_0.add_11rb$(to(Kotlin.isType(tmp$_1 = item.first, InjectByClassName) ? tmp$_1 : Kotlin.throwCCE(), item.second));
+      destination_0.add_11rb$(to(Kotlin.isType(tmp$_1 = item.first, InjectByClassName) ? tmp$_1 : throwCCE(), item.second));
     }
-    var destination_1 = Kotlin.kotlin.collections.LinkedHashMap_init_q3lmfv$();
+    var destination_1 = LinkedHashMap_init_0();
     var tmp$_2;
     tmp$_2 = destination_0.iterator();
     while (tmp$_2.hasNext()) {
@@ -2046,7 +2333,7 @@
       var tmp$_0_0;
       var value = destination_1.get_11rb$(key);
       if (value == null) {
-        var answer = Kotlin.kotlin.collections.ArrayList_init_ww73n8$();
+        var answer = ArrayList_init();
         destination_1.put_xwzc9p$(key, answer);
         tmp$_0_0 = answer;
       }
@@ -2057,7 +2344,7 @@
       list.add_11rb$(element_0.second);
     }
     this.classesMap_0 = destination_1;
-    var destination_2 = Kotlin.kotlin.collections.ArrayList_init_ww73n8$();
+    var destination_2 = ArrayList_init();
     var tmp$_3;
     tmp$_3 = rules.iterator();
     while (tmp$_3.hasNext()) {
@@ -2065,15 +2352,15 @@
       if (Kotlin.isType(element_1.first, InjectByTagName))
         destination_2.add_11rb$(element_1);
     }
-    var destination_3 = Kotlin.kotlin.collections.ArrayList_init_ww73n8$(Kotlin.kotlin.collections.collectionSizeOrDefault_ba2ldo$(destination_2, 10));
+    var destination_3 = ArrayList_init_0(collectionSizeOrDefault(destination_2, 10));
     var tmp$_4;
     tmp$_4 = destination_2.iterator();
     while (tmp$_4.hasNext()) {
       var item_0 = tmp$_4.next();
       var tmp$_5;
-      destination_3.add_11rb$(to(Kotlin.isType(tmp$_5 = item_0.first, InjectByTagName) ? tmp$_5 : Kotlin.throwCCE(), item_0.second));
+      destination_3.add_11rb$(to(Kotlin.isType(tmp$_5 = item_0.first, InjectByTagName) ? tmp$_5 : throwCCE(), item_0.second));
     }
-    var destination_4 = Kotlin.kotlin.collections.LinkedHashMap_init_q3lmfv$();
+    var destination_4 = LinkedHashMap_init_0();
     var tmp$_6;
     tmp$_6 = destination_3.iterator();
     while (tmp$_6.hasNext()) {
@@ -2082,7 +2369,7 @@
       var tmp$_0_1;
       var value_0 = destination_4.get_11rb$(key_0);
       if (value_0 == null) {
-        var answer_0 = Kotlin.kotlin.collections.ArrayList_init_ww73n8$();
+        var answer_0 = ArrayList_init();
         destination_4.put_xwzc9p$(key_0, answer_0);
         tmp$_0_1 = answer_0;
       }
@@ -2093,15 +2380,15 @@
       list_0.add_11rb$(element_2.second);
     }
     this.tagNamesMap_0 = destination_4;
-    var destination_5 = Kotlin.kotlin.collections.ArrayList_init_ww73n8$();
+    var destination_5 = ArrayList_init();
     var tmp$_7;
     tmp$_7 = rules.iterator();
     while (tmp$_7.hasNext()) {
       var element_3 = tmp$_7.next();
-      if (Kotlin.equals(element_3.first, InjectRoot_getInstance()))
+      if (equals(element_3.first, InjectRoot_getInstance()))
         destination_5.add_11rb$(element_3);
     }
-    var destination_6 = Kotlin.kotlin.collections.ArrayList_init_ww73n8$(Kotlin.kotlin.collections.collectionSizeOrDefault_ba2ldo$(destination_5, 10));
+    var destination_6 = ArrayList_init_0(collectionSizeOrDefault(destination_5, 10));
     var tmp$_8;
     tmp$_8 = destination_5.iterator();
     while (tmp$_8.hasNext()) {
@@ -2109,7 +2396,7 @@
       destination_6.add_11rb$(item_1.second);
     }
     this.rootCaptures_0 = destination_6;
-    var destination_7 = Kotlin.kotlin.collections.ArrayList_init_ww73n8$();
+    var destination_7 = ArrayList_init();
     var tmp$_9;
     tmp$_9 = rules.iterator();
     while (tmp$_9.hasNext()) {
@@ -2117,30 +2404,31 @@
       if (Kotlin.isType(element_4.first, CustomCapture))
         destination_7.add_11rb$(element_4);
     }
-    var destination_8 = Kotlin.kotlin.collections.ArrayList_init_ww73n8$(Kotlin.kotlin.collections.collectionSizeOrDefault_ba2ldo$(destination_7, 10));
+    var destination_8 = ArrayList_init_0(collectionSizeOrDefault(destination_7, 10));
     var tmp$_10;
     tmp$_10 = destination_7.iterator();
     while (tmp$_10.hasNext()) {
       var item_2 = tmp$_10.next();
       var tmp$_11;
-      destination_8.add_11rb$(to(Kotlin.isType(tmp$_11 = item_2.first, CustomCapture) ? tmp$_11 : Kotlin.throwCCE(), item_2.second));
+      destination_8.add_11rb$(to(Kotlin.isType(tmp$_11 = item_2.first, CustomCapture) ? tmp$_11 : throwCCE(), item_2.second));
     }
     this.customCaptures_0 = destination_8;
   }
+  var addAll = Kotlin.kotlin.collections.addAll_ipc267$;
   InjectorConsumer.prototype.onTagEnd_tkgjla$ = function (tag) {
     var tmp$;
     this.downstream.onTagEnd_tkgjla$(tag);
     var node = this.downstream.finalize();
     if (!this.classesMap_0.isEmpty()) {
       var $receiver = asList(node.classList);
-      var destination = Kotlin.kotlin.collections.ArrayList_init_ww73n8$();
+      var destination = ArrayList_init();
       var tmp$_0;
       tmp$_0 = $receiver.iterator();
       while (tmp$_0.hasNext()) {
         var element = tmp$_0.next();
         var tmp$_1;
         var list = (tmp$_1 = this.classesMap_0.get_11rb$(element)) != null ? tmp$_1 : emptyList();
-        Kotlin.kotlin.collections.addAll_ipc267$(destination, list);
+        addAll(destination, list);
       }
       var tmp$_2;
       tmp$_2 = destination.iterator();
@@ -2160,7 +2448,7 @@
       }
     }
     var $receiver_0 = this.customCaptures_0;
-    var destination_0 = Kotlin.kotlin.collections.ArrayList_init_ww73n8$();
+    var destination_0 = ArrayList_init();
     var tmp$_4;
     tmp$_4 = $receiver_0.iterator();
     while (tmp$_4.hasNext()) {
@@ -2168,7 +2456,7 @@
       if (element_2.first.apply_lt8gi4$(node))
         destination_0.add_11rb$(element_2);
     }
-    var destination_1 = Kotlin.kotlin.collections.ArrayList_init_ww73n8$(Kotlin.kotlin.collections.collectionSizeOrDefault_ba2ldo$(destination_0, 10));
+    var destination_1 = ArrayList_init_0(collectionSizeOrDefault(destination_0, 10));
     var tmp$_5;
     tmp$_5 = destination_0.iterator();
     while (tmp$_5.hasNext()) {
@@ -2195,6 +2483,9 @@
   InjectorConsumer.prototype.onTagAttributeChange_5n2z71$ = function (tag, attribute, value) {
     return this.downstream.onTagAttributeChange_5n2z71$(tag, attribute, value);
   };
+  InjectorConsumer.prototype.onTagComment_6bul2c$ = function (content) {
+    return this.downstream.onTagComment_6bul2c$(content);
+  };
   InjectorConsumer.prototype.onTagContent_6bul2c$ = function (content) {
     return this.downstream.onTagContent_6bul2c$(content);
   };
@@ -2214,7 +2505,7 @@
     return this.downstream.onTagStart_tkgjla$(tag);
   };
   InjectorConsumer.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'InjectorConsumer',
     interfaces: [TagConsumer]
   };
@@ -2224,7 +2515,7 @@
   function appendAndInject$lambda(closure$bean, closure$rules, closure$block) {
     return function ($receiver) {
       closure$block(new InjectorConsumer($receiver, closure$bean, closure$rules));
-      kotlin.Unit;
+      return Unit;
     };
   }
   function appendAndInject($receiver, bean, rules, block) {
@@ -2232,6 +2523,7 @@
   }
   function trace$lambda(it) {
     console.info(it);
+    return Unit;
   }
   function trace($receiver) {
     return trace_0($receiver, trace$lambda);
@@ -2245,7 +2537,7 @@
     throw exception;
   };
   TagConsumer.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'TagConsumer',
     interfaces: []
   };
@@ -2266,8 +2558,11 @@
   Tag.prototype.entity_ws8or7$ = function (e) {
     this.consumer.onTagContentEntity_ws8or7$(e);
   };
+  Tag.prototype.comment_61zpoe$ = function (s) {
+    this.consumer.onTagComment_6bul2c$(s);
+  };
   Tag.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'Tag',
     interfaces: []
   };
@@ -2286,14 +2581,14 @@
     this.unaryPlus_pdl1vz$(n.toString());
   };
   Unsafe.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'Unsafe',
     interfaces: []
   };
   function AttributeEnum() {
   }
   AttributeEnum.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'AttributeEnum',
     interfaces: []
   };
@@ -2315,7 +2610,7 @@
   }
   function visitAndFinalize($receiver, consumer, block) {
     if ($receiver.consumer !== consumer) {
-      throw new IllegalArgumentException('Wrong exception');
+      throw IllegalArgumentException_init('Wrong exception');
     }
     visit($receiver, block);
     return consumer.finalize();
@@ -2332,14 +2627,13 @@
   function attributesMapOf_1(pairs) {
     var tmp$;
     var result = null;
-    tmp$ = step(new IntRange(0, pairs.length - 1 | 0), 2).iterator();
-    while (tmp$.hasNext()) {
-      var i = tmp$.next();
+    tmp$ = pairs.length - 1 | 0;
+    for (var i = 0; i <= tmp$; i += 2) {
       var k = pairs[i];
       var v = pairs[i + 1 | 0];
       if (k != null && v != null) {
         if (result == null) {
-          result = Kotlin.kotlin.collections.LinkedHashMap_init_q3lmfv$();
+          result = LinkedHashMap_init_0();
         }
         result.put_xwzc9p$(k, v);
       }
@@ -2354,7 +2648,7 @@
   }
   var emptyMap_0;
   function DefaultUnsafe() {
-    this.sb_0 = new StringBuilder();
+    this.sb_0 = StringBuilder_init();
   }
   DefaultUnsafe.prototype.unaryPlus_pdl1vz$ = function ($receiver) {
     this.sb_0.append_gw00v9$($receiver);
@@ -2363,29 +2657,29 @@
     return this.sb_0.toString();
   };
   DefaultUnsafe.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'DefaultUnsafe',
     interfaces: [Unsafe]
   };
   function HtmlTagMarker() {
   }
   HtmlTagMarker.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'HtmlTagMarker',
     interfaces: [Annotation]
   };
   function SingletonStringMap(key, value) {
-    this.key_cuzocu$_0 = key;
-    this.value_cuzocu$_0 = value;
+    this.key_fdtcub$_0 = key;
+    this.value_484qs5$_0 = value;
   }
   Object.defineProperty(SingletonStringMap.prototype, 'key', {
     get: function () {
-      return this.key_cuzocu$_0;
+      return this.key_fdtcub$_0;
     }
   });
   Object.defineProperty(SingletonStringMap.prototype, 'value', {
     get: function () {
-      return this.value_cuzocu$_0;
+      return this.value_484qs5$_0;
     }
   });
   Object.defineProperty(SingletonStringMap.prototype, 'entries', {
@@ -2409,19 +2703,19 @@
     }
   });
   SingletonStringMap.prototype.containsKey_11rb$ = function (key) {
-    return Kotlin.equals(key, this.key);
+    return equals(key, this.key);
   };
   SingletonStringMap.prototype.containsValue_11rc$ = function (value) {
-    return Kotlin.equals(value, this.value);
+    return equals(value, this.value);
   };
   SingletonStringMap.prototype.get_11rb$ = function (key) {
-    return Kotlin.equals(key, this.key) ? this.value : null;
+    return equals(key, this.key) ? this.value : null;
   };
   SingletonStringMap.prototype.isEmpty = function () {
     return false;
   };
   SingletonStringMap.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'SingletonStringMap',
     interfaces: [Map$Entry, Map]
   };
@@ -2449,10 +2743,10 @@
   function AttributeEncoder() {
   }
   AttributeEncoder.prototype.empty_l5rr1g$ = function (attributeName, tag) {
-    throw new IllegalStateException('Attribute ' + attributeName + ' is not yet defined for tag ' + tag.tagName);
+    throw IllegalStateException_init('Attribute ' + attributeName + ' is not yet defined for tag ' + tag.tagName);
   };
   AttributeEncoder.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'AttributeEncoder',
     interfaces: []
   };
@@ -2467,7 +2761,7 @@
     thisRef.attributes.put_xwzc9p$(attributeName, this.encoder.encode_yuqcw7$(attributeName, value));
   };
   Attribute.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'Attribute',
     interfaces: []
   };
@@ -2481,7 +2775,7 @@
     return value;
   };
   StringEncoder.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'StringEncoder',
     interfaces: [AttributeEncoder]
   };
@@ -2496,7 +2790,7 @@
     Attribute.call(this, StringEncoder_getInstance());
   }
   StringAttribute.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'StringAttribute',
     interfaces: [Attribute]
   };
@@ -2515,15 +2809,15 @@
     return value ? this.trueValue : this.falseValue;
   };
   BooleanEncoder.prototype.decode_puj7f4$ = function (attributeName, value) {
-    if (Kotlin.equals(value, this.trueValue))
+    if (equals(value, this.trueValue))
       return true;
-    else if (Kotlin.equals(value, this.falseValue))
+    else if (equals(value, this.falseValue))
       return false;
     else
-      throw new IllegalArgumentException('Unknown value ' + value + ' for ' + attributeName);
+      throw IllegalArgumentException_init('Unknown value ' + value + ' for ' + attributeName);
   };
   BooleanEncoder.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'BooleanEncoder',
     interfaces: [AttributeEncoder]
   };
@@ -2535,7 +2829,7 @@
     Attribute.call(this, new BooleanEncoder(trueValue, falseValue));
   }
   BooleanAttribute.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'BooleanAttribute',
     interfaces: [Attribute]
   };
@@ -2549,10 +2843,10 @@
     return tickerEncode(value, attributeName);
   };
   TickerEncoder.prototype.decode_puj7f4$ = function (attributeName, value) {
-    return Kotlin.equals(value, attributeName);
+    return equals(value, attributeName);
   };
   TickerEncoder.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'TickerEncoder',
     interfaces: [AttributeEncoder]
   };
@@ -2575,7 +2869,7 @@
     }
   };
   TickerAttribute.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'TickerAttribute',
     interfaces: [Attribute]
   };
@@ -2589,12 +2883,12 @@
     var tmp$;
     tmp$ = this.valuesMap.get_11rb$(value);
     if (tmp$ == null) {
-      throw new IllegalArgumentException('Unknown value ' + value + ' for ' + attributeName);
+      throw IllegalArgumentException_init('Unknown value ' + value + ' for ' + attributeName);
     }
     return tmp$;
   };
   EnumEncoder.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'EnumEncoder',
     interfaces: [AttributeEncoder]
   };
@@ -2606,37 +2900,28 @@
     this.values = values;
   }
   EnumAttribute.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'EnumAttribute',
     interfaces: [Attribute]
   };
+  var Regex_init = Kotlin.kotlin.text.Regex_init_61zpoe$;
   function stringSetDecode(value) {
     var tmp$, tmp$_0;
     var tmp$_1;
-    if (value != null) {
-      var regex = Kotlin.kotlin.text.Regex_61zpoe$('\\s+');
-      var limit;
-      if (limit === void 0)
-        limit = 0;
-      tmp$_1 = regex.split_905azu$(value, limit);
-    }
-     else
-      tmp$_1 = null;
-    var tmp$_2;
-    if ((tmp$ = tmp$_1) != null) {
-      var destination = Kotlin.kotlin.collections.ArrayList_init_ww73n8$();
-      var tmp$_3;
-      tmp$_3 = tmp$.iterator();
-      while (tmp$_3.hasNext()) {
-        var element = tmp$_3.next();
+    if ((tmp$ = value != null ? Regex_init('\\s+').split_905azu$(value, 0) : null) != null) {
+      var destination = ArrayList_init();
+      var tmp$_2;
+      tmp$_2 = tmp$.iterator();
+      while (tmp$_2.hasNext()) {
+        var element = tmp$_2.next();
         if (!(element.length === 0))
           destination.add_11rb$(element);
       }
-      tmp$_2 = destination;
+      tmp$_1 = destination;
     }
      else
-      tmp$_2 = null;
-    return (tmp$_0 = tmp$_2) != null ? toSet(tmp$_0) : null;
+      tmp$_1 = null;
+    return (tmp$_0 = tmp$_1) != null ? toSet(tmp$_0) : null;
   }
   function stringSetEncode($receiver) {
     return joinToString($receiver, ' ');
@@ -2648,14 +2933,13 @@
     return joinToString(value, ' ');
   };
   StringSetEncoder.prototype.decode_puj7f4$ = function (attributeName, value) {
-    var tmp$;
-    return (tmp$ = stringSetDecode(value)) != null ? tmp$ : Kotlin.throwNPE();
+    return ensureNotNull(stringSetDecode(value));
   };
   StringSetEncoder.prototype.empty_l5rr1g$ = function (attributeName, tag) {
     return emptySet();
   };
   StringSetEncoder.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'StringSetEncoder',
     interfaces: [AttributeEncoder]
   };
@@ -2670,11 +2954,12 @@
     Attribute.call(this, StringSetEncoder_getInstance());
   }
   StringSetAttribute.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'StringSetAttribute',
     interfaces: [Attribute]
   };
   function legEnd$lambda_0($receiver) {
+    return Unit;
   }
   function legEnd_0($receiver, classes, block) {
     if (classes === void 0)
@@ -2684,6 +2969,7 @@
     return legend_0($receiver, classes, block);
   }
   function legEnd$lambda_1($receiver) {
+    return Unit;
   }
   function legEnd_1($receiver, classes, block) {
     if (classes === void 0)
@@ -2693,6 +2979,7 @@
     legend_1($receiver, classes, block);
   }
   function legEnd$lambda_2($receiver) {
+    return Unit;
   }
   function legEnd_2($receiver, classes, block) {
     if (classes === void 0)
@@ -2702,6 +2989,7 @@
     legend_2($receiver, classes, block);
   }
   function legEnd$lambda_3($receiver) {
+    return Unit;
   }
   function legEnd_3($receiver, classes, block) {
     if (classes === void 0)
@@ -2709,6 +2997,77 @@
     if (block === void 0)
       block = legEnd$lambda_3;
     legend_3($receiver, classes, block);
+  }
+  var get_true_ = defineInlineFunction('kotlinx-html-js.kotlinx.html.get_true__sh13o2$', wrapFunction(function () {
+    var Draggable = _.kotlinx.html.Draggable;
+    return function ($receiver) {
+      return Draggable.htmlTrue;
+    };
+  }));
+  var get_false_ = defineInlineFunction('kotlinx-html-js.kotlinx.html.get_false__sh13o2$', wrapFunction(function () {
+    var Draggable = _.kotlinx.html.Draggable;
+    return function ($receiver) {
+      return Draggable.htmlFalse;
+    };
+  }));
+  function object_$lambda_0($receiver) {
+    return Unit;
+  }
+  function object__0($receiver, classes, block) {
+    if (classes === void 0)
+      classes = null;
+    if (block === void 0)
+      block = object_$lambda_0;
+    return htmlObject_0($receiver, classes, block);
+  }
+  function var_$lambda_0($receiver) {
+    return Unit;
+  }
+  function var__0($receiver, classes, block) {
+    if (classes === void 0)
+      classes = null;
+    if (block === void 0)
+      block = var_$lambda_0;
+    return htmlVar_0($receiver, classes, block);
+  }
+  function var__1($receiver, classes, block) {
+    if (classes === void 0)
+      classes = null;
+    htmlVar_1($receiver, classes, block);
+  }
+  function object_$lambda_1($receiver) {
+    return Unit;
+  }
+  function object__1($receiver, classes, block) {
+    if (classes === void 0)
+      classes = null;
+    if (block === void 0)
+      block = object_$lambda_1;
+    htmlObject_1($receiver, classes, block);
+  }
+  function get_for_($receiver) {
+    return $receiver.htmlFor;
+  }
+  function set_for_($receiver, value) {
+    $receiver.htmlFor = value;
+  }
+  function get_for__0($receiver) {
+    return $receiver.htmlFor;
+  }
+  function set_for__0($receiver, value) {
+    $receiver.htmlFor = value;
+  }
+  function get_onTouchcancel($receiver) {
+    return get_onTouchCancel($receiver);
+  }
+  function set_onTouchcancel($receiver, newValue) {
+    set_onTouchCancel($receiver, newValue);
+  }
+  function get_onTouchmove($receiver) {
+    return get_onTouchMove($receiver);
+  }
+  function set_onTouchmove($receiver, newValue) {
+    set_onTouchMove($receiver, newValue);
   }
   function DelayedConsumer(downstream) {
     this.downstream = downstream;
@@ -2719,13 +3078,13 @@
     this.delayed_0 = tag;
   };
   DelayedConsumer.prototype.onTagAttributeChange_5n2z71$ = function (tag, attribute, value) {
-    if (this.delayed_0 == null || !Kotlin.equals(this.delayed_0, tag)) {
-      throw new IllegalStateException("You can't change tag attribute because it was already passed to the downstream");
+    if (this.delayed_0 == null || !equals(this.delayed_0, tag)) {
+      throw IllegalStateException_init("You can't change tag attribute because it was already passed to the downstream");
     }
   };
   DelayedConsumer.prototype.onTagEvent_azi6uv$ = function (tag, event, value) {
-    if (this.delayed_0 == null || !Kotlin.equals(this.delayed_0, tag)) {
-      throw new IllegalStateException("You can't change tag attribute because it was already passed to the downstream");
+    if (this.delayed_0 == null || !equals(this.delayed_0, tag)) {
+      throw IllegalStateException_init("You can't change tag attribute because it was already passed to the downstream");
     }
   };
   DelayedConsumer.prototype.onTagEnd_tkgjla$ = function (tag) {
@@ -2744,6 +3103,10 @@
     this.processDelayedTag_0();
     this.downstream.onTagError_cjwpn3$(tag, exception);
   };
+  DelayedConsumer.prototype.onTagComment_6bul2c$ = function (content) {
+    this.processDelayedTag_0();
+    this.downstream.onTagComment_6bul2c$(content);
+  };
   DelayedConsumer.prototype.finalize = function () {
     this.processDelayedTag_0();
     return this.downstream.finalize();
@@ -2760,7 +3123,7 @@
     }
   };
   DelayedConsumer.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'DelayedConsumer',
     interfaces: [TagConsumer]
   };
@@ -2768,8 +3131,8 @@
     return Kotlin.isType($receiver, DelayedConsumer) ? $receiver : new DelayedConsumer($receiver);
   }
   function DelegatingMap(initialValues, tag, consumer) {
-    this.tag = tag;
-    this.consumer = consumer;
+    this.tag_0 = tag;
+    this.consumer_0 = consumer;
     this.backing_0 = initialValues;
     this.backingMutable_0 = false;
   }
@@ -2793,8 +3156,8 @@
   DelegatingMap.prototype.put_xwzc9p$ = function (key, value) {
     var mutable = this.switchToMutable_0();
     var old = mutable.put_xwzc9p$(key, value);
-    if (!Kotlin.equals(old, value)) {
-      this.consumer().onTagAttributeChange_5n2z71$(this.tag, key, value);
+    if (!equals(old, value)) {
+      this.consumer_0().onTagAttributeChange_5n2z71$(this.tag_0, key, value);
     }
     return old;
   };
@@ -2803,9 +3166,7 @@
     var mutable = this.switchToMutable_0();
     var tmp$_0;
     if ((tmp$ = mutable.remove_11rb$(key)) != null) {
-      if (typeof key === 'string') {
-        this.consumer().onTagAttributeChange_5n2z71$(this.tag, key, null);
-      }
+      this.consumer_0().onTagAttributeChange_5n2z71$(this.tag_0, key, null);
       tmp$_0 = tmp$;
     }
      else
@@ -2813,11 +3174,17 @@
     return tmp$_0;
   };
   DelegatingMap.prototype.putAll_a2k3zr$ = function (from) {
+    if (from.isEmpty())
+      return;
+    var consumer = this.consumer_0();
+    var mutable = this.switchToMutable_0();
     var tmp$;
     tmp$ = from.entries.iterator();
     while (tmp$.hasNext()) {
       var element = tmp$.next();
-      this.put_xwzc9p$(element.key, element.value);
+      if (!equals(mutable.put_xwzc9p$(element.key, element.value), element.value)) {
+        consumer.onTagAttributeChange_5n2z71$(this.tag_0, element.key, element.value);
+      }
     }
   };
   DelegatingMap.prototype.clear = function () {
@@ -2825,7 +3192,7 @@
     tmp$ = this.backing_0.entries.iterator();
     while (tmp$.hasNext()) {
       var element = tmp$.next();
-      this.consumer().onTagAttributeChange_5n2z71$(this.tag, element.key, null);
+      this.consumer_0().onTagAttributeChange_5n2z71$(this.tag_0, element.key, null);
     }
     this.backing_0 = emptyMap();
     this.backingMutable_0 = false;
@@ -2845,7 +3212,7 @@
       this.backing_0 = LinkedHashMap_init(this.backing_0);
       tmp$ = this.backing_0;
     }
-    return Kotlin.isType(tmp$_0 = tmp$, MutableMap) ? tmp$_0 : Kotlin.throwCCE();
+    return Kotlin.isType(tmp$_0 = tmp$, MutableMap) ? tmp$_0 : throwCCE();
   };
   Object.defineProperty(DelegatingMap.prototype, 'keys', {
     get: function () {
@@ -2863,7 +3230,7 @@
     }
   });
   DelegatingMap.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'DelegatingMap',
     interfaces: [MutableMap]
   };
@@ -2879,6 +3246,9 @@
   };
   DelegatingExceptionConsumer.prototype.onTagAttributeChange_5n2z71$ = function (tag, attribute, value) {
     return this.underlying.onTagAttributeChange_5n2z71$(tag, attribute, value);
+  };
+  DelegatingExceptionConsumer.prototype.onTagComment_6bul2c$ = function (content) {
+    return this.underlying.onTagComment_6bul2c$(content);
   };
   DelegatingExceptionConsumer.prototype.onTagContent_6bul2c$ = function (content) {
     return this.underlying.onTagContent_6bul2c$(content);
@@ -2899,7 +3269,7 @@
     return this.underlying.onTagStart_tkgjla$(tag);
   };
   DelegatingExceptionConsumer.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'DelegatingExceptionConsumer',
     interfaces: [TagConsumer]
   };
@@ -2913,7 +3283,7 @@
     this.DROP = PredicateResult$DROP_getInstance();
   }
   PredicateResults.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'PredicateResults',
     interfaces: []
   };
@@ -2952,7 +3322,7 @@
     return PredicateResult$DROP_instance;
   }
   PredicateResult.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'PredicateResult',
     interfaces: [Enum]
   };
@@ -2968,7 +3338,7 @@
         return PredicateResult$SKIP_getInstance();
       case 'DROP':
         return PredicateResult$DROP_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.consumers.PredicateResult.' + name);
+      default:throwISE('No enum constant kotlinx.html.consumers.PredicateResult.' + name);
     }
   }
   PredicateResult.valueOf_61zpoe$ = PredicateResult$valueOf;
@@ -2980,25 +3350,28 @@
     this.dropLevel_0 = null;
   }
   FilterTagConsumer.prototype.onTagStart_tkgjla$ = function (tag) {
-    var tmp$;
     this.currentLevel_0 = this.currentLevel_0 + 1 | 0;
     if (this.dropLevel_0 == null) {
-      tmp$ = this.predicate(tag);
-      if (Kotlin.equals(tmp$, PredicateResult$PASS_getInstance()))
-        this.downstream.onTagStart_tkgjla$(tag);
-      else if (Kotlin.equals(tmp$, PredicateResult$SKIP_getInstance()))
-        this.skippedLevels_0.add_11rb$(this.currentLevel_0);
-      else if (Kotlin.equals(tmp$, PredicateResult$DROP_getInstance()))
-        this.dropLevel_0 = this.currentLevel_0;
-      else
-        Kotlin.noWhenBranchMatched();
+      switch (this.predicate(tag).name) {
+        case 'PASS':
+          this.downstream.onTagStart_tkgjla$(tag);
+          break;
+        case 'SKIP':
+          this.skippedLevels_0.add_11rb$(this.currentLevel_0);
+          break;
+        case 'DROP':
+          this.dropLevel_0 = this.currentLevel_0;
+          break;
+        default:Kotlin.noWhenBranchMatched();
+          break;
+      }
     }
   };
   FilterTagConsumer.prototype.onTagAttributeChange_5n2z71$ = function (tag, attribute, value) {
-    throw new UnsupportedOperationException("this filter doesn't support attribute change");
+    throw UnsupportedOperationException_init("this filter doesn't support attribute change");
   };
   FilterTagConsumer.prototype.onTagEvent_azi6uv$ = function (tag, event, value) {
-    throw new UnsupportedOperationException("this filter doesn't support attribute change");
+    throw UnsupportedOperationException_init("this filter doesn't support attribute change");
   };
   FilterTagConsumer.prototype.onTagEnd_tkgjla$ = function (tag) {
     if (this.canPassCurrentLevel_0()) {
@@ -3033,11 +3406,16 @@
       this.downstream.onTagError_cjwpn3$(tag, exception);
     }
   };
+  FilterTagConsumer.prototype.onTagComment_6bul2c$ = function (content) {
+    if (this.canPassCurrentLevel_0()) {
+      this.downstream.onTagComment_6bul2c$(content);
+    }
+  };
   FilterTagConsumer.prototype.finalize = function () {
     return this.downstream.finalize();
   };
   FilterTagConsumer.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'FilterTagConsumer',
     interfaces: [TagConsumer]
   };
@@ -3080,11 +3458,14 @@
   FinalizeConsumer.prototype.onTagError_cjwpn3$ = function (tag, exception) {
     this.downstream.onTagError_cjwpn3$(tag, exception);
   };
+  FinalizeConsumer.prototype.onTagComment_6bul2c$ = function (content) {
+    this.downstream.onTagComment_6bul2c$(content);
+  };
   FinalizeConsumer.prototype.finalize = function () {
     return this.block(this.downstream.finalize(), this.level_0 > 0);
   };
   FinalizeConsumer.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'FinalizeConsumer',
     interfaces: [TagConsumer]
   };
@@ -3103,7 +3484,7 @@
   function CommonAttributeGroupFacade() {
   }
   CommonAttributeGroupFacade.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'CommonAttributeGroupFacade',
     interfaces: [Tag]
   };
@@ -3323,6 +3704,18 @@
   function set_onFocus($receiver, newValue) {
     attributeStringString.set_fid0sb$($receiver, 'onfocus', newValue);
   }
+  function get_onFocusIn($receiver) {
+    return attributeStringString.get_txhc1s$($receiver, 'onfocusin');
+  }
+  function set_onFocusIn($receiver, newValue) {
+    attributeStringString.set_fid0sb$($receiver, 'onfocusin', newValue);
+  }
+  function get_onFocusOut($receiver) {
+    return attributeStringString.get_txhc1s$($receiver, 'onfocusout');
+  }
+  function set_onFocusOut($receiver, newValue) {
+    attributeStringString.set_fid0sb$($receiver, 'onfocusout', newValue);
+  }
   function get_onFormChange($receiver) {
     return attributeStringString.get_txhc1s$($receiver, 'onformchange');
   }
@@ -3521,6 +3914,30 @@
   function set_onTimeUpdate($receiver, newValue) {
     attributeStringString.set_fid0sb$($receiver, 'ontimeupdate', newValue);
   }
+  function get_onTouchCancel($receiver) {
+    return attributeStringString.get_txhc1s$($receiver, 'ontouchcancel');
+  }
+  function set_onTouchCancel($receiver, newValue) {
+    attributeStringString.set_fid0sb$($receiver, 'ontouchcancel', newValue);
+  }
+  function get_onTouchEnd($receiver) {
+    return attributeStringString.get_txhc1s$($receiver, 'ontouchend');
+  }
+  function set_onTouchEnd($receiver, newValue) {
+    attributeStringString.set_fid0sb$($receiver, 'ontouchend', newValue);
+  }
+  function get_onTouchMove($receiver) {
+    return attributeStringString.get_txhc1s$($receiver, 'ontouchmove');
+  }
+  function set_onTouchMove($receiver, newValue) {
+    attributeStringString.set_fid0sb$($receiver, 'ontouchmove', newValue);
+  }
+  function get_onTouchStart($receiver) {
+    return attributeStringString.get_txhc1s$($receiver, 'ontouchstart');
+  }
+  function set_onTouchStart($receiver, newValue) {
+    attributeStringString.set_fid0sb$($receiver, 'ontouchstart', newValue);
+  }
   function get_onVolumeChange($receiver) {
     return attributeStringString.get_txhc1s$($receiver, 'onvolumechange');
   }
@@ -3532,6 +3949,12 @@
   }
   function set_onWaiting($receiver, newValue) {
     attributeStringString.set_fid0sb$($receiver, 'onwaiting', newValue);
+  }
+  function get_onWheel($receiver) {
+    return attributeStringString.get_txhc1s$($receiver, 'onwheel');
+  }
+  function set_onWheel($receiver, newValue) {
+    attributeStringString.set_fid0sb$($receiver, 'onwheel', newValue);
   }
   function get_role($receiver) {
     return attributeStringString.get_txhc1s$($receiver, 'role');
@@ -3578,7 +4001,7 @@
   function FormServerAttributeGroupFacade() {
   }
   FormServerAttributeGroupFacade.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'FormServerAttributeGroupFacade',
     interfaces: [Tag]
   };
@@ -3603,7 +4026,7 @@
   function InputServerAttributeGroupFacade() {
   }
   InputServerAttributeGroupFacade.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'InputServerAttributeGroupFacade',
     interfaces: [Tag]
   };
@@ -3622,7 +4045,7 @@
   function SelectServerAttributeGroupFacade() {
   }
   SelectServerAttributeGroupFacade.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'SelectServerAttributeGroupFacade',
     interfaces: [Tag]
   };
@@ -3666,6 +4089,7 @@
   var attributeTextAreaWrapEnumTextAreaWrapValues;
   var attributeThScopeEnumThScopeValues;
   function a$lambda_0($receiver) {
+    return Unit;
   }
   function a_0($receiver, href, target, classes, block) {
     if (href === void 0)
@@ -3679,6 +4103,7 @@
     return visitAndFinalize(new A(attributesMapOf_1(['href', href, 'target', target, 'class', classes]), $receiver), $receiver, block);
   }
   function abbr$lambda_0($receiver) {
+    return Unit;
   }
   function abbr_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3688,6 +4113,7 @@
     return visitAndFinalize(new ABBR(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function address$lambda_0($receiver) {
+    return Unit;
   }
   function address_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3697,6 +4123,7 @@
     return visitAndFinalize(new ADDRESS(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function area$lambda_0($receiver) {
+    return Unit;
   }
   function area_0($receiver, shape, alt, classes, block) {
     if (shape === void 0)
@@ -3710,6 +4137,7 @@
     return visitAndFinalize(new AREA(attributesMapOf_1(['Shape', shape != null ? enumEncode(shape) : null, 'alt', alt, 'class', classes]), $receiver), $receiver, block);
   }
   function article$lambda_0($receiver) {
+    return Unit;
   }
   function article_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3719,6 +4147,7 @@
     return visitAndFinalize(new ARTICLE(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function aside$lambda_0($receiver) {
+    return Unit;
   }
   function aside_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3728,6 +4157,7 @@
     return visitAndFinalize(new ASIDE(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function audio$lambda_0($receiver) {
+    return Unit;
   }
   function audio_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3737,6 +4167,7 @@
     return visitAndFinalize(new AUDIO(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function b$lambda_0($receiver) {
+    return Unit;
   }
   function b_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3746,6 +4177,7 @@
     return visitAndFinalize(new B(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function base$lambda_0($receiver) {
+    return Unit;
   }
   function base_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3755,6 +4187,7 @@
     return visitAndFinalize(new BASE(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function bdi$lambda_0($receiver) {
+    return Unit;
   }
   function bdi_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3764,6 +4197,7 @@
     return visitAndFinalize(new BDI(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function bdo$lambda_0($receiver) {
+    return Unit;
   }
   function bdo_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3773,6 +4207,7 @@
     return visitAndFinalize(new BDO(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function blockQuote$lambda_0($receiver) {
+    return Unit;
   }
   function blockQuote_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3782,6 +4217,7 @@
     return visitAndFinalize(new BLOCKQUOTE(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function body$lambda_0($receiver) {
+    return Unit;
   }
   function body_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3791,6 +4227,7 @@
     return visitAndFinalize(new BODY(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function br$lambda_0($receiver) {
+    return Unit;
   }
   function br_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3800,23 +4237,27 @@
     return visitAndFinalize(new BR(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function button$lambda_0($receiver) {
+    return Unit;
   }
-  function button_0($receiver, formEncType, formMethod, type, classes, block) {
+  function button_0($receiver, formEncType, formMethod, name, type, classes, block) {
     if (formEncType === void 0)
       formEncType = null;
     if (formMethod === void 0)
       formMethod = null;
+    if (name === void 0)
+      name = null;
     if (type === void 0)
       type = null;
     if (classes === void 0)
       classes = null;
     if (block === void 0)
       block = button$lambda_0;
-    return visitAndFinalize(new BUTTON(attributesMapOf_1(['formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver), $receiver, block);
+    return visitAndFinalize(new BUTTON(attributesMapOf_1(['formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver), $receiver, block);
   }
   function canvas$lambda_1(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function canvas_1($receiver, classes, content) {
@@ -3827,6 +4268,7 @@
     return visitAndFinalize(new CANVAS(attributesMapOf_0('class', classes), $receiver), $receiver, canvas$lambda_1(content));
   }
   function canvas$lambda_2($receiver) {
+    return Unit;
   }
   function canvas_2($receiver, classes, block) {
     if (classes === void 0)
@@ -3836,6 +4278,7 @@
     return visitAndFinalize(new CANVAS(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function caption$lambda_0($receiver) {
+    return Unit;
   }
   function caption_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3845,6 +4288,7 @@
     return visitAndFinalize(new CAPTION(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function cite$lambda_0($receiver) {
+    return Unit;
   }
   function cite_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3854,6 +4298,7 @@
     return visitAndFinalize(new CITE(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function code$lambda_0($receiver) {
+    return Unit;
   }
   function code_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3863,6 +4308,7 @@
     return visitAndFinalize(new CODE(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function col$lambda_0($receiver) {
+    return Unit;
   }
   function col_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3872,6 +4318,7 @@
     return visitAndFinalize(new COL(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function colGroup$lambda_0($receiver) {
+    return Unit;
   }
   function colGroup_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3881,6 +4328,7 @@
     return visitAndFinalize(new COLGROUP(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function command$lambda_0($receiver) {
+    return Unit;
   }
   function command_0($receiver, type, classes, block) {
     if (type === void 0)
@@ -3892,6 +4340,7 @@
     return visitAndFinalize(new COMMAND(attributesMapOf_1(['type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver), $receiver, block);
   }
   function dataList$lambda_0($receiver) {
+    return Unit;
   }
   function dataList_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3901,6 +4350,7 @@
     return visitAndFinalize(new DATALIST(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function dd$lambda_0($receiver) {
+    return Unit;
   }
   function dd_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3910,6 +4360,7 @@
     return visitAndFinalize(new DD(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function del$lambda_0($receiver) {
+    return Unit;
   }
   function del_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3919,6 +4370,7 @@
     return visitAndFinalize(new DEL(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function details$lambda_0($receiver) {
+    return Unit;
   }
   function details_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3928,6 +4380,7 @@
     return visitAndFinalize(new DETAILS(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function dfn$lambda_0($receiver) {
+    return Unit;
   }
   function dfn_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3937,6 +4390,7 @@
     return visitAndFinalize(new DFN(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function dialog$lambda_0($receiver) {
+    return Unit;
   }
   function dialog_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3946,6 +4400,7 @@
     return visitAndFinalize(new DIALOG(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function div$lambda_0($receiver) {
+    return Unit;
   }
   function div_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3955,6 +4410,7 @@
     return visitAndFinalize(new DIV(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function dl$lambda_0($receiver) {
+    return Unit;
   }
   function dl_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3964,6 +4420,7 @@
     return visitAndFinalize(new DL(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function dt$lambda_0($receiver) {
+    return Unit;
   }
   function dt_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3973,6 +4430,7 @@
     return visitAndFinalize(new DT(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function em$lambda_0($receiver) {
+    return Unit;
   }
   function em_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3982,6 +4440,7 @@
     return visitAndFinalize(new EM(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function embed$lambda_0($receiver) {
+    return Unit;
   }
   function embed_0($receiver, classes, block) {
     if (classes === void 0)
@@ -3991,6 +4450,7 @@
     return visitAndFinalize(new EMBED(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function fieldSet$lambda_0($receiver) {
+    return Unit;
   }
   function fieldSet_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4000,6 +4460,7 @@
     return visitAndFinalize(new FIELDSET(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function figcaption$lambda_0($receiver) {
+    return Unit;
   }
   function figcaption_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4009,6 +4470,7 @@
     return visitAndFinalize(new FIGCAPTION(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function figure$lambda_0($receiver) {
+    return Unit;
   }
   function figure_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4018,6 +4480,7 @@
     return visitAndFinalize(new FIGURE(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function footer$lambda_0($receiver) {
+    return Unit;
   }
   function footer_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4027,6 +4490,7 @@
     return visitAndFinalize(new FOOTER(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function form$lambda_0($receiver) {
+    return Unit;
   }
   function form_0($receiver, action, encType, method, classes, block) {
     if (action === void 0)
@@ -4042,6 +4506,7 @@
     return visitAndFinalize(new FORM(attributesMapOf_1(['action', action, 'enctype', encType != null ? enumEncode(encType) : null, 'method', method != null ? enumEncode(method) : null, 'class', classes]), $receiver), $receiver, block);
   }
   function h1$lambda_0($receiver) {
+    return Unit;
   }
   function h1_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4051,6 +4516,7 @@
     return visitAndFinalize(new H1(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function h2$lambda_0($receiver) {
+    return Unit;
   }
   function h2_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4060,6 +4526,7 @@
     return visitAndFinalize(new H2(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function h3$lambda_0($receiver) {
+    return Unit;
   }
   function h3_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4069,6 +4536,7 @@
     return visitAndFinalize(new H3(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function h4$lambda_0($receiver) {
+    return Unit;
   }
   function h4_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4078,6 +4546,7 @@
     return visitAndFinalize(new H4(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function h5$lambda_0($receiver) {
+    return Unit;
   }
   function h5_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4087,6 +4556,7 @@
     return visitAndFinalize(new H5(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function h6$lambda_0($receiver) {
+    return Unit;
   }
   function h6_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4095,14 +4565,27 @@
       block = h6$lambda_0;
     return visitAndFinalize(new H6(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
-  function head$lambda_0($receiver) {
+  function head$lambda_1(closure$content) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
+    };
   }
-  function head_0($receiver, block) {
+  function head_1($receiver, content) {
+    if (content === void 0)
+      content = '';
+    return visitAndFinalize(new HEAD(emptyMap_0, $receiver), $receiver, head$lambda_1(content));
+  }
+  function head$lambda_2($receiver) {
+    return Unit;
+  }
+  function head_2($receiver, block) {
     if (block === void 0)
-      block = head$lambda_0;
+      block = head$lambda_2;
     return visitAndFinalize(new HEAD(emptyMap_0, $receiver), $receiver, block);
   }
   function header$lambda_0($receiver) {
+    return Unit;
   }
   function header_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4112,6 +4595,7 @@
     return visitAndFinalize(new HEADER(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function hGroup$lambda_0($receiver) {
+    return Unit;
   }
   function hGroup_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4121,6 +4605,7 @@
     return visitAndFinalize(new HGROUP(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function hr$lambda_0($receiver) {
+    return Unit;
   }
   function hr_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4129,14 +4614,31 @@
       block = hr$lambda_0;
     return visitAndFinalize(new HR(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
-  function html$lambda_0($receiver) {
+  function html$lambda_1(closure$content) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
+    };
   }
-  function html_0($receiver, block) {
+  function html_1($receiver, content, namespace) {
+    if (content === void 0)
+      content = '';
+    if (namespace === void 0)
+      namespace = null;
+    return visitAndFinalize(new HTML(emptyMap_0, $receiver, namespace), $receiver, html$lambda_1(content));
+  }
+  function html$lambda_2($receiver) {
+    return Unit;
+  }
+  function html_2($receiver, namespace, block) {
+    if (namespace === void 0)
+      namespace = null;
     if (block === void 0)
-      block = html$lambda_0;
-    return visitAndFinalize(new HTML(emptyMap_0, $receiver), $receiver, block);
+      block = html$lambda_2;
+    return visitAndFinalize(new HTML(emptyMap_0, $receiver, namespace), $receiver, block);
   }
   function i$lambda_0($receiver) {
+    return Unit;
   }
   function i_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4148,6 +4650,7 @@
   function iframe$lambda_1(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function iframe_1($receiver, sandbox, classes, content) {
@@ -4160,6 +4663,7 @@
     return visitAndFinalize(new IFRAME(attributesMapOf_1(['sandbox', sandbox != null ? enumEncode(sandbox) : null, 'class', classes]), $receiver), $receiver, iframe$lambda_1(content));
   }
   function iframe$lambda_2($receiver) {
+    return Unit;
   }
   function iframe_2($receiver, sandbox, classes, block) {
     if (sandbox === void 0)
@@ -4171,6 +4675,7 @@
     return visitAndFinalize(new IFRAME(attributesMapOf_1(['sandbox', sandbox != null ? enumEncode(sandbox) : null, 'class', classes]), $receiver), $receiver, block);
   }
   function img$lambda_0($receiver) {
+    return Unit;
   }
   function img_0($receiver, alt, src, classes, block) {
     if (alt === void 0)
@@ -4184,6 +4689,7 @@
     return visitAndFinalize(new IMG(attributesMapOf_1(['alt', alt, 'src', src, 'class', classes]), $receiver), $receiver, block);
   }
   function input$lambda_0($receiver) {
+    return Unit;
   }
   function input_0($receiver, type, formEncType, formMethod, name, classes, block) {
     if (type === void 0)
@@ -4201,6 +4707,7 @@
     return visitAndFinalize(new INPUT(attributesMapOf_1(['type', type != null ? enumEncode(type) : null, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver), $receiver, block);
   }
   function ins$lambda_0($receiver) {
+    return Unit;
   }
   function ins_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4210,6 +4717,7 @@
     return visitAndFinalize(new INS(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function kbd$lambda_0($receiver) {
+    return Unit;
   }
   function kbd_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4219,6 +4727,7 @@
     return visitAndFinalize(new KBD(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function keyGen$lambda_0($receiver) {
+    return Unit;
   }
   function keyGen_0($receiver, keyType, classes, block) {
     if (keyType === void 0)
@@ -4230,6 +4739,7 @@
     return visitAndFinalize(new KEYGEN(attributesMapOf_1(['keytype', keyType != null ? enumEncode(keyType) : null, 'class', classes]), $receiver), $receiver, block);
   }
   function label$lambda_0($receiver) {
+    return Unit;
   }
   function label_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4239,6 +4749,7 @@
     return visitAndFinalize(new LABEL(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function legend$lambda_0($receiver) {
+    return Unit;
   }
   function legend_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4248,6 +4759,7 @@
     return visitAndFinalize(new LEGEND(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function li$lambda_0($receiver) {
+    return Unit;
   }
   function li_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4257,6 +4769,7 @@
     return visitAndFinalize(new LI(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function link$lambda_0($receiver) {
+    return Unit;
   }
   function link_0($receiver, href, rel, type, block) {
     if (href === void 0)
@@ -4269,7 +4782,18 @@
       block = link$lambda_0;
     return visitAndFinalize(new LINK(attributesMapOf_1(['href', href, 'rel', rel, 'type', type]), $receiver), $receiver, block);
   }
+  function main$lambda_0($receiver) {
+    return Unit;
+  }
+  function main_0($receiver, classes, block) {
+    if (classes === void 0)
+      classes = null;
+    if (block === void 0)
+      block = main$lambda_0;
+    return visitAndFinalize(new MAIN(attributesMapOf_0('class', classes), $receiver), $receiver, block);
+  }
   function map$lambda_0($receiver) {
+    return Unit;
   }
   function map_0($receiver, name, classes, block) {
     if (name === void 0)
@@ -4281,6 +4805,7 @@
     return visitAndFinalize(new MAP(attributesMapOf_1(['name', name, 'class', classes]), $receiver), $receiver, block);
   }
   function mark$lambda_0($receiver) {
+    return Unit;
   }
   function mark_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4290,6 +4815,7 @@
     return visitAndFinalize(new MARK(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function math$lambda_0($receiver) {
+    return Unit;
   }
   function math_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4301,6 +4827,7 @@
   function mathml$lambda_1(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function mathml_1($receiver, classes, content) {
@@ -4311,6 +4838,7 @@
     return visitAndFinalize(new MATHML(attributesMapOf_0('class', classes), $receiver), $receiver, mathml$lambda_1(content));
   }
   function mathml$lambda_2($receiver) {
+    return Unit;
   }
   function mathml_2($receiver, classes, block) {
     if (classes === void 0)
@@ -4320,17 +4848,21 @@
     return visitAndFinalize(new MATHML(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function meta$lambda_0($receiver) {
+    return Unit;
   }
-  function meta_0($receiver, name, content, block) {
+  function meta_0($receiver, name, content, charset, block) {
     if (name === void 0)
       name = null;
     if (content === void 0)
       content = null;
+    if (charset === void 0)
+      charset = null;
     if (block === void 0)
       block = meta$lambda_0;
-    return visitAndFinalize(new META(attributesMapOf_1(['name', name, 'content', content]), $receiver), $receiver, block);
+    return visitAndFinalize(new META(attributesMapOf_1(['name', name, 'content', content, 'charset', charset]), $receiver), $receiver, block);
   }
   function meter$lambda_0($receiver) {
+    return Unit;
   }
   function meter_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4340,6 +4872,7 @@
     return visitAndFinalize(new METER(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function nav$lambda_0($receiver) {
+    return Unit;
   }
   function nav_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4349,6 +4882,7 @@
     return visitAndFinalize(new NAV(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function noScript$lambda_0($receiver) {
+    return Unit;
   }
   function noScript_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4357,16 +4891,18 @@
       block = noScript$lambda_0;
     return visitAndFinalize(new NOSCRIPT(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
-  function object_$lambda_0($receiver) {
+  function htmlObject$lambda_0($receiver) {
+    return Unit;
   }
-  function object__0($receiver, classes, block) {
+  function htmlObject_0($receiver, classes, block) {
     if (classes === void 0)
       classes = null;
     if (block === void 0)
-      block = object_$lambda_0;
-    return visitAndFinalize(new OBJECT_(attributesMapOf_0('class', classes), $receiver), $receiver, block);
+      block = htmlObject$lambda_0;
+    return visitAndFinalize(new OBJECT(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function ol$lambda_0($receiver) {
+    return Unit;
   }
   function ol_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4376,6 +4912,7 @@
     return visitAndFinalize(new OL(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function optGroup$lambda_0($receiver) {
+    return Unit;
   }
   function optGroup_0($receiver, label, classes, block) {
     if (label === void 0)
@@ -4389,6 +4926,7 @@
   function option$lambda_1(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function option_1($receiver, classes, content) {
@@ -4399,6 +4937,7 @@
     return visitAndFinalize(new OPTION(attributesMapOf_0('class', classes), $receiver), $receiver, option$lambda_1(content));
   }
   function option$lambda_2($receiver) {
+    return Unit;
   }
   function option_2($receiver, classes, block) {
     if (classes === void 0)
@@ -4408,6 +4947,7 @@
     return visitAndFinalize(new OPTION(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function output$lambda_0($receiver) {
+    return Unit;
   }
   function output_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4417,6 +4957,7 @@
     return visitAndFinalize(new OUTPUT(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function p$lambda_0($receiver) {
+    return Unit;
   }
   function p_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4426,6 +4967,7 @@
     return visitAndFinalize(new P(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function param$lambda_0($receiver) {
+    return Unit;
   }
   function param_0($receiver, name, value, block) {
     if (name === void 0)
@@ -4437,6 +4979,7 @@
     return visitAndFinalize(new PARAM(attributesMapOf_1(['name', name, 'value', value]), $receiver), $receiver, block);
   }
   function pre$lambda_0($receiver) {
+    return Unit;
   }
   function pre_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4446,6 +4989,7 @@
     return visitAndFinalize(new PRE(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function progress$lambda_0($receiver) {
+    return Unit;
   }
   function progress_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4455,6 +4999,7 @@
     return visitAndFinalize(new PROGRESS(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function q$lambda_0($receiver) {
+    return Unit;
   }
   function q_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4464,6 +5009,7 @@
     return visitAndFinalize(new Q(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function rp$lambda_0($receiver) {
+    return Unit;
   }
   function rp_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4473,6 +5019,7 @@
     return visitAndFinalize(new RP(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function rt$lambda_0($receiver) {
+    return Unit;
   }
   function rt_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4482,6 +5029,7 @@
     return visitAndFinalize(new RT(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function ruby$lambda_0($receiver) {
+    return Unit;
   }
   function ruby_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4491,6 +5039,7 @@
     return visitAndFinalize(new RUBY(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function samp$lambda_0($receiver) {
+    return Unit;
   }
   function samp_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4499,32 +5048,35 @@
       block = samp$lambda_0;
     return visitAndFinalize(new SAMP(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
-  function script$lambda_0(closure$content) {
+  function script$lambda_1(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
-  function script_0($receiver, type, src, content) {
+  function script_1($receiver, type, src, content) {
     if (type === void 0)
       type = null;
     if (src === void 0)
       src = null;
     if (content === void 0)
       content = '';
-    return visitAndFinalize(new SCRIPT(attributesMapOf_1(['type', type, 'src', src]), $receiver), $receiver, script$lambda_0(content));
+    return visitAndFinalize(new SCRIPT(attributesMapOf_1(['type', type, 'src', src]), $receiver), $receiver, script$lambda_1(content));
   }
-  function script$lambda_1($receiver) {
+  function script$lambda_2($receiver) {
+    return Unit;
   }
-  function script_1($receiver, type, src, block) {
+  function script_2($receiver, type, src, block) {
     if (type === void 0)
       type = null;
     if (src === void 0)
       src = null;
     if (block === void 0)
-      block = script$lambda_1;
+      block = script$lambda_2;
     return visitAndFinalize(new SCRIPT(attributesMapOf_1(['type', type, 'src', src]), $receiver), $receiver, block);
   }
   function section$lambda_0($receiver) {
+    return Unit;
   }
   function section_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4534,6 +5086,7 @@
     return visitAndFinalize(new SECTION(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function select$lambda_0($receiver) {
+    return Unit;
   }
   function select_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4543,6 +5096,7 @@
     return visitAndFinalize(new SELECT(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function small$lambda_0($receiver) {
+    return Unit;
   }
   function small_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4552,6 +5106,7 @@
     return visitAndFinalize(new SMALL(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function source$lambda_0($receiver) {
+    return Unit;
   }
   function source_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4561,6 +5116,7 @@
     return visitAndFinalize(new SOURCE(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function span$lambda_0($receiver) {
+    return Unit;
   }
   function span_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4570,6 +5126,7 @@
     return visitAndFinalize(new SPAN(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function strong$lambda_0($receiver) {
+    return Unit;
   }
   function strong_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4581,6 +5138,7 @@
   function style$lambda_1(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function style_1($receiver, type, content) {
@@ -4591,6 +5149,7 @@
     return visitAndFinalize(new STYLE(attributesMapOf_0('type', type), $receiver), $receiver, style$lambda_1(content));
   }
   function style$lambda_2($receiver) {
+    return Unit;
   }
   function style_2($receiver, type, block) {
     if (type === void 0)
@@ -4600,6 +5159,7 @@
     return visitAndFinalize(new STYLE(attributesMapOf_0('type', type), $receiver), $receiver, block);
   }
   function sub$lambda_0($receiver) {
+    return Unit;
   }
   function sub_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4609,6 +5169,7 @@
     return visitAndFinalize(new SUB(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function sup$lambda_0($receiver) {
+    return Unit;
   }
   function sup_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4620,6 +5181,7 @@
   function svg$lambda_1(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function svg_1($receiver, classes, content) {
@@ -4630,6 +5192,7 @@
     return visitAndFinalize(new SVG(attributesMapOf_0('class', classes), $receiver), $receiver, svg$lambda_1(content));
   }
   function svg$lambda_2($receiver) {
+    return Unit;
   }
   function svg_2($receiver, classes, block) {
     if (classes === void 0)
@@ -4639,6 +5202,7 @@
     return visitAndFinalize(new SVG(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function table$lambda_0($receiver) {
+    return Unit;
   }
   function table_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4648,6 +5212,7 @@
     return visitAndFinalize(new TABLE(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function tbody$lambda_0($receiver) {
+    return Unit;
   }
   function tbody_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4657,6 +5222,7 @@
     return visitAndFinalize(new TBODY(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function td$lambda_0($receiver) {
+    return Unit;
   }
   function td_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4668,6 +5234,7 @@
   function textArea$lambda_1(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function textArea_1($receiver, rows, cols, wrap, classes, content) {
@@ -4684,6 +5251,7 @@
     return visitAndFinalize(new TEXTAREA(attributesMapOf_1(['rows', rows, 'cols', cols, 'wrap', wrap != null ? enumEncode(wrap) : null, 'class', classes]), $receiver), $receiver, textArea$lambda_1(content));
   }
   function textArea$lambda_2($receiver) {
+    return Unit;
   }
   function textArea_2($receiver, rows, cols, wrap, classes, block) {
     if (rows === void 0)
@@ -4699,6 +5267,7 @@
     return visitAndFinalize(new TEXTAREA(attributesMapOf_1(['rows', rows, 'cols', cols, 'wrap', wrap != null ? enumEncode(wrap) : null, 'class', classes]), $receiver), $receiver, block);
   }
   function tfoot$lambda_0($receiver) {
+    return Unit;
   }
   function tfoot_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4708,6 +5277,7 @@
     return visitAndFinalize(new TFOOT(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function th$lambda_0($receiver) {
+    return Unit;
   }
   function th_0($receiver, scope, classes, block) {
     if (scope === void 0)
@@ -4719,6 +5289,7 @@
     return visitAndFinalize(new TH(attributesMapOf_1(['scope', scope != null ? enumEncode(scope) : null, 'class', classes]), $receiver), $receiver, block);
   }
   function thead$lambda_0($receiver) {
+    return Unit;
   }
   function thead_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4728,6 +5299,7 @@
     return visitAndFinalize(new THEAD(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function time$lambda_0($receiver) {
+    return Unit;
   }
   function time_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4739,6 +5311,7 @@
   function title$lambda_1(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function title_1($receiver, content) {
@@ -4747,6 +5320,7 @@
     return visitAndFinalize(new TITLE(emptyMap_0, $receiver), $receiver, title$lambda_1(content));
   }
   function title$lambda_2($receiver) {
+    return Unit;
   }
   function title_2($receiver, block) {
     if (block === void 0)
@@ -4754,6 +5328,7 @@
     return visitAndFinalize(new TITLE(emptyMap_0, $receiver), $receiver, block);
   }
   function tr$lambda_0($receiver) {
+    return Unit;
   }
   function tr_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4763,6 +5338,7 @@
     return visitAndFinalize(new TR(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function ul$lambda_0($receiver) {
+    return Unit;
   }
   function ul_0($receiver, classes, block) {
     if (classes === void 0)
@@ -4771,16 +5347,18 @@
       block = ul$lambda_0;
     return visitAndFinalize(new UL(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
-  function var_$lambda_0($receiver) {
+  function htmlVar$lambda_0($receiver) {
+    return Unit;
   }
-  function var__0($receiver, classes, block) {
+  function htmlVar_0($receiver, classes, block) {
     if (classes === void 0)
       classes = null;
     if (block === void 0)
-      block = var_$lambda_0;
-    return visitAndFinalize(new VAR_(attributesMapOf_0('class', classes), $receiver), $receiver, block);
+      block = htmlVar$lambda_0;
+    return visitAndFinalize(new VAR(attributesMapOf_0('class', classes), $receiver), $receiver, block);
   }
   function video$lambda_0($receiver) {
+    return Unit;
   }
   function video_0($receiver, classes, block) {
     if (classes === void 0)
@@ -5410,7 +5988,7 @@
     }
   });
   Entities.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'Entities',
     interfaces: [Enum]
   };
@@ -5622,13 +6200,13 @@
         return Entities$thorn_getInstance();
       case 'yuml':
         return Entities$yuml_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.Entities.' + name);
+      default:throwISE('No enum constant kotlinx.html.Entities.' + name);
     }
   }
   Entities.valueOf_61zpoe$ = Entities$valueOf;
   function Dir(name, ordinal, realValue) {
     Enum.call(this);
-    this.realValue_6shvwn$_0 = realValue;
+    this.realValue_v17tv0$_0 = realValue;
     this.name$ = name;
     this.ordinal$ = ordinal;
   }
@@ -5640,7 +6218,7 @@
   }
   Object.defineProperty(Dir.prototype, 'realValue', {
     get: function () {
-      return this.realValue_6shvwn$_0;
+      return this.realValue_v17tv0$_0;
     }
   });
   var Dir$ltr_instance;
@@ -5654,7 +6232,7 @@
     return Dir$rtl_instance;
   }
   Dir.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'Dir',
     interfaces: [AttributeEnum, Enum]
   };
@@ -5668,38 +6246,38 @@
         return Dir$ltr_getInstance();
       case 'rtl':
         return Dir$rtl_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.Dir.' + name);
+      default:throwISE('No enum constant kotlinx.html.Dir.' + name);
     }
   }
   Dir.valueOf_61zpoe$ = Dir$valueOf;
   var dirValues;
   function Draggable(name, ordinal, realValue) {
     Enum.call(this);
-    this.realValue_sh13nr$_0 = realValue;
+    this.realValue_dqbe24$_0 = realValue;
     this.name$ = name;
     this.ordinal$ = ordinal;
   }
   function Draggable_initFields() {
     Draggable_initFields = function () {
     };
-    Draggable$true__instance = new Draggable('true_', 0, 'true');
-    Draggable$false__instance = new Draggable('false_', 1, 'false');
+    Draggable$htmlTrue_instance = new Draggable('htmlTrue', 0, 'true');
+    Draggable$htmlFalse_instance = new Draggable('htmlFalse', 1, 'false');
     Draggable$auto_instance = new Draggable('auto', 2, 'auto');
   }
   Object.defineProperty(Draggable.prototype, 'realValue', {
     get: function () {
-      return this.realValue_sh13nr$_0;
+      return this.realValue_dqbe24$_0;
     }
   });
-  var Draggable$true__instance;
-  function Draggable$true__getInstance() {
+  var Draggable$htmlTrue_instance;
+  function Draggable$htmlTrue_getInstance() {
     Draggable_initFields();
-    return Draggable$true__instance;
+    return Draggable$htmlTrue_instance;
   }
-  var Draggable$false__instance;
-  function Draggable$false__getInstance() {
+  var Draggable$htmlFalse_instance;
+  function Draggable$htmlFalse_getInstance() {
     Draggable_initFields();
-    return Draggable$false__instance;
+    return Draggable$htmlFalse_instance;
   }
   var Draggable$auto_instance;
   function Draggable$auto_getInstance() {
@@ -5707,30 +6285,30 @@
     return Draggable$auto_instance;
   }
   Draggable.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'Draggable',
     interfaces: [AttributeEnum, Enum]
   };
   function Draggable$values() {
-    return [Draggable$true__getInstance(), Draggable$false__getInstance(), Draggable$auto_getInstance()];
+    return [Draggable$htmlTrue_getInstance(), Draggable$htmlFalse_getInstance(), Draggable$auto_getInstance()];
   }
   Draggable.values = Draggable$values;
   function Draggable$valueOf(name) {
     switch (name) {
-      case 'true_':
-        return Draggable$true__getInstance();
-      case 'false_':
-        return Draggable$false__getInstance();
+      case 'htmlTrue':
+        return Draggable$htmlTrue_getInstance();
+      case 'htmlFalse':
+        return Draggable$htmlFalse_getInstance();
       case 'auto':
         return Draggable$auto_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.Draggable.' + name);
+      default:throwISE('No enum constant kotlinx.html.Draggable.' + name);
     }
   }
   Draggable.valueOf_61zpoe$ = Draggable$valueOf;
   var draggableValues;
   function RunAt(name, ordinal, realValue) {
     Enum.call(this);
-    this.realValue_ey285k$_0 = realValue;
+    this.realValue_ms5t7h$_0 = realValue;
     this.name$ = name;
     this.ordinal$ = ordinal;
   }
@@ -5741,7 +6319,7 @@
   }
   Object.defineProperty(RunAt.prototype, 'realValue', {
     get: function () {
-      return this.realValue_ey285k$_0;
+      return this.realValue_ms5t7h$_0;
     }
   });
   var RunAt$server_instance;
@@ -5750,7 +6328,7 @@
     return RunAt$server_instance;
   }
   RunAt.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'RunAt',
     interfaces: [AttributeEnum, Enum]
   };
@@ -5762,7 +6340,7 @@
     switch (name) {
       case 'server':
         return RunAt$server_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.RunAt.' + name);
+      default:throwISE('No enum constant kotlinx.html.RunAt.' + name);
     }
   }
   RunAt.valueOf_61zpoe$ = RunAt$valueOf;
@@ -5776,7 +6354,7 @@
     this.values = listOf_0(['blank', 'parent', 'self', 'top']);
   }
   ATarget.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'ATarget',
     interfaces: []
   };
@@ -5807,7 +6385,7 @@
     this.values = listOf_0(['alternate', 'appEndIx', 'bookmark', 'chapter', 'contentS', 'copyright', 'glossary', 'help', 'index', 'next', 'prev', 'section', 'start', 'stylesheet', 'subsection']);
   }
   ARel.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'ARel',
     interfaces: []
   };
@@ -5833,7 +6411,7 @@
     this.values = listOf_0(['textAsp', 'textAsa', 'textCss', 'textHtml', 'textJavaScript', 'textPlain', 'textScriptLet', 'textXComponent', 'textXHtmlInsertion', 'textXml']);
   }
   AType.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'AType',
     interfaces: []
   };
@@ -5846,7 +6424,7 @@
   }
   function AreaShape(name, ordinal, realValue) {
     Enum.call(this);
-    this.realValue_uzg4u$_0 = realValue;
+    this.realValue_3evemr$_0 = realValue;
     this.name$ = name;
     this.ordinal$ = ordinal;
   }
@@ -5860,7 +6438,7 @@
   }
   Object.defineProperty(AreaShape.prototype, 'realValue', {
     get: function () {
-      return this.realValue_uzg4u$_0;
+      return this.realValue_3evemr$_0;
     }
   });
   var AreaShape$rect_instance;
@@ -5884,7 +6462,7 @@
     return AreaShape$default_instance;
   }
   AreaShape.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'AreaShape',
     interfaces: [AttributeEnum, Enum]
   };
@@ -5902,7 +6480,7 @@
         return AreaShape$poly_getInstance();
       case 'default':
         return AreaShape$default_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.AreaShape.' + name);
+      default:throwISE('No enum constant kotlinx.html.AreaShape.' + name);
     }
   }
   AreaShape.valueOf_61zpoe$ = AreaShape$valueOf;
@@ -5916,7 +6494,7 @@
     this.values = listOf_0(['blank', 'parent', 'self', 'top']);
   }
   AreaTarget.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'AreaTarget',
     interfaces: []
   };
@@ -5947,7 +6525,7 @@
     this.values = listOf_0(['alternate', 'appEndIx', 'bookmark', 'chapter', 'contentS', 'copyright', 'glossary', 'help', 'index', 'next', 'prev', 'section', 'start', 'stylesheet', 'subsection']);
   }
   AreaRel.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'AreaRel',
     interfaces: []
   };
@@ -5967,7 +6545,7 @@
     this.values = listOf_0(['blank', 'parent', 'self', 'top']);
   }
   BaseTarget.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'BaseTarget',
     interfaces: []
   };
@@ -5980,7 +6558,7 @@
   }
   function ButtonFormEncType(name, ordinal, realValue) {
     Enum.call(this);
-    this.realValue_6mz8t4$_0 = realValue;
+    this.realValue_jbimyr$_0 = realValue;
     this.name$ = name;
     this.ordinal$ = ordinal;
   }
@@ -5993,7 +6571,7 @@
   }
   Object.defineProperty(ButtonFormEncType.prototype, 'realValue', {
     get: function () {
-      return this.realValue_6mz8t4$_0;
+      return this.realValue_jbimyr$_0;
     }
   });
   var ButtonFormEncType$multipartFormData_instance;
@@ -6012,7 +6590,7 @@
     return ButtonFormEncType$textPlain_instance;
   }
   ButtonFormEncType.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'ButtonFormEncType',
     interfaces: [AttributeEnum, Enum]
   };
@@ -6028,14 +6606,14 @@
         return ButtonFormEncType$applicationXWwwFormUrlEncoded_getInstance();
       case 'textPlain':
         return ButtonFormEncType$textPlain_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.ButtonFormEncType.' + name);
+      default:throwISE('No enum constant kotlinx.html.ButtonFormEncType.' + name);
     }
   }
   ButtonFormEncType.valueOf_61zpoe$ = ButtonFormEncType$valueOf;
   var buttonFormEncTypeValues;
   function ButtonFormMethod(name, ordinal, realValue) {
     Enum.call(this);
-    this.realValue_he15gp$_0 = realValue;
+    this.realValue_d5r8tu$_0 = realValue;
     this.name$ = name;
     this.ordinal$ = ordinal;
   }
@@ -6046,10 +6624,11 @@
     ButtonFormMethod$post_instance = new ButtonFormMethod('post', 1, 'post');
     ButtonFormMethod$put_instance = new ButtonFormMethod('put', 2, 'put');
     ButtonFormMethod$delete_instance = new ButtonFormMethod('delete', 3, 'delete');
+    ButtonFormMethod$patch_instance = new ButtonFormMethod('patch', 4, 'patch');
   }
   Object.defineProperty(ButtonFormMethod.prototype, 'realValue', {
     get: function () {
-      return this.realValue_he15gp$_0;
+      return this.realValue_d5r8tu$_0;
     }
   });
   var ButtonFormMethod$get_instance;
@@ -6072,13 +6651,18 @@
     ButtonFormMethod_initFields();
     return ButtonFormMethod$delete_instance;
   }
+  var ButtonFormMethod$patch_instance;
+  function ButtonFormMethod$patch_getInstance() {
+    ButtonFormMethod_initFields();
+    return ButtonFormMethod$patch_instance;
+  }
   ButtonFormMethod.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'ButtonFormMethod',
     interfaces: [AttributeEnum, Enum]
   };
   function ButtonFormMethod$values() {
-    return [ButtonFormMethod$get_getInstance(), ButtonFormMethod$post_getInstance(), ButtonFormMethod$put_getInstance(), ButtonFormMethod$delete_getInstance()];
+    return [ButtonFormMethod$get_getInstance(), ButtonFormMethod$post_getInstance(), ButtonFormMethod$put_getInstance(), ButtonFormMethod$delete_getInstance(), ButtonFormMethod$patch_getInstance()];
   }
   ButtonFormMethod.values = ButtonFormMethod$values;
   function ButtonFormMethod$valueOf(name) {
@@ -6091,7 +6675,9 @@
         return ButtonFormMethod$put_getInstance();
       case 'delete':
         return ButtonFormMethod$delete_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.ButtonFormMethod.' + name);
+      case 'patch':
+        return ButtonFormMethod$patch_getInstance();
+      default:throwISE('No enum constant kotlinx.html.ButtonFormMethod.' + name);
     }
   }
   ButtonFormMethod.valueOf_61zpoe$ = ButtonFormMethod$valueOf;
@@ -6105,7 +6691,7 @@
     this.values = listOf_0(['blank', 'parent', 'self', 'top']);
   }
   ButtonFormTarget.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'ButtonFormTarget',
     interfaces: []
   };
@@ -6118,7 +6704,7 @@
   }
   function ButtonType(name, ordinal, realValue) {
     Enum.call(this);
-    this.realValue_kjj0ea$_0 = realValue;
+    this.realValue_y6hxzx$_0 = realValue;
     this.name$ = name;
     this.ordinal$ = ordinal;
   }
@@ -6131,7 +6717,7 @@
   }
   Object.defineProperty(ButtonType.prototype, 'realValue', {
     get: function () {
-      return this.realValue_kjj0ea$_0;
+      return this.realValue_y6hxzx$_0;
     }
   });
   var ButtonType$button_instance;
@@ -6150,7 +6736,7 @@
     return ButtonType$submit_instance;
   }
   ButtonType.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'ButtonType',
     interfaces: [AttributeEnum, Enum]
   };
@@ -6166,14 +6752,14 @@
         return ButtonType$reset_getInstance();
       case 'submit':
         return ButtonType$submit_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.ButtonType.' + name);
+      default:throwISE('No enum constant kotlinx.html.ButtonType.' + name);
     }
   }
   ButtonType.valueOf_61zpoe$ = ButtonType$valueOf;
   var buttonTypeValues;
   function CommandType(name, ordinal, realValue) {
     Enum.call(this);
-    this.realValue_dgxtb5$_0 = realValue;
+    this.realValue_udtcw4$_0 = realValue;
     this.name$ = name;
     this.ordinal$ = ordinal;
   }
@@ -6186,7 +6772,7 @@
   }
   Object.defineProperty(CommandType.prototype, 'realValue', {
     get: function () {
-      return this.realValue_dgxtb5$_0;
+      return this.realValue_udtcw4$_0;
     }
   });
   var CommandType$command_instance;
@@ -6205,7 +6791,7 @@
     return CommandType$radio_instance;
   }
   CommandType.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'CommandType',
     interfaces: [AttributeEnum, Enum]
   };
@@ -6221,14 +6807,14 @@
         return CommandType$checkBox_getInstance();
       case 'radio':
         return CommandType$radio_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.CommandType.' + name);
+      default:throwISE('No enum constant kotlinx.html.CommandType.' + name);
     }
   }
   CommandType.valueOf_61zpoe$ = CommandType$valueOf;
   var commandTypeValues;
   function FormEncType(name, ordinal, realValue) {
     Enum.call(this);
-    this.realValue_mjs8fe$_0 = realValue;
+    this.realValue_kq4nox$_0 = realValue;
     this.name$ = name;
     this.ordinal$ = ordinal;
   }
@@ -6241,7 +6827,7 @@
   }
   Object.defineProperty(FormEncType.prototype, 'realValue', {
     get: function () {
-      return this.realValue_mjs8fe$_0;
+      return this.realValue_kq4nox$_0;
     }
   });
   var FormEncType$multipartFormData_instance;
@@ -6260,7 +6846,7 @@
     return FormEncType$textPlain_instance;
   }
   FormEncType.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'FormEncType',
     interfaces: [AttributeEnum, Enum]
   };
@@ -6276,14 +6862,14 @@
         return FormEncType$applicationXWwwFormUrlEncoded_getInstance();
       case 'textPlain':
         return FormEncType$textPlain_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.FormEncType.' + name);
+      default:throwISE('No enum constant kotlinx.html.FormEncType.' + name);
     }
   }
   FormEncType.valueOf_61zpoe$ = FormEncType$valueOf;
   var formEncTypeValues;
   function FormMethod(name, ordinal, realValue) {
     Enum.call(this);
-    this.realValue_dbj8t3$_0 = realValue;
+    this.realValue_7ezxj0$_0 = realValue;
     this.name$ = name;
     this.ordinal$ = ordinal;
   }
@@ -6294,10 +6880,11 @@
     FormMethod$post_instance = new FormMethod('post', 1, 'post');
     FormMethod$put_instance = new FormMethod('put', 2, 'put');
     FormMethod$delete_instance = new FormMethod('delete', 3, 'delete');
+    FormMethod$patch_instance = new FormMethod('patch', 4, 'patch');
   }
   Object.defineProperty(FormMethod.prototype, 'realValue', {
     get: function () {
-      return this.realValue_dbj8t3$_0;
+      return this.realValue_7ezxj0$_0;
     }
   });
   var FormMethod$get_instance;
@@ -6320,13 +6907,18 @@
     FormMethod_initFields();
     return FormMethod$delete_instance;
   }
+  var FormMethod$patch_instance;
+  function FormMethod$patch_getInstance() {
+    FormMethod_initFields();
+    return FormMethod$patch_instance;
+  }
   FormMethod.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'FormMethod',
     interfaces: [AttributeEnum, Enum]
   };
   function FormMethod$values() {
-    return [FormMethod$get_getInstance(), FormMethod$post_getInstance(), FormMethod$put_getInstance(), FormMethod$delete_getInstance()];
+    return [FormMethod$get_getInstance(), FormMethod$post_getInstance(), FormMethod$put_getInstance(), FormMethod$delete_getInstance(), FormMethod$patch_getInstance()];
   }
   FormMethod.values = FormMethod$values;
   function FormMethod$valueOf(name) {
@@ -6339,7 +6931,9 @@
         return FormMethod$put_getInstance();
       case 'delete':
         return FormMethod$delete_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.FormMethod.' + name);
+      case 'patch':
+        return FormMethod$patch_getInstance();
+      default:throwISE('No enum constant kotlinx.html.FormMethod.' + name);
     }
   }
   FormMethod.valueOf_61zpoe$ = FormMethod$valueOf;
@@ -6353,7 +6947,7 @@
     this.values = listOf_0(['blank', 'parent', 'self', 'top']);
   }
   FormTarget.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'FormTarget',
     interfaces: []
   };
@@ -6373,7 +6967,7 @@
     this.values = listOf_0(['blank', 'parent', 'self', 'top']);
   }
   IframeName.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'IframeName',
     interfaces: []
   };
@@ -6386,7 +6980,7 @@
   }
   function IframeSandbox(name, ordinal, realValue) {
     Enum.call(this);
-    this.realValue_jow5qb$_0 = realValue;
+    this.realValue_81nrfm$_0 = realValue;
     this.name$ = name;
     this.ordinal$ = ordinal;
   }
@@ -6399,7 +6993,7 @@
   }
   Object.defineProperty(IframeSandbox.prototype, 'realValue', {
     get: function () {
-      return this.realValue_jow5qb$_0;
+      return this.realValue_81nrfm$_0;
     }
   });
   var IframeSandbox$allowSameOrigin_instance;
@@ -6418,7 +7012,7 @@
     return IframeSandbox$allowScripts_instance;
   }
   IframeSandbox.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'IframeSandbox',
     interfaces: [AttributeEnum, Enum]
   };
@@ -6434,14 +7028,14 @@
         return IframeSandbox$allowFormS_getInstance();
       case 'allowScripts':
         return IframeSandbox$allowScripts_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.IframeSandbox.' + name);
+      default:throwISE('No enum constant kotlinx.html.IframeSandbox.' + name);
     }
   }
   IframeSandbox.valueOf_61zpoe$ = IframeSandbox$valueOf;
   var iframeSandboxValues;
   function InputType(name, ordinal, realValue) {
     Enum.call(this);
-    this.realValue_8c27wi$_0 = realValue;
+    this.realValue_310543$_0 = realValue;
     this.name$ = name;
     this.ordinal$ = ordinal;
   }
@@ -6474,7 +7068,7 @@
   }
   Object.defineProperty(InputType.prototype, 'realValue', {
     get: function () {
-      return this.realValue_8c27wi$_0;
+      return this.realValue_310543$_0;
     }
   });
   var InputType$button_instance;
@@ -6593,7 +7187,7 @@
     return InputType$week_instance;
   }
   InputType.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'InputType',
     interfaces: [AttributeEnum, Enum]
   };
@@ -6649,14 +7243,14 @@
         return InputType$url_getInstance();
       case 'week':
         return InputType$week_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.InputType.' + name);
+      default:throwISE('No enum constant kotlinx.html.InputType.' + name);
     }
   }
   InputType.valueOf_61zpoe$ = InputType$valueOf;
   var inputTypeValues;
   function InputFormEncType(name, ordinal, realValue) {
     Enum.call(this);
-    this.realValue_7oxi3s$_0 = realValue;
+    this.realValue_tkfxfn$_0 = realValue;
     this.name$ = name;
     this.ordinal$ = ordinal;
   }
@@ -6669,7 +7263,7 @@
   }
   Object.defineProperty(InputFormEncType.prototype, 'realValue', {
     get: function () {
-      return this.realValue_7oxi3s$_0;
+      return this.realValue_tkfxfn$_0;
     }
   });
   var InputFormEncType$multipartFormData_instance;
@@ -6688,7 +7282,7 @@
     return InputFormEncType$textPlain_instance;
   }
   InputFormEncType.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'InputFormEncType',
     interfaces: [AttributeEnum, Enum]
   };
@@ -6704,14 +7298,14 @@
         return InputFormEncType$applicationXWwwFormUrlEncoded_getInstance();
       case 'textPlain':
         return InputFormEncType$textPlain_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.InputFormEncType.' + name);
+      default:throwISE('No enum constant kotlinx.html.InputFormEncType.' + name);
     }
   }
   InputFormEncType.valueOf_61zpoe$ = InputFormEncType$valueOf;
   var inputFormEncTypeValues;
   function InputFormMethod(name, ordinal, realValue) {
     Enum.call(this);
-    this.realValue_lid4q1$_0 = realValue;
+    this.realValue_tj2iwi$_0 = realValue;
     this.name$ = name;
     this.ordinal$ = ordinal;
   }
@@ -6722,10 +7316,11 @@
     InputFormMethod$post_instance = new InputFormMethod('post', 1, 'post');
     InputFormMethod$put_instance = new InputFormMethod('put', 2, 'put');
     InputFormMethod$delete_instance = new InputFormMethod('delete', 3, 'delete');
+    InputFormMethod$patch_instance = new InputFormMethod('patch', 4, 'patch');
   }
   Object.defineProperty(InputFormMethod.prototype, 'realValue', {
     get: function () {
-      return this.realValue_lid4q1$_0;
+      return this.realValue_tj2iwi$_0;
     }
   });
   var InputFormMethod$get_instance;
@@ -6748,13 +7343,18 @@
     InputFormMethod_initFields();
     return InputFormMethod$delete_instance;
   }
+  var InputFormMethod$patch_instance;
+  function InputFormMethod$patch_getInstance() {
+    InputFormMethod_initFields();
+    return InputFormMethod$patch_instance;
+  }
   InputFormMethod.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'InputFormMethod',
     interfaces: [AttributeEnum, Enum]
   };
   function InputFormMethod$values() {
-    return [InputFormMethod$get_getInstance(), InputFormMethod$post_getInstance(), InputFormMethod$put_getInstance(), InputFormMethod$delete_getInstance()];
+    return [InputFormMethod$get_getInstance(), InputFormMethod$post_getInstance(), InputFormMethod$put_getInstance(), InputFormMethod$delete_getInstance(), InputFormMethod$patch_getInstance()];
   }
   InputFormMethod.values = InputFormMethod$values;
   function InputFormMethod$valueOf(name) {
@@ -6767,7 +7367,9 @@
         return InputFormMethod$put_getInstance();
       case 'delete':
         return InputFormMethod$delete_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.InputFormMethod.' + name);
+      case 'patch':
+        return InputFormMethod$patch_getInstance();
+      default:throwISE('No enum constant kotlinx.html.InputFormMethod.' + name);
     }
   }
   InputFormMethod.valueOf_61zpoe$ = InputFormMethod$valueOf;
@@ -6781,7 +7383,7 @@
     this.values = listOf_0(['blank', 'parent', 'self', 'top']);
   }
   InputFormTarget.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'InputFormTarget',
     interfaces: []
   };
@@ -6794,7 +7396,7 @@
   }
   function KeyGenKeyType(name, ordinal, realValue) {
     Enum.call(this);
-    this.realValue_ucztlq$_0 = realValue;
+    this.realValue_dxnvt3$_0 = realValue;
     this.name$ = name;
     this.ordinal$ = ordinal;
   }
@@ -6805,7 +7407,7 @@
   }
   Object.defineProperty(KeyGenKeyType.prototype, 'realValue', {
     get: function () {
-      return this.realValue_ucztlq$_0;
+      return this.realValue_dxnvt3$_0;
     }
   });
   var KeyGenKeyType$rsa_instance;
@@ -6814,7 +7416,7 @@
     return KeyGenKeyType$rsa_instance;
   }
   KeyGenKeyType.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'KeyGenKeyType',
     interfaces: [AttributeEnum, Enum]
   };
@@ -6826,7 +7428,7 @@
     switch (name) {
       case 'rsa':
         return KeyGenKeyType$rsa_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.KeyGenKeyType.' + name);
+      default:throwISE('No enum constant kotlinx.html.KeyGenKeyType.' + name);
     }
   }
   KeyGenKeyType.valueOf_61zpoe$ = KeyGenKeyType$valueOf;
@@ -6851,7 +7453,7 @@
     this.values = listOf_0(['alternate', 'appEndIx', 'bookmark', 'chapter', 'contentS', 'copyright', 'glossary', 'help', 'index', 'next', 'prev', 'section', 'start', 'stylesheet', 'subsection']);
   }
   LinkRel.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'LinkRel',
     interfaces: []
   };
@@ -6876,7 +7478,7 @@
     this.values = listOf_0(['screen', 'print', 'tty', 'tv', 'projection', 'handheld', 'braille', 'aural', 'all']);
   }
   LinkMedia.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'LinkMedia',
     interfaces: []
   };
@@ -6902,7 +7504,7 @@
     this.values = listOf_0(['textAsp', 'textAsa', 'textCss', 'textHtml', 'textJavaScript', 'textPlain', 'textScriptLet', 'textXComponent', 'textXHtmlInsertion', 'textXml']);
   }
   LinkType.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'LinkType',
     interfaces: []
   };
@@ -6922,7 +7524,7 @@
     this.values = listOf_0(['contentLanguage', 'contentType', 'defaultStyle', 'refresh']);
   }
   MetaHttpEquiv.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'MetaHttpEquiv',
     interfaces: []
   };
@@ -6942,7 +7544,7 @@
     this.values = listOf_0(['blank', 'parent', 'self', 'top']);
   }
   ObjectName.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'ObjectName',
     interfaces: []
   };
@@ -6970,7 +7572,7 @@
     this.values = listOf_0(['textEcmaScript', 'textJavaScript', 'textJavaScript10', 'textJavaScript11', 'textJavaScript12', 'textJavaScript13', 'textJavaScript14', 'textJavaScript15', 'textJScript', 'textXJavaScript', 'textXEcmaScript', 'textVbScript']);
   }
   ScriptType.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'ScriptType',
     interfaces: []
   };
@@ -6987,7 +7589,7 @@
     this.values = listOf('textCss');
   }
   StyleType.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'StyleType',
     interfaces: []
   };
@@ -7012,7 +7614,7 @@
     this.values = listOf_0(['screen', 'print', 'tty', 'tv', 'projection', 'handheld', 'braille', 'aural', 'all']);
   }
   StyleMedia.$metadata$ = {
-    kind: Kotlin.Kind.OBJECT,
+    kind: Kind_OBJECT,
     simpleName: 'StyleMedia',
     interfaces: []
   };
@@ -7025,7 +7627,7 @@
   }
   function TextAreaWrap(name, ordinal, realValue) {
     Enum.call(this);
-    this.realValue_97rypi$_0 = realValue;
+    this.realValue_mbbrvf$_0 = realValue;
     this.name$ = name;
     this.ordinal$ = ordinal;
   }
@@ -7037,7 +7639,7 @@
   }
   Object.defineProperty(TextAreaWrap.prototype, 'realValue', {
     get: function () {
-      return this.realValue_97rypi$_0;
+      return this.realValue_mbbrvf$_0;
     }
   });
   var TextAreaWrap$hard_instance;
@@ -7051,7 +7653,7 @@
     return TextAreaWrap$soft_instance;
   }
   TextAreaWrap.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'TextAreaWrap',
     interfaces: [AttributeEnum, Enum]
   };
@@ -7065,14 +7667,14 @@
         return TextAreaWrap$hard_getInstance();
       case 'soft':
         return TextAreaWrap$soft_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.TextAreaWrap.' + name);
+      default:throwISE('No enum constant kotlinx.html.TextAreaWrap.' + name);
     }
   }
   TextAreaWrap.valueOf_61zpoe$ = TextAreaWrap$valueOf;
   var textAreaWrapValues;
   function ThScope(name, ordinal, realValue) {
     Enum.call(this);
-    this.realValue_bnf5k6$_0 = realValue;
+    this.realValue_dlfslb$_0 = realValue;
     this.name$ = name;
     this.ordinal$ = ordinal;
   }
@@ -7086,7 +7688,7 @@
   }
   Object.defineProperty(ThScope.prototype, 'realValue', {
     get: function () {
-      return this.realValue_bnf5k6$_0;
+      return this.realValue_dlfslb$_0;
     }
   });
   var ThScope$col_instance;
@@ -7110,7 +7712,7 @@
     return ThScope$rowGroup_instance;
   }
   ThScope.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'ThScope',
     interfaces: [AttributeEnum, Enum]
   };
@@ -7128,7 +7730,7 @@
         return ThScope$row_getInstance();
       case 'rowGroup':
         return ThScope$rowGroup_getInstance();
-      default:Kotlin.throwISE('No enum constant kotlinx.html.ThScope.' + name);
+      default:throwISE('No enum constant kotlinx.html.ThScope.' + name);
     }
   }
   ThScope.valueOf_61zpoe$ = ThScope$valueOf;
@@ -7136,144 +7738,152 @@
   function CommonAttributeGroupFacadeFlowHeadingContent() {
   }
   CommonAttributeGroupFacadeFlowHeadingContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'CommonAttributeGroupFacadeFlowHeadingContent',
     interfaces: [HtmlBlockTag, HeadingContent, CommonAttributeGroupFacade]
   };
   function CommonAttributeGroupFacadeFlowHeadingPhrasingContent() {
   }
   CommonAttributeGroupFacadeFlowHeadingPhrasingContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'CommonAttributeGroupFacadeFlowHeadingPhrasingContent',
     interfaces: [HtmlBlockInlineTag, HtmlInlineTag, FlowPhrasingContent, CommonAttributeGroupFacadeFlowHeadingContent, HtmlBlockTag, CommonAttributeGroupFacade]
   };
   function CommonAttributeGroupFacadeFlowInteractiveContent() {
   }
   CommonAttributeGroupFacadeFlowInteractiveContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'CommonAttributeGroupFacadeFlowInteractiveContent',
     interfaces: [InteractiveContent, HtmlBlockTag, CommonAttributeGroupFacade]
   };
   function CommonAttributeGroupFacadeFlowInteractivePhrasingContent() {
   }
   CommonAttributeGroupFacadeFlowInteractivePhrasingContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'CommonAttributeGroupFacadeFlowInteractivePhrasingContent',
     interfaces: [HtmlBlockInlineTag, HtmlInlineTag, FlowPhrasingContent, CommonAttributeGroupFacadeFlowInteractiveContent, HtmlBlockTag, CommonAttributeGroupFacade]
   };
   function CommonAttributeGroupFacadeFlowMetaDataContent() {
   }
   CommonAttributeGroupFacadeFlowMetaDataContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'CommonAttributeGroupFacadeFlowMetaDataContent',
     interfaces: [HtmlHeadTag, HtmlBlockTag, FlowMetaDataContent, CommonAttributeGroupFacade]
   };
   function CommonAttributeGroupFacadeFlowMetaDataPhrasingContent() {
   }
   CommonAttributeGroupFacadeFlowMetaDataPhrasingContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'CommonAttributeGroupFacadeFlowMetaDataPhrasingContent',
     interfaces: [HtmlBlockInlineTag, HtmlInlineTag, FlowMetaDataPhrasingContent, FlowPhrasingContent, CommonAttributeGroupFacadeFlowMetaDataContent, HtmlHeadTag, HtmlBlockTag, FlowMetaDataContent, CommonAttributeGroupFacade]
   };
   function HtmlBlockInlineTag() {
   }
   HtmlBlockInlineTag.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'HtmlBlockInlineTag',
     interfaces: [HtmlInlineTag, HtmlBlockTag, FlowPhrasingContent, CommonAttributeGroupFacade]
+  };
+  function CommonAttributeGroupFacadeFlowPhrasingSectioningContent() {
+  }
+  CommonAttributeGroupFacadeFlowPhrasingSectioningContent.$metadata$ = {
+    kind: Kind_INTERFACE,
+    simpleName: 'CommonAttributeGroupFacadeFlowPhrasingSectioningContent',
+    interfaces: [HtmlBlockInlineTag, HtmlInlineTag, FlowPhrasingContent, CommonAttributeGroupFacadeFlowSectioningContent, HtmlBlockTag, CommonAttributeGroupFacade]
   };
   function CommonAttributeGroupFacadeFlowSectioningContent() {
   }
   CommonAttributeGroupFacadeFlowSectioningContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'CommonAttributeGroupFacadeFlowSectioningContent',
     interfaces: [SectioningContent, HtmlBlockTag, CommonAttributeGroupFacade]
   };
   function FlowMetaDataContent() {
   }
   FlowMetaDataContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'FlowMetaDataContent',
     interfaces: [MetaDataContent, FlowContent]
   };
   function FlowMetaDataPhrasingContent() {
   }
   FlowMetaDataPhrasingContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'FlowMetaDataPhrasingContent',
     interfaces: [FlowPhrasingContent, FlowMetaDataContent]
   };
   function FlowPhrasingContent() {
   }
   FlowPhrasingContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'FlowPhrasingContent',
     interfaces: [PhrasingContent, FlowContent]
   };
   function HtmlBlockTag() {
   }
   HtmlBlockTag.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'HtmlBlockTag',
     interfaces: [FlowContent, CommonAttributeGroupFacade]
   };
   function HtmlHeadTag() {
   }
   HtmlHeadTag.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'HtmlHeadTag',
     interfaces: [MetaDataContent, CommonAttributeGroupFacade]
   };
   function HtmlInlineTag() {
   }
   HtmlInlineTag.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'HtmlInlineTag',
     interfaces: [PhrasingContent, CommonAttributeGroupFacade]
   };
   function FlowContent() {
   }
   FlowContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'FlowContent',
     interfaces: [SectioningOrFlowContent, FlowOrPhrasingContent, FlowOrInteractiveContent, FlowOrInteractiveOrPhrasingContent, FlowOrMetaDataContent, FlowOrPhrasingOrMetaDataContent, FlowOrHeadingContent, Tag]
   };
   function HeadingContent() {
   }
   HeadingContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'HeadingContent',
     interfaces: [FlowOrHeadingContent, Tag]
   };
   function InteractiveContent() {
   }
   InteractiveContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'InteractiveContent',
     interfaces: [FlowOrInteractiveContent, FlowOrInteractiveOrPhrasingContent, Tag]
   };
   function MetaDataContent() {
   }
   MetaDataContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'MetaDataContent',
-    interfaces: [Tag]
+    interfaces: [FlowOrMetaDataContent, FlowOrPhrasingOrMetaDataContent, Tag]
   };
   function PhrasingContent() {
   }
   PhrasingContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'PhrasingContent',
     interfaces: [FlowOrPhrasingContent, FlowOrPhrasingOrMetaDataContent, FlowOrInteractiveOrPhrasingContent, Tag]
   };
   function SectioningContent() {
   }
   SectioningContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
+    kind: Kind_INTERFACE,
     simpleName: 'SectioningContent',
     interfaces: [SectioningOrFlowContent, Tag]
   };
   function address$lambda_1($receiver) {
+    return Unit;
   }
   function address_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7283,6 +7893,7 @@
     visit(new ADDRESS(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function blockQuote$lambda_1($receiver) {
+    return Unit;
   }
   function blockQuote_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7292,6 +7903,7 @@
     visit(new BLOCKQUOTE(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function dialog$lambda_1($receiver) {
+    return Unit;
   }
   function dialog_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7301,6 +7913,7 @@
     visit(new DIALOG(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function div$lambda_1($receiver) {
+    return Unit;
   }
   function div_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7310,6 +7923,7 @@
     visit(new DIV(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function dl$lambda_1($receiver) {
+    return Unit;
   }
   function dl_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7319,6 +7933,7 @@
     visit(new DL(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function fieldSet$lambda_1($receiver) {
+    return Unit;
   }
   function fieldSet_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7328,6 +7943,7 @@
     visit(new FIELDSET(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function figure$lambda_1($receiver) {
+    return Unit;
   }
   function figure_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7337,6 +7953,7 @@
     visit(new FIGURE(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function figcaption$lambda_1($receiver) {
+    return Unit;
   }
   function figcaption_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7346,6 +7963,7 @@
     visit(new FIGCAPTION(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function footer$lambda_1($receiver) {
+    return Unit;
   }
   function footer_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7355,6 +7973,7 @@
     visit(new FOOTER(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function form$lambda_1($receiver) {
+    return Unit;
   }
   function form_1($receiver, action, encType, method, classes, block) {
     if (action === void 0)
@@ -7370,6 +7989,7 @@
     visit(new FORM(attributesMapOf_1(['action', action, 'enctype', encType != null ? enumEncode(encType) : null, 'method', method != null ? enumEncode(method) : null, 'class', classes]), $receiver.consumer), block);
   }
   function getForm$lambda($receiver) {
+    return Unit;
   }
   function getForm($receiver, action, encType, classes, block) {
     if (action === void 0)
@@ -7383,6 +8003,7 @@
     visit(new FORM(attributesMapOf_1(['action', action, 'enctype', encType != null ? enumEncode(encType) : null, 'method', FormMethod$get_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
   }
   function postForm$lambda($receiver) {
+    return Unit;
   }
   function postForm($receiver, action, encType, classes, block) {
     if (action === void 0)
@@ -7396,6 +8017,7 @@
     visit(new FORM(attributesMapOf_1(['action', action, 'enctype', encType != null ? enumEncode(encType) : null, 'method', FormMethod$post_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
   }
   function putForm$lambda($receiver) {
+    return Unit;
   }
   function putForm($receiver, action, encType, classes, block) {
     if (action === void 0)
@@ -7409,6 +8031,7 @@
     visit(new FORM(attributesMapOf_1(['action', action, 'enctype', encType != null ? enumEncode(encType) : null, 'method', FormMethod$put_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
   }
   function deleteForm$lambda($receiver) {
+    return Unit;
   }
   function deleteForm($receiver, action, encType, classes, block) {
     if (action === void 0)
@@ -7421,7 +8044,22 @@
       block = deleteForm$lambda;
     visit(new FORM(attributesMapOf_1(['action', action, 'enctype', encType != null ? enumEncode(encType) : null, 'method', FormMethod$delete_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
   }
+  function patchForm$lambda($receiver) {
+    return Unit;
+  }
+  function patchForm($receiver, action, encType, classes, block) {
+    if (action === void 0)
+      action = null;
+    if (encType === void 0)
+      encType = null;
+    if (classes === void 0)
+      classes = null;
+    if (block === void 0)
+      block = patchForm$lambda;
+    visit(new FORM(attributesMapOf_1(['action', action, 'enctype', encType != null ? enumEncode(encType) : null, 'method', FormMethod$patch_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
+  }
   function header$lambda_1($receiver) {
+    return Unit;
   }
   function header_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7431,6 +8069,7 @@
     visit(new HEADER(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function hr$lambda_1($receiver) {
+    return Unit;
   }
   function hr_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7440,6 +8079,7 @@
     visit(new HR(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function ol$lambda_1($receiver) {
+    return Unit;
   }
   function ol_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7449,6 +8089,7 @@
     visit(new OL(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function p$lambda_1($receiver) {
+    return Unit;
   }
   function p_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7458,6 +8099,7 @@
     visit(new P(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function pre$lambda_1($receiver) {
+    return Unit;
   }
   function pre_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7467,6 +8109,7 @@
     visit(new PRE(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function table$lambda_1($receiver) {
+    return Unit;
   }
   function table_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7476,6 +8119,7 @@
     visit(new TABLE(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function ul$lambda_1($receiver) {
+    return Unit;
   }
   function ul_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7485,6 +8129,7 @@
     visit(new UL(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function base$lambda_1($receiver) {
+    return Unit;
   }
   function base_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7493,89 +8138,146 @@
       block = base$lambda_1;
     visit(new BASE(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
-  function command$lambda_1($receiver) {
+  function title$lambda_3($receiver) {
+    return Unit;
   }
-  function command_1($receiver, type, classes, block) {
-    if (type === void 0)
-      type = null;
-    if (classes === void 0)
-      classes = null;
+  function title_3($receiver, block) {
     if (block === void 0)
-      block = command$lambda_1;
-    visit(new COMMAND(attributesMapOf_1(['type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver.consumer), block);
+      block = title$lambda_3;
+    visit(new TITLE(emptyMap_0, $receiver.consumer), block);
   }
-  function commandCommand$lambda($receiver) {
+  function title$lambda_4(closure$content) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
+    };
   }
-  function commandCommand($receiver, classes, block) {
-    if (classes === void 0)
-      classes = null;
-    if (block === void 0)
-      block = commandCommand$lambda;
-    visit(new COMMAND(attributesMapOf_1(['type', CommandType$command_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
-  }
-  function checkBoxCommand$lambda($receiver) {
-  }
-  function checkBoxCommand($receiver, classes, block) {
-    if (classes === void 0)
-      classes = null;
-    if (block === void 0)
-      block = checkBoxCommand$lambda;
-    visit(new COMMAND(attributesMapOf_1(['type', CommandType$checkBox_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
-  }
-  function radioCommand$lambda($receiver) {
-  }
-  function radioCommand($receiver, classes, block) {
-    if (classes === void 0)
-      classes = null;
-    if (block === void 0)
-      block = radioCommand$lambda;
-    visit(new COMMAND(attributesMapOf_1(['type', CommandType$radio_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
-  }
-  function link$lambda_1($receiver) {
-  }
-  function link_1($receiver, href, rel, type, block) {
-    if (href === void 0)
-      href = null;
-    if (rel === void 0)
-      rel = null;
-    if (type === void 0)
-      type = null;
-    if (block === void 0)
-      block = link$lambda_1;
-    visit(new LINK(attributesMapOf_1(['href', href, 'rel', rel, 'type', type]), $receiver.consumer), block);
-  }
-  function meta$lambda_1($receiver) {
-  }
-  function meta_1($receiver, name, content, block) {
-    if (name === void 0)
-      name = null;
+  function title_4($receiver, content) {
     if (content === void 0)
-      content = null;
-    if (block === void 0)
-      block = meta$lambda_1;
-    visit(new META(attributesMapOf_1(['name', name, 'content', content]), $receiver.consumer), block);
+      content = '';
+    visit(new TITLE(emptyMap_0, $receiver.consumer), title$lambda_4(content));
   }
-  function noScript$lambda_1($receiver) {
+  function FlowOrHeadingContent() {
   }
-  function noScript_1($receiver, classes, block) {
+  FlowOrHeadingContent.$metadata$ = {
+    kind: Kind_INTERFACE,
+    simpleName: 'FlowOrHeadingContent',
+    interfaces: [Tag]
+  };
+  function FlowOrMetaDataContent() {
+  }
+  FlowOrMetaDataContent.$metadata$ = {
+    kind: Kind_INTERFACE,
+    simpleName: 'FlowOrMetaDataContent',
+    interfaces: [FlowOrPhrasingOrMetaDataContent, Tag]
+  };
+  function FlowOrInteractiveContent() {
+  }
+  FlowOrInteractiveContent.$metadata$ = {
+    kind: Kind_INTERFACE,
+    simpleName: 'FlowOrInteractiveContent',
+    interfaces: [FlowOrInteractiveOrPhrasingContent, Tag]
+  };
+  function FlowOrPhrasingContent() {
+  }
+  FlowOrPhrasingContent.$metadata$ = {
+    kind: Kind_INTERFACE,
+    simpleName: 'FlowOrPhrasingContent',
+    interfaces: [FlowOrPhrasingOrMetaDataContent, FlowOrInteractiveOrPhrasingContent, Tag]
+  };
+  function FlowOrPhrasingOrMetaDataContent() {
+  }
+  FlowOrPhrasingOrMetaDataContent.$metadata$ = {
+    kind: Kind_INTERFACE,
+    simpleName: 'FlowOrPhrasingOrMetaDataContent',
+    interfaces: [Tag]
+  };
+  function SectioningOrFlowContent() {
+  }
+  SectioningOrFlowContent.$metadata$ = {
+    kind: Kind_INTERFACE,
+    simpleName: 'SectioningOrFlowContent',
+    interfaces: [Tag]
+  };
+  function FlowOrInteractiveOrPhrasingContent() {
+  }
+  FlowOrInteractiveOrPhrasingContent.$metadata$ = {
+    kind: Kind_INTERFACE,
+    simpleName: 'FlowOrInteractiveOrPhrasingContent',
+    interfaces: [Tag]
+  };
+  function h1$lambda_1($receiver) {
+    return Unit;
+  }
+  function h1_1($receiver, classes, block) {
     if (classes === void 0)
       classes = null;
     if (block === void 0)
-      block = noScript$lambda_1;
-    visit(new NOSCRIPT(attributesMapOf_0('class', classes), $receiver.consumer), block);
+      block = h1$lambda_1;
+    visit(new H1(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
-  function script$lambda_2($receiver) {
+  function h2$lambda_1($receiver) {
+    return Unit;
   }
-  function script_2($receiver, type, src, block) {
-    if (type === void 0)
-      type = null;
-    if (src === void 0)
-      src = null;
+  function h2_1($receiver, classes, block) {
+    if (classes === void 0)
+      classes = null;
     if (block === void 0)
-      block = script$lambda_2;
-    visit(new SCRIPT(attributesMapOf_1(['type', type, 'src', src]), $receiver.consumer), block);
+      block = h2$lambda_1;
+    visit(new H2(attributesMapOf_0('class', classes), $receiver.consumer), block);
+  }
+  function h3$lambda_1($receiver) {
+    return Unit;
+  }
+  function h3_1($receiver, classes, block) {
+    if (classes === void 0)
+      classes = null;
+    if (block === void 0)
+      block = h3$lambda_1;
+    visit(new H3(attributesMapOf_0('class', classes), $receiver.consumer), block);
+  }
+  function h4$lambda_1($receiver) {
+    return Unit;
+  }
+  function h4_1($receiver, classes, block) {
+    if (classes === void 0)
+      classes = null;
+    if (block === void 0)
+      block = h4$lambda_1;
+    visit(new H4(attributesMapOf_0('class', classes), $receiver.consumer), block);
+  }
+  function h5$lambda_1($receiver) {
+    return Unit;
+  }
+  function h5_1($receiver, classes, block) {
+    if (classes === void 0)
+      classes = null;
+    if (block === void 0)
+      block = h5$lambda_1;
+    visit(new H5(attributesMapOf_0('class', classes), $receiver.consumer), block);
+  }
+  function h6$lambda_1($receiver) {
+    return Unit;
+  }
+  function h6_1($receiver, classes, block) {
+    if (classes === void 0)
+      classes = null;
+    if (block === void 0)
+      block = h6$lambda_1;
+    visit(new H6(attributesMapOf_0('class', classes), $receiver.consumer), block);
+  }
+  function hGroup$lambda_1($receiver) {
+    return Unit;
+  }
+  function hGroup_1($receiver, classes, block) {
+    if (classes === void 0)
+      classes = null;
+    if (block === void 0)
+      block = hGroup$lambda_1;
+    visit(new HGROUP(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function style$lambda_3($receiver) {
+    return Unit;
   }
   function style_3($receiver, type, block) {
     if (type === void 0)
@@ -7587,6 +8289,7 @@
   function style$lambda_4(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function style_4($receiver, type, content) {
@@ -7596,157 +8299,8 @@
       content = '';
     visit(new STYLE(attributesMapOf_0('type', type), $receiver.consumer), style$lambda_4(content));
   }
-  function title$lambda_3($receiver) {
-  }
-  function title_3($receiver, block) {
-    if (block === void 0)
-      block = title$lambda_3;
-    visit(new TITLE(emptyMap_0, $receiver.consumer), block);
-  }
-  function title$lambda_4(closure$content) {
-    return function ($receiver) {
-      $receiver.unaryPlus_pdl1vz$(closure$content);
-    };
-  }
-  function title_4($receiver, content) {
-    if (content === void 0)
-      content = '';
-    visit(new TITLE(emptyMap_0, $receiver.consumer), title$lambda_4(content));
-  }
-  function FlowOrHeadingContent() {
-  }
-  FlowOrHeadingContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
-    simpleName: 'FlowOrHeadingContent',
-    interfaces: [Tag]
-  };
-  function FlowOrMetaDataContent() {
-  }
-  FlowOrMetaDataContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
-    simpleName: 'FlowOrMetaDataContent',
-    interfaces: [FlowOrPhrasingOrMetaDataContent, Tag]
-  };
-  function FlowOrInteractiveContent() {
-  }
-  FlowOrInteractiveContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
-    simpleName: 'FlowOrInteractiveContent',
-    interfaces: [FlowOrInteractiveOrPhrasingContent, Tag]
-  };
-  function FlowOrPhrasingContent() {
-  }
-  FlowOrPhrasingContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
-    simpleName: 'FlowOrPhrasingContent',
-    interfaces: [FlowOrPhrasingOrMetaDataContent, FlowOrInteractiveOrPhrasingContent, Tag]
-  };
-  function FlowOrPhrasingOrMetaDataContent() {
-  }
-  FlowOrPhrasingOrMetaDataContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
-    simpleName: 'FlowOrPhrasingOrMetaDataContent',
-    interfaces: [Tag]
-  };
-  function SectioningOrFlowContent() {
-  }
-  SectioningOrFlowContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
-    simpleName: 'SectioningOrFlowContent',
-    interfaces: [Tag]
-  };
-  function FlowOrInteractiveOrPhrasingContent() {
-  }
-  FlowOrInteractiveOrPhrasingContent.$metadata$ = {
-    kind: Kotlin.Kind.INTERFACE,
-    simpleName: 'FlowOrInteractiveOrPhrasingContent',
-    interfaces: [Tag]
-  };
-  function h1$lambda_1($receiver) {
-  }
-  function h1_1($receiver, classes, block) {
-    if (classes === void 0)
-      classes = null;
-    if (block === void 0)
-      block = h1$lambda_1;
-    visit(new H1(attributesMapOf_0('class', classes), $receiver.consumer), block);
-  }
-  function h2$lambda_1($receiver) {
-  }
-  function h2_1($receiver, classes, block) {
-    if (classes === void 0)
-      classes = null;
-    if (block === void 0)
-      block = h2$lambda_1;
-    visit(new H2(attributesMapOf_0('class', classes), $receiver.consumer), block);
-  }
-  function h3$lambda_1($receiver) {
-  }
-  function h3_1($receiver, classes, block) {
-    if (classes === void 0)
-      classes = null;
-    if (block === void 0)
-      block = h3$lambda_1;
-    visit(new H3(attributesMapOf_0('class', classes), $receiver.consumer), block);
-  }
-  function h4$lambda_1($receiver) {
-  }
-  function h4_1($receiver, classes, block) {
-    if (classes === void 0)
-      classes = null;
-    if (block === void 0)
-      block = h4$lambda_1;
-    visit(new H4(attributesMapOf_0('class', classes), $receiver.consumer), block);
-  }
-  function h5$lambda_1($receiver) {
-  }
-  function h5_1($receiver, classes, block) {
-    if (classes === void 0)
-      classes = null;
-    if (block === void 0)
-      block = h5$lambda_1;
-    visit(new H5(attributesMapOf_0('class', classes), $receiver.consumer), block);
-  }
-  function h6$lambda_1($receiver) {
-  }
-  function h6_1($receiver, classes, block) {
-    if (classes === void 0)
-      classes = null;
-    if (block === void 0)
-      block = h6$lambda_1;
-    visit(new H6(attributesMapOf_0('class', classes), $receiver.consumer), block);
-  }
-  function hGroup$lambda_1($receiver) {
-  }
-  function hGroup_1($receiver, classes, block) {
-    if (classes === void 0)
-      classes = null;
-    if (block === void 0)
-      block = hGroup$lambda_1;
-    visit(new HGROUP(attributesMapOf_0('class', classes), $receiver.consumer), block);
-  }
-  function style$lambda_5($receiver) {
-  }
-  function style_5($receiver, type, block) {
-    if (type === void 0)
-      type = null;
-    if (block === void 0)
-      block = style$lambda_5;
-    visit(new STYLE(attributesMapOf_0('type', type), $receiver.consumer), block);
-  }
-  function style$lambda_6(closure$content) {
-    return function ($receiver) {
-      $receiver.unaryPlus_pdl1vz$(closure$content);
-    };
-  }
-  function style_6($receiver, type, content) {
-    if (type === void 0)
-      type = null;
-    if (content === void 0)
-      content = '';
-    visit(new STYLE(attributesMapOf_0('type', type), $receiver.consumer), style$lambda_6(content));
-  }
   function details$lambda_1($receiver) {
+    return Unit;
   }
   function details_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7756,6 +8310,7 @@
     visit(new DETAILS(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function abbr$lambda_1($receiver) {
+    return Unit;
   }
   function abbr_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7765,6 +8320,7 @@
     visit(new ABBR(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function area$lambda_1($receiver) {
+    return Unit;
   }
   function area_1($receiver, shape, alt, classes, block) {
     if (shape === void 0)
@@ -7778,6 +8334,7 @@
     visit(new AREA(attributesMapOf_1(['Shape', shape != null ? enumEncode(shape) : null, 'alt', alt, 'class', classes]), $receiver.consumer), block);
   }
   function rectArea$lambda($receiver) {
+    return Unit;
   }
   function rectArea($receiver, alt, classes, block) {
     if (alt === void 0)
@@ -7789,6 +8346,7 @@
     visit(new AREA(attributesMapOf_1(['Shape', AreaShape$rect_getInstance().realValue, 'alt', alt, 'class', classes]), $receiver.consumer), block);
   }
   function circleArea$lambda($receiver) {
+    return Unit;
   }
   function circleArea($receiver, alt, classes, block) {
     if (alt === void 0)
@@ -7800,6 +8358,7 @@
     visit(new AREA(attributesMapOf_1(['Shape', AreaShape$circle_getInstance().realValue, 'alt', alt, 'class', classes]), $receiver.consumer), block);
   }
   function polyArea$lambda($receiver) {
+    return Unit;
   }
   function polyArea($receiver, alt, classes, block) {
     if (alt === void 0)
@@ -7811,6 +8370,7 @@
     visit(new AREA(attributesMapOf_1(['Shape', AreaShape$poly_getInstance().realValue, 'alt', alt, 'class', classes]), $receiver.consumer), block);
   }
   function defaultArea$lambda($receiver) {
+    return Unit;
   }
   function defaultArea($receiver, alt, classes, block) {
     if (alt === void 0)
@@ -7822,6 +8382,7 @@
     visit(new AREA(attributesMapOf_1(['Shape', AreaShape$default_getInstance().realValue, 'alt', alt, 'class', classes]), $receiver.consumer), block);
   }
   function b$lambda_1($receiver) {
+    return Unit;
   }
   function b_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7831,6 +8392,7 @@
     visit(new B(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function bdi$lambda_1($receiver) {
+    return Unit;
   }
   function bdi_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7840,6 +8402,7 @@
     visit(new BDI(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function bdo$lambda_1($receiver) {
+    return Unit;
   }
   function bdo_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7849,6 +8412,7 @@
     visit(new BDO(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function br$lambda_1($receiver) {
+    return Unit;
   }
   function br_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7858,6 +8422,7 @@
     visit(new BR(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function canvas$lambda_3($receiver) {
+    return Unit;
   }
   function canvas_3($receiver, classes, block) {
     if (classes === void 0)
@@ -7869,6 +8434,7 @@
   function canvas$lambda_4(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function canvas_4($receiver, classes, content) {
@@ -7879,6 +8445,7 @@
     visit(new CANVAS(attributesMapOf_0('class', classes), $receiver.consumer), canvas$lambda_4(content));
   }
   function cite$lambda_1($receiver) {
+    return Unit;
   }
   function cite_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7888,6 +8455,7 @@
     visit(new CITE(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function code$lambda_1($receiver) {
+    return Unit;
   }
   function code_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7897,6 +8465,7 @@
     visit(new CODE(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function dataList$lambda_1($receiver) {
+    return Unit;
   }
   function dataList_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7906,6 +8475,7 @@
     visit(new DATALIST(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function del$lambda_1($receiver) {
+    return Unit;
   }
   function del_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7915,6 +8485,7 @@
     visit(new DEL(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function dfn$lambda_1($receiver) {
+    return Unit;
   }
   function dfn_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7924,6 +8495,7 @@
     visit(new DFN(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function em$lambda_1($receiver) {
+    return Unit;
   }
   function em_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7933,6 +8505,7 @@
     visit(new EM(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function i$lambda_1($receiver) {
+    return Unit;
   }
   function i_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7942,6 +8515,7 @@
     visit(new I(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function ins$lambda_1($receiver) {
+    return Unit;
   }
   function ins_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7951,6 +8525,7 @@
     visit(new INS(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function kbd$lambda_1($receiver) {
+    return Unit;
   }
   function kbd_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7960,6 +8535,7 @@
     visit(new KBD(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function map$lambda_1($receiver) {
+    return Unit;
   }
   function map_1($receiver, name, classes, block) {
     if (name === void 0)
@@ -7971,6 +8547,7 @@
     visit(new MAP(attributesMapOf_1(['name', name, 'class', classes]), $receiver.consumer), block);
   }
   function mark$lambda_1($receiver) {
+    return Unit;
   }
   function mark_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7980,6 +8557,7 @@
     visit(new MARK(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function math$lambda_1($receiver) {
+    return Unit;
   }
   function math_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7989,6 +8567,7 @@
     visit(new MATH(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function meter$lambda_1($receiver) {
+    return Unit;
   }
   function meter_1($receiver, classes, block) {
     if (classes === void 0)
@@ -7998,6 +8577,7 @@
     visit(new METER(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function output$lambda_1($receiver) {
+    return Unit;
   }
   function output_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8007,6 +8587,7 @@
     visit(new OUTPUT(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function progress$lambda_1($receiver) {
+    return Unit;
   }
   function progress_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8016,6 +8597,7 @@
     visit(new PROGRESS(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function q$lambda_1($receiver) {
+    return Unit;
   }
   function q_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8025,6 +8607,7 @@
     visit(new Q(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function ruby$lambda_1($receiver) {
+    return Unit;
   }
   function ruby_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8034,6 +8617,7 @@
     visit(new RUBY(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function samp$lambda_1($receiver) {
+    return Unit;
   }
   function samp_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8043,6 +8627,7 @@
     visit(new SAMP(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function small$lambda_1($receiver) {
+    return Unit;
   }
   function small_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8052,6 +8637,7 @@
     visit(new SMALL(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function span$lambda_1($receiver) {
+    return Unit;
   }
   function span_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8061,6 +8647,7 @@
     visit(new SPAN(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function strong$lambda_1($receiver) {
+    return Unit;
   }
   function strong_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8070,6 +8657,7 @@
     visit(new STRONG(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function sub$lambda_1($receiver) {
+    return Unit;
   }
   function sub_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8079,6 +8667,7 @@
     visit(new SUB(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function sup$lambda_1($receiver) {
+    return Unit;
   }
   function sup_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8088,6 +8677,7 @@
     visit(new SUP(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function svg$lambda_3($receiver) {
+    return Unit;
   }
   function svg_3($receiver, classes, block) {
     if (classes === void 0)
@@ -8099,6 +8689,7 @@
   function svg$lambda_4(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function svg_4($receiver, classes, content) {
@@ -8109,6 +8700,7 @@
     visit(new SVG(attributesMapOf_0('class', classes), $receiver.consumer), svg$lambda_4(content));
   }
   function time$lambda_1($receiver) {
+    return Unit;
   }
   function time_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8117,56 +8709,62 @@
       block = time$lambda_1;
     visit(new TIME(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
-  function var_$lambda_1($receiver) {
+  function htmlVar$lambda_1($receiver) {
+    return Unit;
   }
-  function var__1($receiver, classes, block) {
+  function htmlVar_1($receiver, classes, block) {
     if (classes === void 0)
       classes = null;
     if (block === void 0)
-      block = var_$lambda_1;
-    visit(new VAR_(attributesMapOf_0('class', classes), $receiver.consumer), block);
+      block = htmlVar$lambda_1;
+    visit(new VAR(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
-  function command$lambda_2($receiver) {
+  function command$lambda_1($receiver) {
+    return Unit;
   }
-  function command_2($receiver, type, classes, block) {
+  function command_1($receiver, type, classes, block) {
     if (type === void 0)
       type = null;
     if (classes === void 0)
       classes = null;
     if (block === void 0)
-      block = command$lambda_2;
+      block = command$lambda_1;
     visit(new COMMAND(attributesMapOf_1(['type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver.consumer), block);
   }
-  function commandCommand$lambda_0($receiver) {
+  function commandCommand$lambda($receiver) {
+    return Unit;
   }
-  function commandCommand_0($receiver, classes, block) {
+  function commandCommand($receiver, classes, block) {
     if (classes === void 0)
       classes = null;
     if (block === void 0)
-      block = commandCommand$lambda_0;
+      block = commandCommand$lambda;
     visit(new COMMAND(attributesMapOf_1(['type', CommandType$command_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
   }
-  function checkBoxCommand$lambda_0($receiver) {
+  function checkBoxCommand$lambda($receiver) {
+    return Unit;
   }
-  function checkBoxCommand_0($receiver, classes, block) {
+  function checkBoxCommand($receiver, classes, block) {
     if (classes === void 0)
       classes = null;
     if (block === void 0)
-      block = checkBoxCommand$lambda_0;
+      block = checkBoxCommand$lambda;
     visit(new COMMAND(attributesMapOf_1(['type', CommandType$checkBox_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
   }
-  function radioCommand$lambda_0($receiver) {
+  function radioCommand$lambda($receiver) {
+    return Unit;
   }
-  function radioCommand_0($receiver, classes, block) {
+  function radioCommand($receiver, classes, block) {
     if (classes === void 0)
       classes = null;
     if (block === void 0)
-      block = radioCommand$lambda_0;
+      block = radioCommand$lambda;
     visit(new COMMAND(attributesMapOf_1(['type', CommandType$radio_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
   }
-  function link$lambda_2($receiver) {
+  function link$lambda_1($receiver) {
+    return Unit;
   }
-  function link_2($receiver, href, rel, type, block) {
+  function link_1($receiver, href, rel, type, block) {
     if (href === void 0)
       href = null;
     if (rel === void 0)
@@ -8174,30 +8772,35 @@
     if (type === void 0)
       type = null;
     if (block === void 0)
-      block = link$lambda_2;
+      block = link$lambda_1;
     visit(new LINK(attributesMapOf_1(['href', href, 'rel', rel, 'type', type]), $receiver.consumer), block);
   }
-  function meta$lambda_2($receiver) {
+  function meta$lambda_1($receiver) {
+    return Unit;
   }
-  function meta_2($receiver, name, content, block) {
+  function meta_1($receiver, name, content, charset, block) {
     if (name === void 0)
       name = null;
     if (content === void 0)
       content = null;
+    if (charset === void 0)
+      charset = null;
     if (block === void 0)
-      block = meta$lambda_2;
-    visit(new META(attributesMapOf_1(['name', name, 'content', content]), $receiver.consumer), block);
+      block = meta$lambda_1;
+    visit(new META(attributesMapOf_1(['name', name, 'content', content, 'charset', charset]), $receiver.consumer), block);
   }
-  function noScript$lambda_2($receiver) {
+  function noScript$lambda_1($receiver) {
+    return Unit;
   }
-  function noScript_2($receiver, classes, block) {
+  function noScript_1($receiver, classes, block) {
     if (classes === void 0)
       classes = null;
     if (block === void 0)
-      block = noScript$lambda_2;
+      block = noScript$lambda_1;
     visit(new NOSCRIPT(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function script$lambda_3($receiver) {
+    return Unit;
   }
   function script_3($receiver, type, src, block) {
     if (type === void 0)
@@ -8208,7 +8811,23 @@
       block = script$lambda_3;
     visit(new SCRIPT(attributesMapOf_1(['type', type, 'src', src]), $receiver.consumer), block);
   }
+  function script$lambda_4(closure$content) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
+    };
+  }
+  function script_4($receiver, type, src, content) {
+    if (type === void 0)
+      type = null;
+    if (src === void 0)
+      src = null;
+    if (content === void 0)
+      content = '';
+    visit(new SCRIPT(attributesMapOf_1(['type', type, 'src', src]), $receiver.consumer), script$lambda_4(content));
+  }
   function article$lambda_1($receiver) {
+    return Unit;
   }
   function article_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8218,6 +8837,7 @@
     visit(new ARTICLE(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function aside$lambda_1($receiver) {
+    return Unit;
   }
   function aside_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8226,7 +8846,18 @@
       block = aside$lambda_1;
     visit(new ASIDE(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
+  function main$lambda_1($receiver) {
+    return Unit;
+  }
+  function main_1($receiver, classes, block) {
+    if (classes === void 0)
+      classes = null;
+    if (block === void 0)
+      block = main$lambda_1;
+    visit(new MAIN(attributesMapOf_0('class', classes), $receiver.consumer), block);
+  }
   function nav$lambda_1($receiver) {
+    return Unit;
   }
   function nav_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8236,6 +8867,7 @@
     visit(new NAV(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function section$lambda_1($receiver) {
+    return Unit;
   }
   function section_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8245,6 +8877,7 @@
     visit(new SECTION(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function a$lambda_1($receiver) {
+    return Unit;
   }
   function a_1($receiver, href, target, classes, block) {
     if (href === void 0)
@@ -8258,6 +8891,7 @@
     visit(new A(attributesMapOf_1(['href', href, 'target', target, 'class', classes]), $receiver.consumer), block);
   }
   function audio$lambda_1($receiver) {
+    return Unit;
   }
   function audio_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8267,73 +8901,105 @@
     visit(new AUDIO(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function button$lambda_1($receiver) {
+    return Unit;
   }
-  function button_1($receiver, formEncType, formMethod, type, classes, block) {
+  function button_1($receiver, formEncType, formMethod, name, type, classes, block) {
     if (formEncType === void 0)
       formEncType = null;
     if (formMethod === void 0)
       formMethod = null;
+    if (name === void 0)
+      name = null;
     if (type === void 0)
       type = null;
     if (classes === void 0)
       classes = null;
     if (block === void 0)
       block = button$lambda_1;
-    visit(new BUTTON(attributesMapOf_1(['formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver.consumer), block);
+    visit(new BUTTON(attributesMapOf_1(['formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver.consumer), block);
   }
   function getButton$lambda($receiver) {
+    return Unit;
   }
-  function getButton($receiver, formEncType, type, classes, block) {
+  function getButton($receiver, formEncType, name, type, classes, block) {
     if (formEncType === void 0)
       formEncType = null;
+    if (name === void 0)
+      name = null;
     if (type === void 0)
       type = null;
     if (classes === void 0)
       classes = null;
     if (block === void 0)
       block = getButton$lambda;
-    visit(new BUTTON(attributesMapOf_1(['formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', ButtonFormMethod$get_getInstance().realValue, 'type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver.consumer), block);
+    visit(new BUTTON(attributesMapOf_1(['formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', ButtonFormMethod$get_getInstance().realValue, 'name', name, 'type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver.consumer), block);
   }
   function postButton$lambda($receiver) {
+    return Unit;
   }
-  function postButton($receiver, formEncType, type, classes, block) {
+  function postButton($receiver, formEncType, name, type, classes, block) {
     if (formEncType === void 0)
       formEncType = null;
+    if (name === void 0)
+      name = null;
     if (type === void 0)
       type = null;
     if (classes === void 0)
       classes = null;
     if (block === void 0)
       block = postButton$lambda;
-    visit(new BUTTON(attributesMapOf_1(['formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', ButtonFormMethod$post_getInstance().realValue, 'type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver.consumer), block);
+    visit(new BUTTON(attributesMapOf_1(['formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', ButtonFormMethod$post_getInstance().realValue, 'name', name, 'type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver.consumer), block);
   }
   function putButton$lambda($receiver) {
+    return Unit;
   }
-  function putButton($receiver, formEncType, type, classes, block) {
+  function putButton($receiver, formEncType, name, type, classes, block) {
     if (formEncType === void 0)
       formEncType = null;
+    if (name === void 0)
+      name = null;
     if (type === void 0)
       type = null;
     if (classes === void 0)
       classes = null;
     if (block === void 0)
       block = putButton$lambda;
-    visit(new BUTTON(attributesMapOf_1(['formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', ButtonFormMethod$put_getInstance().realValue, 'type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver.consumer), block);
+    visit(new BUTTON(attributesMapOf_1(['formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', ButtonFormMethod$put_getInstance().realValue, 'name', name, 'type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver.consumer), block);
   }
   function deleteButton$lambda($receiver) {
+    return Unit;
   }
-  function deleteButton($receiver, formEncType, type, classes, block) {
+  function deleteButton($receiver, formEncType, name, type, classes, block) {
     if (formEncType === void 0)
       formEncType = null;
+    if (name === void 0)
+      name = null;
     if (type === void 0)
       type = null;
     if (classes === void 0)
       classes = null;
     if (block === void 0)
       block = deleteButton$lambda;
-    visit(new BUTTON(attributesMapOf_1(['formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', ButtonFormMethod$delete_getInstance().realValue, 'type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver.consumer), block);
+    visit(new BUTTON(attributesMapOf_1(['formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', ButtonFormMethod$delete_getInstance().realValue, 'name', name, 'type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver.consumer), block);
+  }
+  function patchButton$lambda($receiver) {
+    return Unit;
+  }
+  function patchButton($receiver, formEncType, name, type, classes, block) {
+    if (formEncType === void 0)
+      formEncType = null;
+    if (name === void 0)
+      name = null;
+    if (type === void 0)
+      type = null;
+    if (classes === void 0)
+      classes = null;
+    if (block === void 0)
+      block = patchButton$lambda;
+    visit(new BUTTON(attributesMapOf_1(['formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', ButtonFormMethod$patch_getInstance().realValue, 'name', name, 'type', type != null ? enumEncode(type) : null, 'class', classes]), $receiver.consumer), block);
   }
   function embed$lambda_1($receiver) {
+    return Unit;
   }
   function embed_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8343,6 +9009,7 @@
     visit(new EMBED(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function iframe$lambda_3($receiver) {
+    return Unit;
   }
   function iframe_3($receiver, sandbox, classes, block) {
     if (sandbox === void 0)
@@ -8356,6 +9023,7 @@
   function iframe$lambda_4(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function iframe_4($receiver, sandbox, classes, content) {
@@ -8368,6 +9036,7 @@
     visit(new IFRAME(attributesMapOf_1(['sandbox', sandbox != null ? enumEncode(sandbox) : null, 'class', classes]), $receiver.consumer), iframe$lambda_4(content));
   }
   function allowSameOriginIframe$lambda($receiver) {
+    return Unit;
   }
   function allowSameOriginIframe($receiver, classes, block) {
     if (classes === void 0)
@@ -8377,6 +9046,7 @@
     visit(new IFRAME(attributesMapOf_1(['sandbox', IframeSandbox$allowSameOrigin_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
   }
   function allowFormSIframe$lambda($receiver) {
+    return Unit;
   }
   function allowFormSIframe($receiver, classes, block) {
     if (classes === void 0)
@@ -8386,6 +9056,7 @@
     visit(new IFRAME(attributesMapOf_1(['sandbox', IframeSandbox$allowFormS_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
   }
   function allowScriptsIframe$lambda($receiver) {
+    return Unit;
   }
   function allowScriptsIframe($receiver, classes, block) {
     if (classes === void 0)
@@ -8397,6 +9068,7 @@
   function allowSameOriginIframe$lambda_0(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function allowSameOriginIframe_0($receiver, classes, content) {
@@ -8409,6 +9081,7 @@
   function allowFormSIframe$lambda_0(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function allowFormSIframe_0($receiver, classes, content) {
@@ -8421,6 +9094,7 @@
   function allowScriptsIframe$lambda_0(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function allowScriptsIframe_0($receiver, classes, content) {
@@ -8431,6 +9105,7 @@
     visit(new IFRAME(attributesMapOf_1(['sandbox', IframeSandbox$allowScripts_getInstance().realValue, 'class', classes]), $receiver.consumer), allowScriptsIframe$lambda_0(content));
   }
   function img$lambda_1($receiver) {
+    return Unit;
   }
   function img_1($receiver, alt, src, classes, block) {
     if (alt === void 0)
@@ -8444,6 +9119,7 @@
     visit(new IMG(attributesMapOf_1(['alt', alt, 'src', src, 'class', classes]), $receiver.consumer), block);
   }
   function input$lambda_1($receiver) {
+    return Unit;
   }
   function input_1($receiver, type, formEncType, formMethod, name, classes, block) {
     if (type === void 0)
@@ -8461,6 +9137,7 @@
     visit(new INPUT(attributesMapOf_1(['type', type != null ? enumEncode(type) : null, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function buttonInput$lambda($receiver) {
+    return Unit;
   }
   function buttonInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8476,6 +9153,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$button_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function checkBoxInput$lambda($receiver) {
+    return Unit;
   }
   function checkBoxInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8491,6 +9169,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$checkBox_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function colorInput$lambda($receiver) {
+    return Unit;
   }
   function colorInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8506,6 +9185,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$color_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function dateInput$lambda($receiver) {
+    return Unit;
   }
   function dateInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8521,6 +9201,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$date_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function dateTimeInput$lambda($receiver) {
+    return Unit;
   }
   function dateTimeInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8536,6 +9217,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$dateTime_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function dateTimeLocalInput$lambda($receiver) {
+    return Unit;
   }
   function dateTimeLocalInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8551,6 +9233,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$dateTimeLocal_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function emailInput$lambda($receiver) {
+    return Unit;
   }
   function emailInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8566,6 +9249,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$email_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function fileInput$lambda($receiver) {
+    return Unit;
   }
   function fileInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8581,6 +9265,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$file_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function hiddenInput$lambda($receiver) {
+    return Unit;
   }
   function hiddenInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8596,6 +9281,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$hidden_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function imageInput$lambda($receiver) {
+    return Unit;
   }
   function imageInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8611,6 +9297,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$image_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function monthInput$lambda($receiver) {
+    return Unit;
   }
   function monthInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8626,6 +9313,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$month_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function numberInput$lambda($receiver) {
+    return Unit;
   }
   function numberInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8641,6 +9329,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$number_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function passwordInput$lambda($receiver) {
+    return Unit;
   }
   function passwordInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8656,6 +9345,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$password_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function radioInput$lambda($receiver) {
+    return Unit;
   }
   function radioInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8671,6 +9361,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$radio_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function rangeInput$lambda($receiver) {
+    return Unit;
   }
   function rangeInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8686,6 +9377,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$range_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function resetInput$lambda($receiver) {
+    return Unit;
   }
   function resetInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8701,6 +9393,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$reset_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function searchInput$lambda($receiver) {
+    return Unit;
   }
   function searchInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8716,6 +9409,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$search_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function submitInput$lambda($receiver) {
+    return Unit;
   }
   function submitInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8731,6 +9425,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$submit_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function textInput$lambda($receiver) {
+    return Unit;
   }
   function textInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8746,6 +9441,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$text_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function telInput$lambda($receiver) {
+    return Unit;
   }
   function telInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8761,6 +9457,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$tel_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function timeInput$lambda($receiver) {
+    return Unit;
   }
   function timeInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8776,6 +9473,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$time_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function urlInput$lambda($receiver) {
+    return Unit;
   }
   function urlInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8791,6 +9489,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$url_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function weekInput$lambda($receiver) {
+    return Unit;
   }
   function weekInput($receiver, formEncType, formMethod, name, classes, block) {
     if (formEncType === void 0)
@@ -8806,6 +9505,7 @@
     visit(new INPUT(attributesMapOf_1(['type', InputType$week_getInstance().realValue, 'formenctype', formEncType != null ? enumEncode(formEncType) : null, 'formmethod', formMethod != null ? enumEncode(formMethod) : null, 'name', name, 'class', classes]), $receiver.consumer), block);
   }
   function keyGen$lambda_1($receiver) {
+    return Unit;
   }
   function keyGen_1($receiver, keyType, classes, block) {
     if (keyType === void 0)
@@ -8817,6 +9517,7 @@
     visit(new KEYGEN(attributesMapOf_1(['keytype', keyType != null ? enumEncode(keyType) : null, 'class', classes]), $receiver.consumer), block);
   }
   function rsaKeyGen$lambda($receiver) {
+    return Unit;
   }
   function rsaKeyGen($receiver, classes, block) {
     if (classes === void 0)
@@ -8826,6 +9527,7 @@
     visit(new KEYGEN(attributesMapOf_1(['keytype', KeyGenKeyType$rsa_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
   }
   function label$lambda_1($receiver) {
+    return Unit;
   }
   function label_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8834,16 +9536,18 @@
       block = label$lambda_1;
     visit(new LABEL(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
-  function object_$lambda_1($receiver) {
+  function htmlObject$lambda_1($receiver) {
+    return Unit;
   }
-  function object__1($receiver, classes, block) {
+  function htmlObject_1($receiver, classes, block) {
     if (classes === void 0)
       classes = null;
     if (block === void 0)
-      block = object_$lambda_1;
-    visit(new OBJECT_(attributesMapOf_0('class', classes), $receiver.consumer), block);
+      block = htmlObject$lambda_1;
+    visit(new OBJECT(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function select$lambda_1($receiver) {
+    return Unit;
   }
   function select_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8853,6 +9557,7 @@
     visit(new SELECT(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function textArea$lambda_3($receiver) {
+    return Unit;
   }
   function textArea_3($receiver, rows, cols, wrap, classes, block) {
     if (rows === void 0)
@@ -8870,6 +9575,7 @@
   function textArea$lambda_4(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function textArea_4($receiver, rows, cols, wrap, classes, content) {
@@ -8886,6 +9592,7 @@
     visit(new TEXTAREA(attributesMapOf_1(['rows', rows, 'cols', cols, 'wrap', wrap != null ? enumEncode(wrap) : null, 'class', classes]), $receiver.consumer), textArea$lambda_4(content));
   }
   function hardTextArea$lambda($receiver) {
+    return Unit;
   }
   function hardTextArea($receiver, rows, cols, classes, block) {
     if (rows === void 0)
@@ -8899,6 +9606,7 @@
     visit(new TEXTAREA(attributesMapOf_1(['rows', rows, 'cols', cols, 'wrap', TextAreaWrap$hard_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
   }
   function softTextArea$lambda($receiver) {
+    return Unit;
   }
   function softTextArea($receiver, rows, cols, classes, block) {
     if (rows === void 0)
@@ -8914,6 +9622,7 @@
   function hardTextArea$lambda_0(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function hardTextArea_0($receiver, rows, cols, classes, content) {
@@ -8930,6 +9639,7 @@
   function softTextArea$lambda_0(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function softTextArea_0($receiver, rows, cols, classes, content) {
@@ -8944,6 +9654,7 @@
     visit(new TEXTAREA(attributesMapOf_1(['rows', rows, 'cols', cols, 'wrap', TextAreaWrap$soft_getInstance().realValue, 'class', classes]), $receiver.consumer), softTextArea$lambda_0(content));
   }
   function video$lambda_1($receiver) {
+    return Unit;
   }
   function video_1($receiver, classes, block) {
     if (classes === void 0)
@@ -8954,11 +9665,11 @@
   }
   function A(initialAttributes, consumer) {
     HTMLTag.call(this, 'a', consumer, initialAttributes, null, true, false);
-    this.consumer_lkq31h$_0 = consumer;
+    this.consumer_615sxh$_0 = consumer;
   }
   Object.defineProperty(A.prototype, 'consumer', {
     get: function () {
-      return this.consumer_lkq31h$_0;
+      return this.consumer_615sxh$_0;
     }
   });
   Object.defineProperty(A.prototype, 'href', {
@@ -9010,7 +9721,7 @@
     }
   });
   A.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'A',
     interfaces: [CommonAttributeGroupFacadeFlowInteractivePhrasingContent, HTMLTag]
   };
@@ -9025,15 +9736,15 @@
   }
   function ABBR(initialAttributes, consumer) {
     HTMLTag.call(this, 'abbr', consumer, initialAttributes, null, true, false);
-    this.consumer_2hkfkt$_0 = consumer;
+    this.consumer_ms3o7n$_0 = consumer;
   }
   Object.defineProperty(ABBR.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2hkfkt$_0;
+      return this.consumer_ms3o7n$_0;
     }
   });
   ABBR.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'ABBR',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -9045,25 +9756,25 @@
   }
   function ADDRESS(initialAttributes, consumer) {
     HTMLTag.call(this, 'address', consumer, initialAttributes, null, false, false);
-    this.consumer_6atidq$_0 = consumer;
+    this.consumer_3eh15q$_0 = consumer;
   }
   Object.defineProperty(ADDRESS.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6atidq$_0;
+      return this.consumer_3eh15q$_0;
     }
   });
   ADDRESS.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'ADDRESS',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function AREA(initialAttributes, consumer) {
     HTMLTag.call(this, 'area', consumer, initialAttributes, null, true, true);
-    this.consumer_2hup6p$_0 = consumer;
+    this.consumer_ukmgtr$_0 = consumer;
   }
   Object.defineProperty(AREA.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2hup6p$_0;
+      return this.consumer_ukmgtr$_0;
     }
   });
   Object.defineProperty(AREA.prototype, 'coords', {
@@ -9139,7 +9850,7 @@
     }
   });
   AREA.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'AREA',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -9151,15 +9862,15 @@
   }
   function ARTICLE(initialAttributes, consumer) {
     HTMLTag.call(this, 'article', consumer, initialAttributes, null, false, false);
-    this.consumer_6gvbps$_0 = consumer;
+    this.consumer_b5vrs0$_0 = consumer;
   }
   Object.defineProperty(ARTICLE.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6gvbps$_0;
+      return this.consumer_b5vrs0$_0;
     }
   });
   ARTICLE.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'ARTICLE',
     interfaces: [CommonAttributeGroupFacadeFlowSectioningContent, HTMLTag]
   };
@@ -9171,15 +9882,15 @@
   }
   function ASIDE(initialAttributes, consumer) {
     HTMLTag.call(this, 'aside', consumer, initialAttributes, null, false, false);
-    this.consumer_6cy1v2$_0 = consumer;
+    this.consumer_i4oajm$_0 = consumer;
   }
   Object.defineProperty(ASIDE.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6cy1v2$_0;
+      return this.consumer_i4oajm$_0;
     }
   });
   ASIDE.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'ASIDE',
     interfaces: [CommonAttributeGroupFacadeFlowSectioningContent, HTMLTag]
   };
@@ -9191,11 +9902,11 @@
   }
   function AUDIO(initialAttributes, consumer) {
     HTMLTag.call(this, 'audio', consumer, initialAttributes, null, false, false);
-    this.consumer_6dyk28$_0 = consumer;
+    this.consumer_na8ebk$_0 = consumer;
   }
   Object.defineProperty(AUDIO.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6dyk28$_0;
+      return this.consumer_na8ebk$_0;
     }
   });
   Object.defineProperty(AUDIO.prototype, 'src', {
@@ -9239,11 +9950,12 @@
     }
   });
   AUDIO.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'AUDIO',
     interfaces: [CommonAttributeGroupFacadeFlowInteractivePhrasingContent, HTMLTag]
   };
   function source$lambda_1($receiver) {
+    return Unit;
   }
   function source_1($receiver, classes, block) {
     if (classes === void 0)
@@ -9263,15 +9975,15 @@
   }
   function B(initialAttributes, consumer) {
     HTMLTag.call(this, 'b', consumer, initialAttributes, null, true, false);
-    this.consumer_lkq32c$_0 = consumer;
+    this.consumer_za3ci4$_0 = consumer;
   }
   Object.defineProperty(B.prototype, 'consumer', {
     get: function () {
-      return this.consumer_lkq32c$_0;
+      return this.consumer_za3ci4$_0;
     }
   });
   B.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'B',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -9283,11 +9995,11 @@
   }
   function BASE(initialAttributes, consumer) {
     HTMLTag.call(this, 'base', consumer, initialAttributes, null, true, true);
-    this.consumer_2i3xh9$_0 = consumer;
+    this.consumer_fprlrn$_0 = consumer;
   }
   Object.defineProperty(BASE.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2i3xh9$_0;
+      return this.consumer_fprlrn$_0;
     }
   });
   Object.defineProperty(BASE.prototype, 'href', {
@@ -9307,21 +10019,21 @@
     }
   });
   BASE.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'BASE',
     interfaces: [HtmlHeadTag, HTMLTag]
   };
   function BDI(initialAttributes, consumer) {
     HTMLTag.call(this, 'bdi', consumer, initialAttributes, null, true, false);
-    this.consumer_6sjyap$_0 = consumer;
+    this.consumer_uxsslt$_0 = consumer;
   }
   Object.defineProperty(BDI.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6sjyap$_0;
+      return this.consumer_uxsslt$_0;
     }
   });
   BDI.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'BDI',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -9333,15 +10045,15 @@
   }
   function BDO(initialAttributes, consumer) {
     HTMLTag.call(this, 'bdo', consumer, initialAttributes, null, true, false);
-    this.consumer_6sjy5j$_0 = consumer;
+    this.consumer_5b4ip5$_0 = consumer;
   }
   Object.defineProperty(BDO.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6sjy5j$_0;
+      return this.consumer_5b4ip5$_0;
     }
   });
   BDO.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'BDO',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -9353,11 +10065,11 @@
   }
   function BLOCKQUOTE(initialAttributes, consumer) {
     HTMLTag.call(this, 'blockquote', consumer, initialAttributes, null, false, false);
-    this.consumer_fncvy7$_0 = consumer;
+    this.consumer_poh45r$_0 = consumer;
   }
   Object.defineProperty(BLOCKQUOTE.prototype, 'consumer', {
     get: function () {
-      return this.consumer_fncvy7$_0;
+      return this.consumer_poh45r$_0;
     }
   });
   Object.defineProperty(BLOCKQUOTE.prototype, 'cite', {
@@ -9369,17 +10081,17 @@
     }
   });
   BLOCKQUOTE.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'BLOCKQUOTE',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function BODY(initialAttributes, consumer) {
     HTMLTag.call(this, 'body', consumer, initialAttributes, null, false, false);
-    this.consumer_2ickng$_0 = consumer;
+    this.consumer_vpcosk$_0 = consumer;
   }
   Object.defineProperty(BODY.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2ickng$_0;
+      return this.consumer_vpcosk$_0;
     }
   });
   Object.defineProperty(BODY.prototype, 'onAfterprint', {
@@ -9487,21 +10199,21 @@
     }
   });
   BODY.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'BODY',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function BR(initialAttributes, consumer) {
     HTMLTag.call(this, 'br', consumer, initialAttributes, null, true, true);
-    this.consumer_tkg5um$_0 = consumer;
+    this.consumer_c6kd6a$_0 = consumer;
   }
   Object.defineProperty(BR.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkg5um$_0;
+      return this.consumer_c6kd6a$_0;
     }
   });
   BR.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'BR',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -9513,11 +10225,11 @@
   }
   function BUTTON(initialAttributes, consumer) {
     HTMLTag.call(this, 'button', consumer, initialAttributes, null, true, false);
-    this.consumer_56ux0$_0 = consumer;
+    this.consumer_a8eqy4$_0 = consumer;
   }
   Object.defineProperty(BUTTON.prototype, 'consumer', {
     get: function () {
-      return this.consumer_56ux0$_0;
+      return this.consumer_a8eqy4$_0;
     }
   });
   Object.defineProperty(BUTTON.prototype, 'autoFocus', {
@@ -9609,7 +10321,7 @@
     }
   });
   BUTTON.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'BUTTON',
     interfaces: [CommonAttributeGroupFacadeFlowInteractivePhrasingContent, HTMLTag]
   };
@@ -9624,11 +10336,11 @@
   }
   function CANVAS(initialAttributes, consumer) {
     HTMLTag.call(this, 'canvas', consumer, initialAttributes, null, false, false);
-    this.consumer_4z17km$_0 = consumer;
+    this.consumer_g24cau$_0 = consumer;
   }
   Object.defineProperty(CANVAS.prototype, 'consumer', {
     get: function () {
-      return this.consumer_4z17km$_0;
+      return this.consumer_g24cau$_0;
     }
   });
   Object.defineProperty(CANVAS.prototype, 'width', {
@@ -9648,7 +10360,7 @@
     }
   });
   CANVAS.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'CANVAS',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -9660,29 +10372,29 @@
   }
   function CAPTION(initialAttributes, consumer) {
     HTMLTag.call(this, 'caption', consumer, initialAttributes, null, false, false);
-    this.consumer_d0y3uo$_0 = consumer;
+    this.consumer_km5bao$_0 = consumer;
   }
   Object.defineProperty(CAPTION.prototype, 'consumer', {
     get: function () {
-      return this.consumer_d0y3uo$_0;
+      return this.consumer_km5bao$_0;
     }
   });
   CAPTION.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'CAPTION',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function CITE(initialAttributes, consumer) {
     HTMLTag.call(this, 'cite', consumer, initialAttributes, null, true, false);
-    this.consumer_2isupj$_0 = consumer;
+    this.consumer_tbuqkn$_0 = consumer;
   }
   Object.defineProperty(CITE.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2isupj$_0;
+      return this.consumer_tbuqkn$_0;
     }
   });
   CITE.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'CITE',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -9694,15 +10406,15 @@
   }
   function CODE(initialAttributes, consumer) {
     HTMLTag.call(this, 'code', consumer, initialAttributes, null, true, false);
-    this.consumer_2iwcrl$_0 = consumer;
+    this.consumer_lkhlo1$_0 = consumer;
   }
   Object.defineProperty(CODE.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2iwcrl$_0;
+      return this.consumer_lkhlo1$_0;
     }
   });
   CODE.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'CODE',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -9714,11 +10426,11 @@
   }
   function COL(initialAttributes, consumer) {
     HTMLTag.call(this, 'col', consumer, initialAttributes, null, false, true);
-    this.consumer_6sj32y$_0 = consumer;
+    this.consumer_vg138q$_0 = consumer;
   }
   Object.defineProperty(COL.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6sj32y$_0;
+      return this.consumer_vg138q$_0;
     }
   });
   Object.defineProperty(COL.prototype, 'span', {
@@ -9730,17 +10442,17 @@
     }
   });
   COL.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'COL',
     interfaces: [CommonAttributeGroupFacade, HTMLTag]
   };
   function COLGROUP(initialAttributes, consumer) {
     HTMLTag.call(this, 'colgroup', consumer, initialAttributes, null, false, false);
-    this.consumer_warhlb$_0 = consumer;
+    this.consumer_6a9voh$_0 = consumer;
   }
   Object.defineProperty(COLGROUP.prototype, 'consumer', {
     get: function () {
-      return this.consumer_warhlb$_0;
+      return this.consumer_6a9voh$_0;
     }
   });
   Object.defineProperty(COLGROUP.prototype, 'span', {
@@ -9752,11 +10464,12 @@
     }
   });
   COLGROUP.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'COLGROUP',
     interfaces: [CommonAttributeGroupFacade, HTMLTag]
   };
   function col$lambda_1($receiver) {
+    return Unit;
   }
   function col_1($receiver, classes, block) {
     if (classes === void 0)
@@ -9767,11 +10480,11 @@
   }
   function COMMAND(initialAttributes, consumer) {
     HTMLTag.call(this, 'command', consumer, initialAttributes, null, true, true);
-    this.consumer_3w1cu3$_0 = consumer;
+    this.consumer_ybeb7v$_0 = consumer;
   }
   Object.defineProperty(COMMAND.prototype, 'consumer', {
     get: function () {
-      return this.consumer_3w1cu3$_0;
+      return this.consumer_ybeb7v$_0;
     }
   });
   Object.defineProperty(COMMAND.prototype, 'type', {
@@ -9823,7 +10536,7 @@
     }
   });
   COMMAND.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'COMMAND',
     interfaces: [CommonAttributeGroupFacadeFlowMetaDataPhrasingContent, HTMLTag]
   };
@@ -9838,19 +10551,20 @@
   }
   function DATALIST(initialAttributes, consumer) {
     HTMLTag.call(this, 'datalist', consumer, initialAttributes, null, true, false);
-    this.consumer_2i51lm$_0 = consumer;
+    this.consumer_gaok7q$_0 = consumer;
   }
   Object.defineProperty(DATALIST.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2i51lm$_0;
+      return this.consumer_gaok7q$_0;
     }
   });
   DATALIST.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'DATALIST',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
   function option$lambda_3($receiver) {
+    return Unit;
   }
   function option_3($receiver, classes, block) {
     if (classes === void 0)
@@ -9862,6 +10576,7 @@
   function option$lambda_4(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function option_4($receiver, classes, content) {
@@ -9879,25 +10594,25 @@
   }
   function DD(initialAttributes, consumer) {
     HTMLTag.call(this, 'dd', consumer, initialAttributes, null, false, false);
-    this.consumer_tkg6zy$_0 = consumer;
+    this.consumer_6bm2n6$_0 = consumer;
   }
   Object.defineProperty(DD.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkg6zy$_0;
+      return this.consumer_6bm2n6$_0;
     }
   });
   DD.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'DD',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function DEL(initialAttributes, consumer) {
     HTMLTag.call(this, 'del', consumer, initialAttributes, null, false, false);
-    this.consumer_6sinid$_0 = consumer;
+    this.consumer_58tjed$_0 = consumer;
   }
   Object.defineProperty(DEL.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6sinid$_0;
+      return this.consumer_58tjed$_0;
     }
   });
   Object.defineProperty(DEL.prototype, 'cite', {
@@ -9917,7 +10632,7 @@
     }
   });
   DEL.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'DEL',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -9929,11 +10644,11 @@
   }
   function DETAILS(initialAttributes, consumer) {
     HTMLTag.call(this, 'details', consumer, initialAttributes, null, false, false);
-    this.consumer_v4s010$_0 = consumer;
+    this.consumer_jxzvw$_0 = consumer;
   }
   Object.defineProperty(DETAILS.prototype, 'consumer', {
     get: function () {
-      return this.consumer_v4s010$_0;
+      return this.consumer_jxzvw$_0;
     }
   });
   Object.defineProperty(DETAILS.prototype, 'open', {
@@ -9945,11 +10660,12 @@
     }
   });
   DETAILS.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'DETAILS',
     interfaces: [CommonAttributeGroupFacadeFlowInteractiveContent, HTMLTag]
   };
   function legend$lambda_1($receiver) {
+    return Unit;
   }
   function legend_1($receiver, classes, block) {
     if (classes === void 0)
@@ -9966,15 +10682,15 @@
   }
   function DFN(initialAttributes, consumer) {
     HTMLTag.call(this, 'dfn', consumer, initialAttributes, null, true, false);
-    this.consumer_6simpy$_0 = consumer;
+    this.consumer_iz2h5i$_0 = consumer;
   }
   Object.defineProperty(DFN.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6simpy$_0;
+      return this.consumer_iz2h5i$_0;
     }
   });
   DFN.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'DFN',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -9986,47 +10702,48 @@
   }
   function DIALOG(initialAttributes, consumer) {
     HTMLTag.call(this, 'dialog', consumer, initialAttributes, null, false, false);
-    this.consumer_n8h1gm$_0 = consumer;
+    this.consumer_8dah7u$_0 = consumer;
   }
   Object.defineProperty(DIALOG.prototype, 'consumer', {
     get: function () {
-      return this.consumer_n8h1gm$_0;
+      return this.consumer_8dah7u$_0;
     }
   });
   DIALOG.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'DIALOG',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function DIV(initialAttributes, consumer) {
     HTMLTag.call(this, 'div', consumer, initialAttributes, null, false, false);
-    this.consumer_6sikaz$_0 = consumer;
+    this.consumer_q3hbv$_0 = consumer;
   }
   Object.defineProperty(DIV.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6sikaz$_0;
+      return this.consumer_q3hbv$_0;
     }
   });
   DIV.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'DIV',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function DL(initialAttributes, consumer) {
     HTMLTag.call(this, 'dl', consumer, initialAttributes, null, false, false);
-    this.consumer_tkg76u$_0 = consumer;
+    this.consumer_ibwzrq$_0 = consumer;
   }
   Object.defineProperty(DL.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkg76u$_0;
+      return this.consumer_ibwzrq$_0;
     }
   });
   DL.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'DL',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function dd$lambda_1($receiver) {
+    return Unit;
   }
   function dd_1($receiver, classes, block) {
     if (classes === void 0)
@@ -10036,6 +10753,7 @@
     visit(new DD(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function dt$lambda_1($receiver) {
+    return Unit;
   }
   function dt_1($receiver, classes, block) {
     if (classes === void 0)
@@ -10046,29 +10764,29 @@
   }
   function DT(initialAttributes, consumer) {
     HTMLTag.call(this, 'dt', consumer, initialAttributes, null, false, false);
-    this.consumer_tkg7dq$_0 = consumer;
+    this.consumer_s1nzsi$_0 = consumer;
   }
   Object.defineProperty(DT.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkg7dq$_0;
+      return this.consumer_s1nzsi$_0;
     }
   });
   DT.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'DT',
     interfaces: [HtmlInlineTag, HTMLTag]
   };
   function EM(initialAttributes, consumer) {
     HTMLTag.call(this, 'em', consumer, initialAttributes, null, true, false);
-    this.consumer_tkg7ye$_0 = consumer;
+    this.consumer_p46uiy$_0 = consumer;
   }
   Object.defineProperty(EM.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkg7ye$_0;
+      return this.consumer_p46uiy$_0;
     }
   });
   EM.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'EM',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -10080,11 +10798,11 @@
   }
   function EMBED(initialAttributes, consumer) {
     HTMLTag.call(this, 'embed', consumer, initialAttributes, null, true, true);
-    this.consumer_85pbot$_0 = consumer;
+    this.consumer_kr1rcz$_0 = consumer;
   }
   Object.defineProperty(EMBED.prototype, 'consumer', {
     get: function () {
-      return this.consumer_85pbot$_0;
+      return this.consumer_kr1rcz$_0;
     }
   });
   Object.defineProperty(EMBED.prototype, 'src', {
@@ -10120,7 +10838,7 @@
     }
   });
   EMBED.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'EMBED',
     interfaces: [CommonAttributeGroupFacadeFlowInteractivePhrasingContent, HTMLTag]
   };
@@ -10135,11 +10853,11 @@
   }
   function FIELDSET(initialAttributes, consumer) {
     HTMLTag.call(this, 'fieldset', consumer, initialAttributes, null, false, false);
-    this.consumer_o9230m$_0 = consumer;
+    this.consumer_lxs0p6$_0 = consumer;
   }
   Object.defineProperty(FIELDSET.prototype, 'consumer', {
     get: function () {
-      return this.consumer_o9230m$_0;
+      return this.consumer_lxs0p6$_0;
     }
   });
   Object.defineProperty(FIELDSET.prototype, 'disabled', {
@@ -10167,11 +10885,12 @@
     }
   });
   FIELDSET.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'FIELDSET',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function legend$lambda_2($receiver) {
+    return Unit;
   }
   function legend_2($receiver, classes, block) {
     if (classes === void 0)
@@ -10182,33 +10901,34 @@
   }
   function FIGCAPTION(initialAttributes, consumer) {
     HTMLTag.call(this, 'figcaption', consumer, initialAttributes, null, false, false);
-    this.consumer_1luu5w$_0 = consumer;
+    this.consumer_ayjsck$_0 = consumer;
   }
   Object.defineProperty(FIGCAPTION.prototype, 'consumer', {
     get: function () {
-      return this.consumer_1luu5w$_0;
+      return this.consumer_ayjsck$_0;
     }
   });
   FIGCAPTION.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'FIGCAPTION',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function FIGURE(initialAttributes, consumer) {
     HTMLTag.call(this, 'figure', consumer, initialAttributes, null, false, false);
-    this.consumer_icdvg6$_0 = consumer;
+    this.consumer_yimbeu$_0 = consumer;
   }
   Object.defineProperty(FIGURE.prototype, 'consumer', {
     get: function () {
-      return this.consumer_icdvg6$_0;
+      return this.consumer_yimbeu$_0;
     }
   });
   FIGURE.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'FIGURE',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function legend$lambda_3($receiver) {
+    return Unit;
   }
   function legend_3($receiver, classes, block) {
     if (classes === void 0)
@@ -10218,6 +10938,7 @@
     visit(new LEGEND(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function figcaption$lambda_2($receiver) {
+    return Unit;
   }
   function figcaption_2($receiver, classes, block) {
     if (classes === void 0)
@@ -10228,25 +10949,25 @@
   }
   function FOOTER(initialAttributes, consumer) {
     HTMLTag.call(this, 'footer', consumer, initialAttributes, null, false, false);
-    this.consumer_fdqonh$_0 = consumer;
+    this.consumer_7w45hf$_0 = consumer;
   }
   Object.defineProperty(FOOTER.prototype, 'consumer', {
     get: function () {
-      return this.consumer_fdqonh$_0;
+      return this.consumer_7w45hf$_0;
     }
   });
   FOOTER.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'FOOTER',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function FORM(initialAttributes, consumer) {
     HTMLTag.call(this, 'form', consumer, initialAttributes, null, false, false);
-    this.consumer_2kk14a$_0 = consumer;
+    this.consumer_tm1fdy$_0 = consumer;
   }
   Object.defineProperty(FORM.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2kk14a$_0;
+      return this.consumer_tm1fdy$_0;
     }
   });
   Object.defineProperty(FORM.prototype, 'acceptCharset', {
@@ -10314,101 +11035,101 @@
     }
   });
   FORM.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'FORM',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function H1(initialAttributes, consumer) {
     HTMLTag.call(this, 'h1', consumer, initialAttributes, null, false, false);
-    this.consumer_tkg9id$_0 = consumer;
+    this.consumer_b9fkln$_0 = consumer;
   }
   Object.defineProperty(H1.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkg9id$_0;
+      return this.consumer_b9fkln$_0;
     }
   });
   H1.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'H1',
     interfaces: [CommonAttributeGroupFacadeFlowHeadingPhrasingContent, HTMLTag]
   };
   function H2(initialAttributes, consumer) {
     HTMLTag.call(this, 'h2', consumer, initialAttributes, null, false, false);
-    this.consumer_tkg9j8$_0 = consumer;
+    this.consumer_igfbxw$_0 = consumer;
   }
   Object.defineProperty(H2.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkg9j8$_0;
+      return this.consumer_igfbxw$_0;
     }
   });
   H2.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'H2',
     interfaces: [CommonAttributeGroupFacadeFlowHeadingPhrasingContent, HTMLTag]
   };
   function H3(initialAttributes, consumer) {
     HTMLTag.call(this, 'h3', consumer, initialAttributes, null, false, false);
-    this.consumer_tkg9k3$_0 = consumer;
+    this.consumer_mutthp$_0 = consumer;
   }
   Object.defineProperty(H3.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkg9k3$_0;
+      return this.consumer_mutthp$_0;
     }
   });
   H3.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'H3',
     interfaces: [CommonAttributeGroupFacadeFlowHeadingPhrasingContent, HTMLTag]
   };
   function H4(initialAttributes, consumer) {
     HTMLTag.call(this, 'h4', consumer, initialAttributes, null, false, false);
-    this.consumer_tkg9ky$_0 = consumer;
+    this.consumer_6v131u$_0 = consumer;
   }
   Object.defineProperty(H4.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkg9ky$_0;
+      return this.consumer_6v131u$_0;
     }
   });
   H4.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'H4',
     interfaces: [CommonAttributeGroupFacadeFlowHeadingPhrasingContent, HTMLTag]
   };
   function H5(initialAttributes, consumer) {
     HTMLTag.call(this, 'h5', consumer, initialAttributes, null, false, false);
-    this.consumer_tkg9lt$_0 = consumer;
+    this.consumer_yg82dr$_0 = consumer;
   }
   Object.defineProperty(H5.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkg9lt$_0;
+      return this.consumer_yg82dr$_0;
     }
   });
   H5.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'H5',
     interfaces: [CommonAttributeGroupFacadeFlowHeadingPhrasingContent, HTMLTag]
   };
   function H6(initialAttributes, consumer) {
     HTMLTag.call(this, 'h6', consumer, initialAttributes, null, false, false);
-    this.consumer_tkg9mo$_0 = consumer;
+    this.consumer_4qd5u8$_0 = consumer;
   }
   Object.defineProperty(H6.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkg9mo$_0;
+      return this.consumer_4qd5u8$_0;
     }
   });
   H6.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'H6',
     interfaces: [CommonAttributeGroupFacadeFlowHeadingPhrasingContent, HTMLTag]
   };
   function HEAD(initialAttributes, consumer) {
     HTMLTag.call(this, 'head', consumer, initialAttributes, null, false, false);
-    this.consumer_2lgvm6$_0 = consumer;
+    this.consumer_8goapu$_0 = consumer;
   }
   Object.defineProperty(HEAD.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2lgvm6$_0;
+      return this.consumer_8goapu$_0;
     }
   });
   HEAD.prototype.unaryPlus_lvwjq6$ = function ($receiver) {
@@ -10427,39 +11148,40 @@
     HTMLTag.prototype.entity_ws8or7$.call(this, e);
   };
   HEAD.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'HEAD',
     interfaces: [HtmlHeadTag, HTMLTag]
   };
   function HEADER(initialAttributes, consumer) {
     HTMLTag.call(this, 'header', consumer, initialAttributes, null, false, false);
-    this.consumer_90mbr5$_0 = consumer;
+    this.consumer_8dl8b5$_0 = consumer;
   }
   Object.defineProperty(HEADER.prototype, 'consumer', {
     get: function () {
-      return this.consumer_90mbr5$_0;
+      return this.consumer_8dl8b5$_0;
     }
   });
   HEADER.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'HEADER',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function HGROUP(initialAttributes, consumer) {
     HTMLTag.call(this, 'hgroup', consumer, initialAttributes, null, false, false);
-    this.consumer_a89fav$_0 = consumer;
+    this.consumer_aliu2h$_0 = consumer;
   }
   Object.defineProperty(HGROUP.prototype, 'consumer', {
     get: function () {
-      return this.consumer_a89fav$_0;
+      return this.consumer_aliu2h$_0;
     }
   });
   HGROUP.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'HGROUP',
     interfaces: [CommonAttributeGroupFacadeFlowHeadingContent, HTMLTag]
   };
   function h1$lambda_2($receiver) {
+    return Unit;
   }
   function h1_2($receiver, classes, block) {
     if (classes === void 0)
@@ -10469,6 +11191,7 @@
     visit(new H1(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function h2$lambda_2($receiver) {
+    return Unit;
   }
   function h2_2($receiver, classes, block) {
     if (classes === void 0)
@@ -10478,6 +11201,7 @@
     visit(new H2(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function h3$lambda_2($receiver) {
+    return Unit;
   }
   function h3_2($receiver, classes, block) {
     if (classes === void 0)
@@ -10487,6 +11211,7 @@
     visit(new H3(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function h4$lambda_2($receiver) {
+    return Unit;
   }
   function h4_2($receiver, classes, block) {
     if (classes === void 0)
@@ -10496,6 +11221,7 @@
     visit(new H4(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function h5$lambda_2($receiver) {
+    return Unit;
   }
   function h5_2($receiver, classes, block) {
     if (classes === void 0)
@@ -10505,6 +11231,7 @@
     visit(new H5(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function h6$lambda_2($receiver) {
+    return Unit;
   }
   function h6_2($receiver, classes, block) {
     if (classes === void 0)
@@ -10521,25 +11248,27 @@
   }
   function HR(initialAttributes, consumer) {
     HTMLTag.call(this, 'hr', consumer, initialAttributes, null, false, true);
-    this.consumer_tkgaas$_0 = consumer;
+    this.consumer_ozoics$_0 = consumer;
   }
   Object.defineProperty(HR.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkgaas$_0;
+      return this.consumer_ozoics$_0;
     }
   });
   HR.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'HR',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
-  function HTML(initialAttributes, consumer) {
-    HTMLTag.call(this, 'html', consumer, initialAttributes, null, false, false);
-    this.consumer_2lqpib$_0 = consumer;
+  function HTML(initialAttributes, consumer, namespace) {
+    if (namespace === void 0)
+      namespace = null;
+    HTMLTag.call(this, 'html', consumer, initialAttributes, namespace, false, false);
+    this.consumer_7o7wi5$_0 = consumer;
   }
   Object.defineProperty(HTML.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2lqpib$_0;
+      return this.consumer_7o7wi5$_0;
     }
   });
   Object.defineProperty(HTML.prototype, 'manifest', {
@@ -10566,11 +11295,12 @@
     HTMLTag.prototype.entity_ws8or7$.call(this, e);
   };
   HTML.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'HTML',
     interfaces: [CommonAttributeGroupFacade, HTMLTag]
   };
   function body$lambda_1($receiver) {
+    return Unit;
   }
   function body_1($receiver, classes, block) {
     if (classes === void 0)
@@ -10579,24 +11309,36 @@
       block = body$lambda_1;
     visit(new BODY(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
-  function head$lambda_1($receiver) {
+  function head$lambda_3($receiver) {
+    return Unit;
   }
-  function head_1($receiver, block) {
+  function head_3($receiver, block) {
     if (block === void 0)
-      block = head$lambda_1;
+      block = head$lambda_3;
     visit(new HEAD(emptyMap_0, $receiver.consumer), block);
+  }
+  function head$lambda_4(closure$content) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
+    };
+  }
+  function head_4($receiver, content) {
+    if (content === void 0)
+      content = '';
+    visit(new HEAD(emptyMap_0, $receiver.consumer), head$lambda_4(content));
   }
   function I(initialAttributes, consumer) {
     HTMLTag.call(this, 'i', consumer, initialAttributes, null, true, false);
-    this.consumer_lkq38d$_0 = consumer;
+    this.consumer_uoovcd$_0 = consumer;
   }
   Object.defineProperty(I.prototype, 'consumer', {
     get: function () {
-      return this.consumer_lkq38d$_0;
+      return this.consumer_uoovcd$_0;
     }
   });
   I.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'I',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -10608,11 +11350,11 @@
   }
   function IFRAME(initialAttributes, consumer) {
     HTMLTag.call(this, 'iframe', consumer, initialAttributes, null, true, false);
-    this.consumer_ofcz4a$_0 = consumer;
+    this.consumer_6ckxm$_0 = consumer;
   }
   Object.defineProperty(IFRAME.prototype, 'consumer', {
     get: function () {
-      return this.consumer_ofcz4a$_0;
+      return this.consumer_6ckxm$_0;
     }
   });
   Object.defineProperty(IFRAME.prototype, 'name', {
@@ -10664,7 +11406,7 @@
     }
   });
   IFRAME.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'IFRAME',
     interfaces: [CommonAttributeGroupFacadeFlowInteractivePhrasingContent, HTMLTag]
   };
@@ -10679,11 +11421,11 @@
   }
   function IMG(initialAttributes, consumer) {
     HTMLTag.call(this, 'img', consumer, initialAttributes, null, true, true);
-    this.consumer_6sfarh$_0 = consumer;
+    this.consumer_4la90t$_0 = consumer;
   }
   Object.defineProperty(IMG.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6sfarh$_0;
+      return this.consumer_4la90t$_0;
     }
   });
   Object.defineProperty(IMG.prototype, 'alt', {
@@ -10735,7 +11477,7 @@
     }
   });
   IMG.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'IMG',
     interfaces: [CommonAttributeGroupFacadeFlowInteractivePhrasingContent, HTMLTag]
   };
@@ -10750,11 +11492,11 @@
   }
   function INPUT(initialAttributes, consumer) {
     HTMLTag.call(this, 'input', consumer, initialAttributes, null, true, true);
-    this.consumer_a2ovx8$_0 = consumer;
+    this.consumer_t1a1kk$_0 = consumer;
   }
   Object.defineProperty(INPUT.prototype, 'consumer', {
     get: function () {
-      return this.consumer_a2ovx8$_0;
+      return this.consumer_t1a1kk$_0;
     }
   });
   Object.defineProperty(INPUT.prototype, 'type', {
@@ -11006,7 +11748,7 @@
     }
   });
   INPUT.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'INPUT',
     interfaces: [CommonAttributeGroupFacadeFlowInteractivePhrasingContent, HTMLTag]
   };
@@ -11021,11 +11763,11 @@
   }
   function INS(initialAttributes, consumer) {
     HTMLTag.call(this, 'ins', consumer, initialAttributes, null, false, false);
-    this.consumer_6sf9qg$_0 = consumer;
+    this.consumer_59ed94$_0 = consumer;
   }
   Object.defineProperty(INS.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6sf9qg$_0;
+      return this.consumer_59ed94$_0;
     }
   });
   Object.defineProperty(INS.prototype, 'cite', {
@@ -11045,7 +11787,7 @@
     }
   });
   INS.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'INS',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -11057,15 +11799,15 @@
   }
   function KBD(initialAttributes, consumer) {
     HTMLTag.call(this, 'kbd', consumer, initialAttributes, null, true, false);
-    this.consumer_6se90n$_0 = consumer;
+    this.consumer_agzz8p$_0 = consumer;
   }
   Object.defineProperty(KBD.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6se90n$_0;
+      return this.consumer_agzz8p$_0;
     }
   });
   KBD.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'KBD',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -11077,11 +11819,11 @@
   }
   function KEYGEN(initialAttributes, consumer) {
     HTMLTag.call(this, 'keygen', consumer, initialAttributes, null, true, true);
-    this.consumer_hm1wg3$_0 = consumer;
+    this.consumer_c07zcj$_0 = consumer;
   }
   Object.defineProperty(KEYGEN.prototype, 'consumer', {
     get: function () {
-      return this.consumer_hm1wg3$_0;
+      return this.consumer_c07zcj$_0;
     }
   });
   Object.defineProperty(KEYGEN.prototype, 'autoFocus', {
@@ -11133,7 +11875,7 @@
     }
   });
   KEYGEN.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'KEYGEN',
     interfaces: [CommonAttributeGroupFacadeFlowInteractivePhrasingContent, HTMLTag]
   };
@@ -11148,11 +11890,11 @@
   }
   function LABEL(initialAttributes, consumer) {
     HTMLTag.call(this, 'label', consumer, initialAttributes, null, true, false);
-    this.consumer_baf5iq$_0 = consumer;
+    this.consumer_d62jmq$_0 = consumer;
   }
   Object.defineProperty(LABEL.prototype, 'consumer', {
     get: function () {
-      return this.consumer_baf5iq$_0;
+      return this.consumer_d62jmq$_0;
     }
   });
   Object.defineProperty(LABEL.prototype, 'form', {
@@ -11163,7 +11905,7 @@
       attributeStringString.set_fid0sb$(this, 'form', newValue);
     }
   });
-  Object.defineProperty(LABEL.prototype, 'for_', {
+  Object.defineProperty(LABEL.prototype, 'htmlFor', {
     get: function () {
       return attributeStringString.get_txhc1s$(this, 'for');
     },
@@ -11172,7 +11914,7 @@
     }
   });
   LABEL.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'LABEL',
     interfaces: [CommonAttributeGroupFacadeFlowInteractivePhrasingContent, HTMLTag]
   };
@@ -11187,15 +11929,15 @@
   }
   function LEGEND(initialAttributes, consumer) {
     HTMLTag.call(this, 'legend', consumer, initialAttributes, null, true, false);
-    this.consumer_37l0fz$_0 = consumer;
+    this.consumer_h1ylzl$_0 = consumer;
   }
   Object.defineProperty(LEGEND.prototype, 'consumer', {
     get: function () {
-      return this.consumer_37l0fz$_0;
+      return this.consumer_h1ylzl$_0;
     }
   });
   LEGEND.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'LEGEND',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -11207,11 +11949,11 @@
   }
   function LI(initialAttributes, consumer) {
     HTMLTag.call(this, 'li', consumer, initialAttributes, null, false, false);
-    this.consumer_tkgd1t$_0 = consumer;
+    this.consumer_gvd6sf$_0 = consumer;
   }
   Object.defineProperty(LI.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkgd1t$_0;
+      return this.consumer_gvd6sf$_0;
     }
   });
   Object.defineProperty(LI.prototype, 'value', {
@@ -11223,17 +11965,17 @@
     }
   });
   LI.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'LI',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function LINK(initialAttributes, consumer) {
     HTMLTag.call(this, 'link', consumer, initialAttributes, null, false, true);
-    this.consumer_2nqvqs$_0 = consumer;
+    this.consumer_bkmyw4$_0 = consumer;
   }
   Object.defineProperty(LINK.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2nqvqs$_0;
+      return this.consumer_bkmyw4$_0;
     }
   });
   Object.defineProperty(LINK.prototype, 'href', {
@@ -11285,7 +12027,7 @@
     }
   });
   LINK.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'LINK',
     interfaces: [CommonAttributeGroupFacadeFlowMetaDataPhrasingContent, HTMLTag]
   };
@@ -11298,13 +12040,27 @@
   function get_asPhrasingContent_26($receiver) {
     return $receiver;
   }
+  function MAIN(initialAttributes, consumer) {
+    HTMLTag.call(this, 'main', consumer, initialAttributes, null, false, false);
+    this.consumer_9wvspx$_0 = consumer;
+  }
+  Object.defineProperty(MAIN.prototype, 'consumer', {
+    get: function () {
+      return this.consumer_9wvspx$_0;
+    }
+  });
+  MAIN.$metadata$ = {
+    kind: Kind_CLASS,
+    simpleName: 'MAIN',
+    interfaces: [CommonAttributeGroupFacadeFlowPhrasingSectioningContent, HTMLTag]
+  };
   function MAP(initialAttributes, consumer) {
     HTMLTag.call(this, 'map', consumer, initialAttributes, null, true, false);
-    this.consumer_6sczhy$_0 = consumer;
+    this.consumer_nryj5m$_0 = consumer;
   }
   Object.defineProperty(MAP.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6sczhy$_0;
+      return this.consumer_nryj5m$_0;
     }
   });
   Object.defineProperty(MAP.prototype, 'name', {
@@ -11316,7 +12072,7 @@
     }
   });
   MAP.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'MAP',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -11328,15 +12084,15 @@
   }
   function MARK(initialAttributes, consumer) {
     HTMLTag.call(this, 'mark', consumer, initialAttributes, null, true, false);
-    this.consumer_2o5nep$_0 = consumer;
+    this.consumer_rf92pb$_0 = consumer;
   }
   Object.defineProperty(MARK.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2o5nep$_0;
+      return this.consumer_rf92pb$_0;
     }
   });
   MARK.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'MARK',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -11348,15 +12104,15 @@
   }
   function MATH(initialAttributes, consumer) {
     HTMLTag.call(this, 'math', consumer, initialAttributes, null, false, false);
-    this.consumer_2o5oti$_0 = consumer;
+    this.consumer_l7oxw6$_0 = consumer;
   }
   Object.defineProperty(MATH.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2o5oti$_0;
+      return this.consumer_l7oxw6$_0;
     }
   });
   MATH.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'MATH',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -11368,25 +12124,25 @@
   }
   function MATHML(initialAttributes, consumer) {
     HTMLTag.call(this, 'mathml', consumer, initialAttributes, null, false, false);
-    this.consumer_9ru0br$_0 = consumer;
+    this.consumer_8uwqq1$_0 = consumer;
   }
   Object.defineProperty(MATHML.prototype, 'consumer', {
     get: function () {
-      return this.consumer_9ru0br$_0;
+      return this.consumer_8uwqq1$_0;
     }
   });
   MATHML.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'MATHML',
     interfaces: [CommonAttributeGroupFacade, HTMLTag]
   };
   function META(initialAttributes, consumer) {
     HTMLTag.call(this, 'meta', consumer, initialAttributes, null, false, true);
-    this.consumer_2o88ll$_0 = consumer;
+    this.consumer_pccp47$_0 = consumer;
   }
   Object.defineProperty(META.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2o88ll$_0;
+      return this.consumer_pccp47$_0;
     }
   });
   Object.defineProperty(META.prototype, 'httpEquiv', {
@@ -11422,7 +12178,7 @@
     }
   });
   META.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'META',
     interfaces: [CommonAttributeGroupFacadeFlowMetaDataPhrasingContent, HTMLTag]
   };
@@ -11437,11 +12193,11 @@
   }
   function METER(initialAttributes, consumer) {
     HTMLTag.call(this, 'meter', consumer, initialAttributes, null, true, false);
-    this.consumer_btzg71$_0 = consumer;
+    this.consumer_37isgd$_0 = consumer;
   }
   Object.defineProperty(METER.prototype, 'consumer', {
     get: function () {
-      return this.consumer_btzg71$_0;
+      return this.consumer_37isgd$_0;
     }
   });
   Object.defineProperty(METER.prototype, 'value', {
@@ -11493,7 +12249,7 @@
     }
   });
   METER.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'METER',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -11505,15 +12261,15 @@
   }
   function NAV(initialAttributes, consumer) {
     HTMLTag.call(this, 'nav', consumer, initialAttributes, null, false, false);
-    this.consumer_6sccd9$_0 = consumer;
+    this.consumer_65jkb1$_0 = consumer;
   }
   Object.defineProperty(NAV.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6sccd9$_0;
+      return this.consumer_65jkb1$_0;
     }
   });
   NAV.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'NAV',
     interfaces: [CommonAttributeGroupFacadeFlowSectioningContent, HTMLTag]
   };
@@ -11525,15 +12281,15 @@
   }
   function NOSCRIPT(initialAttributes, consumer) {
     HTMLTag.call(this, 'noscript', consumer, initialAttributes, null, false, false);
-    this.consumer_hfczaa$_0 = consumer;
+    this.consumer_86itoy$_0 = consumer;
   }
   Object.defineProperty(NOSCRIPT.prototype, 'consumer', {
     get: function () {
-      return this.consumer_hfczaa$_0;
+      return this.consumer_86itoy$_0;
     }
   });
   NOSCRIPT.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'NOSCRIPT',
     interfaces: [CommonAttributeGroupFacadeFlowMetaDataPhrasingContent, HTMLTag]
   };
@@ -11546,16 +12302,16 @@
   function get_asPhrasingContent_32($receiver) {
     return $receiver;
   }
-  function OBJECT_(initialAttributes, consumer) {
+  function OBJECT(initialAttributes, consumer) {
     HTMLTag.call(this, 'object', consumer, initialAttributes, null, true, false);
-    this.consumer_fcnfuu$_0 = consumer;
+    this.consumer_1ylkbj$_0 = consumer;
   }
-  Object.defineProperty(OBJECT_.prototype, 'consumer', {
+  Object.defineProperty(OBJECT.prototype, 'consumer', {
     get: function () {
-      return this.consumer_fcnfuu$_0;
+      return this.consumer_1ylkbj$_0;
     }
   });
-  Object.defineProperty(OBJECT_.prototype, 'data', {
+  Object.defineProperty(OBJECT.prototype, 'data', {
     get: function () {
       return attributeStringString.get_txhc1s$(this, 'data');
     },
@@ -11563,7 +12319,7 @@
       attributeStringString.set_fid0sb$(this, 'data', newValue);
     }
   });
-  Object.defineProperty(OBJECT_.prototype, 'type', {
+  Object.defineProperty(OBJECT.prototype, 'type', {
     get: function () {
       return attributeStringString.get_txhc1s$(this, 'type');
     },
@@ -11571,7 +12327,7 @@
       attributeStringString.set_fid0sb$(this, 'type', newValue);
     }
   });
-  Object.defineProperty(OBJECT_.prototype, 'height', {
+  Object.defineProperty(OBJECT.prototype, 'height', {
     get: function () {
       return attributeStringString.get_txhc1s$(this, 'height');
     },
@@ -11579,7 +12335,7 @@
       attributeStringString.set_fid0sb$(this, 'height', newValue);
     }
   });
-  Object.defineProperty(OBJECT_.prototype, 'width', {
+  Object.defineProperty(OBJECT.prototype, 'width', {
     get: function () {
       return attributeStringString.get_txhc1s$(this, 'width');
     },
@@ -11587,7 +12343,7 @@
       attributeStringString.set_fid0sb$(this, 'width', newValue);
     }
   });
-  Object.defineProperty(OBJECT_.prototype, 'usemap', {
+  Object.defineProperty(OBJECT.prototype, 'usemap', {
     get: function () {
       return attributeStringString.get_txhc1s$(this, 'usemap');
     },
@@ -11595,7 +12351,7 @@
       attributeStringString.set_fid0sb$(this, 'usemap', newValue);
     }
   });
-  Object.defineProperty(OBJECT_.prototype, 'name', {
+  Object.defineProperty(OBJECT.prototype, 'name', {
     get: function () {
       return attributeStringString.get_txhc1s$(this, 'name');
     },
@@ -11603,7 +12359,7 @@
       attributeStringString.set_fid0sb$(this, 'name', newValue);
     }
   });
-  Object.defineProperty(OBJECT_.prototype, 'form', {
+  Object.defineProperty(OBJECT.prototype, 'form', {
     get: function () {
       return attributeStringString.get_txhc1s$(this, 'form');
     },
@@ -11611,7 +12367,7 @@
       attributeStringString.set_fid0sb$(this, 'form', newValue);
     }
   });
-  Object.defineProperty(OBJECT_.prototype, 'classId', {
+  Object.defineProperty(OBJECT.prototype, 'classId', {
     get: function () {
       return attributeStringString.get_txhc1s$(this, 'classid');
     },
@@ -11619,12 +12375,13 @@
       attributeStringString.set_fid0sb$(this, 'classid', newValue);
     }
   });
-  OBJECT_.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
-    simpleName: 'OBJECT_',
+  OBJECT.$metadata$ = {
+    kind: Kind_CLASS,
+    simpleName: 'OBJECT',
     interfaces: [CommonAttributeGroupFacadeFlowInteractivePhrasingContent, HTMLTag]
   };
   function param$lambda_1($receiver) {
+    return Unit;
   }
   function param_1($receiver, name, value, block) {
     if (name === void 0)
@@ -11646,11 +12403,11 @@
   }
   function OL(initialAttributes, consumer) {
     HTMLTag.call(this, 'ol', consumer, initialAttributes, null, false, false);
-    this.consumer_tkgfch$_0 = consumer;
+    this.consumer_55glq7$_0 = consumer;
   }
   Object.defineProperty(OL.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkgfch$_0;
+      return this.consumer_55glq7$_0;
     }
   });
   Object.defineProperty(OL.prototype, 'start', {
@@ -11670,11 +12427,12 @@
     }
   });
   OL.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'OL',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function li$lambda_1($receiver) {
+    return Unit;
   }
   function li_1($receiver, classes, block) {
     if (classes === void 0)
@@ -11685,11 +12443,11 @@
   }
   function OPTGROUP(initialAttributes, consumer) {
     HTMLTag.call(this, 'optgroup', consumer, initialAttributes, null, true, false);
-    this.consumer_wxk4w2$_0 = consumer;
+    this.consumer_nnwmwi$_0 = consumer;
   }
   Object.defineProperty(OPTGROUP.prototype, 'consumer', {
     get: function () {
-      return this.consumer_wxk4w2$_0;
+      return this.consumer_nnwmwi$_0;
     }
   });
   Object.defineProperty(OPTGROUP.prototype, 'disabled', {
@@ -11709,11 +12467,12 @@
     }
   });
   OPTGROUP.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'OPTGROUP',
     interfaces: [CommonAttributeGroupFacade, HTMLTag]
   };
   function option$lambda_5($receiver) {
+    return Unit;
   }
   function option_5($receiver, classes, block) {
     if (classes === void 0)
@@ -11725,6 +12484,7 @@
   function option$lambda_6(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function option_6($receiver, classes, content) {
@@ -11736,11 +12496,11 @@
   }
   function OPTION(initialAttributes, consumer) {
     HTMLTag.call(this, 'option', consumer, initialAttributes, null, true, false);
-    this.consumer_ossgrr$_0 = consumer;
+    this.consumer_lt7f6f$_0 = consumer;
   }
   Object.defineProperty(OPTION.prototype, 'consumer', {
     get: function () {
-      return this.consumer_ossgrr$_0;
+      return this.consumer_lt7f6f$_0;
     }
   });
   Object.defineProperty(OPTION.prototype, 'disabled', {
@@ -11776,20 +12536,20 @@
     }
   });
   OPTION.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'OPTION',
     interfaces: [CommonAttributeGroupFacade, HTMLTag]
   };
   function OUTPUT(initialAttributes, consumer) {
     HTMLTag.call(this, 'output', consumer, initialAttributes, null, true, false);
-    this.consumer_mffrar$_0 = consumer;
+    this.consumer_i1a0pv$_0 = consumer;
   }
   Object.defineProperty(OUTPUT.prototype, 'consumer', {
     get: function () {
-      return this.consumer_mffrar$_0;
+      return this.consumer_i1a0pv$_0;
     }
   });
-  Object.defineProperty(OUTPUT.prototype, 'for_', {
+  Object.defineProperty(OUTPUT.prototype, 'htmlFor', {
     get: function () {
       return attributeStringString.get_txhc1s$(this, 'for');
     },
@@ -11814,7 +12574,7 @@
     }
   });
   OUTPUT.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'OUTPUT',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -11826,15 +12586,15 @@
   }
   function P(initialAttributes, consumer) {
     HTMLTag.call(this, 'p', consumer, initialAttributes, null, false, false);
-    this.consumer_lkq3ee$_0 = consumer;
+    this.consumer_pmd17q$_0 = consumer;
   }
   Object.defineProperty(P.prototype, 'consumer', {
     get: function () {
-      return this.consumer_lkq3ee$_0;
+      return this.consumer_pmd17q$_0;
     }
   });
   P.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'P',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -11846,11 +12606,11 @@
   }
   function PARAM(initialAttributes, consumer) {
     HTMLTag.call(this, 'param', consumer, initialAttributes, null, true, true);
-    this.consumer_d6vry1$_0 = consumer;
+    this.consumer_tc29ah$_0 = consumer;
   }
   Object.defineProperty(PARAM.prototype, 'consumer', {
     get: function () {
-      return this.consumer_d6vry1$_0;
+      return this.consumer_tc29ah$_0;
     }
   });
   Object.defineProperty(PARAM.prototype, 'name', {
@@ -11870,21 +12630,21 @@
     }
   });
   PARAM.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'PARAM',
     interfaces: [HTMLTag]
   };
   function PRE(initialAttributes, consumer) {
     HTMLTag.call(this, 'pre', consumer, initialAttributes, null, false, false);
-    this.consumer_6saq71$_0 = consumer;
+    this.consumer_uan20j$_0 = consumer;
   }
   Object.defineProperty(PRE.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6saq71$_0;
+      return this.consumer_uan20j$_0;
     }
   });
   PRE.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'PRE',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -11896,11 +12656,11 @@
   }
   function PROGRESS(initialAttributes, consumer) {
     HTMLTag.call(this, 'progress', consumer, initialAttributes, null, true, false);
-    this.consumer_cpgs67$_0 = consumer;
+    this.consumer_1x9u8f$_0 = consumer;
   }
   Object.defineProperty(PROGRESS.prototype, 'consumer', {
     get: function () {
-      return this.consumer_cpgs67$_0;
+      return this.consumer_1x9u8f$_0;
     }
   });
   Object.defineProperty(PROGRESS.prototype, 'value', {
@@ -11920,7 +12680,7 @@
     }
   });
   PROGRESS.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'PROGRESS',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -11932,11 +12692,11 @@
   }
   function Q(initialAttributes, consumer) {
     HTMLTag.call(this, 'q', consumer, initialAttributes, null, true, false);
-    this.consumer_lkq3f9$_0 = consumer;
+    this.consumer_fow47v$_0 = consumer;
   }
   Object.defineProperty(Q.prototype, 'consumer', {
     get: function () {
-      return this.consumer_lkq3f9$_0;
+      return this.consumer_fow47v$_0;
     }
   });
   Object.defineProperty(Q.prototype, 'cite', {
@@ -11948,7 +12708,7 @@
     }
   });
   Q.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'Q',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -11960,47 +12720,48 @@
   }
   function RP(initialAttributes, consumer) {
     HTMLTag.call(this, 'rp', consumer, initialAttributes, null, true, false);
-    this.consumer_tkgho0$_0 = consumer;
+    this.consumer_yqt63k$_0 = consumer;
   }
   Object.defineProperty(RP.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkgho0$_0;
+      return this.consumer_yqt63k$_0;
     }
   });
   RP.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'RP',
     interfaces: [HtmlInlineTag, HTMLTag]
   };
   function RT(initialAttributes, consumer) {
     HTMLTag.call(this, 'rt', consumer, initialAttributes, null, true, false);
-    this.consumer_tkghrg$_0 = consumer;
+    this.consumer_d3ie3g$_0 = consumer;
   }
   Object.defineProperty(RT.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkghrg$_0;
+      return this.consumer_d3ie3g$_0;
     }
   });
   RT.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'RT',
     interfaces: [HtmlInlineTag, HTMLTag]
   };
   function RUBY(initialAttributes, consumer) {
     HTMLTag.call(this, 'ruby', consumer, initialAttributes, null, true, false);
-    this.consumer_2r92l0$_0 = consumer;
+    this.consumer_6ltj98$_0 = consumer;
   }
   Object.defineProperty(RUBY.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2r92l0$_0;
+      return this.consumer_6ltj98$_0;
     }
   });
   RUBY.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'RUBY',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
   function rt$lambda_1($receiver) {
+    return Unit;
   }
   function rt_1($receiver, classes, block) {
     if (classes === void 0)
@@ -12010,6 +12771,7 @@
     visit(new RT(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function rp$lambda_1($receiver) {
+    return Unit;
   }
   function rp_1($receiver, classes, block) {
     if (classes === void 0)
@@ -12026,15 +12788,15 @@
   }
   function SAMP(initialAttributes, consumer) {
     HTMLTag.call(this, 'samp', consumer, initialAttributes, null, true, false);
-    this.consumer_2rgbdp$_0 = consumer;
+    this.consumer_v320er$_0 = consumer;
   }
   Object.defineProperty(SAMP.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2rgbdp$_0;
+      return this.consumer_v320er$_0;
     }
   });
   SAMP.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'SAMP',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -12046,11 +12808,11 @@
   }
   function SCRIPT(initialAttributes, consumer) {
     HTMLTag.call(this, 'script', consumer, initialAttributes, null, false, false);
-    this.consumer_rq40oz$_0 = consumer;
+    this.consumer_1olvfx$_0 = consumer;
   }
   Object.defineProperty(SCRIPT.prototype, 'consumer', {
     get: function () {
-      return this.consumer_rq40oz$_0;
+      return this.consumer_1olvfx$_0;
     }
   });
   Object.defineProperty(SCRIPT.prototype, 'charset', {
@@ -12109,7 +12871,7 @@
     HTMLTag.prototype.entity_ws8or7$.call(this, e);
   };
   SCRIPT.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'SCRIPT',
     interfaces: [FlowMetaDataPhrasingContent, HTMLTag]
   };
@@ -12124,15 +12886,15 @@
   }
   function SECTION(initialAttributes, consumer) {
     HTMLTag.call(this, 'section', consumer, initialAttributes, null, false, false);
-    this.consumer_tj5crl$_0 = consumer;
+    this.consumer_kemaep$_0 = consumer;
   }
   Object.defineProperty(SECTION.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tj5crl$_0;
+      return this.consumer_kemaep$_0;
     }
   });
   SECTION.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'SECTION',
     interfaces: [CommonAttributeGroupFacadeFlowSectioningContent, HTMLTag]
   };
@@ -12144,11 +12906,11 @@
   }
   function SELECT(initialAttributes, consumer) {
     HTMLTag.call(this, 'select', consumer, initialAttributes, null, true, false);
-    this.consumer_sktoc2$_0 = consumer;
+    this.consumer_mc8t3y$_0 = consumer;
   }
   Object.defineProperty(SELECT.prototype, 'consumer', {
     get: function () {
-      return this.consumer_sktoc2$_0;
+      return this.consumer_mc8t3y$_0;
     }
   });
   Object.defineProperty(SELECT.prototype, 'autoFocus', {
@@ -12208,11 +12970,12 @@
     }
   });
   SELECT.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'SELECT',
     interfaces: [CommonAttributeGroupFacadeFlowInteractivePhrasingContent, HTMLTag]
   };
   function option$lambda_7($receiver) {
+    return Unit;
   }
   function option_7($receiver, classes, block) {
     if (classes === void 0)
@@ -12224,6 +12987,7 @@
   function option$lambda_8(closure$content) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(closure$content);
+      return Unit;
     };
   }
   function option_8($receiver, classes, content) {
@@ -12234,6 +12998,7 @@
     visit(new OPTION(attributesMapOf_0('class', classes), $receiver.consumer), option$lambda_8(content));
   }
   function optGroup$lambda_1($receiver) {
+    return Unit;
   }
   function optGroup_1($receiver, label, classes, block) {
     if (label === void 0)
@@ -12255,15 +13020,15 @@
   }
   function SMALL(initialAttributes, consumer) {
     HTMLTag.call(this, 'small', consumer, initialAttributes, null, true, false);
-    this.consumer_esbjlr$_0 = consumer;
+    this.consumer_9seu7l$_0 = consumer;
   }
   Object.defineProperty(SMALL.prototype, 'consumer', {
     get: function () {
-      return this.consumer_esbjlr$_0;
+      return this.consumer_9seu7l$_0;
     }
   });
   SMALL.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'SMALL',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -12275,11 +13040,11 @@
   }
   function SOURCE(initialAttributes, consumer) {
     HTMLTag.call(this, 'source', consumer, initialAttributes, null, true, true);
-    this.consumer_xggc37$_0 = consumer;
+    this.consumer_auxc59$_0 = consumer;
   }
   Object.defineProperty(SOURCE.prototype, 'consumer', {
     get: function () {
-      return this.consumer_xggc37$_0;
+      return this.consumer_auxc59$_0;
     }
   });
   Object.defineProperty(SOURCE.prototype, 'src', {
@@ -12307,21 +13072,21 @@
     }
   });
   SOURCE.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'SOURCE',
     interfaces: [CommonAttributeGroupFacade, HTMLTag]
   };
   function SPAN(initialAttributes, consumer) {
     HTMLTag.call(this, 'span', consumer, initialAttributes, null, true, false);
-    this.consumer_2rpn8k$_0 = consumer;
+    this.consumer_7vq504$_0 = consumer;
   }
   Object.defineProperty(SPAN.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2rpn8k$_0;
+      return this.consumer_7vq504$_0;
     }
   });
   SPAN.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'SPAN',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -12333,15 +13098,15 @@
   }
   function STRONG(initialAttributes, consumer) {
     HTMLTag.call(this, 'strong', consumer, initialAttributes, null, true, false);
-    this.consumer_z94og9$_0 = consumer;
+    this.consumer_2ut32f$_0 = consumer;
   }
   Object.defineProperty(STRONG.prototype, 'consumer', {
     get: function () {
-      return this.consumer_z94og9$_0;
+      return this.consumer_2ut32f$_0;
     }
   });
   STRONG.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'STRONG',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -12353,11 +13118,11 @@
   }
   function STYLE(initialAttributes, consumer) {
     HTMLTag.call(this, 'style', consumer, initialAttributes, null, false, false);
-    this.consumer_ewlf9x$_0 = consumer;
+    this.consumer_s73hph$_0 = consumer;
   }
   Object.defineProperty(STYLE.prototype, 'consumer', {
     get: function () {
-      return this.consumer_ewlf9x$_0;
+      return this.consumer_s73hph$_0;
     }
   });
   Object.defineProperty(STYLE.prototype, 'type', {
@@ -12384,8 +13149,23 @@
       attributeBooleanTicker.set_fid0sb$(this, 'scoped', newValue);
     }
   });
+  STYLE.prototype.unaryPlus_lvwjq6$ = function ($receiver) {
+    this.entity_ws8or7$($receiver);
+  };
+  STYLE.prototype.unaryPlus_pdl1vz$ = function ($receiver) {
+    this.text_61zpoe$($receiver);
+  };
+  STYLE.prototype.text_61zpoe$ = function (s) {
+    HTMLTag.prototype.text_61zpoe$.call(this, s);
+  };
+  STYLE.prototype.text_3p81yu$ = function (n) {
+    HTMLTag.prototype.text_3p81yu$.call(this, n);
+  };
+  STYLE.prototype.entity_ws8or7$ = function (e) {
+    HTMLTag.prototype.entity_ws8or7$.call(this, e);
+  };
   STYLE.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'STYLE',
     interfaces: [CommonAttributeGroupFacadeFlowMetaDataContent, HTMLTag]
   };
@@ -12397,15 +13177,15 @@
   }
   function SUB(initialAttributes, consumer) {
     HTMLTag.call(this, 'sub', consumer, initialAttributes, null, true, false);
-    this.consumer_6s8r2y$_0 = consumer;
+    this.consumer_kbo9ee$_0 = consumer;
   }
   Object.defineProperty(SUB.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6s8r2y$_0;
+      return this.consumer_kbo9ee$_0;
     }
   });
   SUB.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'SUB',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -12417,15 +13197,15 @@
   }
   function SUP(initialAttributes, consumer) {
     HTMLTag.call(this, 'sup', consumer, initialAttributes, null, true, false);
-    this.consumer_6s8qqw$_0 = consumer;
+    this.consumer_a70l54$_0 = consumer;
   }
   Object.defineProperty(SUP.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6s8qqw$_0;
+      return this.consumer_a70l54$_0;
     }
   });
   SUP.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'SUP',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -12437,15 +13217,15 @@
   }
   function SVG(initialAttributes, consumer) {
     HTMLTag.call(this, 'svg', consumer, initialAttributes, 'http://www.w3.org/2000/svg', false, false);
-    this.consumer_6s8q7y$_0 = consumer;
+    this.consumer_opvzaq$_0 = consumer;
   }
   Object.defineProperty(SVG.prototype, 'consumer', {
     get: function () {
-      return this.consumer_6s8q7y$_0;
+      return this.consumer_opvzaq$_0;
     }
   });
   SVG.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'SVG',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -12457,11 +13237,11 @@
   }
   function TABLE(initialAttributes, consumer) {
     HTMLTag.call(this, 'table', consumer, initialAttributes, null, false, false);
-    this.consumer_f2s9p4$_0 = consumer;
+    this.consumer_gxb6a0$_0 = consumer;
   }
   Object.defineProperty(TABLE.prototype, 'consumer', {
     get: function () {
-      return this.consumer_f2s9p4$_0;
+      return this.consumer_gxb6a0$_0;
     }
   });
   Object.defineProperty(TABLE.prototype, 'summary', {
@@ -12473,11 +13253,12 @@
     }
   });
   TABLE.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'TABLE',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function caption$lambda_1($receiver) {
+    return Unit;
   }
   function caption_1($receiver, classes, block) {
     if (classes === void 0)
@@ -12487,6 +13268,7 @@
     visit(new CAPTION(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function colGroup$lambda_1($receiver) {
+    return Unit;
   }
   function colGroup_1($receiver, classes, block) {
     if (classes === void 0)
@@ -12496,6 +13278,7 @@
     visit(new COLGROUP(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function thead$lambda_1($receiver) {
+    return Unit;
   }
   function thead_1($receiver, classes, block) {
     if (classes === void 0)
@@ -12505,6 +13288,7 @@
     visit(new THEAD(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function tfoot$lambda_1($receiver) {
+    return Unit;
   }
   function tfoot_1($receiver, classes, block) {
     if (classes === void 0)
@@ -12514,6 +13298,7 @@
     visit(new TFOOT(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function tbody$lambda_1($receiver) {
+    return Unit;
   }
   function tbody_1($receiver, classes, block) {
     if (classes === void 0)
@@ -12523,6 +13308,7 @@
     visit(new TBODY(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
   function tr$lambda_1($receiver) {
+    return Unit;
   }
   function tr_1($receiver, classes, block) {
     if (classes === void 0)
@@ -12533,19 +13319,20 @@
   }
   function TBODY(initialAttributes, consumer) {
     HTMLTag.call(this, 'tbody', consumer, initialAttributes, null, false, false);
-    this.consumer_f3k7o0$_0 = consumer;
+    this.consumer_ahxigw$_0 = consumer;
   }
   Object.defineProperty(TBODY.prototype, 'consumer', {
     get: function () {
-      return this.consumer_f3k7o0$_0;
+      return this.consumer_ahxigw$_0;
     }
   });
   TBODY.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'TBODY',
     interfaces: [CommonAttributeGroupFacade, HTMLTag]
   };
   function tr$lambda_2($receiver) {
+    return Unit;
   }
   function tr_2($receiver, classes, block) {
     if (classes === void 0)
@@ -12556,11 +13343,11 @@
   }
   function TD(initialAttributes, consumer) {
     HTMLTag.call(this, 'td', consumer, initialAttributes, null, false, false);
-    this.consumer_tkgiv2$_0 = consumer;
+    this.consumer_ujuxim$_0 = consumer;
   }
   Object.defineProperty(TD.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkgiv2$_0;
+      return this.consumer_ujuxim$_0;
     }
   });
   Object.defineProperty(TD.prototype, 'headers', {
@@ -12588,17 +13375,17 @@
     }
   });
   TD.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'TD',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function TEXTAREA(initialAttributes, consumer) {
     HTMLTag.call(this, 'textarea', consumer, initialAttributes, null, true, false);
-    this.consumer_dtfm6k$_0 = consumer;
+    this.consumer_jzapyc$_0 = consumer;
   }
   Object.defineProperty(TEXTAREA.prototype, 'consumer', {
     get: function () {
-      return this.consumer_dtfm6k$_0;
+      return this.consumer_jzapyc$_0;
     }
   });
   Object.defineProperty(TEXTAREA.prototype, 'autoFocus', {
@@ -12698,7 +13485,7 @@
     }
   });
   TEXTAREA.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'TEXTAREA',
     interfaces: [CommonAttributeGroupFacadeFlowInteractivePhrasingContent, HTMLTag]
   };
@@ -12713,19 +13500,20 @@
   }
   function TFOOT(initialAttributes, consumer) {
     HTMLTag.call(this, 'tfoot', consumer, initialAttributes, null, false, false);
-    this.consumer_f5rm2s$_0 = consumer;
+    this.consumer_72e0lo$_0 = consumer;
   }
   Object.defineProperty(TFOOT.prototype, 'consumer', {
     get: function () {
-      return this.consumer_f5rm2s$_0;
+      return this.consumer_72e0lo$_0;
     }
   });
   TFOOT.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'TFOOT',
     interfaces: [CommonAttributeGroupFacade, HTMLTag]
   };
   function tr$lambda_3($receiver) {
+    return Unit;
   }
   function tr_3($receiver, classes, block) {
     if (classes === void 0)
@@ -12736,11 +13524,11 @@
   }
   function TH(initialAttributes, consumer) {
     HTMLTag.call(this, 'th', consumer, initialAttributes, null, false, false);
-    this.consumer_tkgiyi$_0 = consumer;
+    this.consumer_7d2fqi$_0 = consumer;
   }
   Object.defineProperty(TH.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkgiyi$_0;
+      return this.consumer_7d2fqi$_0;
     }
   });
   Object.defineProperty(TH.prototype, 'headers', {
@@ -12776,25 +13564,26 @@
     }
   });
   TH.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'TH',
     interfaces: [HtmlInlineTag, HTMLTag]
   };
   function THEAD(initialAttributes, consumer) {
     HTMLTag.call(this, 'thead', consumer, initialAttributes, null, false, false);
-    this.consumer_f6oimq$_0 = consumer;
+    this.consumer_cqqvlu$_0 = consumer;
   }
   Object.defineProperty(THEAD.prototype, 'consumer', {
     get: function () {
-      return this.consumer_f6oimq$_0;
+      return this.consumer_cqqvlu$_0;
     }
   });
   THEAD.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'THEAD',
     interfaces: [CommonAttributeGroupFacade, HTMLTag]
   };
   function tr$lambda_4($receiver) {
+    return Unit;
   }
   function tr_4($receiver, classes, block) {
     if (classes === void 0)
@@ -12805,11 +13594,11 @@
   }
   function TIME(initialAttributes, consumer) {
     HTMLTag.call(this, 'time', consumer, initialAttributes, null, true, false);
-    this.consumer_2s57lt$_0 = consumer;
+    this.consumer_qokp9r$_0 = consumer;
   }
   Object.defineProperty(TIME.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2s57lt$_0;
+      return this.consumer_qokp9r$_0;
     }
   });
   Object.defineProperty(TIME.prototype, 'dateTime', {
@@ -12821,7 +13610,7 @@
     }
   });
   TIME.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'TIME',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
@@ -12833,33 +13622,34 @@
   }
   function TITLE(initialAttributes, consumer) {
     HTMLTag.call(this, 'title', consumer, initialAttributes, null, false, false);
-    this.consumer_f7i47i$_0 = consumer;
+    this.consumer_t3doce$_0 = consumer;
   }
   Object.defineProperty(TITLE.prototype, 'consumer', {
     get: function () {
-      return this.consumer_f7i47i$_0;
+      return this.consumer_t3doce$_0;
     }
   });
   TITLE.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'TITLE',
     interfaces: [HtmlHeadTag, HTMLTag]
   };
   function TR(initialAttributes, consumer) {
     HTMLTag.call(this, 'tr', consumer, initialAttributes, null, false, false);
-    this.consumer_tkgj74$_0 = consumer;
+    this.consumer_kf799c$_0 = consumer;
   }
   Object.defineProperty(TR.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkgj74$_0;
+      return this.consumer_kf799c$_0;
     }
   });
   TR.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'TR',
     interfaces: [CommonAttributeGroupFacade, HTMLTag]
   };
   function th$lambda_1($receiver) {
+    return Unit;
   }
   function th_1($receiver, scope, classes, block) {
     if (scope === void 0)
@@ -12871,6 +13661,7 @@
     visit(new TH(attributesMapOf_1(['scope', scope != null ? enumEncode(scope) : null, 'class', classes]), $receiver.consumer), block);
   }
   function colTh$lambda($receiver) {
+    return Unit;
   }
   function colTh($receiver, classes, block) {
     if (classes === void 0)
@@ -12880,6 +13671,7 @@
     visit(new TH(attributesMapOf_1(['scope', ThScope$col_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
   }
   function colGroupTh$lambda($receiver) {
+    return Unit;
   }
   function colGroupTh($receiver, classes, block) {
     if (classes === void 0)
@@ -12889,6 +13681,7 @@
     visit(new TH(attributesMapOf_1(['scope', ThScope$colGroup_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
   }
   function rowTh$lambda($receiver) {
+    return Unit;
   }
   function rowTh($receiver, classes, block) {
     if (classes === void 0)
@@ -12898,6 +13691,7 @@
     visit(new TH(attributesMapOf_1(['scope', ThScope$row_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
   }
   function rowGroupTh$lambda($receiver) {
+    return Unit;
   }
   function rowGroupTh($receiver, classes, block) {
     if (classes === void 0)
@@ -12907,6 +13701,7 @@
     visit(new TH(attributesMapOf_1(['scope', ThScope$rowGroup_getInstance().realValue, 'class', classes]), $receiver.consumer), block);
   }
   function td$lambda_1($receiver) {
+    return Unit;
   }
   function td_1($receiver, classes, block) {
     if (classes === void 0)
@@ -12917,19 +13712,20 @@
   }
   function UL(initialAttributes, consumer) {
     HTMLTag.call(this, 'ul', consumer, initialAttributes, null, false, false);
-    this.consumer_tkgjsn$_0 = consumer;
+    this.consumer_hykqwp$_0 = consumer;
   }
   Object.defineProperty(UL.prototype, 'consumer', {
     get: function () {
-      return this.consumer_tkgjsn$_0;
+      return this.consumer_hykqwp$_0;
     }
   });
   UL.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'UL',
     interfaces: [HtmlBlockTag, HTMLTag]
   };
   function li$lambda_2($receiver) {
+    return Unit;
   }
   function li_2($receiver, classes, block) {
     if (classes === void 0)
@@ -12938,18 +13734,18 @@
       block = li$lambda_2;
     visit(new LI(attributesMapOf_0('class', classes), $receiver.consumer), block);
   }
-  function VAR_(initialAttributes, consumer) {
+  function VAR(initialAttributes, consumer) {
     HTMLTag.call(this, 'var', consumer, initialAttributes, null, true, false);
-    this.consumer_2t3t86$_0 = consumer;
+    this.consumer_f6dytt$_0 = consumer;
   }
-  Object.defineProperty(VAR_.prototype, 'consumer', {
+  Object.defineProperty(VAR.prototype, 'consumer', {
     get: function () {
-      return this.consumer_2t3t86$_0;
+      return this.consumer_f6dytt$_0;
     }
   });
-  VAR_.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
-    simpleName: 'VAR_',
+  VAR.$metadata$ = {
+    kind: Kind_CLASS,
+    simpleName: 'VAR',
     interfaces: [HtmlBlockInlineTag, HTMLTag]
   };
   function get_asFlowContent_58($receiver) {
@@ -12960,11 +13756,11 @@
   }
   function VIDEO(initialAttributes, consumer) {
     HTMLTag.call(this, 'video', consumer, initialAttributes, null, false, false);
-    this.consumer_g5b097$_0 = consumer;
+    this.consumer_mixp7$_0 = consumer;
   }
   Object.defineProperty(VIDEO.prototype, 'consumer', {
     get: function () {
-      return this.consumer_g5b097$_0;
+      return this.consumer_mixp7$_0;
     }
   });
   Object.defineProperty(VIDEO.prototype, 'src', {
@@ -13032,11 +13828,12 @@
     }
   });
   VIDEO.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'VIDEO',
     interfaces: [CommonAttributeGroupFacadeFlowInteractivePhrasingContent, HTMLTag]
   };
   function source$lambda_2($receiver) {
+    return Unit;
   }
   function source_2($receiver, classes, block) {
     if (classes === void 0)
@@ -13057,41 +13854,41 @@
   function HTMLTag(tagName, consumer, initialAttributes, namespace, inlineTag, emptyTag) {
     if (namespace === void 0)
       namespace = null;
-    this.tagName_8alqev$_0 = tagName;
-    this.consumer_8alqev$_0 = consumer;
-    this.namespace_8alqev$_0 = namespace;
-    this.inlineTag_8alqev$_0 = inlineTag;
-    this.emptyTag_8alqev$_0 = emptyTag;
-    this.attributes_8alqev$_0 = new DelegatingMap(initialAttributes, this, HTMLTag$attributes$lambda(this));
+    this.tagName_m96u80$_0 = tagName;
+    this.consumer_hf9n5l$_0 = consumer;
+    this.namespace_mmy2s6$_0 = namespace;
+    this.inlineTag_chds58$_0 = inlineTag;
+    this.emptyTag_wi0qq$_0 = emptyTag;
+    this.attributes_9nkhs8$_0 = new DelegatingMap(initialAttributes, this, HTMLTag$attributes$lambda(this));
   }
   Object.defineProperty(HTMLTag.prototype, 'tagName', {
     get: function () {
-      return this.tagName_8alqev$_0;
+      return this.tagName_m96u80$_0;
     }
   });
   Object.defineProperty(HTMLTag.prototype, 'consumer', {
     get: function () {
-      return this.consumer_8alqev$_0;
+      return this.consumer_hf9n5l$_0;
     }
   });
   Object.defineProperty(HTMLTag.prototype, 'namespace', {
     get: function () {
-      return this.namespace_8alqev$_0;
+      return this.namespace_mmy2s6$_0;
     }
   });
   Object.defineProperty(HTMLTag.prototype, 'inlineTag', {
     get: function () {
-      return this.inlineTag_8alqev$_0;
+      return this.inlineTag_chds58$_0;
     }
   });
   Object.defineProperty(HTMLTag.prototype, 'emptyTag', {
     get: function () {
-      return this.emptyTag_8alqev$_0;
+      return this.emptyTag_wi0qq$_0;
     }
   });
   Object.defineProperty(HTMLTag.prototype, 'attributes', {
     get: function () {
-      return this.attributes_8alqev$_0;
+      return this.attributes_9nkhs8$_0;
     }
   });
   Object.defineProperty(HTMLTag.prototype, 'attributesEntries', {
@@ -13105,7 +13902,7 @@
     };
   }
   HTMLTag.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'HTMLTag',
     interfaces: [Tag]
   };
@@ -13114,7 +13911,7 @@
     this.time = time;
   }
   TimedResult.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'TimedResult',
     interfaces: []
   };
@@ -13170,20 +13967,24 @@
   TimeMeasureConsumer.prototype.onTagError_cjwpn3$ = function (tag, exception) {
     this.downstream.onTagError_cjwpn3$(tag, exception);
   };
+  TimeMeasureConsumer.prototype.onTagComment_6bul2c$ = function (content) {
+    this.downstream.onTagComment_6bul2c$(content);
+  };
   TimeMeasureConsumer.prototype.finalize = function () {
     return new TimedResult(this.downstream.finalize(), currentTimeMillis().subtract(this.start_0));
   };
   TimeMeasureConsumer.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'TimeMeasureConsumer',
     interfaces: [TagConsumer]
   };
   function measureTime($receiver) {
     return new TimeMeasureConsumer($receiver);
   }
-  function HTMLStreamBuilder(out, prettyPrint) {
+  function HTMLStreamBuilder(out, prettyPrint, xhtmlCompatible) {
     this.out = out;
     this.prettyPrint = prettyPrint;
+    this.xhtmlCompatible = xhtmlCompatible;
     this.level_0 = 0;
     this.ln_0 = true;
     this.UnsafeImpl = new HTMLStreamBuilder$UnsafeImpl$ObjectLiteral(this);
@@ -13208,7 +14009,7 @@
         var item = tmp$.next();
         index = index + 1 | 0;
         if (!isValidXmlAttributeName(item.key)) {
-          throw new IllegalArgumentException('Tag ' + tag.tagName + ' has invalid attribute name ' + item.key);
+          throw IllegalArgumentException_init('Tag ' + tag.tagName + ' has invalid attribute name ' + item.key);
         }
         this.out.append_s8itvh$(32);
         this.out.append_gw00v9$(item.key);
@@ -13217,14 +14018,17 @@
         this.out.append_s8itvh$(34);
       }
     }
+    if (this.xhtmlCompatible && tag.emptyTag) {
+      this.out.append_gw00v9$('/');
+    }
     this.out.append_gw00v9$('>');
     this.ln_0 = false;
   };
   HTMLStreamBuilder.prototype.onTagAttributeChange_5n2z71$ = function (tag, attribute, value) {
-    throw new UnsupportedOperationException("tag attribute can't be changed as it was already written to the stream. Use with DelayedConsumer to be able to modify attributes");
+    throw UnsupportedOperationException_init("tag attribute can't be changed as it was already written to the stream. Use with DelayedConsumer to be able to modify attributes");
   };
   HTMLStreamBuilder.prototype.onTagEvent_azi6uv$ = function (tag, event, value) {
-    throw new UnsupportedOperationException("you can't assign lambda event handler when building text");
+    throw UnsupportedOperationException_init("you can't assign lambda event handler when building text");
   };
   HTMLStreamBuilder.prototype.onTagEnd_tkgjla$ = function (tag) {
     this.level_0 = this.level_0 - 1 | 0;
@@ -13253,6 +14057,15 @@
   };
   HTMLStreamBuilder.prototype.onTagContentUnsafe_kntra7$ = function (block) {
     block(this.UnsafeImpl);
+  };
+  HTMLStreamBuilder.prototype.onTagComment_6bul2c$ = function (content) {
+    if (this.prettyPrint) {
+      this.indent_0();
+    }
+    this.out.append_gw00v9$('<!--');
+    escapeComment(this.out, content);
+    this.out.append_gw00v9$('-->');
+    this.ln_0 = false;
   };
   HTMLStreamBuilder.prototype.appenln_0 = function () {
     if (this.prettyPrint && !this.ln_0) {
@@ -13287,11 +14100,11 @@
     this.this$HTMLStreamBuilder.out.append_gw00v9$($receiver);
   };
   HTMLStreamBuilder$UnsafeImpl$ObjectLiteral.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     interfaces: [Unsafe]
   };
   HTMLStreamBuilder.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'HTMLStreamBuilder',
     interfaces: [TagConsumer]
   };
@@ -13299,41 +14112,52 @@
   function createHTML$lambda(sb, f) {
     return sb.toString();
   }
-  function createHTML(prettyPrint) {
+  function createHTML(prettyPrint, xhtmlCompatible) {
     if (prettyPrint === void 0)
       prettyPrint = true;
-    return delayed(onFinalizeMap(new HTMLStreamBuilder(StringBuilder_init(AVERAGE_PAGE_SIZE), prettyPrint), createHTML$lambda));
+    if (xhtmlCompatible === void 0)
+      xhtmlCompatible = false;
+    return delayed(onFinalizeMap(new HTMLStreamBuilder(StringBuilder_init_0(AVERAGE_PAGE_SIZE), prettyPrint, xhtmlCompatible), createHTML$lambda));
   }
-  function appendHTML($receiver, prettyPrint) {
+  function appendHTML($receiver, prettyPrint, xhtmlCompatible) {
     if (prettyPrint === void 0)
       prettyPrint = true;
-    return delayed(new HTMLStreamBuilder($receiver, prettyPrint));
+    if (xhtmlCompatible === void 0)
+      xhtmlCompatible = false;
+    return delayed(new HTMLStreamBuilder($receiver, prettyPrint, xhtmlCompatible));
   }
+  function appendHTML_0($receiver, prettyPrint) {
+    if (prettyPrint === void 0)
+      prettyPrint = true;
+    return appendHTML($receiver, prettyPrint, false);
+  }
+  var Array_0 = Array;
   var escapeMap;
   var letterRangeLowerCase;
   var letterRangeUpperCase;
   var digitRange;
   function _isLetter($receiver) {
-    return letterRangeLowerCase.contains_mef7kx$(Kotlin.unboxChar($receiver)) || letterRangeUpperCase.contains_mef7kx$(Kotlin.unboxChar($receiver));
+    return letterRangeLowerCase.contains_mef7kx$($receiver) || letterRangeUpperCase.contains_mef7kx$($receiver);
   }
   function _isDigit($receiver) {
-    return digitRange.contains_mef7kx$(Kotlin.unboxChar($receiver));
+    return digitRange.contains_mef7kx$($receiver);
   }
+  var iterator = Kotlin.kotlin.text.iterator_gw00vp$;
   function isValidXmlAttributeName($receiver) {
     var tmp$ = !startsWithXml($receiver);
     if (tmp$) {
       tmp$ = $receiver.length > 0;
     }
-    var tmp$_0 = tmp$ && (_isLetter(Kotlin.unboxChar($receiver.charCodeAt(0))) || Kotlin.unboxChar($receiver.charCodeAt(0)) === 95);
+    var tmp$_0 = tmp$ && (_isLetter($receiver.charCodeAt(0)) || $receiver.charCodeAt(0) === 95);
     if (tmp$_0) {
       var all$result;
       all$break: do {
         var tmp$_1;
-        tmp$_1 = Kotlin.kotlin.text.iterator_gw00vp$($receiver);
+        tmp$_1 = iterator($receiver);
         while (tmp$_1.hasNext()) {
-          var element = tmp$_1.next();
-          var it = Kotlin.toBoxedChar(element);
-          if (!(_isLetter(Kotlin.unboxChar(it)) || _isDigit(Kotlin.unboxChar(it)) || contains('._:-', Kotlin.unboxChar(it)))) {
+          var element = unboxChar(tmp$_1.next());
+          var it = toBoxedChar(element);
+          if (!(_isLetter(unboxChar(it)) || _isDigit(unboxChar(it)) || contains('._:-', unboxChar(it)))) {
             all$result = false;
             break all$break;
           }
@@ -13348,51 +14172,67 @@
   function startsWithXml($receiver) {
     var tmp$ = $receiver.length >= 3;
     if (tmp$) {
-      var it = Kotlin.toBoxedChar($receiver.charCodeAt(0));
-      tmp$ = Kotlin.unboxChar(it) === 120 || Kotlin.unboxChar(it) === 88;
+      var it = toBoxedChar($receiver.charCodeAt(0));
+      tmp$ = unboxChar(it) === 120 || unboxChar(it) === 88;
     }
     var tmp$_0 = tmp$;
     if (tmp$_0) {
-      var it_0 = Kotlin.toBoxedChar($receiver.charCodeAt(1));
-      tmp$_0 = Kotlin.unboxChar(it_0) === 109 || Kotlin.unboxChar(it_0) === 77;
+      var it_0 = toBoxedChar($receiver.charCodeAt(1));
+      tmp$_0 = unboxChar(it_0) === 109 || unboxChar(it_0) === 77;
     }
     var tmp$_1 = tmp$_0;
     if (tmp$_1) {
-      var it_1 = Kotlin.toBoxedChar($receiver.charCodeAt(2));
-      tmp$_1 = Kotlin.unboxChar(it_1) === 108 || Kotlin.unboxChar(it_1) === 76;
+      var it_1 = toBoxedChar($receiver.charCodeAt(2));
+      tmp$_1 = unboxChar(it_1) === 108 || unboxChar(it_1) === 76;
     }
     return tmp$_1;
   }
   function escapeAppend($receiver, s) {
     var tmp$;
     var lastIndex = 0;
+    var mappings = escapeMap;
+    var size = mappings.length;
     tmp$ = s.length - 1 | 0;
     for (var idx = 0; idx <= tmp$; idx++) {
-      var ch = Kotlin.unboxChar(s.charCodeAt(idx));
-      var escape = escapeMap.get_11rb$(Kotlin.toBoxedChar(ch));
+      var ch = s.charCodeAt(idx) | 0;
+      if (ch < 0 || ch >= size)
+        continue;
+      var escape = mappings[ch];
       if (escape != null) {
         var startIndex = lastIndex;
-        var endIndex = idx;
-        if (endIndex === void 0)
-          endIndex = s.length;
-        $receiver.append_gw00v9$(Kotlin.subSequence(s, startIndex, endIndex).toString());
+        $receiver.append_gw00v9$(Kotlin.subSequence(s, startIndex, idx).toString());
         $receiver.append_gw00v9$(escape);
         lastIndex = idx + 1 | 0;
       }
     }
     if (lastIndex < s.length) {
       var startIndex_0 = lastIndex;
-      var endIndex_0 = s.length;
-      if (endIndex_0 === void 0)
-        endIndex_0 = s.length;
-      $receiver.append_gw00v9$(Kotlin.subSequence(s, startIndex_0, endIndex_0).toString());
+      var endIndex = s.length;
+      $receiver.append_gw00v9$(Kotlin.subSequence(s, startIndex_0, endIndex).toString());
+    }
+  }
+  function escapeComment($receiver, s) {
+    var start = 0;
+    while (start < s.length) {
+      var index = indexOf(s, '--');
+      if (index === -1) {
+        if (start === 0) {
+          $receiver.append_gw00v9$(s);
+        }
+         else {
+          $receiver.append_ezbsdh$(s, start, s.length);
+        }
+        break;
+      }
+      $receiver.append_ezbsdh$(s, start, index);
+      start = start + 2 | 0;
     }
   }
   function TraceConsumer(downstream, println) {
     this.downstream = downstream;
     this.println = println;
     this.id_0 = 'ID-' + currentTimeMillis().modulo(Kotlin.Long.fromInt(16384));
-    this.path_0 = ArrayList_init(1024);
+    this.path_0 = ArrayList_init_0(1024);
   }
   TraceConsumer.prototype.onTagStart_tkgjla$ = function (tag) {
     this.downstream.onTagStart_tkgjla$(tag);
@@ -13406,16 +14246,19 @@
   };
   TraceConsumer.prototype.onTagAttributeChange_5n2z71$ = function (tag, attribute, value) {
     this.downstream.onTagAttributeChange_5n2z71$(tag, attribute, value);
-    this.println('[' + this.id_0 + ']     ' + tag.tagName + '.' + attribute + ' changed to ' + Kotlin.toString(value));
+    this.println('[' + this.id_0 + ']     ' + tag.tagName + '.' + attribute + ' changed to ' + toString(value));
   };
   TraceConsumer.prototype.onTagError_cjwpn3$ = function (tag, exception) {
-    this.println('[' + this.id_0 + '] exception in ' + tag.tagName + ': ' + Kotlin.toString(exception.message));
+    this.println('[' + this.id_0 + '] exception in ' + tag.tagName + ': ' + toString(exception.message));
     this.downstream.onTagError_cjwpn3$(tag, exception);
   };
   TraceConsumer.prototype.finalize = function () {
     var v = this.downstream.finalize();
-    this.println('[' + this.id_0 + '] finalized: ' + Kotlin.toString(v));
+    this.println('[' + this.id_0 + '] finalized: ' + toString(v));
     return v;
+  };
+  TraceConsumer.prototype.onTagComment_6bul2c$ = function (content) {
+    return this.downstream.onTagComment_6bul2c$(content);
   };
   TraceConsumer.prototype.onTagContent_6bul2c$ = function (content) {
     return this.downstream.onTagContent_6bul2c$(content);
@@ -13430,7 +14273,7 @@
     return this.downstream.onTagEvent_azi6uv$(tag, event, value);
   };
   TraceConsumer.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
+    kind: Kind_CLASS,
     simpleName: 'TraceConsumer',
     interfaces: [TagConsumer]
   };
@@ -13442,6 +14285,7 @@
       $receiver.rel = LinkRel_getInstance().stylesheet;
       $receiver.type = LinkType_getInstance().textCss;
       $receiver.href = closure$url;
+      return Unit;
     };
   }
   function styleLink($receiver, url) {
@@ -13456,13 +14300,17 @@
   var package$html = package$kotlinx.html || (package$kotlinx.html = {});
   var package$js = package$html.js || (package$html.js = {});
   package$js.legEnd_ax8bv3$ = legEnd;
+  package$js.object__mcv3un$ = object_;
+  package$js.var__h1qstf$ = var_;
   $$importsForInline$$['kotlinx-html-js'] = _;
   var package$dom = package$html.dom || (package$html.dom = {});
   package$dom.JSDOMBuilder = JSDOMBuilder;
   package$dom.createTree_4wc2mh$ = createTree;
   package$dom.get_create_4wc2mh$ = get_create;
   package$dom.append_k9bwru$ = append;
+  package$dom.prepend_k9bwru$ = prepend;
   package$dom.get_append_y4uc6z$ = get_append;
+  package$dom.get_prepend_y4uc6z$ = get_prepend;
   package$js.a_5i6vd$ = a;
   package$js.abbr_y8m8ul$ = abbr;
   package$js.address_ywnrmy$ = address;
@@ -13477,7 +14325,7 @@
   package$js.blockQuote_rw5zzj$ = blockQuote;
   package$js.body_sbi9b0$ = body;
   package$js.br_jn093m$ = br;
-  package$js.button_5fpah4$ = button;
+  package$js.button_yqfwmz$ = button;
   package$js.canvas_61vnh7$ = canvas;
   package$js.canvas_o2d15m$ = canvas_0;
   package$js.caption_2b4nbw$ = caption;
@@ -13508,11 +14356,13 @@
   package$js.h4_2crq26$ = h4;
   package$js.h5_rabshb$ = h5;
   package$js.h6_it872o$ = h6;
-  package$js.head_z94brr$ = head;
+  package$js.head_bq9830$ = head;
+  package$js.head_z94brr$ = head_0;
   package$js.header_sok7e9$ = header;
   package$js.hGroup_8f4qzd$ = hGroup;
   package$js.hr_v0qv1w$ = hr;
-  package$js.html_rkyhvw$ = html;
+  package$js.html_18z1of$ = html;
+  package$js.html_aq4td9$ = html_0;
   package$js.i_5jry8x$ = i;
   package$js.iframe_4ksjnb$ = iframe;
   package$js.iframe_g0q2yy$ = iframe_0;
@@ -13525,16 +14375,17 @@
   package$js.legend_ax8bv3$ = legend;
   package$js.li_525bpd$ = li;
   package$js.link_iq3rqc$ = link;
+  package$js.main_cutem3$ = main;
   package$js.map_ibzf9n$ = map;
   package$js.mark_44qn2n$ = mark;
   package$js.math_giqjli$ = math;
   package$js.mathml_61vnh7$ = mathml;
   package$js.mathml_lcwe6v$ = mathml_0;
-  package$js.meta_md3qs2$ = meta;
+  package$js.meta_1gpk13$ = meta;
   package$js.meter_5zj8jj$ = meter;
   package$js.nav_pc7gpz$ = nav;
   package$js.noScript_87229e$ = noScript;
-  package$js.object__nau622$ = object_;
+  package$js.htmlObject_mcv3un$ = htmlObject;
   package$js.ol_qmgqht$ = ol;
   package$js.optGroup_p3q3kl$ = optGroup;
   package$js.option_61vnh7$ = option;
@@ -13549,7 +14400,8 @@
   package$js.rt_5fw4uc$ = rt;
   package$js.ruby_12w3h8$ = ruby;
   package$js.samp_11f6yb$ = samp;
-  package$js.script_764uoc$ = script;
+  package$js.script_m2sah8$ = script;
+  package$js.script_764uoc$ = script_0;
   package$js.section_ceckl$ = section;
   package$js.select_hs5l1a$ = select;
   package$js.small_8pbyt9$ = small;
@@ -13575,7 +14427,7 @@
   package$js.title_nrj9p5$ = title_0;
   package$js.tr_9pz0lc$ = tr;
   package$js.ul_693so7$ = ul;
-  package$js.var__scrye$ = var_;
+  package$js.htmlVar_h1qstf$ = htmlVar;
   package$js.video_kpr04x$ = video;
   package$js.get_onAbortFunction_fxodxh$ = get_onAbortFunction;
   package$js.set_onAbortFunction_pszlq2$ = set_onAbortFunction;
@@ -13617,6 +14469,10 @@
   package$js.set_onErrorFunction_pszlq2$ = set_onErrorFunction;
   package$js.get_onFocusFunction_fxodxh$ = get_onFocusFunction;
   package$js.set_onFocusFunction_pszlq2$ = set_onFocusFunction;
+  package$js.get_onFocusInFunction_fxodxh$ = get_onFocusInFunction;
+  package$js.set_onFocusInFunction_pszlq2$ = set_onFocusInFunction;
+  package$js.get_onFocusOutFunction_fxodxh$ = get_onFocusOutFunction;
+  package$js.set_onFocusOutFunction_pszlq2$ = set_onFocusOutFunction;
   package$js.get_onFormChangeFunction_fxodxh$ = get_onFormChangeFunction;
   package$js.set_onFormChangeFunction_pszlq2$ = set_onFormChangeFunction;
   package$js.get_onFormInputFunction_fxodxh$ = get_onFormInputFunction;
@@ -13683,10 +14539,20 @@
   package$js.set_onSuspendFunction_pszlq2$ = set_onSuspendFunction;
   package$js.get_onTimeUpdateFunction_fxodxh$ = get_onTimeUpdateFunction;
   package$js.set_onTimeUpdateFunction_pszlq2$ = set_onTimeUpdateFunction;
+  package$js.get_onTouchCancelFunction_fxodxh$ = get_onTouchCancelFunction;
+  package$js.set_onTouchCancelFunction_pszlq2$ = set_onTouchCancelFunction;
+  package$js.get_onTouchEndFunction_fxodxh$ = get_onTouchEndFunction;
+  package$js.set_onTouchEndFunction_pszlq2$ = set_onTouchEndFunction;
+  package$js.get_onTouchMoveFunction_fxodxh$ = get_onTouchMoveFunction;
+  package$js.set_onTouchMoveFunction_pszlq2$ = set_onTouchMoveFunction;
+  package$js.get_onTouchStartFunction_fxodxh$ = get_onTouchStartFunction;
+  package$js.set_onTouchStartFunction_pszlq2$ = set_onTouchStartFunction;
   package$js.get_onVolumeChangeFunction_fxodxh$ = get_onVolumeChangeFunction;
   package$js.set_onVolumeChangeFunction_pszlq2$ = set_onVolumeChangeFunction;
   package$js.get_onWaitingFunction_fxodxh$ = get_onWaitingFunction;
   package$js.set_onWaitingFunction_pszlq2$ = set_onWaitingFunction;
+  package$js.get_onWheelFunction_fxodxh$ = get_onWheelFunction;
+  package$js.set_onWheelFunction_pszlq2$ = set_onWheelFunction;
   var package$injector = package$html.injector || (package$html.injector = {});
   package$injector.injectTo_n418us$ = injectTo;
   package$injector.InjectCapture = InjectCapture;
@@ -13748,6 +14614,21 @@
   package$html.legEnd_vwmtm2$ = legEnd_1;
   package$html.legEnd_xzrxko$ = legEnd_2;
   package$html.legEnd_pujkak$ = legEnd_3;
+  package$html.Draggable = Draggable;
+  package$html.get_true__sh13o2$ = get_true_;
+  package$html.get_false__sh13o2$ = get_false_;
+  package$html.object__dbo9vp$ = object__0;
+  package$html.var__87cnpn$ = var__0;
+  package$html.var__ycyb16$ = var__1;
+  package$html.object__lbhlz7$ = object__1;
+  package$html.get_for__baf5if$ = get_for_;
+  package$html.set_for__i8xdhl$ = set_for_;
+  package$html.get_for__mffrb2$ = get_for__0;
+  package$html.set_for__4rgb9g$ = set_for__0;
+  package$html.get_onTouchcancel_fxodxh$ = get_onTouchcancel;
+  package$html.set_onTouchcancel_ueiko3$ = set_onTouchcancel;
+  package$html.get_onTouchmove_fxodxh$ = get_onTouchmove;
+  package$html.set_onTouchmove_ueiko3$ = set_onTouchmove;
   package$consumers.DelayedConsumer = DelayedConsumer;
   package$consumers.delayed_3mrk8e$ = delayed;
   var package$impl = package$html.impl || (package$html.impl = {});
@@ -13843,6 +14724,10 @@
   package$html.set_onError_ueiko3$ = set_onError;
   package$html.get_onFocus_fxodxh$ = get_onFocus;
   package$html.set_onFocus_ueiko3$ = set_onFocus;
+  package$html.get_onFocusIn_fxodxh$ = get_onFocusIn;
+  package$html.set_onFocusIn_ueiko3$ = set_onFocusIn;
+  package$html.get_onFocusOut_fxodxh$ = get_onFocusOut;
+  package$html.set_onFocusOut_ueiko3$ = set_onFocusOut;
   package$html.get_onFormChange_fxodxh$ = get_onFormChange;
   package$html.set_onFormChange_ueiko3$ = set_onFormChange;
   package$html.get_onFormInput_fxodxh$ = get_onFormInput;
@@ -13909,10 +14794,20 @@
   package$html.set_onSuspend_ueiko3$ = set_onSuspend;
   package$html.get_onTimeUpdate_fxodxh$ = get_onTimeUpdate;
   package$html.set_onTimeUpdate_ueiko3$ = set_onTimeUpdate;
+  package$html.get_onTouchCancel_fxodxh$ = get_onTouchCancel;
+  package$html.set_onTouchCancel_ueiko3$ = set_onTouchCancel;
+  package$html.get_onTouchEnd_fxodxh$ = get_onTouchEnd;
+  package$html.set_onTouchEnd_ueiko3$ = set_onTouchEnd;
+  package$html.get_onTouchMove_fxodxh$ = get_onTouchMove;
+  package$html.set_onTouchMove_ueiko3$ = set_onTouchMove;
+  package$html.get_onTouchStart_fxodxh$ = get_onTouchStart;
+  package$html.set_onTouchStart_ueiko3$ = set_onTouchStart;
   package$html.get_onVolumeChange_fxodxh$ = get_onVolumeChange;
   package$html.set_onVolumeChange_ueiko3$ = set_onVolumeChange;
   package$html.get_onWaiting_fxodxh$ = get_onWaiting;
   package$html.set_onWaiting_ueiko3$ = set_onWaiting;
+  package$html.get_onWheel_fxodxh$ = get_onWheel;
+  package$html.set_onWheel_ueiko3$ = set_onWheel;
   package$html.get_role_fxodxh$ = get_role;
   package$html.set_role_ueiko3$ = set_role;
   package$html.get_runAt_fxodxh$ = get_runAt;
@@ -14065,7 +14960,7 @@
   package$html.blockQuote_kqn8r$ = blockQuote_0;
   package$html.body_z1rdug$ = body_0;
   package$html.br_msntey$ = br_0;
-  package$html.button_lzqaus$ = button_0;
+  package$html.button_yup7tf$ = button_0;
   package$html.canvas_89i3hl$ = canvas_1;
   package$html.canvas_q2368u$ = canvas_2;
   package$html.caption_7tv3ws$ = caption_0;
@@ -14096,11 +14991,13 @@
   package$html.h4_9nai32$ = h4_0;
   package$html.h5_1tjb5f$ = h5_0;
   package$html.h6_dad4dw$ = h6_0;
-  package$html.head_i7x5xd$ = head_0;
+  package$html.head_qjf5rw$ = head_1;
+  package$html.head_i7x5xd$ = head_2;
   package$html.header_dwfinh$ = header_0;
   package$html.hGroup_o3ebz7$ = hGroup_0;
   package$html.hr_ks0ewg$ = hr_0;
-  package$html.html_dq808k$ = html_0;
+  package$html.html_lo9rwl$ = html_1;
+  package$html.html_ym5t9t$ = html_2;
   package$html.i_gncgg9$ = i_0;
   package$html.iframe_i3obeb$ = iframe_1;
   package$html.iframe_k7pgs2$ = iframe_2;
@@ -14113,16 +15010,17 @@
   package$html.legend_99jryr$ = legend_0;
   package$html.li_jf6zlv$ = li_0;
   package$html.link_hbbg0w$ = link_0;
+  package$html.main_hf6ozl$ = main_0;
   package$html.map_r08uhb$ = map_0;
   package$html.mark_m8f11v$ = mark_0;
   package$html.math_bhulte$ = math_0;
   package$html.mathml_89i3hl$ = mathml_1;
   package$html.mathml_fvpj0z$ = mathml_2;
-  package$html.meta_qjokje$ = meta_0;
+  package$html.meta_9higvf$ = meta_0;
   package$html.meter_akdp07$ = meter_0;
   package$html.nav_pa7bap$ = nav_0;
   package$html.noScript_z591w2$ = noScript_0;
-  package$html.object__7o73rm$ = object__0;
+  package$html.htmlObject_dbo9vp$ = htmlObject_0;
   package$html.ol_g73xel$ = ol_0;
   package$html.optGroup_3qzn6b$ = optGroup_0;
   package$html.option_89i3hl$ = option_1;
@@ -14137,8 +15035,8 @@
   package$html.rt_5iq7rc$ = rt_0;
   package$html.ruby_d6wtb4$ = ruby_0;
   package$html.samp_sdlho7$ = samp_0;
-  package$html.script_z1hjs4$ = script_0;
-  package$html.script_wupk6s$ = script_1;
+  package$html.script_z1hjs4$ = script_1;
+  package$html.script_wupk6s$ = script_2;
   package$html.section_ezs79p$ = section_0;
   package$html.select_ty59tq$ = select_0;
   package$html.small_fm3dud$ = small_0;
@@ -14164,7 +15062,7 @@
   package$html.title_pc70yd$ = title_2;
   package$html.tr_gqplvg$ = tr_0;
   package$html.ul_e6giw3$ = ul_0;
-  package$html.var__z94im6$ = var__0;
+  package$html.htmlVar_87cnpn$ = htmlVar_0;
   package$html.video_7h26o9$ = video_0;
   Object.defineProperty(Entities, 'nbsp', {
     get: Entities$nbsp_getInstance
@@ -14482,16 +15380,15 @@
       return dirValues;
     }
   });
-  Object.defineProperty(Draggable, 'true_', {
-    get: Draggable$true__getInstance
+  Object.defineProperty(Draggable, 'htmlTrue', {
+    get: Draggable$htmlTrue_getInstance
   });
-  Object.defineProperty(Draggable, 'false_', {
-    get: Draggable$false__getInstance
+  Object.defineProperty(Draggable, 'htmlFalse', {
+    get: Draggable$htmlFalse_getInstance
   });
   Object.defineProperty(Draggable, 'auto', {
     get: Draggable$auto_getInstance
   });
-  package$html.Draggable = Draggable;
   Object.defineProperty(package$html, 'draggableValues_8be2vx$', {
     get: function () {
       return draggableValues;
@@ -14569,6 +15466,9 @@
   Object.defineProperty(ButtonFormMethod, 'delete', {
     get: ButtonFormMethod$delete_getInstance
   });
+  Object.defineProperty(ButtonFormMethod, 'patch', {
+    get: ButtonFormMethod$patch_getInstance
+  });
   package$html.ButtonFormMethod = ButtonFormMethod;
   Object.defineProperty(package$html, 'buttonFormMethodValues_8be2vx$', {
     get: function () {
@@ -14634,6 +15534,9 @@
   });
   Object.defineProperty(FormMethod, 'delete', {
     get: FormMethod$delete_getInstance
+  });
+  Object.defineProperty(FormMethod, 'patch', {
+    get: FormMethod$patch_getInstance
   });
   package$html.FormMethod = FormMethod;
   Object.defineProperty(package$html, 'formMethodValues_8be2vx$', {
@@ -14764,6 +15667,9 @@
   Object.defineProperty(InputFormMethod, 'delete', {
     get: InputFormMethod$delete_getInstance
   });
+  Object.defineProperty(InputFormMethod, 'patch', {
+    get: InputFormMethod$patch_getInstance
+  });
   package$html.InputFormMethod = InputFormMethod;
   Object.defineProperty(package$html, 'inputFormMethodValues_8be2vx$', {
     get: function () {
@@ -14843,6 +15749,7 @@
   package$html.CommonAttributeGroupFacadeFlowMetaDataContent = CommonAttributeGroupFacadeFlowMetaDataContent;
   package$html.CommonAttributeGroupFacadeFlowMetaDataPhrasingContent = CommonAttributeGroupFacadeFlowMetaDataPhrasingContent;
   package$html.HtmlBlockInlineTag = HtmlBlockInlineTag;
+  package$html.CommonAttributeGroupFacadeFlowPhrasingSectioningContent = CommonAttributeGroupFacadeFlowPhrasingSectioningContent;
   package$html.CommonAttributeGroupFacadeFlowSectioningContent = CommonAttributeGroupFacadeFlowSectioningContent;
   package$html.FlowMetaDataContent = FlowMetaDataContent;
   package$html.FlowMetaDataPhrasingContent = FlowMetaDataPhrasingContent;
@@ -14870,6 +15777,7 @@
   package$html.postForm_mq1sio$ = postForm;
   package$html.putForm_mq1sio$ = putForm;
   package$html.deleteForm_mq1sio$ = deleteForm;
+  package$html.patchForm_mq1sio$ = patchForm;
   package$html.header_8btlf7$ = header_1;
   package$html.hr_17yvwq$ = hr_1;
   package$html.ol_5m90gt$ = ol_1;
@@ -14878,16 +15786,6 @@
   package$html.table_dmqmme$ = table_1;
   package$html.ul_pzlyaf$ = ul_1;
   package$html.base_5vco8i$ = base_1;
-  package$html.command_rwkldo$ = command_1;
-  package$html.commandCommand_eo8vlq$ = commandCommand;
-  package$html.checkBoxCommand_eo8vlq$ = checkBoxCommand;
-  package$html.radioCommand_eo8vlq$ = radioCommand;
-  package$html.link_geovej$ = link_1;
-  package$html.meta_g4adt$ = meta_1;
-  package$html.noScript_rsjfn1$ = noScript_1;
-  package$html.script_t6zl11$ = script_2;
-  package$html.style_c49j1k$ = style_3;
-  package$html.style_tj9h6s$ = style_4;
   package$html.title_4dzm4m$ = title_3;
   package$html.title_3v9ivn$ = title_4;
   package$html.FlowOrHeadingContent = FlowOrHeadingContent;
@@ -14904,8 +15802,8 @@
   package$html.h5_aplb7s$ = h5_1;
   package$html.h6_e7yr7d$ = h6_1;
   package$html.hGroup_sxozs2$ = hGroup_1;
-  package$html.style_st6e4p$ = style_5;
-  package$html.style_6skwa3$ = style_6;
+  package$html.style_st6e4p$ = style_3;
+  package$html.style_6skwa3$ = style_4;
   package$html.details_d9zf4h$ = details_1;
   package$html.abbr_2n6hpy$ = abbr_1;
   package$html.area_sgglka$ = area_1;
@@ -14945,26 +15843,29 @@
   package$html.svg_f6i49v$ = svg_3;
   package$html.svg_jd2cqk$ = svg_4;
   package$html.time_80zgyi$ = time_1;
-  package$html.var__ut2z69$ = var__1;
-  package$html.command_nc8zde$ = command_2;
-  package$html.commandCommand_y2j548$ = commandCommand_0;
-  package$html.checkBoxCommand_y2j548$ = checkBoxCommand_0;
-  package$html.radioCommand_y2j548$ = radioCommand_0;
-  package$html.link_gyx145$ = link_2;
-  package$html.meta_6k5fb9$ = meta_2;
-  package$html.noScript_59ebhl$ = noScript_2;
+  package$html.htmlVar_ycyb16$ = htmlVar_1;
+  package$html.command_nc8zde$ = command_1;
+  package$html.commandCommand_y2j548$ = commandCommand;
+  package$html.checkBoxCommand_y2j548$ = checkBoxCommand;
+  package$html.radioCommand_y2j548$ = radioCommand;
+  package$html.link_gyx145$ = link_1;
+  package$html.meta_xvdp3k$ = meta_1;
+  package$html.noScript_59ebhl$ = noScript_1;
   package$html.script_fglb7v$ = script_3;
+  package$html.script_r4c9ct$ = script_4;
   package$html.article_hpv6ge$ = article_1;
   package$html.aside_3uzs4w$ = aside_1;
+  package$html.main_m1e3ev$ = main_1;
   package$html.nav_19d8h1$ = nav_1;
   package$html.section_ac1jhf$ = section_1;
   package$html.a_gu26kr$ = a_1;
   package$html.audio_hb8i2y$ = audio_1;
-  package$html.button_whohl6$ = button_1;
-  package$html.getButton_2ghcrw$ = getButton;
-  package$html.postButton_2ghcrw$ = postButton;
-  package$html.putButton_2ghcrw$ = putButton;
-  package$html.deleteButton_2ghcrw$ = deleteButton;
+  package$html.button_i4xb7r$ = button_1;
+  package$html.getButton_2rocz3$ = getButton;
+  package$html.postButton_2rocz3$ = postButton;
+  package$html.putButton_2rocz3$ = putButton;
+  package$html.deleteButton_2rocz3$ = deleteButton;
+  package$html.patchButton_2rocz3$ = patchButton;
   package$html.embed_l7ro7h$ = embed_1;
   package$html.iframe_rz24s4$ = iframe_3;
   package$html.iframe_9ubjn9$ = iframe_4;
@@ -15002,7 +15903,7 @@
   package$html.keyGen_h5okci$ = keyGen_1;
   package$html.rsaKeyGen_7fxx9n$ = rsaKeyGen;
   package$html.label_yd75js$ = label_1;
-  package$html.object__ix0ywc$ = object__1;
+  package$html.htmlObject_lbhlz7$ = htmlObject_1;
   package$html.select_9klr40$ = select_1;
   package$html.textArea_b1tfd9$ = textArea_3;
   package$html.textArea_n0vc64$ = textArea_4;
@@ -15126,7 +16027,8 @@
   package$html.HR = HR;
   package$html.HTML = HTML;
   package$html.body_qwuuhi$ = body_1;
-  package$html.head_cwj6vx$ = head_1;
+  package$html.head_cwj6vx$ = head_3;
+  package$html.head_9xpsyi$ = head_4;
   package$html.I = I;
   package$html.get_asFlowContent_lkq382$ = get_asFlowContent_21;
   package$html.get_asPhrasingContent_lkq382$ = get_asPhrasingContent_17;
@@ -15164,6 +16066,7 @@
   package$html.get_asFlowContent_2nqvqh$ = get_asFlowContent_30;
   package$html.get_asMetaDataContent_2nqvqh$ = get_asMetaDataContent_0;
   package$html.get_asPhrasingContent_2nqvqh$ = get_asPhrasingContent_26;
+  package$html.MAIN = MAIN;
   package$html.MAP = MAP;
   package$html.get_asFlowContent_6sczi9$ = get_asFlowContent_31;
   package$html.get_asPhrasingContent_6sczi9$ = get_asPhrasingContent_27;
@@ -15188,11 +16091,11 @@
   package$html.get_asFlowContent_hfcz9z$ = get_asFlowContent_37;
   package$html.get_asMetaDataContent_hfcz9z$ = get_asMetaDataContent_2;
   package$html.get_asPhrasingContent_hfcz9z$ = get_asPhrasingContent_32;
-  package$html.OBJECT_ = OBJECT_;
-  package$html.param_bcvvob$ = param_1;
-  package$html.get_asFlowContent_fcnfuj$ = get_asFlowContent_38;
-  package$html.get_asInteractiveContent_fcnfuj$ = get_asInteractiveContent_9;
-  package$html.get_asPhrasingContent_fcnfuj$ = get_asPhrasingContent_33;
+  package$html.OBJECT = OBJECT;
+  package$html.param_8fkg42$ = param_1;
+  package$html.get_asFlowContent_vkzwxo$ = get_asFlowContent_38;
+  package$html.get_asInteractiveContent_vkzwxo$ = get_asInteractiveContent_9;
+  package$html.get_asPhrasingContent_vkzwxo$ = get_asPhrasingContent_33;
   package$html.OL = OL;
   package$html.li_nemw19$ = li_1;
   package$html.OPTGROUP = OPTGROUP;
@@ -15293,9 +16196,9 @@
   package$html.td_vlzo05$ = td_1;
   package$html.UL = UL;
   package$html.li_yzv5uh$ = li_2;
-  package$html.VAR_ = VAR_;
-  package$html.get_asFlowContent_2t3t7v$ = get_asFlowContent_58;
-  package$html.get_asPhrasingContent_2t3t7v$ = get_asPhrasingContent_51;
+  package$html.VAR = VAR;
+  package$html.get_asFlowContent_6s78ks$ = get_asFlowContent_58;
+  package$html.get_asPhrasingContent_6s78ks$ = get_asPhrasingContent_51;
   package$html.VIDEO = VIDEO;
   package$html.source_bzm4az$ = source_2;
   package$html.get_asFlowContent_g5b08w$ = get_asFlowContent_59;
@@ -15307,8 +16210,9 @@
   package$consumers.measureTime_3mrk8e$ = measureTime;
   var package$stream = package$html.stream || (package$html.stream = {});
   package$stream.HTMLStreamBuilder = HTMLStreamBuilder;
-  package$stream.createHTML_6taknv$ = createHTML;
-  package$stream.appendHTML_9kwp7w$ = appendHTML;
+  package$stream.createHTML_dqye30$ = createHTML;
+  package$stream.appendHTML_94plub$ = appendHTML;
+  package$stream.appendHTML_9kwp7w$ = appendHTML_0;
   package$consumers.TraceConsumer = TraceConsumer;
   package$consumers.trace_y1nvlf$ = trace_0;
   package$html.styleLink_hlvmud$ = styleLink;
@@ -15318,88 +16222,208 @@
   DefaultUnsafe.prototype.raw_61zpoe$ = Unsafe.prototype.raw_61zpoe$;
   DefaultUnsafe.prototype.raw_ws8or7$ = Unsafe.prototype.raw_ws8or7$;
   DefaultUnsafe.prototype.raw_3p81yu$ = Unsafe.prototype.raw_3p81yu$;
-  SingletonStringMap.prototype.getOrDefault_xwzc9p$ = Map.prototype.getOrDefault_xwzc9p$;
   StringEncoder.prototype.empty_l5rr1g$ = AttributeEncoder.prototype.empty_l5rr1g$;
   BooleanEncoder.prototype.empty_l5rr1g$ = AttributeEncoder.prototype.empty_l5rr1g$;
   TickerEncoder.prototype.empty_l5rr1g$ = AttributeEncoder.prototype.empty_l5rr1g$;
   EnumEncoder.prototype.empty_l5rr1g$ = AttributeEncoder.prototype.empty_l5rr1g$;
-  DelegatingMap.prototype.remove_xwzc9p$ = MutableMap.prototype.remove_xwzc9p$;
-  DelegatingMap.prototype.getOrDefault_xwzc9p$ = Map.prototype.getOrDefault_xwzc9p$;
   CommonAttributeGroupFacade.prototype.unaryPlus_lvwjq6$ = Tag.prototype.unaryPlus_lvwjq6$;
   CommonAttributeGroupFacade.prototype.unaryPlus_pdl1vz$ = Tag.prototype.unaryPlus_pdl1vz$;
   CommonAttributeGroupFacade.prototype.text_61zpoe$ = Tag.prototype.text_61zpoe$;
   CommonAttributeGroupFacade.prototype.text_3p81yu$ = Tag.prototype.text_3p81yu$;
   CommonAttributeGroupFacade.prototype.entity_ws8or7$ = Tag.prototype.entity_ws8or7$;
+  CommonAttributeGroupFacade.prototype.comment_61zpoe$ = Tag.prototype.comment_61zpoe$;
   FormServerAttributeGroupFacade.prototype.unaryPlus_lvwjq6$ = Tag.prototype.unaryPlus_lvwjq6$;
   FormServerAttributeGroupFacade.prototype.unaryPlus_pdl1vz$ = Tag.prototype.unaryPlus_pdl1vz$;
   FormServerAttributeGroupFacade.prototype.text_61zpoe$ = Tag.prototype.text_61zpoe$;
   FormServerAttributeGroupFacade.prototype.text_3p81yu$ = Tag.prototype.text_3p81yu$;
   FormServerAttributeGroupFacade.prototype.entity_ws8or7$ = Tag.prototype.entity_ws8or7$;
+  FormServerAttributeGroupFacade.prototype.comment_61zpoe$ = Tag.prototype.comment_61zpoe$;
   InputServerAttributeGroupFacade.prototype.unaryPlus_lvwjq6$ = Tag.prototype.unaryPlus_lvwjq6$;
   InputServerAttributeGroupFacade.prototype.unaryPlus_pdl1vz$ = Tag.prototype.unaryPlus_pdl1vz$;
   InputServerAttributeGroupFacade.prototype.text_61zpoe$ = Tag.prototype.text_61zpoe$;
   InputServerAttributeGroupFacade.prototype.text_3p81yu$ = Tag.prototype.text_3p81yu$;
   InputServerAttributeGroupFacade.prototype.entity_ws8or7$ = Tag.prototype.entity_ws8or7$;
+  InputServerAttributeGroupFacade.prototype.comment_61zpoe$ = Tag.prototype.comment_61zpoe$;
   SelectServerAttributeGroupFacade.prototype.unaryPlus_lvwjq6$ = Tag.prototype.unaryPlus_lvwjq6$;
   SelectServerAttributeGroupFacade.prototype.unaryPlus_pdl1vz$ = Tag.prototype.unaryPlus_pdl1vz$;
   SelectServerAttributeGroupFacade.prototype.text_61zpoe$ = Tag.prototype.text_61zpoe$;
   SelectServerAttributeGroupFacade.prototype.text_3p81yu$ = Tag.prototype.text_3p81yu$;
   SelectServerAttributeGroupFacade.prototype.entity_ws8or7$ = Tag.prototype.entity_ws8or7$;
-  HeadingContent.prototype.unaryPlus_lvwjq6$ = Tag.prototype.unaryPlus_lvwjq6$;
-  HeadingContent.prototype.unaryPlus_pdl1vz$ = Tag.prototype.unaryPlus_pdl1vz$;
-  HeadingContent.prototype.text_61zpoe$ = Tag.prototype.text_61zpoe$;
-  HeadingContent.prototype.text_3p81yu$ = Tag.prototype.text_3p81yu$;
-  HeadingContent.prototype.entity_ws8or7$ = Tag.prototype.entity_ws8or7$;
-  InteractiveContent.prototype.unaryPlus_lvwjq6$ = Tag.prototype.unaryPlus_lvwjq6$;
-  InteractiveContent.prototype.unaryPlus_pdl1vz$ = Tag.prototype.unaryPlus_pdl1vz$;
-  InteractiveContent.prototype.text_61zpoe$ = Tag.prototype.text_61zpoe$;
-  InteractiveContent.prototype.text_3p81yu$ = Tag.prototype.text_3p81yu$;
-  InteractiveContent.prototype.entity_ws8or7$ = Tag.prototype.entity_ws8or7$;
-  MetaDataContent.prototype.unaryPlus_lvwjq6$ = Tag.prototype.unaryPlus_lvwjq6$;
-  MetaDataContent.prototype.unaryPlus_pdl1vz$ = Tag.prototype.unaryPlus_pdl1vz$;
-  MetaDataContent.prototype.text_61zpoe$ = Tag.prototype.text_61zpoe$;
-  MetaDataContent.prototype.text_3p81yu$ = Tag.prototype.text_3p81yu$;
-  MetaDataContent.prototype.entity_ws8or7$ = Tag.prototype.entity_ws8or7$;
-  SectioningContent.prototype.unaryPlus_lvwjq6$ = Tag.prototype.unaryPlus_lvwjq6$;
-  SectioningContent.prototype.unaryPlus_pdl1vz$ = Tag.prototype.unaryPlus_pdl1vz$;
-  SectioningContent.prototype.text_61zpoe$ = Tag.prototype.text_61zpoe$;
-  SectioningContent.prototype.text_3p81yu$ = Tag.prototype.text_3p81yu$;
-  SectioningContent.prototype.entity_ws8or7$ = Tag.prototype.entity_ws8or7$;
+  SelectServerAttributeGroupFacade.prototype.comment_61zpoe$ = Tag.prototype.comment_61zpoe$;
   FlowOrHeadingContent.prototype.unaryPlus_lvwjq6$ = Tag.prototype.unaryPlus_lvwjq6$;
   FlowOrHeadingContent.prototype.unaryPlus_pdl1vz$ = Tag.prototype.unaryPlus_pdl1vz$;
   FlowOrHeadingContent.prototype.text_61zpoe$ = Tag.prototype.text_61zpoe$;
   FlowOrHeadingContent.prototype.text_3p81yu$ = Tag.prototype.text_3p81yu$;
   FlowOrHeadingContent.prototype.entity_ws8or7$ = Tag.prototype.entity_ws8or7$;
-  FlowOrMetaDataContent.prototype.unaryPlus_lvwjq6$ = Tag.prototype.unaryPlus_lvwjq6$;
-  FlowOrMetaDataContent.prototype.unaryPlus_pdl1vz$ = Tag.prototype.unaryPlus_pdl1vz$;
-  FlowOrMetaDataContent.prototype.text_61zpoe$ = Tag.prototype.text_61zpoe$;
-  FlowOrMetaDataContent.prototype.text_3p81yu$ = Tag.prototype.text_3p81yu$;
-  FlowOrMetaDataContent.prototype.entity_ws8or7$ = Tag.prototype.entity_ws8or7$;
-  FlowOrInteractiveContent.prototype.unaryPlus_lvwjq6$ = Tag.prototype.unaryPlus_lvwjq6$;
-  FlowOrInteractiveContent.prototype.unaryPlus_pdl1vz$ = Tag.prototype.unaryPlus_pdl1vz$;
-  FlowOrInteractiveContent.prototype.text_61zpoe$ = Tag.prototype.text_61zpoe$;
-  FlowOrInteractiveContent.prototype.text_3p81yu$ = Tag.prototype.text_3p81yu$;
-  FlowOrInteractiveContent.prototype.entity_ws8or7$ = Tag.prototype.entity_ws8or7$;
+  FlowOrHeadingContent.prototype.comment_61zpoe$ = Tag.prototype.comment_61zpoe$;
+  HeadingContent.prototype.unaryPlus_lvwjq6$ = FlowOrHeadingContent.prototype.unaryPlus_lvwjq6$;
+  HeadingContent.prototype.unaryPlus_pdl1vz$ = FlowOrHeadingContent.prototype.unaryPlus_pdl1vz$;
+  HeadingContent.prototype.text_61zpoe$ = FlowOrHeadingContent.prototype.text_61zpoe$;
+  HeadingContent.prototype.text_3p81yu$ = FlowOrHeadingContent.prototype.text_3p81yu$;
+  HeadingContent.prototype.entity_ws8or7$ = FlowOrHeadingContent.prototype.entity_ws8or7$;
+  HeadingContent.prototype.comment_61zpoe$ = FlowOrHeadingContent.prototype.comment_61zpoe$;
   FlowOrPhrasingOrMetaDataContent.prototype.unaryPlus_lvwjq6$ = Tag.prototype.unaryPlus_lvwjq6$;
   FlowOrPhrasingOrMetaDataContent.prototype.unaryPlus_pdl1vz$ = Tag.prototype.unaryPlus_pdl1vz$;
   FlowOrPhrasingOrMetaDataContent.prototype.text_61zpoe$ = Tag.prototype.text_61zpoe$;
   FlowOrPhrasingOrMetaDataContent.prototype.text_3p81yu$ = Tag.prototype.text_3p81yu$;
   FlowOrPhrasingOrMetaDataContent.prototype.entity_ws8or7$ = Tag.prototype.entity_ws8or7$;
-  SectioningOrFlowContent.prototype.unaryPlus_lvwjq6$ = Tag.prototype.unaryPlus_lvwjq6$;
-  SectioningOrFlowContent.prototype.unaryPlus_pdl1vz$ = Tag.prototype.unaryPlus_pdl1vz$;
-  SectioningOrFlowContent.prototype.text_61zpoe$ = Tag.prototype.text_61zpoe$;
-  SectioningOrFlowContent.prototype.text_3p81yu$ = Tag.prototype.text_3p81yu$;
-  SectioningOrFlowContent.prototype.entity_ws8or7$ = Tag.prototype.entity_ws8or7$;
+  FlowOrPhrasingOrMetaDataContent.prototype.comment_61zpoe$ = Tag.prototype.comment_61zpoe$;
+  FlowOrMetaDataContent.prototype.unaryPlus_lvwjq6$ = FlowOrPhrasingOrMetaDataContent.prototype.unaryPlus_lvwjq6$;
+  FlowOrMetaDataContent.prototype.unaryPlus_pdl1vz$ = FlowOrPhrasingOrMetaDataContent.prototype.unaryPlus_pdl1vz$;
+  FlowOrMetaDataContent.prototype.text_61zpoe$ = FlowOrPhrasingOrMetaDataContent.prototype.text_61zpoe$;
+  FlowOrMetaDataContent.prototype.text_3p81yu$ = FlowOrPhrasingOrMetaDataContent.prototype.text_3p81yu$;
+  FlowOrMetaDataContent.prototype.entity_ws8or7$ = FlowOrPhrasingOrMetaDataContent.prototype.entity_ws8or7$;
+  FlowOrMetaDataContent.prototype.comment_61zpoe$ = FlowOrPhrasingOrMetaDataContent.prototype.comment_61zpoe$;
   FlowOrInteractiveOrPhrasingContent.prototype.unaryPlus_lvwjq6$ = Tag.prototype.unaryPlus_lvwjq6$;
   FlowOrInteractiveOrPhrasingContent.prototype.unaryPlus_pdl1vz$ = Tag.prototype.unaryPlus_pdl1vz$;
   FlowOrInteractiveOrPhrasingContent.prototype.text_61zpoe$ = Tag.prototype.text_61zpoe$;
   FlowOrInteractiveOrPhrasingContent.prototype.text_3p81yu$ = Tag.prototype.text_3p81yu$;
   FlowOrInteractiveOrPhrasingContent.prototype.entity_ws8or7$ = Tag.prototype.entity_ws8or7$;
+  FlowOrInteractiveOrPhrasingContent.prototype.comment_61zpoe$ = Tag.prototype.comment_61zpoe$;
+  FlowOrInteractiveContent.prototype.unaryPlus_lvwjq6$ = FlowOrInteractiveOrPhrasingContent.prototype.unaryPlus_lvwjq6$;
+  FlowOrInteractiveContent.prototype.unaryPlus_pdl1vz$ = FlowOrInteractiveOrPhrasingContent.prototype.unaryPlus_pdl1vz$;
+  FlowOrInteractiveContent.prototype.text_61zpoe$ = FlowOrInteractiveOrPhrasingContent.prototype.text_61zpoe$;
+  FlowOrInteractiveContent.prototype.text_3p81yu$ = FlowOrInteractiveOrPhrasingContent.prototype.text_3p81yu$;
+  FlowOrInteractiveContent.prototype.entity_ws8or7$ = FlowOrInteractiveOrPhrasingContent.prototype.entity_ws8or7$;
+  FlowOrInteractiveContent.prototype.comment_61zpoe$ = FlowOrInteractiveOrPhrasingContent.prototype.comment_61zpoe$;
+  FlowOrPhrasingContent.prototype.unaryPlus_lvwjq6$ = FlowOrInteractiveOrPhrasingContent.prototype.unaryPlus_lvwjq6$;
+  FlowOrPhrasingContent.prototype.unaryPlus_pdl1vz$ = FlowOrInteractiveOrPhrasingContent.prototype.unaryPlus_pdl1vz$;
+  FlowOrPhrasingContent.prototype.text_61zpoe$ = FlowOrInteractiveOrPhrasingContent.prototype.text_61zpoe$;
+  FlowOrPhrasingContent.prototype.text_3p81yu$ = FlowOrInteractiveOrPhrasingContent.prototype.text_3p81yu$;
+  FlowOrPhrasingContent.prototype.entity_ws8or7$ = FlowOrInteractiveOrPhrasingContent.prototype.entity_ws8or7$;
+  FlowOrPhrasingContent.prototype.comment_61zpoe$ = FlowOrInteractiveOrPhrasingContent.prototype.comment_61zpoe$;
+  SectioningOrFlowContent.prototype.unaryPlus_lvwjq6$ = Tag.prototype.unaryPlus_lvwjq6$;
+  SectioningOrFlowContent.prototype.unaryPlus_pdl1vz$ = Tag.prototype.unaryPlus_pdl1vz$;
+  SectioningOrFlowContent.prototype.text_61zpoe$ = Tag.prototype.text_61zpoe$;
+  SectioningOrFlowContent.prototype.text_3p81yu$ = Tag.prototype.text_3p81yu$;
+  SectioningOrFlowContent.prototype.entity_ws8or7$ = Tag.prototype.entity_ws8or7$;
+  SectioningOrFlowContent.prototype.comment_61zpoe$ = Tag.prototype.comment_61zpoe$;
+  FlowContent.prototype.unaryPlus_lvwjq6$ = FlowOrHeadingContent.prototype.unaryPlus_lvwjq6$;
+  FlowContent.prototype.unaryPlus_pdl1vz$ = FlowOrHeadingContent.prototype.unaryPlus_pdl1vz$;
+  FlowContent.prototype.text_61zpoe$ = FlowOrHeadingContent.prototype.text_61zpoe$;
+  FlowContent.prototype.text_3p81yu$ = FlowOrHeadingContent.prototype.text_3p81yu$;
+  FlowContent.prototype.entity_ws8or7$ = FlowOrHeadingContent.prototype.entity_ws8or7$;
+  FlowContent.prototype.comment_61zpoe$ = FlowOrHeadingContent.prototype.comment_61zpoe$;
+  HtmlBlockTag.prototype.unaryPlus_lvwjq6$ = CommonAttributeGroupFacade.prototype.unaryPlus_lvwjq6$;
+  HtmlBlockTag.prototype.unaryPlus_pdl1vz$ = CommonAttributeGroupFacade.prototype.unaryPlus_pdl1vz$;
+  HtmlBlockTag.prototype.text_61zpoe$ = CommonAttributeGroupFacade.prototype.text_61zpoe$;
+  HtmlBlockTag.prototype.text_3p81yu$ = CommonAttributeGroupFacade.prototype.text_3p81yu$;
+  HtmlBlockTag.prototype.entity_ws8or7$ = CommonAttributeGroupFacade.prototype.entity_ws8or7$;
+  HtmlBlockTag.prototype.comment_61zpoe$ = CommonAttributeGroupFacade.prototype.comment_61zpoe$;
+  CommonAttributeGroupFacadeFlowHeadingContent.prototype.unaryPlus_lvwjq6$ = CommonAttributeGroupFacade.prototype.unaryPlus_lvwjq6$;
+  CommonAttributeGroupFacadeFlowHeadingContent.prototype.unaryPlus_pdl1vz$ = CommonAttributeGroupFacade.prototype.unaryPlus_pdl1vz$;
+  CommonAttributeGroupFacadeFlowHeadingContent.prototype.text_61zpoe$ = CommonAttributeGroupFacade.prototype.text_61zpoe$;
+  CommonAttributeGroupFacadeFlowHeadingContent.prototype.text_3p81yu$ = CommonAttributeGroupFacade.prototype.text_3p81yu$;
+  CommonAttributeGroupFacadeFlowHeadingContent.prototype.entity_ws8or7$ = CommonAttributeGroupFacade.prototype.entity_ws8or7$;
+  CommonAttributeGroupFacadeFlowHeadingContent.prototype.comment_61zpoe$ = CommonAttributeGroupFacade.prototype.comment_61zpoe$;
+  PhrasingContent.prototype.unaryPlus_lvwjq6$ = FlowOrPhrasingContent.prototype.unaryPlus_lvwjq6$;
+  PhrasingContent.prototype.unaryPlus_pdl1vz$ = FlowOrPhrasingContent.prototype.unaryPlus_pdl1vz$;
+  PhrasingContent.prototype.text_61zpoe$ = FlowOrPhrasingContent.prototype.text_61zpoe$;
+  PhrasingContent.prototype.text_3p81yu$ = FlowOrPhrasingContent.prototype.text_3p81yu$;
+  PhrasingContent.prototype.entity_ws8or7$ = FlowOrPhrasingContent.prototype.entity_ws8or7$;
+  PhrasingContent.prototype.comment_61zpoe$ = FlowOrPhrasingContent.prototype.comment_61zpoe$;
+  FlowPhrasingContent.prototype.unaryPlus_lvwjq6$ = FlowContent.prototype.unaryPlus_lvwjq6$;
+  FlowPhrasingContent.prototype.unaryPlus_pdl1vz$ = FlowContent.prototype.unaryPlus_pdl1vz$;
+  FlowPhrasingContent.prototype.text_61zpoe$ = FlowContent.prototype.text_61zpoe$;
+  FlowPhrasingContent.prototype.text_3p81yu$ = FlowContent.prototype.text_3p81yu$;
+  FlowPhrasingContent.prototype.entity_ws8or7$ = FlowContent.prototype.entity_ws8or7$;
+  FlowPhrasingContent.prototype.comment_61zpoe$ = FlowContent.prototype.comment_61zpoe$;
+  HtmlInlineTag.prototype.unaryPlus_lvwjq6$ = CommonAttributeGroupFacade.prototype.unaryPlus_lvwjq6$;
+  HtmlInlineTag.prototype.unaryPlus_pdl1vz$ = CommonAttributeGroupFacade.prototype.unaryPlus_pdl1vz$;
+  HtmlInlineTag.prototype.text_61zpoe$ = CommonAttributeGroupFacade.prototype.text_61zpoe$;
+  HtmlInlineTag.prototype.text_3p81yu$ = CommonAttributeGroupFacade.prototype.text_3p81yu$;
+  HtmlInlineTag.prototype.entity_ws8or7$ = CommonAttributeGroupFacade.prototype.entity_ws8or7$;
+  HtmlInlineTag.prototype.comment_61zpoe$ = CommonAttributeGroupFacade.prototype.comment_61zpoe$;
+  HtmlBlockInlineTag.prototype.unaryPlus_lvwjq6$ = CommonAttributeGroupFacade.prototype.unaryPlus_lvwjq6$;
+  HtmlBlockInlineTag.prototype.unaryPlus_pdl1vz$ = CommonAttributeGroupFacade.prototype.unaryPlus_pdl1vz$;
+  HtmlBlockInlineTag.prototype.text_61zpoe$ = CommonAttributeGroupFacade.prototype.text_61zpoe$;
+  HtmlBlockInlineTag.prototype.text_3p81yu$ = CommonAttributeGroupFacade.prototype.text_3p81yu$;
+  HtmlBlockInlineTag.prototype.entity_ws8or7$ = CommonAttributeGroupFacade.prototype.entity_ws8or7$;
+  HtmlBlockInlineTag.prototype.comment_61zpoe$ = CommonAttributeGroupFacade.prototype.comment_61zpoe$;
+  CommonAttributeGroupFacadeFlowHeadingPhrasingContent.prototype.unaryPlus_lvwjq6$ = CommonAttributeGroupFacade.prototype.unaryPlus_lvwjq6$;
+  CommonAttributeGroupFacadeFlowHeadingPhrasingContent.prototype.unaryPlus_pdl1vz$ = CommonAttributeGroupFacade.prototype.unaryPlus_pdl1vz$;
+  CommonAttributeGroupFacadeFlowHeadingPhrasingContent.prototype.text_61zpoe$ = CommonAttributeGroupFacade.prototype.text_61zpoe$;
+  CommonAttributeGroupFacadeFlowHeadingPhrasingContent.prototype.text_3p81yu$ = CommonAttributeGroupFacade.prototype.text_3p81yu$;
+  CommonAttributeGroupFacadeFlowHeadingPhrasingContent.prototype.entity_ws8or7$ = CommonAttributeGroupFacade.prototype.entity_ws8or7$;
+  CommonAttributeGroupFacadeFlowHeadingPhrasingContent.prototype.comment_61zpoe$ = CommonAttributeGroupFacade.prototype.comment_61zpoe$;
+  InteractiveContent.prototype.unaryPlus_lvwjq6$ = FlowOrInteractiveContent.prototype.unaryPlus_lvwjq6$;
+  InteractiveContent.prototype.unaryPlus_pdl1vz$ = FlowOrInteractiveContent.prototype.unaryPlus_pdl1vz$;
+  InteractiveContent.prototype.text_61zpoe$ = FlowOrInteractiveContent.prototype.text_61zpoe$;
+  InteractiveContent.prototype.text_3p81yu$ = FlowOrInteractiveContent.prototype.text_3p81yu$;
+  InteractiveContent.prototype.entity_ws8or7$ = FlowOrInteractiveContent.prototype.entity_ws8or7$;
+  InteractiveContent.prototype.comment_61zpoe$ = FlowOrInteractiveContent.prototype.comment_61zpoe$;
+  CommonAttributeGroupFacadeFlowInteractiveContent.prototype.unaryPlus_lvwjq6$ = CommonAttributeGroupFacade.prototype.unaryPlus_lvwjq6$;
+  CommonAttributeGroupFacadeFlowInteractiveContent.prototype.unaryPlus_pdl1vz$ = CommonAttributeGroupFacade.prototype.unaryPlus_pdl1vz$;
+  CommonAttributeGroupFacadeFlowInteractiveContent.prototype.text_61zpoe$ = CommonAttributeGroupFacade.prototype.text_61zpoe$;
+  CommonAttributeGroupFacadeFlowInteractiveContent.prototype.text_3p81yu$ = CommonAttributeGroupFacade.prototype.text_3p81yu$;
+  CommonAttributeGroupFacadeFlowInteractiveContent.prototype.entity_ws8or7$ = CommonAttributeGroupFacade.prototype.entity_ws8or7$;
+  CommonAttributeGroupFacadeFlowInteractiveContent.prototype.comment_61zpoe$ = CommonAttributeGroupFacade.prototype.comment_61zpoe$;
+  CommonAttributeGroupFacadeFlowInteractivePhrasingContent.prototype.unaryPlus_lvwjq6$ = CommonAttributeGroupFacade.prototype.unaryPlus_lvwjq6$;
+  CommonAttributeGroupFacadeFlowInteractivePhrasingContent.prototype.unaryPlus_pdl1vz$ = CommonAttributeGroupFacade.prototype.unaryPlus_pdl1vz$;
+  CommonAttributeGroupFacadeFlowInteractivePhrasingContent.prototype.text_61zpoe$ = CommonAttributeGroupFacade.prototype.text_61zpoe$;
+  CommonAttributeGroupFacadeFlowInteractivePhrasingContent.prototype.text_3p81yu$ = CommonAttributeGroupFacade.prototype.text_3p81yu$;
+  CommonAttributeGroupFacadeFlowInteractivePhrasingContent.prototype.entity_ws8or7$ = CommonAttributeGroupFacade.prototype.entity_ws8or7$;
+  CommonAttributeGroupFacadeFlowInteractivePhrasingContent.prototype.comment_61zpoe$ = CommonAttributeGroupFacade.prototype.comment_61zpoe$;
+  MetaDataContent.prototype.unaryPlus_lvwjq6$ = FlowOrMetaDataContent.prototype.unaryPlus_lvwjq6$;
+  MetaDataContent.prototype.unaryPlus_pdl1vz$ = FlowOrMetaDataContent.prototype.unaryPlus_pdl1vz$;
+  MetaDataContent.prototype.text_61zpoe$ = FlowOrMetaDataContent.prototype.text_61zpoe$;
+  MetaDataContent.prototype.text_3p81yu$ = FlowOrMetaDataContent.prototype.text_3p81yu$;
+  MetaDataContent.prototype.entity_ws8or7$ = FlowOrMetaDataContent.prototype.entity_ws8or7$;
+  MetaDataContent.prototype.comment_61zpoe$ = FlowOrMetaDataContent.prototype.comment_61zpoe$;
+  FlowMetaDataContent.prototype.unaryPlus_lvwjq6$ = FlowContent.prototype.unaryPlus_lvwjq6$;
+  FlowMetaDataContent.prototype.unaryPlus_pdl1vz$ = FlowContent.prototype.unaryPlus_pdl1vz$;
+  FlowMetaDataContent.prototype.text_61zpoe$ = FlowContent.prototype.text_61zpoe$;
+  FlowMetaDataContent.prototype.text_3p81yu$ = FlowContent.prototype.text_3p81yu$;
+  FlowMetaDataContent.prototype.entity_ws8or7$ = FlowContent.prototype.entity_ws8or7$;
+  FlowMetaDataContent.prototype.comment_61zpoe$ = FlowContent.prototype.comment_61zpoe$;
+  HtmlHeadTag.prototype.unaryPlus_lvwjq6$ = CommonAttributeGroupFacade.prototype.unaryPlus_lvwjq6$;
+  HtmlHeadTag.prototype.unaryPlus_pdl1vz$ = CommonAttributeGroupFacade.prototype.unaryPlus_pdl1vz$;
+  HtmlHeadTag.prototype.text_61zpoe$ = CommonAttributeGroupFacade.prototype.text_61zpoe$;
+  HtmlHeadTag.prototype.text_3p81yu$ = CommonAttributeGroupFacade.prototype.text_3p81yu$;
+  HtmlHeadTag.prototype.entity_ws8or7$ = CommonAttributeGroupFacade.prototype.entity_ws8or7$;
+  HtmlHeadTag.prototype.comment_61zpoe$ = CommonAttributeGroupFacade.prototype.comment_61zpoe$;
+  CommonAttributeGroupFacadeFlowMetaDataContent.prototype.unaryPlus_lvwjq6$ = CommonAttributeGroupFacade.prototype.unaryPlus_lvwjq6$;
+  CommonAttributeGroupFacadeFlowMetaDataContent.prototype.unaryPlus_pdl1vz$ = CommonAttributeGroupFacade.prototype.unaryPlus_pdl1vz$;
+  CommonAttributeGroupFacadeFlowMetaDataContent.prototype.text_61zpoe$ = CommonAttributeGroupFacade.prototype.text_61zpoe$;
+  CommonAttributeGroupFacadeFlowMetaDataContent.prototype.text_3p81yu$ = CommonAttributeGroupFacade.prototype.text_3p81yu$;
+  CommonAttributeGroupFacadeFlowMetaDataContent.prototype.entity_ws8or7$ = CommonAttributeGroupFacade.prototype.entity_ws8or7$;
+  CommonAttributeGroupFacadeFlowMetaDataContent.prototype.comment_61zpoe$ = CommonAttributeGroupFacade.prototype.comment_61zpoe$;
+  FlowMetaDataPhrasingContent.prototype.unaryPlus_lvwjq6$ = FlowMetaDataContent.prototype.unaryPlus_lvwjq6$;
+  FlowMetaDataPhrasingContent.prototype.unaryPlus_pdl1vz$ = FlowMetaDataContent.prototype.unaryPlus_pdl1vz$;
+  FlowMetaDataPhrasingContent.prototype.text_61zpoe$ = FlowMetaDataContent.prototype.text_61zpoe$;
+  FlowMetaDataPhrasingContent.prototype.text_3p81yu$ = FlowMetaDataContent.prototype.text_3p81yu$;
+  FlowMetaDataPhrasingContent.prototype.entity_ws8or7$ = FlowMetaDataContent.prototype.entity_ws8or7$;
+  FlowMetaDataPhrasingContent.prototype.comment_61zpoe$ = FlowMetaDataContent.prototype.comment_61zpoe$;
+  CommonAttributeGroupFacadeFlowMetaDataPhrasingContent.prototype.unaryPlus_lvwjq6$ = CommonAttributeGroupFacade.prototype.unaryPlus_lvwjq6$;
+  CommonAttributeGroupFacadeFlowMetaDataPhrasingContent.prototype.unaryPlus_pdl1vz$ = CommonAttributeGroupFacade.prototype.unaryPlus_pdl1vz$;
+  CommonAttributeGroupFacadeFlowMetaDataPhrasingContent.prototype.text_61zpoe$ = CommonAttributeGroupFacade.prototype.text_61zpoe$;
+  CommonAttributeGroupFacadeFlowMetaDataPhrasingContent.prototype.text_3p81yu$ = CommonAttributeGroupFacade.prototype.text_3p81yu$;
+  CommonAttributeGroupFacadeFlowMetaDataPhrasingContent.prototype.entity_ws8or7$ = CommonAttributeGroupFacade.prototype.entity_ws8or7$;
+  CommonAttributeGroupFacadeFlowMetaDataPhrasingContent.prototype.comment_61zpoe$ = CommonAttributeGroupFacade.prototype.comment_61zpoe$;
+  SectioningContent.prototype.unaryPlus_lvwjq6$ = SectioningOrFlowContent.prototype.unaryPlus_lvwjq6$;
+  SectioningContent.prototype.unaryPlus_pdl1vz$ = SectioningOrFlowContent.prototype.unaryPlus_pdl1vz$;
+  SectioningContent.prototype.text_61zpoe$ = SectioningOrFlowContent.prototype.text_61zpoe$;
+  SectioningContent.prototype.text_3p81yu$ = SectioningOrFlowContent.prototype.text_3p81yu$;
+  SectioningContent.prototype.entity_ws8or7$ = SectioningOrFlowContent.prototype.entity_ws8or7$;
+  SectioningContent.prototype.comment_61zpoe$ = SectioningOrFlowContent.prototype.comment_61zpoe$;
+  CommonAttributeGroupFacadeFlowSectioningContent.prototype.unaryPlus_lvwjq6$ = CommonAttributeGroupFacade.prototype.unaryPlus_lvwjq6$;
+  CommonAttributeGroupFacadeFlowSectioningContent.prototype.unaryPlus_pdl1vz$ = CommonAttributeGroupFacade.prototype.unaryPlus_pdl1vz$;
+  CommonAttributeGroupFacadeFlowSectioningContent.prototype.text_61zpoe$ = CommonAttributeGroupFacade.prototype.text_61zpoe$;
+  CommonAttributeGroupFacadeFlowSectioningContent.prototype.text_3p81yu$ = CommonAttributeGroupFacade.prototype.text_3p81yu$;
+  CommonAttributeGroupFacadeFlowSectioningContent.prototype.entity_ws8or7$ = CommonAttributeGroupFacade.prototype.entity_ws8or7$;
+  CommonAttributeGroupFacadeFlowSectioningContent.prototype.comment_61zpoe$ = CommonAttributeGroupFacade.prototype.comment_61zpoe$;
+  CommonAttributeGroupFacadeFlowPhrasingSectioningContent.prototype.unaryPlus_lvwjq6$ = CommonAttributeGroupFacade.prototype.unaryPlus_lvwjq6$;
+  CommonAttributeGroupFacadeFlowPhrasingSectioningContent.prototype.unaryPlus_pdl1vz$ = CommonAttributeGroupFacade.prototype.unaryPlus_pdl1vz$;
+  CommonAttributeGroupFacadeFlowPhrasingSectioningContent.prototype.text_61zpoe$ = CommonAttributeGroupFacade.prototype.text_61zpoe$;
+  CommonAttributeGroupFacadeFlowPhrasingSectioningContent.prototype.text_3p81yu$ = CommonAttributeGroupFacade.prototype.text_3p81yu$;
+  CommonAttributeGroupFacadeFlowPhrasingSectioningContent.prototype.entity_ws8or7$ = CommonAttributeGroupFacade.prototype.entity_ws8or7$;
+  CommonAttributeGroupFacadeFlowPhrasingSectioningContent.prototype.comment_61zpoe$ = CommonAttributeGroupFacade.prototype.comment_61zpoe$;
   HTMLTag.prototype.unaryPlus_lvwjq6$ = Tag.prototype.unaryPlus_lvwjq6$;
   HTMLTag.prototype.unaryPlus_pdl1vz$ = Tag.prototype.unaryPlus_pdl1vz$;
   HTMLTag.prototype.text_61zpoe$ = Tag.prototype.text_61zpoe$;
   HTMLTag.prototype.text_3p81yu$ = Tag.prototype.text_3p81yu$;
   HTMLTag.prototype.entity_ws8or7$ = Tag.prototype.entity_ws8or7$;
+  HTMLTag.prototype.comment_61zpoe$ = Tag.prototype.comment_61zpoe$;
   HTMLStreamBuilder$UnsafeImpl$ObjectLiteral.prototype.unaryPlus_lvwjq6$ = Unsafe.prototype.unaryPlus_lvwjq6$;
   HTMLStreamBuilder$UnsafeImpl$ObjectLiteral.prototype.raw_61zpoe$ = Unsafe.prototype.raw_61zpoe$;
   HTMLStreamBuilder$UnsafeImpl$ObjectLiteral.prototype.raw_ws8or7$ = Unsafe.prototype.raw_ws8or7$;
@@ -15427,9 +16451,12 @@
   attributeRunAtEnumRunAtValues = new EnumAttribute(runAtValues);
   attributeTextAreaWrapEnumTextAreaWrapValues = new EnumAttribute(textAreaWrapValues);
   attributeThScopeEnumThScopeValues = new EnumAttribute(thScopeValues);
+  var mapCapacity = Kotlin.kotlin.collections.mapCapacity_za3lpa$;
+  var coerceAtLeast = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$;
+  var LinkedHashMap_init_1 = Kotlin.kotlin.collections.LinkedHashMap_init_bwtc7$;
   var $receiver = Dir$values();
-  var capacity = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$(Kotlin.kotlin.collections.mapCapacity_za3lpa$($receiver.length), 16);
-  var destination = Kotlin.kotlin.collections.LinkedHashMap_init_xf5xz2$(capacity);
+  var capacity = coerceAtLeast(mapCapacity($receiver.length), 16);
+  var destination = LinkedHashMap_init_1(capacity);
   var tmp$;
   for (tmp$ = 0; tmp$ !== $receiver.length; ++tmp$) {
     var element = $receiver[tmp$];
@@ -15437,8 +16464,8 @@
   }
   dirValues = destination;
   var $receiver_0 = Draggable$values();
-  var capacity_0 = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$(Kotlin.kotlin.collections.mapCapacity_za3lpa$($receiver_0.length), 16);
-  var destination_0 = Kotlin.kotlin.collections.LinkedHashMap_init_xf5xz2$(capacity_0);
+  var capacity_0 = coerceAtLeast(mapCapacity($receiver_0.length), 16);
+  var destination_0 = LinkedHashMap_init_1(capacity_0);
   var tmp$_0;
   for (tmp$_0 = 0; tmp$_0 !== $receiver_0.length; ++tmp$_0) {
     var element_0 = $receiver_0[tmp$_0];
@@ -15446,8 +16473,8 @@
   }
   draggableValues = destination_0;
   var $receiver_1 = RunAt$values();
-  var capacity_1 = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$(Kotlin.kotlin.collections.mapCapacity_za3lpa$($receiver_1.length), 16);
-  var destination_1 = Kotlin.kotlin.collections.LinkedHashMap_init_xf5xz2$(capacity_1);
+  var capacity_1 = coerceAtLeast(mapCapacity($receiver_1.length), 16);
+  var destination_1 = LinkedHashMap_init_1(capacity_1);
   var tmp$_1;
   for (tmp$_1 = 0; tmp$_1 !== $receiver_1.length; ++tmp$_1) {
     var element_1 = $receiver_1[tmp$_1];
@@ -15455,8 +16482,8 @@
   }
   runAtValues = destination_1;
   var $receiver_2 = AreaShape$values();
-  var capacity_2 = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$(Kotlin.kotlin.collections.mapCapacity_za3lpa$($receiver_2.length), 16);
-  var destination_2 = Kotlin.kotlin.collections.LinkedHashMap_init_xf5xz2$(capacity_2);
+  var capacity_2 = coerceAtLeast(mapCapacity($receiver_2.length), 16);
+  var destination_2 = LinkedHashMap_init_1(capacity_2);
   var tmp$_2;
   for (tmp$_2 = 0; tmp$_2 !== $receiver_2.length; ++tmp$_2) {
     var element_2 = $receiver_2[tmp$_2];
@@ -15464,8 +16491,8 @@
   }
   areaShapeValues = destination_2;
   var $receiver_3 = ButtonFormEncType$values();
-  var capacity_3 = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$(Kotlin.kotlin.collections.mapCapacity_za3lpa$($receiver_3.length), 16);
-  var destination_3 = Kotlin.kotlin.collections.LinkedHashMap_init_xf5xz2$(capacity_3);
+  var capacity_3 = coerceAtLeast(mapCapacity($receiver_3.length), 16);
+  var destination_3 = LinkedHashMap_init_1(capacity_3);
   var tmp$_3;
   for (tmp$_3 = 0; tmp$_3 !== $receiver_3.length; ++tmp$_3) {
     var element_3 = $receiver_3[tmp$_3];
@@ -15473,8 +16500,8 @@
   }
   buttonFormEncTypeValues = destination_3;
   var $receiver_4 = ButtonFormMethod$values();
-  var capacity_4 = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$(Kotlin.kotlin.collections.mapCapacity_za3lpa$($receiver_4.length), 16);
-  var destination_4 = Kotlin.kotlin.collections.LinkedHashMap_init_xf5xz2$(capacity_4);
+  var capacity_4 = coerceAtLeast(mapCapacity($receiver_4.length), 16);
+  var destination_4 = LinkedHashMap_init_1(capacity_4);
   var tmp$_4;
   for (tmp$_4 = 0; tmp$_4 !== $receiver_4.length; ++tmp$_4) {
     var element_4 = $receiver_4[tmp$_4];
@@ -15482,8 +16509,8 @@
   }
   buttonFormMethodValues = destination_4;
   var $receiver_5 = ButtonType$values();
-  var capacity_5 = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$(Kotlin.kotlin.collections.mapCapacity_za3lpa$($receiver_5.length), 16);
-  var destination_5 = Kotlin.kotlin.collections.LinkedHashMap_init_xf5xz2$(capacity_5);
+  var capacity_5 = coerceAtLeast(mapCapacity($receiver_5.length), 16);
+  var destination_5 = LinkedHashMap_init_1(capacity_5);
   var tmp$_5;
   for (tmp$_5 = 0; tmp$_5 !== $receiver_5.length; ++tmp$_5) {
     var element_5 = $receiver_5[tmp$_5];
@@ -15491,8 +16518,8 @@
   }
   buttonTypeValues = destination_5;
   var $receiver_6 = CommandType$values();
-  var capacity_6 = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$(Kotlin.kotlin.collections.mapCapacity_za3lpa$($receiver_6.length), 16);
-  var destination_6 = Kotlin.kotlin.collections.LinkedHashMap_init_xf5xz2$(capacity_6);
+  var capacity_6 = coerceAtLeast(mapCapacity($receiver_6.length), 16);
+  var destination_6 = LinkedHashMap_init_1(capacity_6);
   var tmp$_6;
   for (tmp$_6 = 0; tmp$_6 !== $receiver_6.length; ++tmp$_6) {
     var element_6 = $receiver_6[tmp$_6];
@@ -15500,8 +16527,8 @@
   }
   commandTypeValues = destination_6;
   var $receiver_7 = FormEncType$values();
-  var capacity_7 = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$(Kotlin.kotlin.collections.mapCapacity_za3lpa$($receiver_7.length), 16);
-  var destination_7 = Kotlin.kotlin.collections.LinkedHashMap_init_xf5xz2$(capacity_7);
+  var capacity_7 = coerceAtLeast(mapCapacity($receiver_7.length), 16);
+  var destination_7 = LinkedHashMap_init_1(capacity_7);
   var tmp$_7;
   for (tmp$_7 = 0; tmp$_7 !== $receiver_7.length; ++tmp$_7) {
     var element_7 = $receiver_7[tmp$_7];
@@ -15509,8 +16536,8 @@
   }
   formEncTypeValues = destination_7;
   var $receiver_8 = FormMethod$values();
-  var capacity_8 = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$(Kotlin.kotlin.collections.mapCapacity_za3lpa$($receiver_8.length), 16);
-  var destination_8 = Kotlin.kotlin.collections.LinkedHashMap_init_xf5xz2$(capacity_8);
+  var capacity_8 = coerceAtLeast(mapCapacity($receiver_8.length), 16);
+  var destination_8 = LinkedHashMap_init_1(capacity_8);
   var tmp$_8;
   for (tmp$_8 = 0; tmp$_8 !== $receiver_8.length; ++tmp$_8) {
     var element_8 = $receiver_8[tmp$_8];
@@ -15518,8 +16545,8 @@
   }
   formMethodValues = destination_8;
   var $receiver_9 = IframeSandbox$values();
-  var capacity_9 = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$(Kotlin.kotlin.collections.mapCapacity_za3lpa$($receiver_9.length), 16);
-  var destination_9 = Kotlin.kotlin.collections.LinkedHashMap_init_xf5xz2$(capacity_9);
+  var capacity_9 = coerceAtLeast(mapCapacity($receiver_9.length), 16);
+  var destination_9 = LinkedHashMap_init_1(capacity_9);
   var tmp$_9;
   for (tmp$_9 = 0; tmp$_9 !== $receiver_9.length; ++tmp$_9) {
     var element_9 = $receiver_9[tmp$_9];
@@ -15527,8 +16554,8 @@
   }
   iframeSandboxValues = destination_9;
   var $receiver_10 = InputType$values();
-  var capacity_10 = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$(Kotlin.kotlin.collections.mapCapacity_za3lpa$($receiver_10.length), 16);
-  var destination_10 = Kotlin.kotlin.collections.LinkedHashMap_init_xf5xz2$(capacity_10);
+  var capacity_10 = coerceAtLeast(mapCapacity($receiver_10.length), 16);
+  var destination_10 = LinkedHashMap_init_1(capacity_10);
   var tmp$_10;
   for (tmp$_10 = 0; tmp$_10 !== $receiver_10.length; ++tmp$_10) {
     var element_10 = $receiver_10[tmp$_10];
@@ -15536,8 +16563,8 @@
   }
   inputTypeValues = destination_10;
   var $receiver_11 = InputFormEncType$values();
-  var capacity_11 = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$(Kotlin.kotlin.collections.mapCapacity_za3lpa$($receiver_11.length), 16);
-  var destination_11 = Kotlin.kotlin.collections.LinkedHashMap_init_xf5xz2$(capacity_11);
+  var capacity_11 = coerceAtLeast(mapCapacity($receiver_11.length), 16);
+  var destination_11 = LinkedHashMap_init_1(capacity_11);
   var tmp$_11;
   for (tmp$_11 = 0; tmp$_11 !== $receiver_11.length; ++tmp$_11) {
     var element_11 = $receiver_11[tmp$_11];
@@ -15545,8 +16572,8 @@
   }
   inputFormEncTypeValues = destination_11;
   var $receiver_12 = InputFormMethod$values();
-  var capacity_12 = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$(Kotlin.kotlin.collections.mapCapacity_za3lpa$($receiver_12.length), 16);
-  var destination_12 = Kotlin.kotlin.collections.LinkedHashMap_init_xf5xz2$(capacity_12);
+  var capacity_12 = coerceAtLeast(mapCapacity($receiver_12.length), 16);
+  var destination_12 = LinkedHashMap_init_1(capacity_12);
   var tmp$_12;
   for (tmp$_12 = 0; tmp$_12 !== $receiver_12.length; ++tmp$_12) {
     var element_12 = $receiver_12[tmp$_12];
@@ -15554,8 +16581,8 @@
   }
   inputFormMethodValues = destination_12;
   var $receiver_13 = KeyGenKeyType$values();
-  var capacity_13 = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$(Kotlin.kotlin.collections.mapCapacity_za3lpa$($receiver_13.length), 16);
-  var destination_13 = Kotlin.kotlin.collections.LinkedHashMap_init_xf5xz2$(capacity_13);
+  var capacity_13 = coerceAtLeast(mapCapacity($receiver_13.length), 16);
+  var destination_13 = LinkedHashMap_init_1(capacity_13);
   var tmp$_13;
   for (tmp$_13 = 0; tmp$_13 !== $receiver_13.length; ++tmp$_13) {
     var element_13 = $receiver_13[tmp$_13];
@@ -15563,8 +16590,8 @@
   }
   keyGenKeyTypeValues = destination_13;
   var $receiver_14 = TextAreaWrap$values();
-  var capacity_14 = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$(Kotlin.kotlin.collections.mapCapacity_za3lpa$($receiver_14.length), 16);
-  var destination_14 = Kotlin.kotlin.collections.LinkedHashMap_init_xf5xz2$(capacity_14);
+  var capacity_14 = coerceAtLeast(mapCapacity($receiver_14.length), 16);
+  var destination_14 = LinkedHashMap_init_1(capacity_14);
   var tmp$_14;
   for (tmp$_14 = 0; tmp$_14 !== $receiver_14.length; ++tmp$_14) {
     var element_14 = $receiver_14[tmp$_14];
@@ -15572,8 +16599,8 @@
   }
   textAreaWrapValues = destination_14;
   var $receiver_15 = ThScope$values();
-  var capacity_15 = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$(Kotlin.kotlin.collections.mapCapacity_za3lpa$($receiver_15.length), 16);
-  var destination_15 = Kotlin.kotlin.collections.LinkedHashMap_init_xf5xz2$(capacity_15);
+  var capacity_15 = coerceAtLeast(mapCapacity($receiver_15.length), 16);
+  var destination_15 = LinkedHashMap_init_1(capacity_15);
   var tmp$_15;
   for (tmp$_15 = 0; tmp$_15 !== $receiver_15.length; ++tmp$_15) {
     var element_15 = $receiver_15[tmp$_15];
@@ -15581,7 +16608,24 @@
   }
   thScopeValues = destination_15;
   AVERAGE_PAGE_SIZE = 32768;
-  escapeMap = mapOf([to(Kotlin.toBoxedChar(60), '&lt;'), to(Kotlin.toBoxedChar(62), '&gt;'), to(Kotlin.toBoxedChar(38), '&amp;'), to(Kotlin.toBoxedChar(34), '&quot;')]);
+  var mappings = mapOf([to(toBoxedChar(60), '&lt;'), to(toBoxedChar(62), '&gt;'), to(toBoxedChar(38), '&amp;'), to(toBoxedChar(34), '&quot;')]);
+  var tmp$_16;
+  var $receiver_16 = mappings.keys;
+  var destination_16 = ArrayList_init_0(collectionSizeOrDefault($receiver_16, 10));
+  var tmp$_17;
+  tmp$_17 = $receiver_16.iterator();
+  while (tmp$_17.hasNext()) {
+    var item = tmp$_17.next();
+    destination_16.add_11rb$(unboxChar(item) | 0);
+  }
+  var maxCode = (tmp$_16 = max(destination_16)) != null ? tmp$_16 : -1;
+  var array = Array_0(maxCode + 1 | 0);
+  var tmp$_18;
+  tmp$_18 = array.length - 1 | 0;
+  for (var i_2 = 0; i_2 <= tmp$_18; i_2++) {
+    array[i_2] = mappings.get_11rb$(toBoxedChar(toChar(i_2)));
+  }
+  escapeMap = array;
   letterRangeLowerCase = new CharRange(97, 122);
   letterRangeUpperCase = new CharRange(65, 90);
   digitRange = new CharRange(48, 57);

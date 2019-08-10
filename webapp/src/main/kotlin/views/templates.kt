@@ -11,8 +11,8 @@ import org.w3c.dom.events.KeyboardEvent
 import org.w3c.dom.get
 import services.StorageService
 import kotlin.browser.document
-import kotlin.js.Math.random
-import kotlin.math.floor
+import kotlin.random.Random
+
 
 /**
  * generates a list of todo items
@@ -94,7 +94,7 @@ fun randomId(): String {
     var text = ""
     val possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
     for (i in 0..4)
-        text += possible[floor(random() * possible.length).toInt()]
+        text += possible[kotlin.math.floor(Random.nextDouble() * possible.length).toInt()]
 
     return text
 }

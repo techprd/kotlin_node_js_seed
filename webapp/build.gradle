@@ -16,26 +16,19 @@ dependencies {
 
 compileKotlin2Js {
     kotlinOptions.metaInfo = true
-    kotlinOptions.outputFile = "${projectDir}/js/main.js"
+    kotlinOptions.outputFile = "${projectDir}/public/js/main.js"
     kotlinOptions.sourceMap = true
     kotlinOptions.main = "call"
 }
 
 sourceSets {
     main.kotlin.srcDirs += "src"
-    main.output.resourcesDir = "build/js/resources"
 }
 
 task copyResources(type: Copy) {
     from sourceSets.main.resources.srcDirs
 //    into sourceSets.main.output.resourcesDir
-    into file(buildDir.path + "/js")
-}
-
-kotlin {
-    experimental {
-        coroutines "enable"
-    }
+    into file(buildDir.path + "/public/js")
 }
 
 build.doLast {
@@ -44,7 +37,7 @@ build.doLast {
             includeEmptyDirs = false
 
             from zipTree(file.absolutePath)
-            into "${projectDir}/lib/kotlin"
+            into "${projectDir}/public/kotlin"
             include { fileTreeElement ->
                 def path = fileTreeElement.path
                 path.endsWith(".js") && (path.startsWith("META-INF/resources/") || !path.startsWith("META-INF/"))

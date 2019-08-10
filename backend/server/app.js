@@ -4,6 +4,10 @@
   var Unit = Kotlin.kotlin.Unit;
   var Kind_CLASS = Kotlin.Kind.CLASS;
   var toList = Kotlin.kotlin.collections.toList_7wnvza$;
+  var Random = Kotlin.kotlin.random.Random;
+  var numberToInt = Kotlin.numberToInt;
+  var HashMap_init = Kotlin.kotlin.collections.HashMap_init_q3lmfv$;
+  var Math_0 = Math;
   function main$lambda(closure$port) {
     return function () {
       println('Example app listening on port ' + closure$port + '!');
@@ -20,9 +24,9 @@
     var port = normalizePort(process.env.PORT);
     app.use(bodyParser.json());
     app.set('port', port);
-    app.set('views', path.join(__dirname, '../../webapp'));
+    app.set('views', path.join(__dirname, '../../webapp/public'));
     app.set('view engine', 'ejs');
-    app.use(express.static('webapp'));
+    app.use(express.static('webapp/public'));
     http.createServer(app);
     app.listen(port, main$lambda(port));
     app.use('/', router());
@@ -71,11 +75,11 @@
   Task.prototype.equals = function (other) {
     return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.id, other.id) && Kotlin.equals(this.text, other.text)))));
   };
-  function router$lambda(req, res) {
+  function router$lambda(f, res) {
     return res.render('index');
   }
   function router$lambda_0(closure$db) {
-    return function (req, res) {
+    return function (f, res) {
       return res.send(toList(closure$db.values));
     };
   }
@@ -93,7 +97,6 @@
       return res.json(task);
     };
   }
-  var HashMap_init = Kotlin.kotlin.collections.HashMap_init_q3lmfv$;
   function router() {
     var express = require('express');
     var router = express.Router();
@@ -115,8 +118,12 @@
   function randomId() {
     var text = '';
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (var i = 0; i <= 4; i++)
-      text += String.fromCharCode(possible.charCodeAt(Math.floor(Math.random() * possible.length)));
+    for (var i = 0; i <= 4; i++) {
+      var tmp$ = String;
+      var tmp$_0 = tmp$.fromCharCode;
+      var x = Random.Default.nextDouble() * possible.length;
+      text += tmp$_0.call(tmp$, possible.charCodeAt(numberToInt(Math_0.floor(x))));
+    }
     return text;
   }
   _.main_kand9s$ = main;

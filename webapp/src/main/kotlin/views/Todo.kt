@@ -46,7 +46,7 @@ class Todo(var formContainer: HTMLDivElement) {
     }
 
     fun render() {
-        storage.getAll() {
+        storage.getAll {
             formContainer.appendChild(getForm())
         }
     }

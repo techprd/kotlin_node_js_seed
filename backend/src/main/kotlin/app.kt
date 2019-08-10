@@ -20,14 +20,14 @@ fun main(args: Array<String>) {
     app.set("port", port)
 
     // view engine setup
-    app.set("views", path.join(__dirname, "../../webapp"))
+    app.set("views", path.join(__dirname, "../../webapp/public"))
     app.set("view engine", "ejs")
-    app.use(express.static("webapp"))
+    app.use(express.static("webapp/public"))
 
     http.createServer(app)
-    app.listen(port, {
+    app.listen(port) {
         println("Example app listening on port $port!")
-    })
+    }
 
     app.use("/", router())
 }
