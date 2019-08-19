@@ -1,24 +1,29 @@
-group 'com.techprd.webapp'
-version '1.0-SNAPSHOT'
+group 'com.techprd'
+version '1.0.0'
 
 apply plugin: 'kotlin2js'
 
-
 repositories {
     jcenter()
+    mavenCentral()
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
-    compile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
-    compile("org.jetbrains.kotlinx:kotlinx-html-js:$html_version")
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-html-js:$html_version"
+    compile project(':common')
 }
 
 compileKotlin2Js {
     kotlinOptions.metaInfo = true
     kotlinOptions.outputFile = "${projectDir}/public/js/main.js"
-    kotlinOptions.sourceMap = true
     kotlinOptions.main = "call"
+    kotlinOptions.moduleKind = "umd"
+    // these two options enable browser debugging
+    // disable for production to reduce file size
+    kotlinOptions.sourceMap = true
+    kotlinOptions.sourceMapEmbedSources = "always"
 }
 
 sourceSets {

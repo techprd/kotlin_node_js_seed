@@ -1,3 +1,5 @@
+import utils.Utils.normalizePort
+
 external fun require(module: String): dynamic
 
 external val process: dynamic
@@ -14,7 +16,6 @@ fun main(args: Array<String>) {
     /**
      * Get port from environment and store in Express.
      */
-
     val port = normalizePort(process.env.PORT)
     app.use(bodyParser.json())
     app.set("port", port)
@@ -32,10 +33,4 @@ fun main(args: Array<String>) {
     app.use("/", router())
 }
 
-fun normalizePort(arg: Int): Int {
-    if (arg >= 0) {
-        // port number
-        return arg
-    }
-    return 3000
-}
+

@@ -1,17 +1,29 @@
-if (typeof kotlin === 'undefined') {
-  throw new Error("Error loading module 'main'. Its dependency 'kotlin' was not found. Please, check whether 'kotlin' is loaded prior to 'main'.");
-}
-if (typeof this['kotlinx-html-js'] === 'undefined') {
-  throw new Error("Error loading module 'main'. Its dependency 'kotlinx-html-js' was not found. Please, check whether 'kotlinx-html-js' is loaded prior to 'main'.");
-}
-var main = function (_, Kotlin, $module$kotlinx_html_js) {
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd)
+    define(['exports', 'kotlin', 'common', 'kotlinx-html-js'], factory);
+  else if (typeof exports === 'object')
+    factory(module.exports, require('kotlin'), require('common'), require('kotlinx-html-js'));
+  else {
+    if (typeof kotlin === 'undefined') {
+      throw new Error("Error loading module 'main'. Its dependency 'kotlin' was not found. Please, check whether 'kotlin' is loaded prior to 'main'.");
+    }
+    if (typeof common === 'undefined') {
+      throw new Error("Error loading module 'main'. Its dependency 'common' was not found. Please, check whether 'common' is loaded prior to 'main'.");
+    }
+    if (typeof this['kotlinx-html-js'] === 'undefined') {
+      throw new Error("Error loading module 'main'. Its dependency 'kotlinx-html-js' was not found. Please, check whether 'kotlinx-html-js' is loaded prior to 'main'.");
+    }
+    root.main = factory(typeof main === 'undefined' ? {} : main, kotlin, common, this['kotlinx-html-js']);
+  }
+}(this, function (_, Kotlin, $module$common, $module$kotlinx_html_js) {
   'use strict';
-  var arrayListOf = Kotlin.kotlin.collections.arrayListOf_i5x0yv$;
-  var Kind_CLASS = Kotlin.Kind.CLASS;
-  var LinkedHashMap_init = Kotlin.kotlin.collections.LinkedHashMap_init_q3lmfv$;
   var throwCCE = Kotlin.throwCCE;
   var Unit = Kotlin.kotlin.Unit;
+  var Kind_CLASS = Kotlin.Kind.CLASS;
+  var Task = $module$common.model.Task;
   var LinkedHashMap = Kotlin.kotlin.collections.LinkedHashMap;
+  var LinkedHashMap_init = Kotlin.kotlin.collections.LinkedHashMap_init_q3lmfv$;
+  var utils = $module$common.utils;
   var get_create = $module$kotlinx_html_js.kotlinx.html.dom.get_create_4wc2mh$;
   var li = $module$kotlinx_html_js.kotlinx.html.js.li_525bpd$;
   var span = $module$kotlinx_html_js.kotlinx.html.span_6djfml$;
@@ -23,6 +35,7 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
   var form = $module$kotlinx_html_js.kotlinx.html.form_3vb3wm$;
   var set_id = $module$kotlinx_html_js.kotlinx.html.set_id_ueiko3$;
   var div_0 = $module$kotlinx_html_js.kotlinx.html.js.div_wkomt5$;
+  var TodoEventEmitter = $module$common.events.TodoEventEmitter;
   var setOf = Kotlin.kotlin.collections.setOf_mh5how$;
   var set_classes = $module$kotlinx_html_js.kotlinx.html.set_classes_njy09m$;
   var h5 = $module$kotlinx_html_js.kotlinx.html.h5_aplb7s$;
@@ -33,87 +46,14 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
   var InputType = $module$kotlinx_html_js.kotlinx.html.InputType;
   var input = $module$kotlinx_html_js.kotlinx.html.input_e1g74z$;
   var set_onClickFunction = $module$kotlinx_html_js.kotlinx.html.js.set_onClickFunction_pszlq2$;
-  var Random = Kotlin.kotlin.random.Random;
-  var numberToInt = Kotlin.numberToInt;
   var set_onKeyPressFunction = $module$kotlinx_html_js.kotlinx.html.js.set_onKeyPressFunction_pszlq2$;
-  var Math_0 = Math;
   StorageService.prototype = Object.create(LinkedHashMap.prototype);
   StorageService.prototype.constructor = StorageService;
-  function TodoEventEmitter() {
-    this.events_0 = LinkedHashMap_init();
-  }
-  TodoEventEmitter.prototype.on_8yg5sx$ = function (eventName, callback) {
-    var tmp$;
-    if (this.events_0.containsKey_11rb$(eventName)) {
-      (tmp$ = this.events_0.get_11rb$(eventName)) != null ? tmp$.add_11rb$(callback) : null;
-    }
-     else {
-      var $receiver = this.events_0;
-      var value = arrayListOf([callback]);
-      $receiver.put_xwzc9p$(eventName, value);
-    }
-  };
-  TodoEventEmitter.prototype.trigger_9wwc8o$ = function (eventName, task) {
-    var tmp$;
-    if (this.events_0.containsKey_11rb$(eventName)) {
-      if ((tmp$ = this.events_0.get_11rb$(eventName)) != null) {
-        var tmp$_0;
-        tmp$_0 = tmp$.iterator();
-        while (tmp$_0.hasNext()) {
-          var element = tmp$_0.next();
-          element(task);
-        }
-      }
-    }
-  };
-  TodoEventEmitter.$metadata$ = {
-    kind: Kind_CLASS,
-    simpleName: 'TodoEventEmitter',
-    interfaces: []
-  };
   function main(args) {
     var tmp$;
     var formContainer = Kotlin.isType(tmp$ = document.getElementById('formContainer'), HTMLDivElement) ? tmp$ : throwCCE();
     (new Todo(formContainer)).render();
   }
-  function Task(id, text) {
-    this.id = id;
-    this.text = text;
-    this.isArchived = false;
-    this.isDone = false;
-  }
-  Task.prototype.markAsDone = function () {
-    this.isDone = true;
-  };
-  Task.prototype.archive = function () {
-    this.isArchived = true;
-  };
-  Task.$metadata$ = {
-    kind: Kind_CLASS,
-    simpleName: 'Task',
-    interfaces: []
-  };
-  Task.prototype.component1 = function () {
-    return this.id;
-  };
-  Task.prototype.component2 = function () {
-    return this.text;
-  };
-  Task.prototype.copy_puj7f4$ = function (id, text) {
-    return new Task(id === void 0 ? this.id : id, text === void 0 ? this.text : text);
-  };
-  Task.prototype.toString = function () {
-    return 'Task(id=' + Kotlin.toString(this.id) + (', text=' + Kotlin.toString(this.text)) + ')';
-  };
-  Task.prototype.hashCode = function () {
-    var result = 0;
-    result = result * 31 + Kotlin.hashCode(this.id) | 0;
-    result = result * 31 + Kotlin.hashCode(this.text) | 0;
-    return result;
-  };
-  Task.prototype.equals = function (other) {
-    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.id, other.id) && Kotlin.equals(this.text, other.text)))));
-  };
   function Ajax() {
     this.xhttp = new XMLHttpRequest();
   }
@@ -155,9 +95,10 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
     this.addEvent = 'addTask';
     this.doneEvent = 'doneEvent';
     this.undoneEvent = 'undoneEvent';
-    this.eventEmitter.on_8yg5sx$(this.addEvent, StorageService_init$lambda);
-    this.eventEmitter.on_8yg5sx$(this.doneEvent, StorageService_init$lambda_0(this));
-    this.eventEmitter.on_8yg5sx$(this.undoneEvent, StorageService_init$lambda_1(this));
+    var $receiver = this.eventEmitter;
+    $receiver.on_8yg5sx$(this.addEvent, StorageService_init$lambda$lambda);
+    $receiver.on_8yg5sx$(this.doneEvent, StorageService_init$lambda$lambda_0(this));
+    $receiver.on_8yg5sx$(this.undoneEvent, StorageService_init$lambda$lambda_1(this));
   }
   function StorageService$getAll$lambda(this$StorageService, closure$callback) {
     return function (it) {
@@ -169,7 +110,8 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
         var task = new Task(element.id, element.text);
         task.isArchived = element.isArchived;
         task.isDone = element.isDone;
-        this$StorageService_0.put_xwzc9p$(element.id, element);
+        var key = task.id;
+        this$StorageService_0.put_xwzc9p$(key, task);
       }
       closure$callback();
       return Unit;
@@ -189,18 +131,18 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
     this.eventEmitter.trigger_9wwc8o$(this.addEvent, value);
     return LinkedHashMap.prototype.put_xwzc9p$.call(this, key, value);
   };
-  function StorageService_init$lambda(it) {
+  function StorageService_init$lambda$lambda(it) {
     console.log('added task: %s', it.isDone);
     return Unit;
   }
-  function StorageService_init$lambda_0(this$StorageService) {
+  function StorageService_init$lambda$lambda_0(this$StorageService) {
     return function (it) {
       console.log('marked task: %s as done', it.text);
       this$StorageService.update_y1s6kq$(it);
       return Unit;
     };
   }
-  function StorageService_init$lambda_1(this$StorageService) {
+  function StorageService_init$lambda$lambda_1(this$StorageService) {
     return function (it) {
       console.log('marked task: %s as undone', it.text);
       this$StorageService.update_y1s6kq$(it);
@@ -244,7 +186,7 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
     return function (it) {
       var tmp$;
       it.preventDefault();
-      var id = randomId();
+      var id = utils.Utils.randomId();
       var task = new Task(id, this$Todo.inputVal);
       this$Todo.storage_0.put_xwzc9p$(id, task);
       (tmp$ = document.getElementById('task-collection')) != null ? (tmp$.append(li(get_create(document), 'collection-item avatar dismissable', Todo$onSubmit$lambda$lambda(this$Todo, task))), Unit) : null;
@@ -437,7 +379,7 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
     };
   }
   function todoItem($receiver, storage, task, block) {
-    var inputId = randomId();
+    var inputId = utils.Utils.randomId();
     div($receiver, void 0, todoItem$lambda(task, inputId, storage, block));
   }
   function checkTaskIsDone$lambda(closure$task) {
@@ -472,17 +414,6 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
   function markAsDone(storage, task) {
     return markAsDone$lambda(task, storage);
   }
-  function randomId() {
-    var text = '';
-    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (var i = 0; i <= 4; i++) {
-      var tmp$ = String;
-      var tmp$_0 = tmp$.fromCharCode;
-      var x = Random.Default.nextDouble() * possible.length;
-      text += tmp$_0.call(tmp$, possible.charCodeAt(numberToInt(Math_0.floor(x))));
-    }
-    return text;
-  }
   function inputView$lambda(closure$block) {
     return function ($receiver) {
       var tmp$;
@@ -510,11 +441,7 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
   function onInputViewKeyPress() {
     return onInputViewKeyPress$lambda;
   }
-  var package$events = _.events || (_.events = {});
-  package$events.TodoEventEmitter = TodoEventEmitter;
   _.main_kand9s$ = main;
-  var package$model = _.model || (_.model = {});
-  package$model.Task = Task;
   var package$services = _.services || (_.services = {});
   package$services.Ajax = Ajax;
   package$services.StorageService = StorageService;
@@ -524,12 +451,11 @@ var main = function (_, Kotlin, $module$kotlinx_html_js) {
   package$views.todoItem_bpveso$ = todoItem;
   package$views.checkTaskIsDone_y1s6kq$ = checkTaskIsDone;
   package$views.markAsDone_qjuv9o$ = markAsDone;
-  package$views.randomId = randomId;
   package$views.inputView_q9xvdb$ = inputView;
   package$views.onInputViewKeyPress = onInputViewKeyPress;
   main([]);
   Kotlin.defineModule('main', _);
   return _;
-}(typeof main === 'undefined' ? {} : main, kotlin, this['kotlinx-html-js']);
+}));
 
 //# sourceMappingURL=main.js.map

@@ -4,13 +4,13 @@ import events.TodoEventEmitter
 import kotlinx.html.*
 import kotlinx.html.dom.create
 import kotlinx.html.js.*
-import model.Task
 import org.w3c.dom.HTMLDivElement
 import org.w3c.dom.HTMLInputElement
-
+import model.Task
 import org.w3c.dom.events.Event
 import services.StorageService
 import kotlin.browser.document
+import utils.Utils.randomId
 
 class Todo(var formContainer: HTMLDivElement) {
 
@@ -34,7 +34,7 @@ class Todo(var formContainer: HTMLDivElement) {
             it.preventDefault()
             val id = randomId()
             val task = Task(id, inputVal)
-            storage.put(id, task)
+            storage[id] = task
             document.getElementById("task-collection")?.append(
                     document.create.li("collection-item avatar dismissable") {
                         todoItem(storage, task) {

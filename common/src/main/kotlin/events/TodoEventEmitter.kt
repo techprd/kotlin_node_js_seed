@@ -16,11 +16,9 @@ class TodoEventEmitter {
 
     fun trigger(eventName: String, task: Task) {
         if (events.containsKey(eventName)) {
-            events.get(eventName)?.forEach {
+            events[eventName]?.forEach {
                 it.invoke(task)
             }
         }
     }
-
-
 }

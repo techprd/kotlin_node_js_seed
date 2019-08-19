@@ -1,0 +1,7 @@
+{
+  "name": "common",
+  "main": "common.js",
+  "version": "1.0.0",
+  "dependencies": {
+  }
+}

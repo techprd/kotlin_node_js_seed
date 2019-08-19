@@ -11,8 +11,7 @@ import org.w3c.dom.events.KeyboardEvent
 import org.w3c.dom.get
 import services.StorageService
 import kotlin.browser.document
-import kotlin.random.Random
-
+import utils.Utils.randomId
 
 /**
  * generates a list of todo items
@@ -88,15 +87,6 @@ fun markAsDone(storage: StorageService, task: Task): (Event) -> Unit {
             storage.eventEmitter.trigger(storage.undoneEvent, task)
         }
     }
-}
-
-fun randomId(): String {
-    var text = ""
-    val possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-    for (i in 0..4)
-        text += possible[kotlin.math.floor(Random.nextDouble() * possible.length).toInt()]
-
-    return text
 }
 
 /**
