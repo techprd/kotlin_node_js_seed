@@ -10,17 +10,19 @@ class StorageService(val eventEmitter: TodoEventEmitter) : LinkedHashMap<String,
     val undoneEvent: String = "undoneEvent"
 
     init {
-        eventEmitter.on(addEvent, {
-            console.log("added task: %s", it.isDone)
-        })
-        eventEmitter.on(doneEvent, {
-            console.log("marked task: %s as done", it.text)
-            this.update(task = it)
-        })
-        eventEmitter.on(undoneEvent, {
-            console.log("marked task: %s as undone", it.text)
-            this.update(task = it)
-        })
+        with(eventEmitter) {
+            on(addEvent) {
+                console.log("added task: %s", it.isDone)
+            }
+            on(doneEvent) {
+                console.log("marked task: %s as done", it.text)
+                update(task = it)
+            }
+            on(undoneEvent) {
+                console.log("marked task: %s as undone", it.text)
+                update(task = it)
+            }
+        }
     }
 
     fun getAll(callback: () -> Unit) {
@@ -30,7 +32,7 @@ class StorageService(val eventEmitter: TodoEventEmitter) : LinkedHashMap<String,
                 val task = Task(it.id, it.text)
                 task.isArchived = it.isArchived
                 task.isDone = it.isDone
-                this.put(it.id, it)
+                this[task.id] = task
             }
             callback()
         }

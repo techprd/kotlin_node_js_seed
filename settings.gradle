@@ -1,3 +1,12 @@
+pluginManagement {
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == "kotlin2js") {
+                useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
+            }
+        }
+    }
+}
 rootProject.name = 'kotlin_node_js'
 
-include "backend", "webapp"
+include "backend", "webapp", "common"

@@ -1,22 +1,20 @@
 group 'com.techprd'
-version '1.0-SNAPSHOT'
+version '1.0.0'
 
 apply plugin: 'kotlin2js'
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
-
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+    compile project(':common')
     //testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 
-
 sourceSets {
-    main.resources.srcDirs += "resources"
     main.kotlin.srcDirs += "src"
 }
 
 compileKotlin2Js {
     kotlinOptions.outputFile = "${projectDir}/server/app.js"
-    kotlinOptions.moduleKind = "commonjs"
+    kotlinOptions.moduleKind = "umd"
     kotlinOptions.sourceMap = true
 }

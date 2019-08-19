@@ -1,0 +1,38 @@
+group 'com.techprd'
+version '1.0.0'
+
+apply plugin: "kotlin2js"
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+}
+
+sourceSets {
+    main.kotlin.srcDirs += "src"
+}
+
+compileKotlin2Js {
+    kotlinOptions.metaInfo = true
+    kotlinOptions.moduleKind = "umd"
+    // these two options enable browser debugging
+    // disable for production to reduce file size
+    kotlinOptions.sourceMap = true
+    kotlinOptions.sourceMapEmbedSources = "always"
+}
+
+def outputDir = "${projectDir}/../node_modules/common"
+
+task assembleJs(type: Copy) {
+    from compileKotlin2Js.destinationDir
+    into "${outputDir}"
+    dependsOn classes
+}
+
+task copyResources(type: Copy) {
+    from "${projectDir}/package.json"
+    into "${outputDir}"
+    dependsOn classes
+}
+
+assemble.dependsOn assembleJs
+assemble.dependsOn copyResources
