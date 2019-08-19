@@ -1,8 +1,0 @@
-{
-  "name": "kotlin_node_js",
-  "version": "1.0.0",
-  "description": "Kotlin Node.js Seed Project",
-  "dependencies": {
-    "materialize": "^0.99.0"
-  }
-}
