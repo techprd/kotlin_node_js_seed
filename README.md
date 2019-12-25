@@ -19,7 +19,7 @@ https://kotlin-nodejs.herokuapp.com/
 1.  express.js to run server
 2.  ejs templating engine for express.js
 3.  Kotlin Dependencies
-4.  gradle to compile/transcompile kotlin to js
+4.  gradle to compile/trans-compile kotlin to js
 
 
 
@@ -30,6 +30,10 @@ https://kotlin-nodejs.herokuapp.com/
 
 #### Compile Kotlin  to JS using gradle
 
+###### On Windows
+`$ gradlew.bat build`
+
+###### On Linux / Mac
 `$ ./gradlew build`
 
 #### Run Server
@@ -40,8 +44,9 @@ https://kotlin-nodejs.herokuapp.com/
 https://kotlinlang.org/docs/reference/js-overview.html
 
 ## To Do
-1.  <s>add frontend framework</s>
-2.  integrate sass styling
-3.  use gulp watch for automatic compilation
-4.  add testing framework
+1. <s>add frontend framework</s>
+2. add testing framework
+3. use jetbrains frontend plugin for dependency management and hot-reload
+4. integrate sass styling
+
 

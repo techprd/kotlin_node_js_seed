@@ -12026,6 +12026,14 @@
       attributeStringString.set_fid0sb$(this, 'sizes', newValue);
     }
   });
+  Object.defineProperty(LINK.prototype, 'integrity', {
+    get: function () {
+      return attributeStringString.get_txhc1s$(this, 'integrity');
+    },
+    set: function (newValue) {
+      attributeStringString.set_fid0sb$(this, 'integrity', newValue);
+    }
+  });
   LINK.$metadata$ = {
     kind: Kind_CLASS,
     simpleName: 'LINK',
@@ -12855,6 +12863,22 @@
       attributeBooleanTicker.set_fid0sb$(this, 'async', newValue);
     }
   });
+  Object.defineProperty(SCRIPT.prototype, 'nonce', {
+    get: function () {
+      return attributeStringString.get_txhc1s$(this, 'nonce');
+    },
+    set: function (newValue) {
+      attributeStringString.set_fid0sb$(this, 'nonce', newValue);
+    }
+  });
+  Object.defineProperty(SCRIPT.prototype, 'integrity', {
+    get: function () {
+      return attributeStringString.get_txhc1s$(this, 'integrity');
+    },
+    set: function (newValue) {
+      attributeStringString.set_fid0sb$(this, 'integrity', newValue);
+    }
+  });
   SCRIPT.prototype.unaryPlus_lvwjq6$ = function ($receiver) {
     this.entity_ws8or7$($receiver);
   };
@@ -13147,6 +13171,14 @@
     },
     set: function (newValue) {
       attributeBooleanTicker.set_fid0sb$(this, 'scoped', newValue);
+    }
+  });
+  Object.defineProperty(STYLE.prototype, 'nonce', {
+    get: function () {
+      return attributeStringString.get_txhc1s$(this, 'nonce');
+    },
+    set: function (newValue) {
+      attributeStringString.set_fid0sb$(this, 'nonce', newValue);
     }
   });
   STYLE.prototype.unaryPlus_lvwjq6$ = function ($receiver) {
