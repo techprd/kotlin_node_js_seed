@@ -13,6 +13,7 @@ fun main(args: Array<String>) {
     val path = require("path")
     val bodyParser = require("body-parser")
     val http = require("http")
+
     /**
      * Get port from environment and store in Express.
      */
@@ -21,9 +22,10 @@ fun main(args: Array<String>) {
     app.set("port", port)
 
     // view engine setup
-    app.set("views", path.join(__dirname, "../../webapp/public"))
+    // TODO: find a better way to find the webapp views and js files
+    app.set("views", path.join(__dirname, "../../../../../webapp/build/distributions"))
     app.set("view engine", "ejs")
-    app.use(express.static("webapp/public"))
+    app.use(express.static(path.join(__dirname, "../../../../../webapp/build/distributions")))
 
     http.createServer(app)
     app.listen(port) {
