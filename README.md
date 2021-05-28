@@ -25,9 +25,6 @@ https://kotlin-nodejs.herokuapp.com/
 
 ### How to Use:
 
-#### Install Node dependencies
-`$ npm install`
-
 #### Compile Kotlin  to JS using gradle
 
 ###### On Windows
@@ -45,8 +42,8 @@ https://kotlinlang.org/docs/reference/js-overview.html
 
 ## To Do
 1. <s>add frontend framework</s>
+3. <s>use jetbrains frontend plugin for dependency management and hot-reload</s>
 2. add testing framework
-3. use jetbrains frontend plugin for dependency management and hot-reload
 4. integrate sass styling
 
 

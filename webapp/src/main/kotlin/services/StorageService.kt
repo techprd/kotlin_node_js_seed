@@ -26,7 +26,7 @@ class StorageService(val eventEmitter: TodoEventEmitter) : LinkedHashMap<String,
     }
 
     fun getAll(callback: () -> Unit) {
-        return Ajax().get("/tasks") {
+        return Ajax().get("/api/tasks") {
             val tasks = JSON.parse<Array<Task>>(it.responseText)
             tasks.forEach {
                 val task = Task(it.id, it.text)
@@ -39,7 +39,7 @@ class StorageService(val eventEmitter: TodoEventEmitter) : LinkedHashMap<String,
     }
 
     fun update(task: Task) {
-        return Ajax().post("/task/${task.id}", task) {
+        return Ajax().post("/api/task/${task.id}", task) {
             console.log(it.response)
         }
     }

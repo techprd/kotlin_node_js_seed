@@ -16,15 +16,15 @@ fun router() {
         res.render("index")
     }
 
-    router.get("/tasks") { _, res ->
+    router.get("/api/tasks") { _, res ->
         res.send(db.values.toList())
     }
 
-    router.get("/task/:id") { req, res ->
+    router.get("/api/task/:id") { req, res ->
         res.json(db[req.params.id])
     }
 
-    router.post("/task/:id") { req, res ->
+    router.post("/api/task/:id") { req, res ->
         val task = JSON.parse<Task>(JSON.stringify(req.body))
         db[task.id] = task
         res.json(task)
