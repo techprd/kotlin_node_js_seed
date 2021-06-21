@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.techprd"
-version = "1.0.0"
+version = "1.5.10"
 
 repositories {
     mavenCentral()
@@ -15,20 +15,33 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-js"))
-    implementation("org.jetbrains.kotlinx:kotlinx-html-js:0.7.1")
-    compile(project(":common"))
+    implementation("org.jetbrains.kotlinx:kotlinx-html-js:0.7.2")
+    implementation(project(":common"))
 }
 
 kotlin {
-    target {
+    js {
         browser {
+            webpackTask {
+                cssSupport.enabled = true
+            }
+
             runTask {
+                cssSupport.enabled = true
                 devServer = KotlinWebpackConfig.DevServer(
-                        port = 8080,
-                        contentBase = listOf("$buildDir/distributions"),
-                        proxy = hashMapOf("/api" to "http://localhost:3000")
+                    static = mutableListOf("$buildDir/distributions"),
+                    proxy = hashMapOf("/api" to "http://localhost:3000")
                 )
             }
+
+            testTask {
+                useKarma {
+                    useChromeHeadless()
+                    webpackConfig.cssSupport.enabled = true
+                }
+            }
         }
+        binaries.executable()
     }
 }
+

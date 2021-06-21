@@ -1,3 +1,2 @@
-rootProject.name = "kotlin_node_js"
-
-include("common", "backend", "webapp")
+rootProject.name = "kotlinNodeJs"
+include("common", "webapp", "backend")
