@@ -1,1 +1,1 @@
-web: node backend/server/app.js
+web: ./gradlew :backend:nodeRun
