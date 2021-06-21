@@ -10,7 +10,7 @@ import org.w3c.dom.events.Event
 import org.w3c.dom.events.KeyboardEvent
 import org.w3c.dom.get
 import services.StorageService
-import kotlin.browser.document
+import kotlinx.browser.document
 import utils.Utils.randomId
 
 /**

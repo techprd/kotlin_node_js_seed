@@ -3,17 +3,19 @@ plugins {
 }
 
 group = "com.techprd"
-version = "1.0.0"
+version = "1.5.10"
 
 repositories {
     mavenCentral()
-    mavenLocal()
-    jcenter()
 }
 
 dependencies {
     implementation(kotlin("stdlib-js"))
 }
 
-kotlin.target.browser { }
-kotlin.target.nodejs { }
+kotlin {
+    js {
+        browser()
+        nodejs()
+    }
+}
