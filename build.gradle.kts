@@ -1,21 +1,17 @@
 plugins {
-    id("org.jetbrains.kotlin.js") version "1.3.71"
+    id("org.jetbrains.kotlin.js") version "1.5.10"
 }
 
 group = "com.techprd"
-version = "1.0.0"
+version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
-    mavenLocal()
-    jcenter()
 }
 
-dependencies {
-    implementation(kotlin("stdlib-js"))
-}
-
-kotlin.target.browser {
-}
-kotlin.target.nodejs {
+kotlin {
+    js {
+        browser()
+        nodejs()
+    }
 }

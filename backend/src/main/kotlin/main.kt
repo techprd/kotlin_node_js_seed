@@ -1,3 +1,4 @@
+import routes.router
 import utils.Utils.normalizePort
 
 external fun require(module: String): dynamic
@@ -5,7 +6,7 @@ external fun require(module: String): dynamic
 external val process: dynamic
 external val __dirname: dynamic
 
-fun main(args: Array<String>) {
+fun main() {
     println("Server Starting!")
 
     val express = require("express")
@@ -34,5 +35,3 @@ fun main(args: Array<String>) {
 
     app.use("/", router())
 }
-
-

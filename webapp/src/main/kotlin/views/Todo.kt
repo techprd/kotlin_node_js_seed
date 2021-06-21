@@ -9,7 +9,7 @@ import org.w3c.dom.HTMLInputElement
 import model.Task
 import org.w3c.dom.events.Event
 import services.StorageService
-import kotlin.browser.document
+import kotlinx.browser.document
 import utils.Utils.randomId
 
 class Todo(var formContainer: HTMLDivElement) {
