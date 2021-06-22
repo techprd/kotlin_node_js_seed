@@ -1,0 +1,18 @@
+{
+  "name": "kotlin_node_js",
+  "version": "1.0.0",
+  "description": "This file is only here because Heroku.com is complaining about missing package.json file",
+  "main": "build/js/packages/kotlinNodeJs-backend/kotlin/kotlinNodeJs-backend.js",
+  "scripts": {
+    "start": "./gradlew build; node build/js/packages/kotlinNodeJs-backend/kotlin/kotlinNodeJs-backend.js"
+  },
+  "keywords": [
+    "kotlin",
+    "node.js",
+    "seed project"
+  ],
+  "author": "techprd",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
