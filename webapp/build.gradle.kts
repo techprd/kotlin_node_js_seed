@@ -1,26 +1,34 @@
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
-    id("org.jetbrains.kotlin.js")
+    kotlin("js")
 }
 
 group = "com.techprd"
-version = "1.5.10"
+version = "1.6.10"
 
 repositories {
     mavenCentral()
     mavenLocal()
     jcenter()
+    maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
 }
 
 dependencies {
-    implementation(kotlin("stdlib-js"))
-    implementation("org.jetbrains.kotlinx:kotlinx-html-js:0.7.2")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-js:1.6.10")
+    implementation("org.jetbrains.kotlinx:kotlinx-html-js:0.7.3")
     implementation(project(":common"))
+
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.10")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-js:1.6.10")
+    testImplementation("io.kotest:kotest-framework-api:5.1.0")
+    testImplementation("io.kotest:kotest-assertions-js:4.0.7")
+    testImplementation("org.jetbrains.kotlin:kotlin-test:1.6.0")
+
 }
 
 kotlin {
-    js {
+    js(IR) {
         browser {
             webpackTask {
                 cssSupport.enabled = true

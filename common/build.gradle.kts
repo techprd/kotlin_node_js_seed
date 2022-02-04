@@ -1,20 +1,21 @@
 plugins {
-    id("org.jetbrains.kotlin.js")
+    kotlin("js")
 }
 
 group = "com.techprd"
-version = "1.5.10"
+version = "1.6.10"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation(kotlin("stdlib-js"))
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-js:1.6.10")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-common:1.6.10")
 }
 
 kotlin {
-    js {
+    js(IR) {
         browser()
         nodejs()
     }

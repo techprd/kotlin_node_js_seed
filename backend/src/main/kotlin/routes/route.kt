@@ -33,5 +33,11 @@ fun router() {
         res.json(task)
     }
 
+    // new route to delete task then send response as json
+    router.delete("/api/task/:id") { req, res ->
+        db.remove(req.params.id as String)
+        res.json(db.values.toList())
+    }
+
     return router
 }

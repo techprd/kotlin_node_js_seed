@@ -28,10 +28,7 @@ class StorageService(val eventEmitter: TodoEventEmitter) : LinkedHashMap<String,
     fun getAll(callback: () -> Unit) {
         return Ajax().get("/api/tasks") {
             val tasks = JSON.parse<Array<Task>>(it.responseText)
-            tasks.forEach {
-                val task = Task(it.id, it.text)
-                task.isArchived = it.isArchived
-                task.isDone = it.isDone
+            tasks.forEach { task ->
                 this[task.id] = task
             }
             callback()
