@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.techprd"
-version = "1.5.10"
+version = "1.7.0"
 
 repositories {
     mavenCentral()
@@ -15,7 +15,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-js"))
-    implementation("org.jetbrains.kotlinx:kotlinx-html-js:0.7.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-html-js:0.7.5")
     implementation(project(":common"))
 }
 
