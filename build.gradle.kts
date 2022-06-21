@@ -1,13 +1,13 @@
 plugins {
-    kotlin("js") version "1.6.10"
+    id("org.jetbrains.kotlin.js") version "1.7.0"
 }
 
 group = "com.techprd"
-version = "1.6.10"
+version = "1.7.0"
 
 repositories {
-    jcenter()
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
@@ -18,4 +18,9 @@ kotlin {
         browser()
         nodejs()
     }
+}
+
+rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin> {
+    rootProject.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension>().versions.webpackCli.version =
+        "4.10.0"
 }

@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "com.techprd"
-version = "1.6.10"
+version = "1.7.0"
 
 repositories {
     mavenCentral()
