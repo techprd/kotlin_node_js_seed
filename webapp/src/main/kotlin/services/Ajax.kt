@@ -2,6 +2,7 @@ package services
 
 import model.Task
 import org.w3c.xhr.*
+import kotlin.js.Json
 
 class Ajax {
 
@@ -22,7 +23,7 @@ class Ajax {
         xhttp.send()
     }
 
-    fun post(url: String, task: Task, callback: (XMLHttpRequest) -> Unit) {
+    fun post(url: String, task: Json, callback: (XMLHttpRequest) -> Unit) {
         xhttp.open(
                 method = "POST",
                 url = url,

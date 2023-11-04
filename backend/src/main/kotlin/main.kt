@@ -24,9 +24,9 @@ fun main() {
 
     // view engine setup
     // TODO: find a better way to find the webapp views and js files
-    app.set("views", path.join(__dirname, "../../../../../webapp/build/distributions"))
+    app.set("views", path.join(__dirname, "../../../../../webapp/build/dist/js/productionExecutable"))
     app.set("view engine", "ejs")
-    app.use(express.static(path.join(__dirname, "../../../../../webapp/build/distributions")))
+    app.use(express.static(path.join(__dirname, "../../../../../webapp/build/dist/js/productionExecutable")))
 
     http.createServer(app)
     app.listen(port) {
