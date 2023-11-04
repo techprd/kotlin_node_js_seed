@@ -2,6 +2,7 @@ package services
 
 import events.TodoEventEmitter
 import model.Task
+import kotlin.js.Json
 
 class StorageService(val eventEmitter: TodoEventEmitter) : LinkedHashMap<String, Task>() {
 
@@ -27,11 +28,9 @@ class StorageService(val eventEmitter: TodoEventEmitter) : LinkedHashMap<String,
 
     fun getAll(callback: () -> Unit) {
         return Ajax().get("/api/tasks") {
-            val tasks = JSON.parse<Array<Task>>(it.responseText)
+            val tasks = JSON.parse<Array<Json>>(it.responseText)
             tasks.forEach {
-                val task = Task(it.id, it.text)
-                task.isArchived = it.isArchived
-                task.isDone = it.isDone
+                val task = Task.fromJson(it)
                 this[task.id] = task
             }
             callback()
@@ -39,7 +38,7 @@ class StorageService(val eventEmitter: TodoEventEmitter) : LinkedHashMap<String,
     }
 
     fun update(task: Task) {
-        return Ajax().post("/api/task/${task.id}", task) {
+        return Ajax().post("/api/task/${task.id}", task.toJson()) {
             console.log(it.response)
         }
     }
